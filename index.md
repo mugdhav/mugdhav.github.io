@@ -8,7 +8,7 @@ I build chatbots, design user interfaces.
 
 You can find here my work samples reated to my software documentation, coding, and UX design experience.
 
-```This home page is generated with Jekyll and hosted with GitHub Pages.```
+```I have developed this home page with Markdown, generated with Jekyll, hosted with GitHub Pages.```
 
 You can use the [editor on GitHub](https://github.com/mugdhav/mugdhav.github.io/edit/main/index.md) to maintain and preview the content for your website in Markdown files.
 
