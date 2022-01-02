@@ -1,6 +1,6 @@
 ## Welcome to Mugdha Vairgade's Home Page
 
-This home page is hosted with GitHub Pages.
+```This home page is generated with Jekyll and hosted with GitHub Pages.
 
 You can use the [editor on GitHub](https://github.com/mugdhav/mugdhav.github.io/edit/main/index.md) to maintain and preview the content for your website in Markdown files.
 
