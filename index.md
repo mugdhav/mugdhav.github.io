@@ -1,4 +1,4 @@
-## Mugdha Vairgade
+## Mugdha Vairagade
 
 I am Mugdha Vairagade, Senior Technical Writer and Content Architect, working in the Telecom domain for 11 years. I design documentation suites for BSS software and document multiple BSS components for entrprise user and developer audiences.
 
