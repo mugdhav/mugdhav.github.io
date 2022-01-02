@@ -1,10 +1,12 @@
-## Mugdha Vairgade's Home Page
+## Mugdha Vairgade
 
 I am Mugdha Vairagade, Senior Technical Writer and Content Architect, working in the Telecom domain for 11 years. I design documentation suites for BSS software and document multiple BSS components for entrprise user and developer audiences.
+
 I am also a coder with knowledge of Python, Java, and C among many other programming languages.
+
 I build chatbots, design user interfaces.
 
-You can find here work samples reated to my software documentation, coding, and UX design experience.
+You can find here my work samples reated to my software documentation, coding, and UX design experience.
 
 ```This home page is generated with Jekyll and hosted with GitHub Pages.```
 
