@@ -2,19 +2,28 @@
 layout: default
 ---
 
-Text can be **bold**, _italic_, or ~~strikethrough~~.
+<!-- Text can be **bold**, _italic_, or ~~strikethrough~~.
 
-[Link to another page](./another-page.html).
+[Link to another page](./another-page.html).-->
 
-There should be whitespace between paragraphs.
+Welcome to my website!
 
-There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.
+I am Mugdha Vairagade, a Senior Technical Writer with over 15 years of experience in B2B software documentation. In simple terms, I author the help documentation that you refer to when you are trying to work with a telecom order fulfillment system, managing the risks of your supply chain in a cloud-native procurement application, or even integrating different B2B applications using APIs. Yes, this requires me to thoroughly understand the complex B2B systems and work closely with the product management and engineering teams, along with other stakeholders.
 
-# Header 1
+With my User Experience (UX) design skills, I help improve application usability, make interfaces more intuitive, and thus increase customer satisfaction.     
+
+I can also code in Python and have AI Application Development experience. I have built productivity tools and won hackathons with these skills.
+
+This portfolio website - currently work-in-progress - is to showcase my design, content, and code.
+
+# Resume
 
 This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
 
-## Header 2
+# Work Samples
+
+
+<!-- ## Header 2
 
 > This is a blockquote following a header.
 >
@@ -112,7 +121,7 @@ end
 <dd>Japan</dd>
 <dt>Color</dt>
 <dd>Green</dd>
-</dl>
+</dl> -->
 
 ```
 Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
