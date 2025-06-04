@@ -8,11 +8,12 @@ layout: default
 
 Welcome to my website!
 
-I am Mugdha Vairagade, a Senior Technical Writer with over 15 years of experience in B2B software documentation. In simple terms, I author the help documentation that you refer to when you are trying to work with a telecom order fulfillment system, managing the risks of your supply chain in a cloud-native procurement application, or even integrating different B2B applications using APIs. Yes, this requires me to thoroughly understand the complex B2B systems and work closely with the product management and engineering teams, along with other stakeholders.
+I am Mugdha Vairagade, a Senior Technical Writer with over 15 years of experience in B2B software documentation. In simple terms,
+*  I author the help documentation that you refer to when you are trying to work with a telecom order fulfillment system, managing the risks of your supply chain in a cloud-native procurement application, or even integrating different B2B applications using APIs. Yes, this requires me to thoroughly understand the complex B2B systems and work closely with the product management and engineering teams, along with other stakeholders.
 
-With my User Experience (UX) design skills, I help improve application usability, make interfaces more intuitive, and thus increase customer satisfaction.     
+*  With my User Experience (UX) design skills, I help improve application usability, make interfaces more intuitive, and thus increase customer satisfaction.     
 
-I can also code in Python and have AI Application Development experience. I have built productivity tools and won hackathons with these skills.
+*  I can code in Python and have AI Application Development experience. I have built productivity tools and won hackathons with these skills.
 
 This portfolio website - currently work-in-progress - is to showcase my design, content, and code.
 
