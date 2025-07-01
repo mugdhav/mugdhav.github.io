@@ -13,7 +13,12 @@ const articles = [
         title: "Creating Engaging Video Tutorials",
         description: "Tips and tricks for creating video tutorials that keep your audience engaged.",
         link: "#"
-    }    
+    },
+    {
+        title: "No Error Messages!",
+        description: "Crafting error messages that make sense to the audience.",
+        link: "#"
+    }
 ];
 
 const videos = [
