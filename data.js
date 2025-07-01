@@ -13,7 +13,7 @@ const articles = [
         title: "Creating Engaging Video Tutorials",
         description: "Tips and tricks for creating video tutorials that keep your audience engaged.",
         link: "#"
-    }
+    },
     {
         title: "No Error Messages",
         description: "A guide to writing clear and concise error messages for your software.",
