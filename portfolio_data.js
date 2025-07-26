@@ -1,0 +1,167 @@
+// Portfolio Data Configuration
+const portfolioData = {
+    // Personal Information
+    personal: {
+        name: "Mugdha Vairagade",
+        title: "Technical Writer, UX Designer & AI Developer",
+        email: "vmugdha.web@gmail.com",
+        linkedin: "https://linkedin.com/in/yourprofile",
+        github: "https://github.com/yourusername",
+        about: {
+            paragraph1: "I'm a passionate professional who bridges the gap between technical complexity and user experience. With expertise in technical writing, UX design, and AI development, I create innovative solutions that are both powerful and user-friendly.",
+            paragraph2: "My unique combination of skills allows me to document complex systems clearly, design intuitive interfaces, and develop cutting-edge AI applications that solve real-world problems."
+        }
+    },
+
+    // Skills Section
+    skills: [
+        {
+            icon: "📝",
+            title: "Technical Writing"
+        },
+        {
+            icon: "🎨",
+            title: "UX Design"
+        },
+        {
+            icon: "🤖",
+            title: "AI Development"
+        },
+        {
+            icon: "💡",
+            title: "Innovation"
+        }
+    ],
+
+    // Portfolio Items organized by category
+    portfolio: {
+        // Technical Articles Section
+        "technical-articles": {
+            sectionTitle: "Technical Articles",
+            items: [
+                {
+                    icon: "📚",
+                    title: "From MVP to Enterprise: Why Your AI Application Needs a Data Privacy Shield",
+                    description: "This article discusses the importance of building Data Protection and Privacy layer for applications and lists the loos and APIs that can be used to build the layer.",
+                    buttonText: "View Article",
+                    buttonLink: "https://www.linkedin.com/pulse/from-mvp-enterprise-why-your-ai-application-needs-data-vairagade-xboue"
+                },
+                {
+                    icon: "🔧",
+                    title: "Voice Agent Contact Centres Explained",
+                    description: "An article describing voice agent contact centers, their architecture, and how they enhance customer service.",
+                    buttonText: "View Article",
+                    buttonLink: "LocalContent/UnderstandingAIEnabledContactCenterWork.pdf"
+                },
+                {
+                    icon: "📖",
+                    title: "No Error Messages!",
+                    description: "This LinkedIn article emphasises on clear UX design that helps reduce user input errors.",
+                    buttonText: "Read Article",
+                    buttonLink: "https://www.linkedin.com/pulse/error-messages-mugdha-vairagade-8bkhf"
+                },
+                {
+                    icon: "🚀",
+                    title: "Framework Tutorials",
+                    description: "Comprehensive tutorials for modern web frameworks including React, Vue, and Angular.",
+                    buttonText: "Start Learning",
+                    buttonLink: "https://example.com/tutorials"
+                }
+            ]
+        },
+
+        // UX Design Section
+        "ux-design": {
+            sectionTitle: "UX Design",
+            items: [
+                {
+                    icon: "📱",
+                    title: "Smart Watch Interface",
+                    description: "Design of a smart watch interface that displays calendar alerts.",
+                    buttonText: "View Design",
+                    buttonLink: "https://example.com/mobile-redesign"
+                },
+                {
+                    icon: "💻",
+                    title: "Help Portal Redesign",
+                    description: "Card-based help portal, redesigned for better navigation and searchability.",
+                    buttonText: "View Design",
+                    buttonLink: "https://example.com/saas-dashboard"
+                },
+                {
+                    icon: "🎯",
+                    title: "E-commerce Platform",
+                    description: "User-centered design for online marketplace with focus on conversion optimization.",
+                    buttonText: "View Portfolio",
+                    buttonLink: "https://example.com/ecommerce-ux"
+                },
+                {
+                    icon: "🏥",
+                    title: "Healthcare Portal",
+                    description: "Accessible design system for patient portal serving diverse user demographics.",
+                    buttonText: "Explore Design",
+                    buttonLink: "https://example.com/healthcare-portal"
+                }
+            ]
+        },
+
+        // AI Development Section
+        "ai-development": {
+            sectionTitle: "AI Development",
+            items: [
+                {
+                    icon: "🧠",
+                    title: "Image To DITA Converter",
+                    description: "An AI-enabled tool that uses LLMs with vision capabilities to identify workflows in user-provided images.",
+                    buttonText: "View Demo",
+                    buttonLink: "https://example.com/chatbot-demo"
+                },
+                {
+                    icon: "📊",
+                    title: "Jira to Release Notes Draft Generator",
+                    description: "An AI-enabled tool that generates feature release notes drafts based on feature description in Jira.",
+                    buttonText: "View Demo",
+                    buttonLink: "https://example.com/analytics"
+                },
+                {
+                    icon: "👁️",
+                    title: "Computer Vision App",
+                    description: "Real-time object detection and image classification for industrial applications.",
+                    buttonText: "Watch Demo",
+                    buttonLink: "https://example.com/cv-demo"
+                },
+                {
+                    icon: "🔮",
+                    title: "AI Content Generator",
+                    description: "GPT-powered tool for automated content creation with custom fine-tuning.",
+                    buttonText: "Try It Out",
+                    buttonLink: "https://example.com/ai-writer"
+                }
+            ]
+        }
+    },
+
+    // Navigation Items
+    navigation: [
+        { text: "Home", href: "#home" },
+        { text: "About", href: "#about" },
+        { text: "Portfolio", href: "#portfolio" },
+        { text: "Contact", href: "#contact" }
+    ],
+
+    // CTA Buttons for Hero Section
+    ctaButtons: [
+        {
+            text: "Technical Articles",
+            href: "#technical-articles"
+        },
+        {
+            text: "UX Design",
+            href: "#ux-design"
+        },
+        {
+            text: "AI Development",
+            href: "#ai-development"
+        }
+    ]
+};
