@@ -3,7 +3,7 @@ const portfolioData = {
     // Personal Information
     personal: {
         name: "Mugdha Vairagade",
-        title: "Technical Writer, UX Designer & AI Developer",
+        title: "Technical Writer | UX Designer | AI Developer",
         email: "vmugdha.web@gmail.com",
         linkedin: "www.linkedin.com/in/mugdhav",
         github: "https://github.com/mugdhav",
