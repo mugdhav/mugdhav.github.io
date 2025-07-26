@@ -3,57 +3,630 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Technical Writer Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Technical Writer, UX Designer, & AI Developer Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --text-color: #1f2937;
+            --light-bg: #f3f4f6;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,181.3C960,181,1056,235,1152,234.7C1248,235,1344,181,1392,154.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+            background-size: cover;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 1;
+            padding: 2rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero h2 {
+            font-size: 1.8rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .cta-button {
+            padding: 1rem 2rem;
+            background-color: var(--white);
+            color: var(--primary-color);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* About Section */
+        .section {
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about {
+            background-color: var(--light-bg);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--text-color);
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #4b5563;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+
+        .skill-card {
+            background-color: var(--white);
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            background-color: var(--white);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .portfolio-item {
+            background-color: var(--light-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .portfolio-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .portfolio-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .portfolio-info {
+            padding: 1.5rem;
+        }
+
+        .portfolio-title {
+            font-size: 1.3rem;
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-description {
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: var(--light-bg);
+            text-align: center;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-item a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .contact-item a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1f2937;
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Mobile Responsiveness */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: var(--text-color);
+            margin: 3px 0;
+            transition: var(--transition);
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: var(--shadow);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero h2 {
+                font-size: 1.3rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Loading Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Header -->
     <header>
-        <h1>Technical Writer Portfolio</h1>
         <nav>
-            <ul>
+            <a href="#home" class="logo">Portfolio</a>
+            <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#articles">Articles</a></li>
-                <li><a href="#videos">Videos</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
-        <section id="about">
-            <h2>About Me</h2>
-            <p>Welcome to my portfolio! I am a technical writer with a passion for creating clear, concise, and user-friendly documentation. I specialize in software documentation, API guides, and user manuals.</p>
-        </section>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Hello, I'm Mugdha Vairagade</h1>
+            <h2>Technical Writer, UX Designer, & AI Developer</h2>
+            <div class="cta-buttons">
+                <a href="#technical-articles" class="cta-button">Technical Articles</a>
+                <a href="#ux-design" class="cta-button">UX Design</a>
+                <a href="#ai-development" class="cta-button">AI Development</a>
+            </div>
+        </div>
+    </section>
 
-        <section id="search">
-            <h2>Search</h2>
-            <input type="text" id="searchInput" placeholder="Search for articles and videos...">
-        </section>
-
-        <section id="articles">
-            <h2>Articles</h2>
-            <div class="grid-container">
+    <!-- About Section -->
+    <section id="about" class="section about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <div class="about-text fade-in">
+                <p>I'm a passionate professional who bridges the gap between technical complexity and user experience. With expertise in technical writing, UX design, and AI development, I create innovative solutions that are both powerful and user-friendly.</p>
+                <p>My unique combination of skills allows me to document complex systems clearly, design intuitive interfaces, and develop cutting-edge AI applications that solve real-world problems.</p>
+            </div>
+            <div class="skills-container fade-in">
+                <div class="skill-card">
+                    <div class="skill-icon">📝</div>
+                    <h3>Technical Writing</h3>
                 </div>
-        </section>
-
-        <section id="videos">
-            <h2>Videos</h2>
-            <div class="grid-container">
+                <div class="skill-card">
+                    <div class="skill-icon">🎨</div>
+                    <h3>UX Design</h3>
                 </div>
-        </section>
+                <div class="skill-card">
+                    <div class="skill-icon">🤖</div>
+                    <h3>AI Development</h3>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">💡</div>
+                    <h3>Innovation</h3>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>You can reach me at <a href="mailto:your.email@example.com">your.email@example.com</a>.</p>
-        </section>
-    </main>
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section portfolio">
+        <h2 class="section-title">My Work</h2>
+        
+        <!-- Technical Articles -->
+        <h3 id="technical-articles" style="margin: 2rem 0 1rem; color: var(--primary-color);">Technical Articles</h3>
+        <div class="portfolio-grid">
+            <div class="portfolio-item fade-in">
+                <div class="portfolio-image">📚</div>
+                <div class="portfolio-info">
+                    <h4 class="portfolio-title">From MVP to Enterprise: Why Your AI Application Needs a Data Privacy Shield</h4>
+                    <p class="portfolio-description">This article discusses the importance of building Data Protection and Privacy layer for applications and lists the loos and APIs that can be used to build the layer.</p>
+                </div>
+            </div>
+            <div class="portfolio-item fade-in">
+                <div class="portfolio-image">🔧</div>
+                <div class="portfolio-info">
+                    <h4 class="portfolio-title">No Error Messages!</h4>
+                    <p class="portfolio-description">This LinkedIn article emphasises on clear UX design that helps reduce user input errors.</p>
+                </div>
+            </div>
+        </div>
 
+        <!-- UX Design -->
+        <h3 id="ux-design" style="margin: 3rem 0 1rem; color: var(--primary-color);">UX Design</h3>
+        <div class="portfolio-grid">
+            <div class="portfolio-item fade-in">
+                <div class="portfolio-image">📱</div>
+                <div class="portfolio-info">
+                    <h4 class="portfolio-title">Smart Watch Interface</h4>
+                    <p class="portfolio-description">Design of a smart watch interface that displays calendar alerts.</p>
+                </div>
+            </div>
+            <div class="portfolio-item fade-in">
+                <div class="portfolio-image">💻</div>
+                <div class="portfolio-info">
+                    <h4 class="portfolio-title">Help Portal Redesign</h4>
+                    <p class="portfolio-description">Card-based help portal, redesigned for better navigation and searchability.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- AI Development -->
+        <h3 id="ai-development" style="margin: 3rem 0 1rem; color: var(--primary-color);">AI Development</h3>
+        <div class="portfolio-grid">
+            <div class="portfolio-item fade-in">
+                <div class="portfolio-image">🧠</div>
+                <div class="portfolio-info">
+                    <h4 class="portfolio-title">Image To DITA Converter</h4>
+                    <p class="portfolio-description">An AI-enabled tool that uses LLMs with vision capabilities to identify workflows in user-provided images.</p>
+                </div>
+            </div>
+            <div class="portfolio-item fade-in">
+                <div class="portfolio-image">📊</div>
+                <div class="portfolio-info">
+                    <h4 class="portfolio-title">Jira to Release Notes Draft Generator</h4>
+                    <p class="portfolio-description">An AI-enabled tool that generates feature release notes drafts based on feature description in Jira.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <p style="font-size: 1.2rem; color: #6b7280; margin-bottom: 2rem;">Let's collaborate on your next project!</p>
+        <div class="contact-info">
+            <div class="contact-item">
+                <span>📧</span>
+                <a href="mailto:your.email@example.com">your.email@example.com</a>
+            </div>
+            <div class="contact-item">
+                <span>💼</span>
+                <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
+            </div>
+            <div class="contact-item">
+                <span>🐙</span>
+                <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2025 by Your Name</p>
+        <p>&copy; 2025 Your Name. All rights reserved.</p>
     </footer>
 
-    <script src="data.js"></script>
-    <script src="script.js"></script>
-    <button id="backToTopBtn">Back to Top</button>
+    <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('active');
+            });
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationDelay = '0.2s';
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.animationPlayState = 'paused';
+            observer.observe(el);
+        });
+
+        // Smooth scroll behavior for CTA buttons
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header shadow on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 10) {
+                header.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.1)';
+            }
+        });
+    </script>
 </body>
 </html>
