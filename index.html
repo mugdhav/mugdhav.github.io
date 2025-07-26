@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Technical Writer, UX Designer, & AI Developer Portfolio</title>
+    <title>Technical Writer, UX Designer & AI Developer Portfolio</title>
     <style>
         * {
             margin: 0;
@@ -266,7 +266,8 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            margin-top: 3rem;
+            margin-top: 2rem;
+            margin-bottom: 3rem;
         }
 
         .portfolio-item {
@@ -275,7 +276,8 @@
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: var(--transition);
-            cursor: pointer;
+            display: flex;
+            flex-direction: column;
         }
 
         .portfolio-item:hover {
@@ -291,11 +293,14 @@
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 3rem;
+            font-size: 4rem;
         }
 
         .portfolio-info {
             padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .portfolio-title {
@@ -307,6 +312,33 @@
         .portfolio-description {
             color: #6b7280;
             line-height: 1.6;
+            flex-grow: 1;
+            margin-bottom: 1rem;
+        }
+
+        .portfolio-button {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: var(--transition);
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .portfolio-button:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+        }
+
+        .category-title {
+            margin: 3rem 0 1rem;
+            color: var(--primary-color);
+            font-size: 1.8rem;
         }
 
         /* Contact Section */
@@ -420,213 +452,196 @@
                 transform: translateY(0);
             }
         }
+
+        /* Loading State */
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <nav>
-            <a href="#home" class="logo">Portfolio</a>
-            <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div id="app" class="loading">Loading...</div>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Hello, I'm Mugdha Vairagade</h1>
-            <h2>Technical Writer, UX Designer, & AI Developer</h2>
-            <div class="cta-buttons">
-                <a href="#technical-articles" class="cta-button">Technical Articles</a>
-                <a href="#ux-design" class="cta-button">UX Design</a>
-                <a href="#ai-development" class="cta-button">AI Development</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="section about">
-        <h2 class="section-title">About Me</h2>
-        <div class="about-content">
-            <div class="about-text fade-in">
-                <p>I'm a passionate professional who bridges the gap between technical complexity and user experience. With expertise in technical writing, UX design, and AI development, I create innovative solutions that are both powerful and user-friendly.</p>
-                <p>My unique combination of skills allows me to document complex systems clearly, design intuitive interfaces, and develop cutting-edge AI applications that solve real-world problems.<br/>I am still building this portfolio website. You may see a lot of placeolder content here.</p>
-            </div>
-            <div class="skills-container fade-in">
-                <div class="skill-card">
-                    <div class="skill-icon">📝</div>
-                    <h3>Technical Writing</h3>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">🎨</div>
-                    <h3>UX Design</h3>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">🤖</div>
-                    <h3>AI Development</h3>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">💡</div>
-                    <h3>Innovation</h3>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="section portfolio">
-        <h2 class="section-title">My Work</h2>
-        
-        <!-- Technical Articles -->
-        <h3 id="technical-articles" style="margin: 2rem 0 1rem; color: var(--primary-color);">Technical Articles</h3>
-        <div class="portfolio-grid">
-            <div class="portfolio-item fade-in">
-                <div class="portfolio-image">📚</div>
-                <div class="portfolio-info">
-                    <h4 class="portfolio-title">From MVP to Enterprise: Why Your AI Application Needs a Data Privacy Shield</h4>
-                    <p class="portfolio-description">This article discusses the importance of building Data Protection and Privacy layer for applications and lists the loos and APIs that can be used to build the layer.</p>
-                </div>
-            </div>
-            <div class="portfolio-item fade-in">
-                <div class="portfolio-image">🔧</div>
-                <div class="portfolio-info">
-                    <h4 class="portfolio-title">No Error Messages!</h4>
-                    <p class="portfolio-description">This LinkedIn article emphasises on clear UX design that helps reduce user input errors.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- UX Design -->
-        <h3 id="ux-design" style="margin: 3rem 0 1rem; color: var(--primary-color);">UX Design</h3>
-        <div class="portfolio-grid">
-            <div class="portfolio-item fade-in">
-                <div class="portfolio-image">📱</div>
-                <div class="portfolio-info">
-                    <h4 class="portfolio-title">Smart Watch Interface</h4>
-                    <p class="portfolio-description">Design of a smart watch interface that displays calendar alerts.</p>
-                </div>
-            </div>
-            <div class="portfolio-item fade-in">
-                <div class="portfolio-image">💻</div>
-                <div class="portfolio-info">
-                    <h4 class="portfolio-title">Help Portal Redesign</h4>
-                    <p class="portfolio-description">Card-based help portal, redesigned for better navigation and searchability.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- AI Development -->
-        <h3 id="ai-development" style="margin: 3rem 0 1rem; color: var(--primary-color);">AI Development</h3>
-        <div class="portfolio-grid">
-            <div class="portfolio-item fade-in">
-                <div class="portfolio-image">🧠</div>
-                <div class="portfolio-info">
-                    <h4 class="portfolio-title">Image To DITA Converter</h4>
-                    <p class="portfolio-description">An AI-enabled tool that uses LLMs with vision capabilities to identify workflows in user-provided images.</p>
-                </div>
-            </div>
-            <div class="portfolio-item fade-in">
-                <div class="portfolio-image">📊</div>
-                <div class="portfolio-info">
-                    <h4 class="portfolio-title">Jira to Release Notes Draft Generator</h4>
-                    <p class="portfolio-description">An AI-enabled tool that generates feature release notes drafts based on feature description in Jira.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section contact">
-        <h2 class="section-title">Get In Touch</h2>
-        <p style="font-size: 1.2rem; color: #6b7280; margin-bottom: 2rem;">Let's collaborate on your next project!</p>
-        <div class="contact-info">
-            <div class="contact-item">
-                <span>📧</span>
-                <a href="mailto:your.email@example.com">your.email@example.com</a>
-            </div>
-            <div class="contact-item">
-                <span>💼</span>
-                <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
-            </div>
-            <div class="contact-item">
-                <span>🐙</span>
-                <a href="https://github.com/yourusername" target="_blank">GitHub</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 Your Name. All rights reserved.</p>
-    </footer>
-
+    <!-- Load data first, then the main script -->
+    <script src="portfolio_data.js"></script>
     <script>
+        // Wait for data to load
+        if (typeof portfolioData !== 'undefined') {
+            renderPortfolio();
+        } else {
+            console.error('Portfolio data not found. Please ensure portfolio_data.js is loaded correctly.');
+        }
+
+        function renderPortfolio() {
+            const app = document.getElementById('app');
+            app.className = ''; // Remove loading class
+            
+            app.innerHTML = `
+                <!-- Header -->
+                <header>
+                    <nav>
+                        <a href="#home" class="logo">Portfolio</a>
+                        <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <ul class="nav-links" id="navLinks">
+                            ${portfolioData.navigation.map(item => 
+                                `<li><a href="${item.href}">${item.text}</a></li>`
+                            ).join('')}
+                        </ul>
+                    </nav>
+                </header>
+
+                <!-- Hero Section -->
+                <section id="home" class="hero">
+                    <div class="hero-content">
+                        <h1>Hello, I'm ${portfolioData.personal.name}</h1>
+                        <h2>${portfolioData.personal.title}</h2>
+                        <div class="cta-buttons">
+                            ${portfolioData.ctaButtons.map(button => 
+                                `<a href="${button.href}" class="cta-button">${button.text}</a>`
+                            ).join('')}
+                        </div>
+                    </div>
+                </section>
+
+                <!-- About Section -->
+                <section id="about" class="section about">
+                    <h2 class="section-title">About Me</h2>
+                    <div class="about-content">
+                        <div class="about-text fade-in">
+                            <p>${portfolioData.personal.about.paragraph1}</p>
+                            <p>${portfolioData.personal.about.paragraph2}</p>
+                        </div>
+                        <div class="skills-container fade-in">
+                            ${portfolioData.skills.map(skill => `
+                                <div class="skill-card">
+                                    <div class="skill-icon">${skill.icon}</div>
+                                    <h3>${skill.title}</h3>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Portfolio Section -->
+                <section id="portfolio" class="section portfolio">
+                    <h2 class="section-title">My Work</h2>
+                    
+                    ${Object.entries(portfolioData.portfolio).map(([key, section]) => `
+                        <h3 id="${key}" class="category-title">${section.sectionTitle}</h3>
+                        <div class="portfolio-grid">
+                            ${section.items.map(item => `
+                                <div class="portfolio-item fade-in">
+                                    <div class="portfolio-image">${item.icon}</div>
+                                    <div class="portfolio-info">
+                                        <h4 class="portfolio-title">${item.title}</h4>
+                                        <p class="portfolio-description">${item.description}</p>
+                                        <a href="${item.buttonLink}" class="portfolio-button" target="_blank" rel="noopener noreferrer">
+                                            ${item.buttonText}
+                                        </a>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    `).join('')}
+                </section>
+
+                <!-- Contact Section -->
+                <section id="contact" class="section contact">
+                    <h2 class="section-title">Get In Touch</h2>
+                    <p style="font-size: 1.2rem; color: #6b7280; margin-bottom: 2rem;">Let's collaborate on your next project!</p>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <span>📧</span>
+                            <a href="mailto:${portfolioData.personal.email}">${portfolioData.personal.email}</a>
+                        </div>
+                        <div class="contact-item">
+                            <span>💼</span>
+                            <a href="${portfolioData.personal.linkedin}" target="_blank">LinkedIn</a>
+                        </div>
+                        <div class="contact-item">
+                            <span>🐙</span>
+                            <a href="${portfolioData.personal.github}" target="_blank">GitHub</a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Footer -->
+                <footer>
+                    <p>&copy; 2025 ${portfolioData.personal.name}. All rights reserved.</p>
+                </footer>
+            `;
+
+            // Initialize animations and event listeners after rendering
+            initializePortfolio();
+        }
+
+        function initializePortfolio() {
+            // Fade in animation on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationDelay = '0.2s';
+                        entry.target.style.animationPlayState = 'running';
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in').forEach(el => {
+                el.style.animationPlayState = 'paused';
+                observer.observe(el);
+            });
+
+            // Smooth scroll behavior for all anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Header shadow on scroll
+            window.addEventListener('scroll', () => {
+                const header = document.querySelector('header');
+                if (window.scrollY > 10) {
+                    header.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
+                } else {
+                    header.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.1)';
+                }
+            });
+
+            // Close mobile menu when clicking a link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    document.getElementById('navLinks').classList.remove('active');
+                });
+            });
+        }
+
         // Mobile menu toggle
         function toggleMobileMenu() {
             const navLinks = document.getElementById('navLinks');
             navLinks.classList.toggle('active');
         }
-
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.getElementById('navLinks').classList.remove('active');
-            });
-        });
-
-        // Fade in animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animationDelay = '0.2s';
-                    entry.target.style.animationPlayState = 'running';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in').forEach(el => {
-            el.style.animationPlayState = 'paused';
-            observer.observe(el);
-        });
-
-        // Smooth scroll behavior for CTA buttons
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Header shadow on scroll
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 10) {
-                header.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
-            } else {
-                header.style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.1)';
-            }
-        });
     </script>
 </body>
 </html>
