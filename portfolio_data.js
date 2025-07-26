@@ -5,7 +5,7 @@ const portfolioData = {
         name: "Mugdha Vairagade",
         title: "Technical Writer | UX Designer | AI Developer",
         email: "vmugdha.web@gmail.com",
-        linkedin: "www.linkedin.com/in/mugdhav",
+        linkedin: "https://www.linkedin.com/in/mugdhav",
         github: "https://github.com/mugdhav",
         about: {
             paragraph1: "I'm a passionate professional who bridges the gap between technical complexity and user experience. With expertise in technical writing, UX design, and AI development, I create innovative solutions that are both powerful and user-friendly.",
