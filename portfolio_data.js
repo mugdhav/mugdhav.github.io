@@ -5,8 +5,8 @@ const portfolioData = {
         name: "Mugdha Vairagade",
         title: "Technical Writer, UX Designer & AI Developer",
         email: "vmugdha.web@gmail.com",
-        linkedin: "https://linkedin.com/in/yourprofile",
-        github: "https://github.com/yourusername",
+        linkedin: "www.linkedin.com/in/mugdhav",
+        github: "https://github.com/mugdhav",
         about: {
             paragraph1: "I'm a passionate professional who bridges the gap between technical complexity and user experience. With expertise in technical writing, UX design, and AI development, I create innovative solutions that are both powerful and user-friendly.",
             paragraph2: "My unique combination of skills allows me to document complex systems clearly, design intuitive interfaces, and develop cutting-edge AI applications that solve real-world problems."
@@ -65,7 +65,7 @@ const portfolioData = {
                     title: "Framework Tutorials",
                     description: "Comprehensive tutorials for modern web frameworks including React, Vue, and Angular.",
                     buttonText: "Start Learning",
-                    buttonLink: "https://example.com/tutorials"
+                    buttonLink: ""
                 }
             ]
         },
@@ -79,28 +79,28 @@ const portfolioData = {
                     title: "Smart Watch Interface",
                     description: "Design of a smart watch interface that displays calendar alerts.",
                     buttonText: "View Design",
-                    buttonLink: "https://example.com/mobile-redesign"
+                    buttonLink: ""
                 },
                 {
                     icon: "💻",
                     title: "Help Portal Redesign",
                     description: "Card-based help portal, redesigned for better navigation and searchability.",
                     buttonText: "View Design",
-                    buttonLink: "https://example.com/saas-dashboard"
+                    buttonLink: ""
                 },
                 {
                     icon: "🎯",
                     title: "E-commerce Platform",
                     description: "User-centered design for online marketplace with focus on conversion optimization.",
                     buttonText: "View Portfolio",
-                    buttonLink: "https://example.com/ecommerce-ux"
+                    buttonLink: ""
                 },
                 {
                     icon: "🏥",
                     title: "Healthcare Portal",
                     description: "Accessible design system for patient portal serving diverse user demographics.",
                     buttonText: "Explore Design",
-                    buttonLink: "https://example.com/healthcare-portal"
+                    buttonLink: ""
                 }
             ]
         },
@@ -114,28 +114,28 @@ const portfolioData = {
                     title: "Image To DITA Converter",
                     description: "An AI-enabled tool that uses LLMs with vision capabilities to identify workflows in user-provided images.",
                     buttonText: "View Demo",
-                    buttonLink: "https://example.com/chatbot-demo"
+                    buttonLink: ""
                 },
                 {
                     icon: "📊",
                     title: "Jira to Release Notes Draft Generator",
                     description: "An AI-enabled tool that generates feature release notes drafts based on feature description in Jira.",
                     buttonText: "View Demo",
-                    buttonLink: "https://example.com/analytics"
+                    buttonLink: ""
                 },
                 {
                     icon: "👁️",
                     title: "Computer Vision App",
                     description: "Real-time object detection and image classification for industrial applications.",
                     buttonText: "Watch Demo",
-                    buttonLink: "https://example.com/cv-demo"
+                    buttonLink: ""
                 },
                 {
                     icon: "🔮",
                     title: "AI Content Generator",
                     description: "GPT-powered tool for automated content creation with custom fine-tuning.",
                     buttonText: "Try It Out",
-                    buttonLink: "https://example.com/ai-writer"
+                    buttonLink: ""
                 }
             ]
         }
