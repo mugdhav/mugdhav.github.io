@@ -103,7 +103,7 @@ const portfolioData = {
             sectionTitle: "AI Development",
             items: [
                 {
-                    image: "./LocalContent/Images/Thumbnailn8nRunningLocally2025-08-08%20233516.png",
+                    image: "./LocalContent/Images/img_to_dita_convert_thumbnail.jpg",
                     title: "Image To DITA Converter",
                     description: "An AI-enabled tool that uses LLMs with vision capabilities to identify workflows in user-provided images.",
                     buttonText: "View Demo",
@@ -117,7 +117,7 @@ const portfolioData = {
                     buttonLink: "https://youtu.be/fWSvzYHjuqw"
                 },
                 {
-                    image: "./LocalContent/Images/Thumbnailn8nRunningLocally2025-08-08%20233516.png",
+                    image: "./LocalContent/Images/Thumbnailn8nRunningLocally2025-08-08_233516.png",
                     title: "GitHub Repository Interview Workflow with n8n",
                     description: "An n8n workflow that helps technical writers \"interview\" GitHub repositories instead of interviewing human developers. Technical writers can get the information about applications directly from the their codebase in GitHub repositories.",
                     buttonText: "Watch Demo",
