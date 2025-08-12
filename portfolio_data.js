@@ -110,11 +110,11 @@ const portfolioData = {
                     buttonLink: "https://youtu.be/783w_xChhn0"
                 },
                 {
-                    image: "./LocalContent/Images/Thumbnailn8nRunningLocally2025-08-08%20233516.png",
+                    image: "./LocalContent/Images/Thumbnailn8nRunningLocally2025-08-08_233516.png",
                     title: "Jira to Release Notes Draft Generator",
                     description: "An AI-enabled tool that generates feature release notes drafts based on feature description in Jira.",
                     buttonText: "View Demo",
-                    buttonLink: "https://youtu.be/fWSvzYHjuqw"
+                    buttonLink: "https://youtu.be/RWlTJ-76QoY"
                 },
                 {
                     image: "./LocalContent/Images/Thumbnailn8nRunningLocally2025-08-08_233516.png",
