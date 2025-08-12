@@ -59,14 +59,7 @@ const portfolioData = {
                     description: "This LinkedIn article emphasises on clear UX design that helps reduce user input errors.",
                     buttonText: "Read Article",
                     buttonLink: "https://www.linkedin.com/pulse/error-messages-mugdha-vairagade-8bkhf"
-                },
-                {
-                    icon: "🚀",
-                    title: "Framework Tutorials",
-                    description: "Comprehensive tutorials for modern web frameworks including React, Vue, and Angular.",
-                    buttonText: "Start Learning",
-                    buttonLink: ""
-                }
+                }                
             ]
         },
 
@@ -114,21 +107,21 @@ const portfolioData = {
                     title: "Image To DITA Converter",
                     description: "An AI-enabled tool that uses LLMs with vision capabilities to identify workflows in user-provided images.",
                     buttonText: "View Demo",
-                    buttonLink: ""
+                    buttonLink: "https://youtu.be/783w_xChhn0"
                 },
                 {
                     icon: "📊",
                     title: "Jira to Release Notes Draft Generator",
                     description: "An AI-enabled tool that generates feature release notes drafts based on feature description in Jira.",
                     buttonText: "View Demo",
-                    buttonLink: ""
+                    buttonLink: "https://youtu.be/fWSvzYHjuqw"
                 },
                 {
                     icon: "👁️",
-                    title: "Computer Vision App",
-                    description: "Real-time object detection and image classification for industrial applications.",
+                    title: "GitHub Repository Interview Workflow with n8n",
+                    description: "An n8n workflow that helps technical writers \"interview\" GitHub repositories instead of interviewing human developers. Technical writers can get the information about applications directly from the their codebase in GitHub repositories.",
                     buttonText: "Watch Demo",
-                    buttonLink: ""
+                    buttonLink: "https://youtu.be/9P01zPxpbdY"
                 },
                 {
                     icon: "🔮",
