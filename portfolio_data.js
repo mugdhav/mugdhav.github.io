@@ -120,7 +120,7 @@ const portfolioData = {
                     image: "./LocalContent/Images/Thumbnailn8nRunningLocally2025-08-08_233516.png",
                     title: "GitHub Repository Interview Workflow with n8n",
                     description: "An n8n workflow that helps technical writers \"interview\" GitHub repositories instead of interviewing human developers. Technical writers can get the information about applications directly from the their codebase in GitHub repositories.",
-                    buttonText: "Watch Demo",
+                    buttonText: "View Demo",
                     buttonLink: "https://youtu.be/9P01zPxpbdY"
                 },
                 {
