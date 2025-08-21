@@ -62,42 +62,7 @@ const portfolioData = {
                 }                
             ]
         },
-
-        // UX Design Section
-        "ux-design": {
-            sectionTitle: "UX Design",
-            items: [
-                {
-                    icon: "📱",
-                    title: "Smart Watch Interface",
-                    description: "Design of a smart watch interface that displays calendar alerts.",
-                    buttonText: "View Design",
-                    buttonLink: ""
-                },
-                {
-                    icon: "💻",
-                    title: "Help Portal Redesign",
-                    description: "Card-based help portal, redesigned for better navigation and searchability.",
-                    buttonText: "View Design",
-                    buttonLink: ""
-                },
-                {
-                    icon: "🎯",
-                    title: "E-commerce Platform",
-                    description: "User-centered design for online marketplace with focus on conversion optimization.",
-                    buttonText: "View Portfolio",
-                    buttonLink: ""
-                },
-                {
-                    icon: "🏥",
-                    title: "Healthcare Portal",
-                    description: "Accessible design system for patient portal serving diverse user demographics.",
-                    buttonText: "Explore Design",
-                    buttonLink: ""
-                }
-            ]
-        },
-
+        
         // AI Development Section
         "ai-development": {
             sectionTitle: "AI Development",
@@ -133,6 +98,41 @@ const portfolioData = {
             ]
         }
     },
+
+    // UX Design Section
+        "ux-design": {
+            sectionTitle: "UX Design",
+            items: [
+                {
+                    icon: "📱",
+                    title: "Smart Watch Interface",
+                    description: "Design of a smart watch interface that displays calendar alerts.",
+                    buttonText: "View Design",
+                    buttonLink: ""
+                },
+                {
+                    icon: "💻",
+                    title: "Help Portal Redesign",
+                    description: "Card-based help portal, redesigned for better navigation and searchability.",
+                    buttonText: "View Design",
+                    buttonLink: ""
+                },
+                {
+                    icon: "🎯",
+                    title: "E-commerce Platform",
+                    description: "User-centered design for online marketplace with focus on conversion optimization.",
+                    buttonText: "View Portfolio",
+                    buttonLink: ""
+                },
+                {
+                    icon: "🏥",
+                    title: "Healthcare Portal",
+                    description: "Accessible design system for patient portal serving diverse user demographics.",
+                    buttonText: "Explore Design",
+                    buttonLink: ""
+                }
+            ]
+        },
 
     // Navigation Items
     navigation: [
