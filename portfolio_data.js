@@ -96,10 +96,9 @@ const portfolioData = {
                     buttonLink: "https://ai.studio/apps/drive/19H4i0hWXQe_OPV-v18GzQnzoobRhYvvr"
                 }
             ]
-        }
-    },
+        },
 
-    // UX Design Section
+        // UX Design Section
         "ux-design": {
             sectionTitle: "UX Design",
             items: [
@@ -125,7 +124,8 @@ const portfolioData = {
                     buttonLink: ""
                 }                
             ]
-        },
+        }
+    },
 
     // Navigation Items
     navigation: [
