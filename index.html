@@ -19,6 +19,7 @@
             --white: #ffffff;
             --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             --transition: all 0.3s ease;
+            --secondary-text-color: #4b5563;
         }
 
         [data-theme="dark"] {
@@ -28,6 +29,7 @@
             --light-bg: #1f2937;
             --white: #111827;
             --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            --secondary-text-color: #ffffff;
         }
 
         body {
@@ -294,7 +296,7 @@
         .about-text {
             font-size: 1.1rem;
             line-height: 1.8;
-            color: #4b5563;
+            color: var(--secondary-text-color);
         }
 
         .skills-container {
@@ -378,7 +380,7 @@
         }
 
         .portfolio-description {
-            color: #6b7280;
+            color: var(--secondary-text-color);
             line-height: 1.6;
             flex-grow: 1;
             margin-bottom: 1rem;
