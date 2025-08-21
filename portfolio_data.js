@@ -87,13 +87,13 @@ const portfolioData = {
                     description: "An n8n workflow that helps technical writers \"interview\" GitHub repositories instead of interviewing human developers. Technical writers can get the information about applications directly from the their codebase in GitHub repositories.",
                     buttonText: "View Demo",
                     buttonLink: "https://youtu.be/9P01zPxpbdY"
-                },
+                },                
                 {
-                    image: "./LocalContent/Images/Thumbnailn8nRunningLocally2025-08-08_233516.png",
-                    title: "AI Content Generator",
-                    description: "GPT-powered tool for automated content creation with custom fine-tuning.",
+                    image: "./LocalContent/Images/GameInMotion.png",
+                    title: "React Pong",
+                    description: "A simple Pong game against AI, built with React and Typescript.",
                     buttonText: "Try It Out",
-                    buttonLink: ""
+                    buttonLink: "https://ai.studio/apps/drive/19H4i0hWXQe_OPV-v18GzQnzoobRhYvvr"
                 }
             ]
         }
@@ -123,14 +123,7 @@ const portfolioData = {
                     description: "User-centered design for online marketplace with focus on conversion optimization.",
                     buttonText: "View Portfolio",
                     buttonLink: ""
-                },
-                {
-                    icon: "🏥",
-                    title: "Healthcare Portal",
-                    description: "Accessible design system for patient portal serving diverse user demographics.",
-                    buttonText: "Explore Design",
-                    buttonLink: ""
-                }
+                }                
             ]
         },
 
