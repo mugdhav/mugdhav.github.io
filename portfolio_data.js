@@ -70,7 +70,7 @@ const portfolioData = {
                 {
                     image: "./LocalContent/Images/img_to_dita_convert_thumbnail.jpg",
                     title: "Image To DITA Converter",
-                    description: "An AI-enabled tool that uses LLMs with vision capabilities to identify workflows in user-provided images.",
+                    description: "An AI-enabled tool that uses LLMs with vision capabilities to identify workflows in user-provided images. It then generates DITA task topics for any of the identified workflows.",
                     buttonText: "View Demo",
                     buttonLink: "https://youtu.be/783w_xChhn0"
                 },
