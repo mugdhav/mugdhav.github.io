@@ -140,14 +140,14 @@ const portfolioData = {
         {
             text: "Technical Articles",
             href: "#technical-articles"
+        },        
+        {
+            text: "AI Development",
+            href: "#ai-development"
         },
         {
             text: "UX Design",
             href: "#ux-design"
-        },
-        {
-            text: "AI Development",
-            href: "#ai-development"
         }
     ]
 };
