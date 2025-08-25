@@ -3,7 +3,7 @@ const portfolioData = {
     // Personal Information
     personal: {
         name: "Mugdha Vairagade",
-        title: "Technical Writer | UX Designer | AI Developer",
+        title: "Technical Writer | AI Developer | UX Designer",
         email: "vmugdha.web@gmail.com",
         linkedin: "https://www.linkedin.com/in/mugdhav",
         github: "https://github.com/mugdhav",
@@ -19,13 +19,13 @@ const portfolioData = {
             icon: "📝",
             title: "Technical Writing"
         },
+                {
+            icon: "🤖",
+            title: "AI Development"
+        },
         {
             icon: "🎨",
             title: "UX Design"
-        },
-        {
-            icon: "🤖",
-            title: "AI Development"
         },
         {
             icon: "💡",
@@ -42,7 +42,7 @@ const portfolioData = {
                 {
                     icon: "📚",
                     title: "From MVP to Enterprise: Why Your AI Application Needs a Data Privacy Shield",
-                    description: "This article discusses the importance of building Data Protection and Privacy layer for applications and lists the loos and APIs that can be used to build the layer.",
+                    description: "This article discusses the importance of building Data Protection and Privacy layer for applications and lists the tools and APIs that can be used to build the layer.",
                     buttonText: "View Article",
                     buttonLink: "https://www.linkedin.com/pulse/from-mvp-enterprise-why-your-ai-application-needs-data-vairagade-xboue"
                 },
