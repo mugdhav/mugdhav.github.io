@@ -132,6 +132,7 @@ const portfolioData = {
         { text: "Home", href: "#home" },
         { text: "About", href: "#about" },
         { text: "Portfolio", href: "#portfolio" },
+        { text: "Blog", href: "blog/blog.html" },
         { text: "Contact", href: "#contact" }
     ],
 
@@ -148,6 +149,10 @@ const portfolioData = {
         {
             text: "UX Design",
             href: "#ux-design"
+        },
+        {
+            text: "Blog",
+            href: "blog/blog.html"
         }
     ]
 };
