@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Mugdha's Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --text-color: #1f2937;
+            --light-bg: #f3f4f6;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+            --secondary-text-color: #4b5563;
+            --footer-text-color: #ffffff;
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #3b82f6;
+            --secondary-color: #60a5fa;
+            --text-color: #e5e7eb;
+            --light-bg: #1f2937;
+            --white: #111827;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            --secondary-text-color: #ffffff;
+            --footer-text-color: #ffffff;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 2px solid var(--primary-color);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .theme-toggle:hover {
+            background-color: var(--primary-color);
+            transform: scale(1.1);
+        }
+
+        .theme-icon {
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        /* Blog Header */
+        .blog-header {
+            min-height: 40vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        .blog-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .blog-header p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .search-container {
+            display: flex;
+            gap: 0.5rem;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 1rem;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .search-button {
+            padding: 1rem 2rem;
+            background-color: var(--white);
+            color: var(--primary-color);
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .search-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 5%;
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 3rem;
+        }
+
+        /* Blog Posts Grid */
+        .blog-posts {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .blog-post {
+            background-color: var(--light-bg);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .blog-post:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .blog-post h3 {
+            color: var(--text-color);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-post .meta {
+            color: var(--secondary-text-color);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .blog-post .excerpt {
+            color: var(--secondary-text-color);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .blog-post .read-more {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .blog-post .read-more:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .sidebar-widget {
+            background-color: var(--light-bg);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        .sidebar-widget h4 {
+            color: var(--text-color);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .category-list {
+            list-style: none;
+        }
+
+        .category-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .category-list li:last-child {
+            border-bottom: none;
+        }
+
+        .category-list a {
+            text-decoration: none;
+            color: var(--secondary-text-color);
+            transition: var(--transition);
+        }
+
+        .category-list a:hover {
+            color: var(--primary-color);
+        }
+
+        .recent-posts {
+            list-style: none;
+        }
+
+        .recent-posts li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .recent-posts li:last-child {
+            border-bottom: none;
+        }
+
+        .recent-posts a {
+            text-decoration: none;
+            color: var(--secondary-text-color);
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .recent-posts a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1f2937;
+            color: var(--footer-text-color);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding: 2rem 5%;
+            }
+
+            .blog-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .blog-header p {
+                font-size: 1.1rem;
+            }
+
+            .search-container {
+                flex-direction: column;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+        /* Loading animation */
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 200px;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+        }
+
+        .no-posts {
+            text-align: center;
+            padding: 3rem;
+            color: var(--secondary-text-color);
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- Header -->
+        <header>
+            <nav>
+                <a href="../index.html" class="logo">Mugdha's Portfolio</a>
+                <div class="nav-right">
+                    <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()">
+                        <span class="theme-icon">🌙</span>
+                    </button>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../index.html#about">About</a></li>
+                    <li><a href="../index.html#portfolio">Portfolio</a></li>
+                    <li><a href="blog.html" class="active">Blog</a></li>
+                    <li><a href="../index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Blog Header -->
+        <section class="blog-header">
+            <div>
+                <h1>My Blog</h1>
+                <p>Thoughts on Tech, UX & AI</p>
+                <div class="search-container">
+                    <input type="text" class="search-input" id="searchInput" placeholder="Search posts..." />
+                    <button class="search-button" onclick="searchPosts()">Search</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <section class="blog-posts" id="blogPosts">
+                <div class="loading">Loading blog posts...</div>
+            </section>
+
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="sidebar-widget">
+                    <h4>Categories</h4>
+                    <ul class="category-list" id="categories">
+                        <li><a href="#" onclick="filterByCategory('all')">All Posts <span id="all-count">(0)</span></a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h4>Recent Posts</h4>
+                    <ul class="recent-posts" id="recentPosts">
+                        <!-- Recent posts will be loaded here -->
+                    </ul>
+                </div>
+            </aside>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2025 Mugdha. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="blog.js"></script>
+</body>
+</html>
