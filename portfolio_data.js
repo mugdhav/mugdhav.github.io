@@ -7,6 +7,9 @@ const portfolioData = {
         email: "vmugdha.web@gmail.com",
         linkedin: "https://www.linkedin.com/in/mugdhav",
         github: "https://github.com/mugdhav",
+        twitter: "https://x.com/vmugdha",
+        website: "https://www.vmugdha.com",
+        // About Section
         about: {
             paragraph1: "I'm a passionate professional who bridges the gap between technical complexity and user experience. With expertise in technical writing, UX design, and AI development, I create innovative solutions that are both powerful and user-friendly.",
             paragraph2: "My unique combination of skills allows me to document complex systems clearly, design intuitive interfaces, and develop cutting-edge AI applications that solve real-world problems."
@@ -149,10 +152,6 @@ const portfolioData = {
         {
             text: "UX Design",
             href: "#ux-design"
-        },
-        {
-            text: "Blog",
-            href: "blog/blog.html"
         }
     ]
 };
