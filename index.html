@@ -23,6 +23,70 @@
 
       gtag('config', 'G-9HL4T713SQ');
     </script>
+    
+    <!-- Structured Data for AI/LLM Comprehension -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Mugdha Vairagade",
+        "jobTitle": ["Technical Writer", "AI Developer", "UX Designer"],
+        "description": "Passionate professional who bridges the gap between technical complexity and user experience. Expert in technical writing, UX design, and AI development.",
+        "url": "https://www.vmugdha.in",
+        "email": "vmugdha.web@gmail.com",
+        "sameAs": [
+            "https://www.linkedin.com/in/mugdhav",
+            "https://github.com/mugdhav",
+            "https://www.vmugdha.in",
+            "https://x.com/vmugdha"
+        ],
+        "knowsAbout": [
+            "Technical Writing",
+            "AI Development", 
+            "UX Design",
+            "Machine Learning",
+            "User Experience",
+            "Content Creation",
+            "API Documentation",
+            "DITA",
+            "CrewAI",
+            "Multi-agent Systems",
+            "React",
+            "TypeScript"
+        ],
+        "hasOccupation": {
+            "@type": "Occupation",
+            "name": "Technical Writer, AI Developer, UX Designer",
+            "description": "Creates innovative solutions that are both powerful and user-friendly through technical writing, UX design, and AI development"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://www.vmugdha.in"
+        },
+        "worksFor": {
+            "@type": "Organization",
+            "name": "Independent Professional"
+        }
+    }
+    </script>
+    
+    <!-- Additional metadata for AI agents -->
+    <meta name="description" content="Mugdha Vairagade - Technical Writer, AI Developer, UX Designer. Expert in creating user-friendly AI applications, comprehensive documentation, and intuitive interfaces.">
+    <meta name="keywords" content="technical writing, AI development, UX design, machine learning, documentation, DITA, CrewAI, React, TypeScript, user experience">
+    <meta name="author" content="Mugdha Vairagade">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph meta tags -->
+    <meta property="og:title" content="Mugdha Vairagade - Technical Writer, AI Developer, UX Designer">
+    <meta property="og:description" content="Expert in creating user-friendly AI applications, comprehensive documentation, and intuitive interfaces">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.vmugdha.in">
+    <meta property="og:site_name" content="Mugdha's Portfolio">
+    
+    <!-- Twitter Card meta tags -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Mugdha Vairagade - Technical Writer, AI Developer, UX Designer">
+    <meta name="twitter:description" content="Expert in creating user-friendly AI applications, comprehensive documentation, and intuitive interfaces">
     <style>
         * {
             margin: 0;
@@ -589,9 +653,9 @@
             
             app.innerHTML = `
                 <!-- Header -->
-                <header>
-                    <nav>
-                        <a href="#home" class="logo">Mugdha's Portfolio</a>
+                <header role="banner">
+                    <nav role="navigation" aria-label="Main navigation">
+                        <a href="#home" class="logo" aria-label="Go to homepage">Mugdha's Portfolio</a>
                         <div class="nav-right">
                             <button id="theme-toggle" class="theme-toggle" data-tooltip="Switch to dark mode" onclick="toggleTheme()">
                                 <span class="theme-icon">🌙</span>
@@ -611,9 +675,10 @@
                 </header>
 
                 <!-- Hero Section -->
-                <section id="home" class="hero">
+                <main role="main">
+                <section id="home" class="hero" aria-labelledby="hero-heading">
                     <div class="hero-content">
-                        <h1>Hello, I'm ${portfolioData.personal.name}</h1>
+                        <h1 id="hero-heading">Hello, I'm ${portfolioData.personal.name}</h1>
                         <h2>${portfolioData.personal.title}</h2>
                         <div class="cta-buttons">
                             ${portfolioData.ctaButtons.map(button => 
@@ -624,8 +689,8 @@
                 </section>
 
                 <!-- About Section -->
-                <section id="about" class="section about">
-                    <h2 class="section-title">About Me</h2>
+                <section id="about" class="section about" aria-labelledby="about-heading">
+                    <h2 id="about-heading" class="section-title">About Me</h2>
                     <div class="about-content">
                         <div class="about-text fade-in">
                             <p>${portfolioData.personal.about.paragraph1}</p>
@@ -643,8 +708,8 @@
                 </section>
 
                 <!-- Portfolio Section -->
-                <section id="portfolio" class="section portfolio">
-                    <h2 class="section-title">My Work</h2>
+                <section id="portfolio" class="section portfolio" aria-labelledby="portfolio-heading">
+                    <h2 id="portfolio-heading" class="section-title">My Work</h2>
                     
                     ${Object.entries(portfolioData.portfolio).map(([key, section]) => `
                         <h3 id="${key}" class="category-title">${section.sectionTitle}</h3>
@@ -668,8 +733,8 @@
                 </section>
 
                 <!-- Contact Section -->
-                <section id="contact" class="section contact">
-                    <h2 class="section-title">Get In Touch</h2>
+                <section id="contact" class="section contact" aria-labelledby="contact-heading">
+                    <h2 id="contact-heading" class="section-title">Get In Touch</h2>
                     <p style="font-size: 1.2rem; color: #6b7280; margin-bottom: 2rem;">Let's collaborate on your next project!</p>
                     <div class="contact-info">
                         <div class="contact-item">
@@ -686,9 +751,10 @@
                         </div>
                     </div>
                 </section>
+                </main>
 
                 <!-- Footer -->
-                <footer>
+                <footer role="contentinfo">
                     <p>&copy; 2025 ${portfolioData.personal.name}. All rights reserved.</p>
                 </footer>
             `;

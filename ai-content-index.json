@@ -1,0 +1,168 @@
+{
+  "siteInfo": {
+    "name": "Mugdha Vairagade Portfolio",
+    "url": "https://www.vmugdha.in",
+    "owner": "Mugdha Vairagade",
+    "profession": "Technical Writer, AI Developer, UX Designer",
+    "lastUpdated": "2025-01-27",
+    "description": "Portfolio showcasing technical writing, AI development projects, and UX design work"
+  },
+  "contactInfo": {
+    "email": "vmugdha.web@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/mugdhav",
+    "github": "https://github.com/mugdhav",
+    "twitter": "https://x.com/vmugdha"
+  },
+  "expertise": [
+    "Technical Writing",
+    "AI Development", 
+    "UX Design",
+    "Machine Learning",
+    "API Documentation",
+    "DITA Authoring",
+    "CrewAI",
+    "Multi-agent Systems",
+    "React",
+    "TypeScript",
+    "User Research",
+    "n8n Workflows"
+  ],
+  "content": {
+    "pages": [
+      {
+        "path": "/index.html",
+        "title": "Portfolio Homepage",
+        "type": "main",
+        "sections": ["hero", "about", "portfolio", "contact"],
+        "description": "Main portfolio page with overview of skills and projects"
+      },
+      {
+        "path": "/blog/blog.html", 
+        "title": "Blog",
+        "type": "blog-index",
+        "description": "Blog posts about technical writing, AI development, and UX design"
+      }
+    ],
+    "articles": [
+      {
+        "title": "From MVP to Enterprise: Why Your AI Application Needs a Data Privacy Shield",
+        "url": "https://www.linkedin.com/pulse/from-mvp-enterprise-why-your-ai-application-needs-data-vairagade-xboue",
+        "type": "external-article",
+        "topics": ["AI Development", "Data Privacy", "Enterprise Applications"],
+        "description": "Guide on building data protection layers for AI applications"
+      },
+      {
+        "title": "Voice Agent Contact Centres Explained",
+        "path": "/LocalContent/UnderstandingAIEnabledContactCenterWork.pdf",
+        "type": "pdf-article",
+        "topics": ["AI Development", "Contact Centers", "Voice AI"],
+        "description": "Architecture and implementation of AI-enabled contact centers"
+      },
+      {
+        "title": "No Error Messages!",
+        "url": "https://www.linkedin.com/pulse/error-messages-mugdha-vairagade-8bkhf",
+        "type": "external-article", 
+        "topics": ["UX Design", "Error Prevention", "User Experience"],
+        "description": "UX design principles for reducing user input errors"
+      }
+    ],
+    "blogPosts": [
+      {
+        "title": "Getting Started with CrewAI",
+        "path": "/blog/posts/getting-started-crewai.md",
+        "slug": "getting-started-crewai",
+        "date": "2025-01-15",
+        "category": "AI Development",
+        "readTime": "5 min read",
+        "topics": ["CrewAI", "Multi-agent Systems", "AI Framework", "Python"],
+        "description": "Comprehensive guide to setting up CrewAI for building multi-agent AI systems"
+      },
+      {
+        "title": "UX Design Principles for Beginners",
+        "path": "/blog/posts/ux-principles.md", 
+        "slug": "ux-principles",
+        "date": "2024-12-28",
+        "category": "UX Design",
+        "readTime": "6 min read",
+        "topics": ["UX Design", "User Research", "Design Process", "Accessibility"],
+        "description": "Essential UX design principles every designer should know"
+      }
+    ],
+    "projects": [
+      {
+        "title": "Image To DITA Converter",
+        "type": "ai-development",
+        "demo": "https://youtu.be/783w_xChhn0",
+        "technologies": ["LLMs", "Computer Vision", "DITA", "Workflow Analysis"],
+        "description": "AI tool using LLMs with vision to identify workflows in images and generate DITA task topics"
+      },
+      {
+        "title": "Jira to Release Notes Draft Generator", 
+        "type": "ai-development",
+        "demo": "https://youtu.be/RWlTJ-76QoY",
+        "technologies": ["AI", "Jira API", "Natural Language Generation"],
+        "description": "AI tool that generates feature release notes from Jira descriptions"
+      },
+      {
+        "title": "GitHub Repository Interview Workflow with n8n",
+        "type": "ai-development", 
+        "demo": "https://youtu.be/9P01zPxpbdY",
+        "technologies": ["n8n", "GitHub API", "Workflow Automation", "Technical Writing"],
+        "description": "n8n workflow enabling technical writers to extract information from GitHub repositories"
+      },
+      {
+        "title": "React Pong",
+        "type": "ai-development",
+        "demo": "https://ai.studio/apps/drive/19H4i0hWXQe_OPV-v18GzQnzoobRhYvvr",
+        "technologies": ["React", "TypeScript", "AI", "Game Development"],
+        "description": "AI-enabled Pong game built with React and TypeScript"
+      },
+      {
+        "title": "Smart Watch Interface",
+        "type": "ux-design",
+        "technologies": ["Interface Design", "Mobile UX", "Calendar Integration"],
+        "description": "Design of a smart watch interface that displays calendar alerts"
+      },
+      {
+        "title": "Help Portal Redesign", 
+        "type": "ux-design",
+        "technologies": ["Information Architecture", "Card-based Design", "Navigation"],
+        "description": "Card-based help portal redesigned for better navigation and searchability"
+      },
+      {
+        "title": "E-commerce Platform",
+        "type": "ux-design", 
+        "technologies": ["E-commerce UX", "Conversion Optimization", "User Research"],
+        "description": "User-centered design for online marketplace with focus on conversion optimization"
+      }
+    ]
+  },
+  "skills": {
+    "technical_writing": {
+      "tools": ["DITA", "Markdown", "API Documentation", "User Manuals"],
+      "specialties": ["Error Message Design", "Workflow Documentation", "Technical Tutorials"]
+    },
+    "ai_development": {
+      "frameworks": ["CrewAI", "OpenAI APIs", "Computer Vision"],
+      "specialties": ["Multi-agent Systems", "LLM Integration", "Workflow Automation"]
+    },
+    "ux_design": {
+      "tools": ["Figma", "User Research", "Wireframing", "Prototyping"],
+      "specialties": ["Interface Design", "Accessibility", "User Journey Mapping"]
+    },
+    "programming": {
+      "languages": ["JavaScript", "TypeScript", "Python"],
+      "frameworks": ["React", "n8n"],
+      "tools": ["GitHub", "Jira Integration"]
+    }
+  },
+  "keyThemes": [
+    "Bridging technical complexity with user experience",
+    "AI-enabled workflow automation", 
+    "Multi-agent system development",
+    "Technical documentation for developers",
+    "User-centered design principles",
+    "Accessibility and error prevention",
+    "Integration between AI tools and existing workflows"
+  ]
+}
