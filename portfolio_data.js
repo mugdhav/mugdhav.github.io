@@ -16,11 +16,11 @@ const portfolioData = {
     // Skills Section
     skills: [
         {
-            icon: "📝",
+            icon: "🖋️",
             title: "Technical Writing"
         },
                 {
-            icon: "🤖",
+            icon: "🔮",
             title: "AI Development"
         },
         {
