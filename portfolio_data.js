@@ -97,6 +97,13 @@ const portfolioData = {
                     description: "A simple Pong game against AI, built with React and Typescript.",
                     buttonText: "Try It Out",
                     buttonLink: "https://ai.studio/apps/drive/19H4i0hWXQe_OPV-v18GzQnzoobRhYvvr"
+                },
+                {
+                    icon: "🦄",
+                    title: "UnicornFinder - AI Analyst for Startups",
+                    description: "Venture capitalists can use this tool to evaluate startups and get investment insights.",
+                    buttonText: "Try It Out",
+                    buttonLink: "https://ai.studio/apps/drive/1BQ4qO7IU4pwYhYBmQ9eTLy-tLE6v51OJ"
                 }
             ]
         },
