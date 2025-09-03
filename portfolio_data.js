@@ -99,7 +99,7 @@ const portfolioData = {
                     buttonLink: "https://ai.studio/apps/drive/19H4i0hWXQe_OPV-v18GzQnzoobRhYvvr"
                 },
                 {
-                    icon: "🦄",
+                    image: "LocalContent/Images/UnicornFinderThumbnail2025-09-04010045.png",
                     title: "UnicornFinder - AI Analyst for Startups",
                     description: "Venture capitalists can use this tool to evaluate startups and get investment insights.",
                     buttonText: "Try It Out",
