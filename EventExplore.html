@@ -450,14 +450,26 @@
             <div class="exploration-grid">
                 <div class="exploration-card fade-in">
                     <div class="card-icon"><i class="fas fa-comments" aria-hidden="true"></i></div>
-                    <h3 class="card-title">Chat with Sarvam</h3>
+                    <h3 class="card-title">Chat with Sarvam AI in Native Language</h3>
                     <div class="card-content">
-                        <p>Experience the power of Sarvam AI's conversational capabilities. Engage with advanced language models designed for Indian contexts and languages. Explore how AI can understand and respond in multiple Indian languages with cultural nuance and accuracy.</p>
-                        <p>Learn about the technology behind Sarvam's multilingual AI models and discover how they're revolutionizing communication in the Indian digital landscape.</p>
-                        <a href="https://dashboard.sarvam.ai/chat" target="_blank" rel="noopener noreferrer" class="explore-link">
-                            <i class="fas fa-external-link-alt" style="margin-right: 0.5rem;"></i>
-                            Start Chatting
-                        </a>
+                        <p style="color: var(--warning-color); font-weight: 600; margin-bottom: 1rem;"><strong>Important:</strong> Before following these steps, follow the <a href="PreEventInstructions.html" style="color: var(--primary-color); text-decoration: underline;">set-up instructions</a>.</p>
+                        
+                        <ol style="color: var(--secondary-text-color); line-height: 1.6; padding-left: 1.5rem; margin-bottom: 1.5rem;">
+                            <li style="margin: 0.75rem 0;">Log into your Sarvam AI account and access its <a href="https://dashboard.sarvam.ai/chat" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color); text-decoration: none; font-weight: 500;">Chat interface</a>.</li>
+                            <li style="margin: 0.75rem 0;">Enter prompts the same ways you would on ChatGPT/Perplexity/Gemini. Compare AI chat responses to those from ChatGPT/Perplexity/Gemini.</li>
+                            <li style="margin: 0.75rem 0;">Try prompting in your native language. You can use <a href="https://www.google.co.in/inputtools/try/" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color); text-decoration: none; font-weight: 500;">Google Input Tools</a> to prepare text prompts in your native language. Does AI respond automatically in your native language and script?</li>
+                        </ol>
+                        
+                        <p style="font-size: 1.1rem; font-weight: 500; margin-bottom: 1rem;">Try these sample prompts:</p>
+                        
+                        <div style="background-color: rgba(37, 99, 235, 0.1); padding: 1rem; border-radius: 8px; margin: 1rem 0; border-left: 4px solid var(--primary-color);">
+                            <p style="font-style: italic; margin-bottom: 0.5rem;">"सडक मार्ग से पेलिंग, सिक्किम से कितने KM दूर है?"</p>
+                        </div>
+                        
+                        <div style="background-color: rgba(37, 99, 235, 0.1); padding: 1rem; border-radius: 8px; margin: 1rem 0; border-left: 4px solid var(--primary-color);">
+                            <p style="font-style: italic; margin-bottom: 0.5rem;">"Translate into Tamil and show the translation in both roman and Tamil scripts: You are most welcome!"</p>
+                        </div>
+                        
                     </div>
                 </div>
 
@@ -465,12 +477,10 @@
                     <div class="card-icon"><i class="fas fa-robot" aria-hidden="true"></i></div>
                     <h3 class="card-title">Build A Hindi AI Agent with BharatGPT</h3>
                     <div class="card-content">
+                        <p style="color: var(--warning-color); font-weight: 600; margin-bottom: 1rem;"><strong>Important:</strong> Before following these steps, follow the <a href="PreEventInstructions.html" style="color: var(--primary-color); text-decoration: underline;">set-up instructions</a>.</p>
+                        
                         <p>Create your own Hindi-speaking AI agent using BharatGPT's powerful platform. Learn how to design, train, and deploy AI agents that can understand and respond in Hindi with natural conversation flow.</p>
                         <p>Discover the capabilities of Indian language AI and how BharatGPT is making AI accessible to millions of Hindi speakers across the country. Build agents for customer service, education, or personal assistance.</p>
-                        <a href="https://builder.corover.ai/#/onboarding/add-bot" target="_blank" rel="noopener noreferrer" class="explore-link">
-                            <i class="fas fa-external-link-alt" style="margin-right: 0.5rem;"></i>
-                            Build Your Agent
-                        </a>
                     </div>
                 </div>
 
@@ -481,7 +491,7 @@
                         <p style="color: var(--warning-color); font-weight: 600; margin-bottom: 1rem;"><strong>Important:</strong> Before following these steps, follow the <a href="PreEventInstructions.html" style="color: var(--primary-color); text-decoration: underline;">set-up instructions</a>.</p>
                         
                         <ol style="color: var(--secondary-text-color); line-height: 1.6; padding-left: 1.5rem;">
-                            <li style="margin: 0.75rem 0;">Log into your Google Colab account. In Secrets pane (key icon), add a new secret with Name <strong>sarvam</strong>. As the secret's Value, enter the API key you created from Sarvam dashboard. Enable the Notebook access to the secret.</li>
+                            <li style="margin: 0.75rem 0;">Log into your Google Colab account. In Secrets pane <i class="fas fa-key" style="transform: rotate(90deg);"></i>, add a new secret with Name <strong>sarvam</strong>. As the secret's Value, enter the API key you created from Sarvam dashboard. Enable the Notebook access to the secret.</li>
                             <li style="margin: 0.75rem 0;">Download the <a href="LocalContent/sarvam_translator.ipynb" download="sarvam_translator.ipynb" style="color: var(--primary-color); text-decoration: none; font-weight: 500;">sarvam_translator.ipynb</a> file (notebook). Upload this notebook in your Google Colab from File > Upload Notebook menu.</li>
                             <li style="margin: 0.75rem 0;">Explore the code in the notebook.<br>
                                 <em style="color: var(--secondary-text-color); font-size: 0.95em; display: block; margin-top: 0.5rem;">The notebook contains a Python program that can translate your input in any Indian language to another Indian language of your choice using the Sarvam API. See <a href="https://docs.sarvam.ai/api-reference-docs/api-guides-tutorials/text-processing/translation" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color); text-decoration: none;">Sarvam API documentation</a>.</em>
@@ -490,10 +500,6 @@
                             <li style="margin: 0.75rem 0;">Run the notebook. When prompted for input, enter the text you prepared using Google Input Tools.</li>
                         </ol>
                         
-                        <a href="https://dashboard.sarvam.ai" target="_blank" rel="noopener noreferrer" class="explore-link">
-                            <i class="fas fa-external-link-alt" style="margin-right: 0.5rem;"></i>
-                            Access API Dashboard
-                        </a>
                     </div>
                 </div>
             </div>
