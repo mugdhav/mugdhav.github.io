@@ -31,8 +31,8 @@ const portfolioData = {
             title: "UX Design"
         },
         {
-            icon: "💡",
-            title: "Innovation"
+            icon: "🎓",
+            title: "Events"
         }
     ],
 
