@@ -497,6 +497,31 @@
                 transform: translateY(0);
             }
         }
+
+        /* Explore Button */
+        .explore-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+            margin: 2rem auto;
+            display: block;
+            width: fit-content;
+            text-align: center;
+            transform: translateY(0);
+        }
+
+        .explore-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+        }
     </style>
 </head>
 <body>
@@ -577,9 +602,12 @@
             </div>
             
             <p style="color: var(--text-color); font-size: 1.2rem; text-align: center; margin-top: 2rem;">
-                <strong>That's it!</strong> You are all set for the event.<br>
-                <strong>Don't forget to bring your ticket (soft copy), laptop, and mobile hotspot along!!</strong>
+                <strong>That's it!</strong> You are all set for the event.
             </p>
+            
+            <a href="EventExplore.html" class="explore-button" aria-label="Explore the event">
+                Let's Explore
+            </a>
         </section>
     </main>
 
