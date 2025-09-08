@@ -3,7 +3,7 @@ const portfolioData = {
     // Personal Information
     personal: {
         name: "Mugdha Vairagade",
-        title: "Technical Writer | AI Developer | UX Designer",
+        title: "Technical Writer | AI Developer | UX Designer | Event Organizer",
         email: "vmugdha.web@gmail.com",
         linkedin: "https://www.linkedin.com/in/mugdhav",
         github: "https://github.com/mugdhav",
@@ -144,6 +144,7 @@ const portfolioData = {
         { text: "Portfolio", href: "#portfolio" },
         { text: "Chatbot", href: "chatbot.html" },
         { text: "Blog", href: "blog/blog.html" },
+        { text: "Tech Events", href: "TechEvents.html" },
         { text: "Contact", href: "#contact" }
     ],
 
@@ -160,6 +161,106 @@ const portfolioData = {
         {
             text: "UX Design",
             href: "#ux-design"
+        },
+        {
+            text: "Tech Events",
+            href: "TechEvents.html"
+        }
+    ],
+
+    // Events Data
+    // To add a new event, add an object with the following structure:
+    // {
+    //     id: 'unique-event-id',                    // Unique identifier
+    //     title: 'Event Title',                     // Display title
+    //     status: 'coming-soon|now|past',           // Event status (determines order and filter)
+    //     statusLabel: 'Coming Soon|Happening Now!|Past', // Display label for status badge
+    //     date: 'Event Date or "Coming Soon"',      // Date string to display
+    //     location: 'Event Location',               // Where the event takes place
+    //     organization: 'Organizing Body',          // Who organizes/hosts the event
+    //     description: 'Event description...',      // Brief description of the event
+    //     icon: 'fas fa-icon-name',                 // FontAwesome icon class
+    //     link: 'https://link-to-event',            // URL for "Learn More" button
+    //     searchTerms: 'searchable keywords...'     // Space-separated keywords for search
+    // }
+    events: [
+        {
+            id: 'ai-technical-writing-workshop',
+            title: 'AI-Powered Technical Writing Workshop',
+            status: 'coming-soon',
+            statusLabel: 'Coming Soon',
+            date: 'Coming Soon',
+            location: 'Virtual Event',
+            organization: 'Tech Writers Community',
+            description: 'Learn how to leverage AI tools for technical documentation, API docs, and user guides. Hands-on workshop with CrewAI and other AI writing tools.',
+            icon: 'fas fa-pen-nib',
+            link: 'https://www.linkedin.com/in/mugdhav',
+            searchTerms: 'AI-Powered Technical Writing Workshop Virtual Event Tech Writers Community AI tools technical documentation API docs user guides CrewAI writing tools'
+        },
+        {
+            id: 'ux-design-ai-applications',
+            title: 'UX Design for AI Applications',
+            status: 'coming-soon',
+            statusLabel: 'Coming Soon',
+            date: 'Coming Soon',
+            location: 'Pune, India',
+            organization: 'Pune UX Community',
+            description: 'Design principles and best practices for creating user-friendly AI interfaces. Interactive workshop on AI UX patterns and user research.',
+            icon: 'fas fa-palette',
+            link: 'https://www.linkedin.com/in/mugdhav',
+            searchTerms: 'UX Design AI Applications Pune UX Community design principles user-friendly interfaces AI UX patterns user research'
+        },
+        {
+            id: 'multi-agent-systems',
+            title: 'Building Multi-Agent AI Systems',
+            status: 'coming-soon',
+            statusLabel: 'Coming Soon',
+            date: 'Coming Soon',
+            location: 'Virtual Event',
+            organization: 'AI Developers Community',
+            description: 'Deep dive into CrewAI and multi-agent systems. Learn to build collaborative AI agents that work together to solve complex problems.',
+            icon: 'fas fa-robot',
+            link: 'https://www.linkedin.com/in/mugdhav',
+            searchTerms: 'Building Multi-Agent AI Systems Virtual Event AI Developers Community CrewAI multi-agent systems collaborative agents'
+        },
+        {
+            id: 'tech-community-volunteer',
+            title: 'Tech Community Volunteer Activities',
+            status: 'now',
+            statusLabel: 'Happening Now!',
+            date: 'Ongoing',
+            location: 'Various Locations',
+            organization: 'Multiple Communities',
+            description: 'Regular volunteering activities including mentoring emerging developers, organizing study groups, and supporting local tech communities.',
+            icon: 'fas fa-hands-helping',
+            link: 'https://www.linkedin.com/in/mugdhav',
+            searchTerms: 'Tech Community Volunteer Activities Various Locations Multiple Communities mentoring developers study groups tech communities'
+        },
+        {
+            id: 'open-source-contribution',
+            title: 'Open Source Contribution Drive',
+            status: 'now',
+            statusLabel: 'Happening Now!',
+            date: 'Ongoing',
+            location: 'Global (Remote)',
+            organization: 'Tech Open Source Community',
+            description: 'Active participation in open source projects, contributing to documentation, code reviews, and helping maintain community-driven initiatives.',
+            icon: 'fab fa-github',
+            link: 'https://www.linkedin.com/in/mugdhav',
+            searchTerms: 'Open Source Contribution Drive Global Remote Tech Open Source Community GitHub contributions documentation code reviews'
+        },
+        {
+            id: 'pie-ai-pune',
+            title: 'Pie & AI: Pune - Exploring Indian AI',
+            status: 'past',
+            statusLabel: 'Past',
+            date: 'January 15, 2025',
+            location: 'Pune, India',
+            organization: 'Pie & AI Pune Community',
+            description: 'Hands-on exploration of Indian AI technologies including Sarvam AI and BharatGPT. Building Hindi chat agents and exploring native language AI capabilities.',
+            icon: 'fas fa-brain',
+            link: 'https://www.linkedin.com/events/7368907094529339393/',
+            searchTerms: 'Pie AI Pune Exploring Indian AI Pune India Pie AI Pune Community Sarvam AI BharatGPT Hindi chat agents native language AI'
         }
     ]
 };

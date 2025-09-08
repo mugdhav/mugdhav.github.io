@@ -1,7 +1,7 @@
 # Site Summary - Mugdha Vairagade Portfolio
 
 ## Overview
-This is the portfolio website of Mugdha Vairagade, a Technical Writer, AI Developer, and UX Designer specializing in bridging technical complexity with user experience.
+This is the portfolio website of Mugdha Vairagade, a Technical Writer, AI Developer, UX Designer, and Event Organizer specializing in bridging technical complexity with user experience.
 
 ## Contact Information
 - **Name**: Mugdha Vairagade
