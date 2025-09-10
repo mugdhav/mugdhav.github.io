@@ -565,33 +565,6 @@
             color: var(--secondary-text-color);
         }
 
-        .skills-container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            grid-template-rows: repeat(2, 1fr);
-            gap: 1rem;
-            max-width: 400px;
-            margin: 0 auto;
-        }
-
-        .skill-card {
-            background-color: var(--white);
-            padding: 1.5rem;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-
-        .skill-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-        }
-
-        .skill-icon {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
 
         /* Portfolio Section */
         .portfolio {
@@ -782,12 +755,6 @@
                 flex-direction: column;
                 gap: 1rem;
             }
-
-            .skills-container {
-                grid-template-columns: 1fr;
-                grid-template-rows: repeat(4, 1fr);
-                max-width: 300px;
-            }
         }
 
         /* Smooth Scrolling */
@@ -891,14 +858,6 @@
                             <p>${portfolioData.personal.about.paragraph1}</p>
                             <p>${portfolioData.personal.about.paragraph2}</p>
                         </div>
-                        <div class="skills-container fade-in">
-                            ${portfolioData.skills.map(skill => `
-                                <div class="skill-card">
-                                    <div class="skill-icon">${skill.icon}</div>
-                                    <h3>${skill.title}</h3>
-                                </div>
-                            `).join('')}
-                        </div>
                     </div>
                 </section>
 
@@ -925,57 +884,6 @@
                             `).join('')}
                         </div>
                     `).join('')}
-                </section>
-
-                <!-- Social Media Section -->
-                <section id="social" class="section social" aria-labelledby="social-heading">
-                    <h2 id="social-heading" class="section-title">Latest Updates</h2>
-                    <p style="font-size: 1.2rem; color: #6b7280; margin-bottom: 2rem; text-align: center;">Follow my journey across social platforms</p>
-                    <div class="social-media-grid">
-                        <div class="social-card">
-                            <h3 class="social-card-title">
-                                <i class="fab fa-twitter"></i>
-                                Latest Tweets
-                            </h3>
-                            <div class="social-embed">
-                                <a class="twitter-timeline" 
-                                   data-height="400" 
-                                   data-theme="${document.documentElement.getAttribute('data-theme') || 'light'}" 
-                                   data-chrome="noheader nofooter noborders" 
-                                   data-tweet-limit="3"
-                                   href="https://twitter.com/vmugdha">
-                                   Tweets by @vmugdha
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <div class="social-card">
-                            <h3 class="social-card-title">
-                                <i class="fab fa-linkedin"></i>
-                                LinkedIn Posts
-                            </h3>
-                            <div class="social-embed">
-                                <div class="linkedin-posts">
-                                    <div class="linkedin-post-placeholder">
-                                        <p>Connect with me on LinkedIn for professional updates and insights!</p>
-                                        <a href="${portfolioData.personal.linkedin}" target="_blank" class="social-cta">View LinkedIn Profile</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="social-card">
-                            <h3 class="social-card-title">
-                                <i class="fab fa-github"></i>
-                                GitHub Activity
-                            </h3>
-                            <div class="social-embed">
-                                <div id="github-activity" class="github-activity">
-                                    <div class="loading-placeholder">Loading recent activity...</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </section>
 
                 <!-- Contact Section -->
