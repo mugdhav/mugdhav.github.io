@@ -111,6 +111,13 @@ const portfolioData = {
                     description: "A Python application leveraving SarvamAI API to translate text between Indian languages, including Hindi, Marathi, Tamil, Telugu, Bengali, and more.",
                     buttonText: "Try It Out",
                     buttonLink: "https://github.com/mugdhav/SarvamAPICodeSample"
+                },
+                {
+                    image: "LocalContent/Images/UnicornFinderThumbnail2025-09-04010045.png",
+                    title: "Hindi Chat Agent with BharatGPT",
+                    description: "A BharatGPT model-based chat agent that can interact in Hindi.",
+                    buttonText: "Try It Out",
+                    buttonLink: "chatbot.html"
                 }
             ]
         },
