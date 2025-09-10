@@ -71,6 +71,13 @@ const portfolioData = {
             sectionTitle: "AI Development",
             items: [
                 {
+                    image: "LocalContent/Images/UnicornFinderThumbnail2025-09-04010045.png",
+                    title: "UnicornFinder - AI Analyst for Startups",
+                    description: "Venture capitalists can use this tool to evaluate startups and get investment insights.",
+                    buttonText: "Try It Out",
+                    buttonLink: "https://ai.studio/apps/drive/1BQ4qO7IU4pwYhYBmQ9eTLy-tLE6v51OJ"
+                },
+                {
                     image: "./LocalContent/Images/img_to_dita_convert_thumbnail.jpg",
                     title: "Image To DITA Converter",
                     description: "An AI-enabled tool that uses LLMs with vision capabilities to identify workflows in user-provided images. It then generates DITA task topics for any of the identified workflows.",
@@ -100,10 +107,10 @@ const portfolioData = {
                 },
                 {
                     image: "LocalContent/Images/UnicornFinderThumbnail2025-09-04010045.png",
-                    title: "UnicornFinder - AI Analyst for Startups",
-                    description: "Venture capitalists can use this tool to evaluate startups and get investment insights.",
+                    title: "SarvamAI Indian Language Translator",
+                    description: "A Python application leveraving SarvamAI API to translate text between Indian languages, including Hindi, Marathi, Tamil, Telugu, Bengali, and more.",
                     buttonText: "Try It Out",
-                    buttonLink: "https://ai.studio/apps/drive/1BQ4qO7IU4pwYhYBmQ9eTLy-tLE6v51OJ"
+                    buttonLink: "https://github.com/mugdhav/SarvamAPICodeSample"
                 }
             ]
         },
