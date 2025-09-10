@@ -156,7 +156,6 @@ const portfolioData = {
         { text: "Home", href: "#home" },
         { text: "About", href: "#about" },
         { text: "Portfolio", href: "#portfolio" },
-        { text: "Chatbot", href: "chatbot.html" },
         { text: "Blog", href: "blog/blog.html" },
         { text: "Tech Events", href: "TechEvents.html" },
         { text: "Contact", href: "#contact" }
