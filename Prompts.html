@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Model Prompts - Phi3:3.8b and Gemma3:4b</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/vnd.microsoft.icon" href="LocalContent/favicon/iopm5-km6uc-002.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="LocalContent/favicon/iopm5-km6uc-002.ico">
+    
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" href="LocalContent/favicon/iopm5-km6uc-003.ico">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9HL4T713SQ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-9HL4T713SQ');
+    </script>
+    
+    <!-- Meta tags -->
+    <meta name="description" content="Curated prompts for testing Phi3:3.8b and Gemma3:4b models in general tasks, math reasoning, documentation, diagramming, and image generation.">
+    <meta name="keywords" content="AI prompts, Phi3, Gemma3, machine learning, LLM prompts, model testing">
+    <meta name="author" content="Mugdha Vairagade">
+    <meta name="robots" content="index, follow">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --text-color: #1f2937;
+            --light-bg: #f3f4f6;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+            --secondary-text-color: #4b5563;
+            --footer-text-color: #ffffff;
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #3b82f6;
+            --secondary-color: #60a5fa;
+            --text-color: #e5e7eb;
+            --light-bg: #1f2937;
+            --white: #111827;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            --secondary-text-color: #ffffff;
+            --footer-text-color: #ffffff;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: 2px solid var(--primary-color);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .theme-toggle:hover {
+            background-color: var(--primary-color);
+            transform: scale(1.1);
+        }
+
+        .theme-icon {
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+            margin-bottom: 3rem;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 1;
+            padding: 2rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 300;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 4rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        /* Prompt Categories */
+        .prompt-category {
+            margin-bottom: 4rem;
+            background-color: var(--light-bg);
+            border-radius: 15px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .prompt-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .category-icon {
+            font-size: 2.5rem;
+            margin-right: 1rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .category-title {
+            font-size: 2rem;
+            color: var(--text-color);
+            margin: 0;
+        }
+
+        .prompt-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .prompt-item {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .prompt-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .prompt-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .prompt-text {
+            font-family: 'Courier New', monospace;
+            background-color: var(--light-bg);
+            padding: 1rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: var(--secondary-text-color);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            margin: 0.5rem 0;
+            position: relative;
+        }
+
+        .prompt-description {
+            color: var(--secondary-text-color);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+
+        .copy-button {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 0.25rem 0.5rem;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: var(--transition);
+            opacity: 0.7;
+        }
+
+        .copy-button:hover {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1f2937;
+            color: var(--footer-text-color);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        /* Mobile Responsiveness */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: var(--text-color);
+            margin: 3px 0;
+            transition: var(--transition);
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: var(--shadow);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 2rem 5%;
+            }
+
+            .prompt-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .category-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .category-icon {
+                margin-right: 0;
+                margin-bottom: 0.5rem;
+            }
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="index.html" class="logo">Mugdha's Portfolio</a>
+            <div class="nav-right">
+                <button id="theme-toggle" class="theme-toggle" data-tooltip="Switch to dark mode" onclick="toggleTheme()">
+                    <span class="theme-icon">🌙</span>
+                </button>
+                <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#portfolio">Portfolio</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>AI Model Prompts</h1>
+            <p>Curated prompts for testing Phi3:3.8b and Gemma3:4b models</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <!-- General Section -->
+        <section id="general" class="section">
+            <div class="prompt-category fade-in">
+                <div class="category-header">
+                    <div class="category-icon">🎯</div>
+                    <h2 class="category-title">General</h2>
+                </div>
+                <div class="prompt-grid">
+                    <div class="prompt-item">
+                        <div class="prompt-title">Creative Writing</div>
+                        <div class="prompt-text">
+                            Write a short story about a robot who discovers emotions for the first time. Include dialogue and describe the robot's internal experience.
+                            <button class="copy-button" onclick="copyPrompt(this)">Copy</button>
+                        </div>
+                        <div class="prompt-description">Tests creative writing, character development, and narrative structure</div>
+                    </div>
+                    
+                    <div class="prompt-item">
+                        <div class="prompt-title">Problem Solving</div>
+                        <div class="prompt-text">
+                            You have a 5-minute presentation to convince a skeptical audience that remote work is beneficial. Create an outline with key points and supporting evidence.
+                            <button class="copy-button" onclick="copyPrompt(this)">Copy</button>
+                        </div>
+                        <div class="prompt-description">Tests persuasive communication and structured thinking</div>
+                    </div>
+                    
+                    <div class="prompt-item">
+                        <div class="prompt-title">Text Analysis</div>
+                        <div class="prompt-text">
+                            Analyze the tone and mood of this sentence: "The old house stood silently at the end of the street, its windows like hollow eyes watching the world go by."
+                            <button class="copy-button" onclick="copyPrompt(this)">Copy</button>
+                        </div>
+                        <div class="prompt-description">Tests literary analysis and language comprehension</div>
+                    </div>
+                    
+                    <div class="prompt-item">
+                        <div class="prompt-title">Comparison Task</div>
+                        <div class="prompt-text">
+                            Compare and contrast electric cars with traditional gasoline cars. Consider environmental impact, cost, convenience, and performance.
+                            <button class="copy-button" onclick="copyPrompt(this)">Copy</button>
+                        </div>
+                        <div class="prompt-description">Tests analytical thinking and balanced evaluation</div>
+                    </div>
+
+                    <div class="prompt-item">
+                        <div class="prompt-title">Summarization</div>
+                        <div class="prompt-text">
+                            Summarize the concept of machine learning in exactly 50 words, making it accessible to someone with no technical background.
+                            <button class="copy-button" onclick="copyPrompt(this)">Copy</button>
+                        </div>
+                        <div class="prompt-description">Tests conciseness and ability to simplify complex concepts</div>
+                    </div>
+
+                    <div class="prompt-item">
+                        <div class="prompt-title">Role-Playing</div>
+                        <div class="prompt-text">
+                            Act as a friendly customer service representative helping a frustrated customer whose order was delayed. Provide a helpful response that acknowledges their concern and offers a solution.
+                            <button class="copy-button" onclick="copyPrompt(this)">Copy</button>
+                        </div>
+                        <div class="prompt-description">Tests empathy, customer service skills, and conflict resolution</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Math and Reasoning Section -->
+        <section id="math-reasoning" class="section">
+            <div class="prompt-category fade-in">
+                <div class="category-header">
+                    <div class="category-icon">🧮</div>
+                    <h2 class="category-title">Math and Reasoning</h2>
+                </div>
+                <div class="prompt-grid">
+                    <div class="prompt-item">
+                        <div class="prompt-title">Word Problem</div>
+                        <div class="prompt-text">
+                            A store sells apples for $2.50 per pound. If I buy 3.2 pounds and pay with a $10 bill, how much change will I receive? Show your work.
+                            <button class="copy-button" onclick="copyPrompt(this)">Copy</button>
+                        </div>
+                        <div class="prompt-description">Tests basic arithmetic and word problem solving</div>
+                    </div>
+                    
+                    <div class="prompt-item">
+                        <div class="prompt-title">Logic Puzzle</div>
+                        <div class="prompt-text">
+                            Three switches control three light bulbs in another room. You can flip switches but can only check the room once. How do you determine which switch controls which bulb?
+                            <button class="copy-button" onclick="copyPrompt(this)">Copy</button>
+                        </div>
+                        <div class="prompt-description">Tests logical reasoning and creative problem-solving</div>
+                    </div>
+                    
+                    <div class="prompt-item">
+                        <div class="prompt-title">Pattern Recognition</div>
+                        <div class="prompt-text">
+                            What comes next in this sequence: 2, 6, 18, 54, ? Explain the pattern and provide the next two numbers.
+                            <button class="copy-button" onclick="copyPrompt(this)">Copy</button>
+                        </div>
+                        <div class="prompt-description">Tests pattern recognition and mathematical sequences</div>
+                    </div>
+                    
+                    <div class="prompt-item">
+                        <div class="prompt-title">Probability</div>
+                        <div class="prompt-text">
+                            If you roll two dice, what's the probability of getting a sum of 7? Show your calculation and explain your reasoning.
+                            <button class="copy-button" onclick="copyPrompt(this)">Copy</button>
+                        </div>
+                        <div class="prompt-description">Tests probability understanding and mathematical explanation</div>
+                    </div>
+
+                    <div class="prompt-item">
+                        <div class="prompt-title">Deductive Logic</div>
+                        <div class="prompt-text">
+                            All cats are mammals. Fluffy is a cat. All mammals need oxygen. What can we conclude about Fluffy? Use logical reasoning.
+                            <button class="copy-button" onclick="copyPrompt(this)">Copy</button>
+                        </div>
+                        <div class="prompt-description">Tests deductive reasoning and logical conclusions</div>
+                    </div>
+
+                    <div class="prompt-item">
+                        <div class="prompt-title">Multi-step Problem</div>
+                        <div class="prompt-text">
+                            A train leaves Station A at 2 PM traveling 60 mph. Another train leaves Station B (180 miles away) at 3 PM traveling 80 mph toward Station A. When and where do they meet?
+                            <button class="copy-button" onclick="copyPrompt(this)">Copy</button>
+                        </div>
+                        <div class="prompt-description">Tests complex problem-solving with multiple variables</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Documentation and Diagramming Section -->
+        <section id="documentation" class="section">
+            <div class="prompt-category fade-in">
+                <div class="category-header">
+                    <div class="category-icon">📋</div>
+                    <h2 class="category-title">Documentation and Diagramming</h2>
+                </div>
+                <div class="prompt-grid">
+                    <div class="prompt-item">
+                        <div class="prompt-title">API Documentation</div>
+                        <div class="prompt-text">
+                            Create documentation for a REST API endpoint that creates a new user account. Include the HTTP method, URL, required parameters, response format, and error codes.
+                            <button class="copy-button" onclick="copyPrompt(this)">Copy</button>
+                        </div>
+                        <div class="prompt-description">Tests technical writing and API documentation skills</div>
+                    </div>
+                    
+                    <div class="prompt-item">
+                        <div class="prompt-title">Process Flow</div>
+                        <div class="prompt-text">
+                            Describe the step-by-step process for making coffee using a French press. Format it as a numbered list with clear, actionable instructions.
+                            <button class="copy-button" onclick="copyPrompt(this)">Copy</button>
+                        </div>
+                        <div class="prompt-description">Tests process documentation and instructional writing</div>
+                    </div>
+                    
+                    <div class="prompt-item">
+                        <div class="prompt-title">ASCII Diagram</div>
+                        <div class="prompt-text">
+                            Create a simple ASCII diagram showing the relationship between a database, API server, and web client in a typical web application architecture.
+                            <button class="copy-button" onclick="copyPrompt(this)">Copy</button>
+                        </div>
+                        <div class="prompt-description">Tests ability to create visual representations with text</div>
+                    </div>
+                    
+                    <div class="prompt-item">
+                        <div class="prompt-title">Troubleshooting Guide</div>
+                        <div class="prompt-text">
+                            Write a troubleshooting guide for when a computer won't start. Include at least 5 potential causes and their solutions, organized by likelihood.
+                            <button class="copy-button" onclick="copyPrompt(this)">Copy</button>
+                        </div>
+                        <div class="prompt-description">Tests systematic problem-solving documentation</div>
+                    </div>
+
+                    <div class="prompt-item">
+                        <div class="prompt-title">Flowchart Description</div>
+                        <div class="prompt-text">
+                            Describe a flowchart for the process of applying for a job, from finding the posting to receiving a decision. Use clear decision points and action steps.
+                            <button class="copy-button" onclick="copyPrompt(this)">Copy</button>
+                        </div>
+                        <div class="prompt-description">Tests process mapping and logical flow documentation</div>
+                    </div>
+
+                    <div class="prompt-item">
+                        <div class="prompt-title">Code Documentation</div>
+                        <div class="prompt-text">
+                            Write comprehensive documentation for a function that calculates compound interest. Include function signature, parameters, return value, usage examples, and edge cases.
+                            <button class="copy-button" onclick="copyPrompt(this)">Copy</button>
+                        </div>
+                        <div class="prompt-description">Tests technical documentation and code explanation skills</div>
+                    </div>
+
+                    <div class="prompt-item">
+                        <div class="prompt-title">Tutorial Writing</div>
+                        <div class="prompt-text">
+                            Write a quick-start tutorial with just adequate information to get a new user started with Ollama desktop application. The tutorial teaches when and how to use the web search function of Ollama desktop application, using a suitable example. Keep the language simple, avoid long sentences and jargon.
+                            <button class="copy-button" onclick="copyPrompt(this)">Copy</button>
+                        </div>
+                        <div class="prompt-description">Tests instructional writing and user-friendly documentation</div>
+                    </div>
+
+                    <div class="prompt-item">
+                        <div class="prompt-title">SVG System Diagram</div>
+                        <div class="prompt-text">
+                            Generate an SVG diagram of system architecture for an event organization, ticketing, and meeting application
+                            <button class="copy-button" onclick="copyPrompt(this)">Copy</button>
+                        </div>
+                        <div class="prompt-description">Tests technical diagramming and system architecture visualization</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Image Generation Section -->
+        <section id="image-generation" class="section">
+            <div class="prompt-category fade-in">
+                <div class="category-header">
+                    <div class="category-icon">🎨</div>
+                    <h2 class="category-title">Image Generation</h2>
+                </div>
+                <div class="prompt-grid">
+                    <div class="prompt-item">
+                        <div class="prompt-title">Detailed Scene</div>
+                        <div class="prompt-text">
+                            A cozy coffee shop on a rainy evening, warm lighting from Edison bulb fixtures, steam rising from coffee cups, people reading books, large windows showing raindrops, wooden tables and leather chairs, photorealistic style.
+                            <button class="copy-button" onclick="copyPrompt(this)">Copy</button>
+                        </div>
+                        <div class="prompt-description">Tests ability to create atmospheric scene descriptions</div>
+                    </div>
+                    
+                    <div class="prompt-item">
+                        <div class="prompt-title">Character Portrait</div>
+                        <div class="prompt-text">
+                            A wise elderly wizard with a long silver beard, wearing deep blue robes with golden embroidery, holding a glowing crystal staff, kind eyes behind wire-rimmed glasses, fantasy art style, detailed facial features.
+                            <button class="copy-button" onclick="copyPrompt(this)">Copy</button>
+                        </div>
+                        <div class="prompt-description">Tests character design and detailed feature description</div>
+                    </div>
+                    
+                    <div class="prompt-item">
+                        <div class="prompt-title">Technical Illustration</div>
+                        <div class="prompt-text">
+                            Cross-section diagram of a modern electric car showing the battery pack, electric motor, charging port, and regenerative braking system, clean technical illustration style, labeled components.
+                            <button class="copy-button" onclick="copyPrompt(this)">Copy</button>
+                        </div>
+                        <div class="prompt-description">Tests technical diagram and educational illustration prompts</div>
+                    </div>
+                    
+                    <div class="prompt-item">
+                        <div class="prompt-title">Abstract Concept</div>
+                        <div class="prompt-text">
+                            Visual representation of "artificial intelligence" as flowing digital streams of light and data, neural network patterns, geometric shapes morphing into organic forms, blue and gold color palette, modern digital art style.
+                            <button class="copy-button" onclick="copyPrompt(this)">Copy</button>
+                        </div>
+                        <div class="prompt-description">Tests abstract concept visualization and artistic interpretation</div>
+                    </div>
+
+                    <div class="prompt-item">
+                        <div class="prompt-title">Product Photography</div>
+                        <div class="prompt-text">
+                            Professional product photo of a sleek wireless headphones on a white background, soft studio lighting, minimal shadows, high-resolution detail showing texture and materials, commercial photography style.
+                            <button class="copy-button" onclick="copyPrompt(this)">Copy</button>
+                        </div>
+                        <div class="prompt-description">Tests commercial photography and product presentation prompts</div>
+                    </div>
+
+                    <div class="prompt-item">
+                        <div class="prompt-title">Architectural Visualization</div>
+                        <div class="prompt-text">
+                            Modern minimalist house with large glass windows, concrete and wood materials, surrounded by a landscaped garden, golden hour lighting, architectural photography style, clean lines and geometric forms.
+                            <button class="copy-button" onclick="copyPrompt(this)">Copy</button>
+                        </div>
+                        <div class="prompt-description">Tests architectural visualization and environmental design prompts</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Mugdha Vairagade. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Theme toggle functionality
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            const themeIcon = document.querySelector('.theme-icon');
+            themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+        }
+
+        // Initialize theme on page load
+        function initializeTheme() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            
+            const themeIcon = document.querySelector('.theme-icon');
+            if (themeIcon) {
+                themeIcon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+            }
+        }
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Copy prompt to clipboard
+        function copyPrompt(button) {
+            const promptText = button.parentElement.textContent.replace('Copy', '').trim();
+            navigator.clipboard.writeText(promptText).then(() => {
+                const originalText = button.textContent;
+                button.textContent = 'Copied!';
+                button.style.backgroundColor = '#10b981';
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.style.backgroundColor = 'var(--primary-color)';
+                }, 2000);
+            });
+        }
+
+        // Fade in animation on scroll
+        function initializeAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationDelay = '0.2s';
+                        entry.target.style.animationPlayState = 'running';
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in').forEach(el => {
+                el.style.animationPlayState = 'paused';
+                observer.observe(el);
+            });
+        }
+
+        // Initialize everything when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeTheme();
+            initializeAnimations();
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
