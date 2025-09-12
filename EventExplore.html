@@ -487,7 +487,7 @@
                     </div>
                     <div class="card-content">
                         <p style="color: var(--secondary-text-color); line-height: 1.7; margin-bottom: 1.5rem;">
-                            Explore the <a href="https://ollama.com/library/phi3:3.8b" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color); text-decoration: none; font-weight: 500;">phi3:3.8b</a> and <a href="https://ollama.com/library/gemma3:4b" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color); text-decoration: none; font-weight: 500;">gemma3:4b</a> Open Source large language models in the Ollama model library. Note their sizes and intended uses. Do any intended uses match your requirements?
+                            Explore the <a href="https://ollama.com/library/phi3:3.8b" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color); text-decoration: none; font-weight: 500;">phi3:3.8b</a> and <a href="https://ollama.com/library/gemma3:4b" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color); text-decoration: none; font-weight: 500;">gemma3:4b</a> Open Source large language models (LLMs) in the Ollama model library. Note their sizes and intended uses. Do any intended uses match your requirements?
                         </p>
                         <p style="color: var(--secondary-text-color); line-height: 1.7;">
                             Look up <a href="https://ollama.com/turbo" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color); text-decoration: none; font-weight: 500;">Ollama Turbo</a>. Understand what it is and which models are available in it.
@@ -504,36 +504,43 @@
                     </div>
                     <div class="card-content">
                         <p style="color: var(--secondary-text-color); margin-bottom: 1.5rem; line-height: 1.7;">
-                            Running Large Language Models (LLMs) locally gives you complete privacy, eliminates internet dependency, reduces costs, and provides full control over your AI interactions. Your data never leaves your device, making it ideal for sensitive work or areas with limited connectivity.
+                            Running Open Source models locally gives you complete privacy, eliminates internet dependency, reduces costs, and provides full control over your AI interactions. Your data never leaves your device, making it ideal for sensitive work or areas with limited connectivity.
                         </p>
                         
                         <p style="color: var(--secondary-text-color); margin-bottom: 1.5rem; line-height: 1.7;">
-                            Popular tools for running LLMs locally include <a href="https://ollama.com" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color); text-decoration: none; font-weight: 500;">Ollama</a>, <a href="https://lmstudio.ai" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color); text-decoration: none; font-weight: 500;">LM Studio</a>, and <a href="https://gpt4all.io" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color); text-decoration: none; font-weight: 500;">GPT4All</a>. For this event, we'll be using Ollama to run models locally.
+                            Popular tools for running models locally include <a href="https://ollama.com" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color); text-decoration: none; font-weight: 500;">Ollama</a>, <a href="https://lmstudio.ai" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color); text-decoration: none; font-weight: 500;">LM Studio</a>, and <a href="https://gpt4all.io" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color); text-decoration: none; font-weight: 500;">GPT4All</a>. For this event, we'll be using Ollama to run models locally.
                         </p>
                         
                         <div style="background-color: rgba(37, 99, 235, 0.05); padding: 1.5rem; border-radius: 10px; margin: 1.5rem 0; border-left: 4px solid var(--primary-color);">
-                            <h4 style="color: var(--text-color); margin-bottom: 1rem; font-size: 1.1rem;">Step-by-Step Instructions:</h4>
+                            <h4 style="color: var(--text-color); margin-bottom: 1rem; font-size: 1.1rem;">Demonstrate Offline Capability:</h4>
+                            
+                            <ol style="color: var(--secondary-text-color); line-height: 1.6; padding-left: 1.5rem; margin-bottom: 1.5rem;">
+                                <li style="margin: 0.5rem 0;">Start the Ollama desktop application</li>
+                                <li style="margin: 0.5rem 0;">From the Settings of the application, log out from your Ollama account. Also, enable Airplane mode</li>
+                                <li style="margin: 0.5rem 0;">Now the Ollama desktop application cannot connect to the internet or access models available online</li>
+                            </ol>
+                            
+                            <p style="color: var(--secondary-text-color); font-style: italic; margin-bottom: 1.5rem; line-height: 1.7;">
+                                These steps are only to emphasize that the installed models can run locally, stand-alone, without connectivity. Actually, Ollama by default runs smaller models like phi3 and gemma this way without requiring you to log out or enable Airplane mode.
+                            </p>
+                            
+                            <p style="color: var(--text-color); font-weight: 600; margin-bottom: 2rem;">
+                                Now you are ready to run the installed models locally and generate content using them.
+                            </p>
                             
                             <div style="margin-bottom: 2rem;">
-                                <h5 style="color: var(--primary-color); margin-bottom: 0.75rem; font-weight: 600;">1. Run phi3:3.8b using Desktop App:</h5>
+                                <h5 style="color: var(--primary-color); margin-bottom: 0.75rem; font-weight: 600;">Run a Model Using Ollama Desktop Application:</h5>
                                 <ol style="color: var(--secondary-text-color); line-height: 1.6; padding-left: 1.5rem;">
-                                    <li style="margin: 0.5rem 0;">Open the Ollama desktop application on your computer</li>
-                                    <li style="margin: 0.5rem 0;">In the search bar, type <code style="background-color: var(--light-bg); padding: 0.2rem 0.4rem; border-radius: 4px; font-family: monospace;">phi3:3.8b</code></li>
-                                    <li style="margin: 0.5rem 0;">Click on the phi3:3.8b model to download and install it</li>
-                                    <li style="margin: 0.5rem 0;">Once downloaded, click "Chat" to start interacting with the model</li>
-                                    <li style="margin: 0.5rem 0;">Test the model by asking: "What are the benefits of running AI models locally?"</li>
+                                    <li style="margin: 0.5rem 0;">In the Ollama desktop application, select the <code style="background-color: var(--light-bg); padding: 0.2rem 0.4rem; border-radius: 4px; font-family: monospace;">phi3:3.8b</code> model</li>
+                                    <li style="margin: 0.5rem 0;">Submit a prompt to generate content. See some prompt examples <a href="#prompt-examples" style="color: var(--primary-color); text-decoration: none; font-weight: 500;">here</a></li>
                                 </ol>
                             </div>
                             
                             <div>
-                                <h5 style="color: var(--primary-color); margin-bottom: 0.75rem; font-weight: 600;">2. Run gemma2:2b from Command Prompt:</h5>
+                                <h5 style="color: var(--primary-color); margin-bottom: 0.75rem; font-weight: 600;">Run a Model Using Ollama Command Line Interface (CLI):</h5>
                                 <ol style="color: var(--secondary-text-color); line-height: 1.6; padding-left: 1.5rem;">
-                                    <li style="margin: 0.5rem 0;">Open Command Prompt (Windows) or Terminal (Mac/Linux)</li>
-                                    <li style="margin: 0.5rem 0;">Type the command: <code style="background-color: var(--light-bg); padding: 0.2rem 0.4rem; border-radius: 4px; font-family: monospace;">ollama run gemma2:2b</code></li>
-                                    <li style="margin: 0.5rem 0;">Wait for the model to download and initialize (this may take a few minutes)</li>
-                                    <li style="margin: 0.5rem 0;">Once the prompt appears, start chatting with the model</li>
-                                    <li style="margin: 0.5rem 0;">Test with: "Explain quantum computing in simple terms"</li>
-                                    <li style="margin: 0.5rem 0;">Type <code style="background-color: var(--light-bg); padding: 0.2rem 0.4rem; border-radius: 4px; font-family: monospace;">/bye</code> to exit the chat</li>
+                                    <li style="margin: 0.5rem 0;">In a Command Prompt or terminal, run the following command: <code style="background-color: var(--light-bg); padding: 0.2rem 0.4rem; border-radius: 4px; font-family: monospace;">ollama pull gemma</code></li>
+                                    <li style="margin: 0.5rem 0;">Then submit a prompt to generate content. See some prompt examples <a href="#prompt-examples" style="color: var(--primary-color); text-decoration: none; font-weight: 500;">here</a></li>
                                 </ol>
                             </div>
                         </div>
