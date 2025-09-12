@@ -517,11 +517,14 @@
                             <ol style="color: var(--secondary-text-color); line-height: 1.6; padding-left: 1.5rem; margin-bottom: 1.5rem;">
                                 <li style="margin: 0.5rem 0;">Start the Ollama desktop application.</li>
                                 <li style="margin: 0.5rem 0;">From the Settings of the application, log out from your Ollama account. Also, enable Airplane mode.</li>
-                                <li style="margin: 0.5rem 0;">Now the Ollama desktop application cannot connect to the internet or access models available online.</li>
                             </ol>
                             
-                            <p style="color: var(--secondary-text-color); font-style: italic; margin-bottom: 1.5rem; line-height: 1.7;">
-                                These steps are only to emphasize that the installed models can run locally, stand-alone, without connectivity. Actually, Ollama by default runs smaller models like phi3:3.8b and gemma3:4b this way without requiring you to log out or enable Airplane mode.
+                            <p style="color: var(--secondary-text-color); margin-bottom: 1.5rem; line-height: 1.7;">
+                                Now the Ollama desktop application cannot connect to the internet or access models available online.
+                            </p>
+                            
+                            <p style="color: var(--secondary-text-color); font-style: italic; font-size: 0.95em; margin-bottom: 1.5rem; line-height: 1.7;">
+                                <strong>Note:</strong> These steps are only to emphasize that the installed models can run locally, stand-alone, without connectivity. Actually, Ollama by default runs smaller models like phi3:3.8b and gemma3:4b this way without requiring you to log out or enable Airplane mode.
                             </p>
                             
                             <p style="color: var(--text-color); font-weight: 600; margin-bottom: 2rem;">
@@ -545,9 +548,6 @@
                             </div>
                         </div>
                         
-                        <p style="color: var(--secondary-text-color); font-style: italic; font-size: 0.95em;">
-                            <strong>Note:</strong> Make sure you have sufficient disk space (at least 4GB free) and a stable internet connection for the initial model downloads.
-                        </p>
                     </div>
                 </div>
             </div>
@@ -559,8 +559,6 @@
                         <h3 class="card-title" style="margin-bottom: 0;">Generate Content Using Online Open Source Models</h3>
                     </div>
                     <div class="card-content">
-                        <p style="color: var(--warning-color); font-weight: 600; margin-bottom: 1rem;"><strong>Important:</strong> Before following these steps, follow the <a href="PreEventInstructions.html" style="color: var(--primary-color); text-decoration: underline;">set-up instructions</a>.</p>
-                        
                         <ol style="color: var(--secondary-text-color); line-height: 1.6; padding-left: 1.5rem;">
                             <li style="margin: 0.75rem 0;">Log into your Google Colab account. In Secrets pane <i class="fas fa-key" style="transform: rotate(90deg);"></i>, add a new secret with Name <strong>sarvam</strong>. As the secret's Value, enter the API key you created from Sarvam dashboard. Enable the Notebook access to the secret.</li>
                             <li style="margin: 0.75rem 0;">Download the <a href="LocalContent/sarvam_translator.ipynb" download="sarvam_translator.ipynb" style="color: var(--primary-color); text-decoration: none; font-weight: 500;">sarvam_translator.ipynb</a> file (notebook). Upload this notebook in your Google Colab from File > Upload Notebook menu.</li>
