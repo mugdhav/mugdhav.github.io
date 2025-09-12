@@ -583,6 +583,22 @@
                         <h3 class="card-title" style="margin-bottom: 0;">Generate Content Using Online Open Source Models</h3>
                     </div>
                     <div class="card-content">
+                        <p style="color: var(--secondary-text-color); margin-bottom: 1.5rem; line-height: 1.7;">
+                            Models performing tasks like image generation require more computational resources and memory than text-only models. Therefore, they sare run online instead of locally to ensure optimal performance and access to powerful hardware.
+                        </p>
+                        
+                        <p style="color: var(--secondary-text-color); margin-bottom: 1.5rem; line-height: 1.7;">
+                            <strong>Ollama Turbo Mode:</strong> Ollama provides a Turbo mode that gives access to larger, more capable models online, such as <code style="background-color: var(--light-bg); padding: 0.2rem 0.4rem; border-radius: 4px; font-family: monospace;">gpt-oss:120b</code>, which would be impractical to run locally due to their massive size and resource requirements.
+                        </p>
+                        
+                        <p style="color: var(--secondary-text-color); margin-bottom: 1.5rem; line-height: 1.7;">
+                            <strong>Hugging Face Spaces:</strong> Models can also be run online on <a href="https://huggingface.co/spaces" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color); text-decoration: none; font-weight: 500;">Hugging Face Spaces</a>, which provides free access to various AI models. For example, you can try the <a href="https://huggingface.co/spaces/Qwen/Qwen-Image" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color); text-decoration: none; font-weight: 500;">Qwen Image model</a> for image generation and analysis tasks.
+                        </p>
+                        
+                        <p style="color: var(--text-color); font-weight: 600; margin-bottom: 1.5rem;">
+                            Try the Sarvam API for Indian Language Translation:
+                        </p>
+                        
                         <ol style="color: var(--secondary-text-color); line-height: 1.6; padding-left: 1.5rem;">
                             <li style="margin: 0.75rem 0;">Log into your Google Colab account. In Secrets pane <i class="fas fa-key" style="transform: rotate(90deg);"></i>, add a new secret with Name <strong>sarvam</strong>. As the secret's Value, enter the API key you created from Sarvam dashboard. Enable the Notebook access to the secret.</li>
                             <li style="margin: 0.75rem 0;">Download the <a href="LocalContent/sarvam_translator.ipynb" download="sarvam_translator.ipynb" style="color: var(--primary-color); text-decoration: none; font-weight: 500;">sarvam_translator.ipynb</a> file (notebook). Upload this notebook in your Google Colab from File > Upload Notebook menu.</li>
