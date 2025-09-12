@@ -446,12 +446,27 @@
     <main role="main">
         <section class="content-section">
             <h2 class="section-title">Workshop Instructions</h2>
+            
+            <!-- Prerequisites Card -->
+            <div class="exploration-card fade-in" style="background-color: rgba(16, 185, 129, 0.1); border-left: 5px solid var(--success-color);">
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                    <div class="card-icon" style="margin-bottom: 0;"><i class="fas fa-exclamation-triangle" aria-hidden="true" style="color: var(--success-color);"></i></div>
+                    <h3 class="card-title" style="color: var(--success-color); margin-bottom: 0;">Prerequisites</h3>
+                </div>
+                <div class="card-content">
+                    <p style="color: var(--text-color); font-size: 1.1rem;">
+                        Please complete the <a href="PreEventInstructions.html" style="color: var(--success-color); text-decoration: none; font-weight: 600; border-bottom: 2px solid var(--success-color);">setup</a> before following these instructions.
+                    </p>
+                </div>
+            </div>
              <!-- Message from Andrew Ng Card -->
-                <div class="exploration-card fade-in">
-                    <div class="card-icon"><i class="fas fa-video" aria-hidden="true"></i></div>
-                    <h3 class="card-title">Message from Andrew Ng</h3>
+                <div class="exploration-card fade-in" style="margin-top: 2rem;">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <div class="card-icon" style="margin-bottom: 0;"><i class="fas fa-video" aria-hidden="true"></i></div>
+                        <h3 class="card-title" style="margin-bottom: 0;">Message from Andrew Ng</h3>
+                    </div>
                     <div class="card-content">
-                        <div style="position: relative; width: 100%; max-width: 640px; margin: 0 auto; background: #000; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);">
+                        <div style="position: relative; width: 100%; max-width: 480px; margin: 0 auto; background: #000; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);">
                             <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
                                 <iframe src="https://www.youtube.com/embed/i1ssNgdlTT0" 
                                         title="Message from Andrew Ng" 
@@ -463,114 +478,86 @@
                         <p style="color: var(--secondary-text-color); margin-top: 1rem; text-align: center; font-style: italic;">Watch Andrew Ng's special message for the Pie & AI: Pune event participants.</p>
                     </div>
                 </div>
+
+                <!-- Explore Card -->
+                <div class="exploration-card fade-in" style="margin-top: 2rem;">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <div class="card-icon" style="margin-bottom: 0;"><i class="fas fa-search" aria-hidden="true"></i></div>
+                        <h3 class="card-title" style="margin-bottom: 0;">Explore</h3>
+                    </div>
+                    <div class="card-content">
+                        <p style="color: var(--secondary-text-color); line-height: 1.7; margin-bottom: 1.5rem;">
+                            Explore the <a href="https://ollama.com/library/phi3:3.8b" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color); text-decoration: none; font-weight: 500;">phi3:3.8b</a> and <a href="https://ollama.com/library/gemma3:4b" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color); text-decoration: none; font-weight: 500;">gemma3:4b</a> Open Source large language models in the Ollama model library. Note their sizes and intended uses. Do any intended uses match your requirements?
+                        </p>
+                        <p style="color: var(--secondary-text-color); line-height: 1.7;">
+                            Look up <a href="https://ollama.com/turbo" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color); text-decoration: none; font-weight: 500;">Ollama Turbo</a>. Understand what it is and which models are available in it.
+                        </p>
+                    </div>
+                </div>
+            
+            <div class="exploration-grid">
+                <!-- Run Open Source Models Locally Card -->
+                <div class="exploration-card fade-in">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <div class="card-icon" style="margin-bottom: 0;"><i class="fas fa-desktop" aria-hidden="true"></i></div>
+                        <h3 class="card-title" style="margin-bottom: 0;">Run Open Source Models Locally</h3>
+                    </div>
+                    <div class="card-content">
+                        <p style="color: var(--secondary-text-color); margin-bottom: 1.5rem; line-height: 1.7;">
+                            Running Large Language Models (LLMs) locally gives you complete privacy, eliminates internet dependency, reduces costs, and provides full control over your AI interactions. Your data never leaves your device, making it ideal for sensitive work or areas with limited connectivity.
+                        </p>
+                        
+                        <p style="color: var(--text-color); font-weight: 600; margin-bottom: 1rem;">Popular Tools for Running LLMs Locally:</p>
+                        <ul style="color: var(--secondary-text-color); line-height: 1.6; padding-left: 1.5rem; margin-bottom: 1.5rem;">
+                            <li style="margin: 0.5rem 0;"><strong>Ollama</strong> - Simple CLI tool for running models</li>
+                            <li style="margin: 0.5rem 0;"><strong>LM Studio</strong> - User-friendly GUI application</li>
+                            <li style="margin: 0.5rem 0;"><strong>GPT4All</strong> - Cross-platform desktop application</li>
+                        </ul>
+                        
+                        <p style="color: var(--primary-color); font-weight: 600; margin-bottom: 1.5rem;">
+                            For this event, we'll be using <strong>Ollama</strong> to run models locally.
+                        </p>
+                        
+                        <div style="background-color: rgba(37, 99, 235, 0.05); padding: 1.5rem; border-radius: 10px; margin: 1.5rem 0; border-left: 4px solid var(--primary-color);">
+                            <h4 style="color: var(--text-color); margin-bottom: 1rem; font-size: 1.1rem;">Step-by-Step Instructions:</h4>
+                            
+                            <div style="margin-bottom: 2rem;">
+                                <h5 style="color: var(--primary-color); margin-bottom: 0.75rem; font-weight: 600;">1. Run phi3:3.8b using Desktop App:</h5>
+                                <ol style="color: var(--secondary-text-color); line-height: 1.6; padding-left: 1.5rem;">
+                                    <li style="margin: 0.5rem 0;">Open the Ollama desktop application on your computer</li>
+                                    <li style="margin: 0.5rem 0;">In the search bar, type <code style="background-color: var(--light-bg); padding: 0.2rem 0.4rem; border-radius: 4px; font-family: monospace;">phi3:3.8b</code></li>
+                                    <li style="margin: 0.5rem 0;">Click on the phi3:3.8b model to download and install it</li>
+                                    <li style="margin: 0.5rem 0;">Once downloaded, click "Chat" to start interacting with the model</li>
+                                    <li style="margin: 0.5rem 0;">Test the model by asking: "What are the benefits of running AI models locally?"</li>
+                                </ol>
+                            </div>
+                            
+                            <div>
+                                <h5 style="color: var(--primary-color); margin-bottom: 0.75rem; font-weight: 600;">2. Run gemma2:2b from Command Prompt:</h5>
+                                <ol style="color: var(--secondary-text-color); line-height: 1.6; padding-left: 1.5rem;">
+                                    <li style="margin: 0.5rem 0;">Open Command Prompt (Windows) or Terminal (Mac/Linux)</li>
+                                    <li style="margin: 0.5rem 0;">Type the command: <code style="background-color: var(--light-bg); padding: 0.2rem 0.4rem; border-radius: 4px; font-family: monospace;">ollama run gemma2:2b</code></li>
+                                    <li style="margin: 0.5rem 0;">Wait for the model to download and initialize (this may take a few minutes)</li>
+                                    <li style="margin: 0.5rem 0;">Once the prompt appears, start chatting with the model</li>
+                                    <li style="margin: 0.5rem 0;">Test with: "Explain quantum computing in simple terms"</li>
+                                    <li style="margin: 0.5rem 0;">Type <code style="background-color: var(--light-bg); padding: 0.2rem 0.4rem; border-radius: 4px; font-family: monospace;">/bye</code> to exit the chat</li>
+                                </ol>
+                            </div>
+                        </div>
+                        
+                        <p style="color: var(--secondary-text-color); font-style: italic; font-size: 0.95em;">
+                            <strong>Note:</strong> Make sure you have sufficient disk space (at least 4GB free) and a stable internet connection for the initial model downloads.
+                        </p>
+                    </div>
+                </div>
+            </div>
             
             <div class="exploration-grid">
                 <div class="exploration-card fade-in">
-                    <div class="card-icon"><i class="fas fa-comments" aria-hidden="true"></i></div>
-                    <h3 class="card-title">Chat with Sarvam AI in Native Language</h3>
-                    <div class="card-content">
-                        <p style="color: var(--warning-color); font-weight: 600; margin-bottom: 1rem;"><strong>Important:</strong> Before following these steps, follow the <a href="PreEventInstructions.html" style="color: var(--primary-color); text-decoration: underline;">set-up instructions</a>.</p>
-                        
-                        <ol style="color: var(--secondary-text-color); line-height: 1.6; padding-left: 1.5rem; margin-bottom: 1.5rem;">
-                            <li style="margin: 0.75rem 0;">Log into your Sarvam AI account and access its <a href="https://dashboard.sarvam.ai/chat" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color); text-decoration: none; font-weight: 500;">Chat interface</a>.</li>
-                            <li style="margin: 0.75rem 0;">Enter prompts the same ways you would on ChatGPT/Perplexity/Gemini. Compare AI chat responses to those from ChatGPT/Perplexity/Gemini.</li>
-                            <li style="margin: 0.75rem 0;">Try prompting in your native language. You can use <a href="https://www.google.co.in/inputtools/try/" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color); text-decoration: none; font-weight: 500;">Google Input Tools</a> to prepare text prompts in your native language. Does AI respond automatically in your native language and script?</li>
-                        </ol>
-                        
-                        <p style="font-size: 1.1rem; font-weight: 500; margin-bottom: 1rem;">Some examples:</p>
-                        
-                        <div style="background-color: rgba(37, 99, 235, 0.1); padding: 1rem; border-radius: 8px; margin: 1rem 0; border-left: 4px solid var(--primary-color); position: relative;">
-                            <p style="font-style: italic; margin-bottom: 0.5rem;">How many times can one change one's address in adhar? Krupaya hindi me uttar den</p>
-                            <button onclick="copyToClipboard('How many times can one change one\'s address in adhar? Krupaya hindi me uttar den')" style="position: absolute; top: 0.5rem; right: 0.5rem; background: var(--primary-color); color: white; border: none; border-radius: 4px; padding: 0.25rem 0.5rem; cursor: pointer; font-size: 0.8rem;" title="Copy to clipboard">
-                                <i class="fas fa-copy"></i>
-                            </button>
-                        </div>
-                        
-                        <div style="background-color: rgba(37, 99, 235, 0.1); padding: 1rem; border-radius: 8px; margin: 1rem 0; border-left: 4px solid var(--primary-color); position: relative;">
-                            <p style="font-style: italic; margin-bottom: 0.5rem;">पुणे से चेन्नई १७ सितम्बर २०२५  को कौनसी ट्रैन हैं , जिनमें कनफर्म्ड आरक्षण मिल सकता है ? मुझे uptodate जानकारी चाहिए.</p>
-                            <button onclick="copyToClipboard('पुणे से चेन्नई १७ सितम्बर २०२५  को कौनसी ट्रैन हैं , जिनमें कनफर्म्ड आरक्षण मिल सकता है ? मुझे uptodate जानकारी चाहिए.')" style="position: absolute; top: 0.5rem; right: 0.5rem; background: var(--primary-color); color: white; border: none; border-radius: 4px; padding: 0.25rem 0.5rem; cursor: pointer; font-size: 0.8rem;" title="Copy to clipboard">
-                                <i class="fas fa-copy"></i>
-                            </button>
-                        </div>
-                        
-                        <div style="background-color: rgba(37, 99, 235, 0.1); padding: 1rem; border-radius: 8px; margin: 1rem 0; border-left: 4px solid var(--primary-color); position: relative;">
-                            <p style="font-style: italic; margin-bottom: 0.5rem;">पुणे महानगर परिवहन च्या buses वर पु . ल . देशपांडे यांच्या शैलीत एक विनोदी पॅराग्राफ लिहा</p>
-                            <button onclick="copyToClipboard('पुणे महानगर परिवहन च्या buses वर पु . ल . देशपांडे यांच्या शैलीत एक विनोदी पॅराग्राफ लिहा')" style="position: absolute; top: 0.5rem; right: 0.5rem; background: var(--primary-color); color: white; border: none; border-radius: 4px; padding: 0.25rem 0.5rem; cursor: pointer; font-size: 0.8rem;" title="Copy to clipboard">
-                                <i class="fas fa-copy"></i>
-                            </button>
-                        </div>
-                        
-                        <div style="background-color: rgba(37, 99, 235, 0.1); padding: 1rem; border-radius: 8px; margin: 1rem 0; border-left: 4px solid var(--primary-color); position: relative;">
-                            <p style="font-style: italic; margin-bottom: 0.5rem;">लेह, लद्दाख  सडक मार्ग से पेलिंग, सिक्किम से  कितने KM दूर  है?</p>
-                            <button onclick="copyToClipboard('लेह, लद्दाख  सडक मार्ग से पेलिंग, सिक्किम से  कितने KM दूर  है?')" style="position: absolute; top: 0.5rem; right: 0.5rem; background: var(--primary-color); color: white; border: none; border-radius: 4px; padding: 0.25rem 0.5rem; cursor: pointer; font-size: 0.8rem;" title="Copy to clipboard">
-                                <i class="fas fa-copy"></i>
-                            </button>
-                        </div>
-                        
-                        <div style="background-color: rgba(37, 99, 235, 0.1); padding: 1rem; border-radius: 8px; margin: 1rem 0; border-left: 4px solid var(--primary-color); position: relative;">
-                            <p style="font-style: italic; margin-bottom: 0.5rem;">Translate into Tamil and show the translation in both roman and Tamil scripts: You are most welcome!</p>
-                            <button onclick="copyToClipboard('Translate into Tamil and show the translation in both roman and Tamil scripts: You are most welcome!')" style="position: absolute; top: 0.5rem; right: 0.5rem; background: var(--primary-color); color: white; border: none; border-radius: 4px; padding: 0.25rem 0.5rem; cursor: pointer; font-size: 0.8rem;" title="Copy to clipboard">
-                                <i class="fas fa-copy"></i>
-                            </button>
-                        </div>
-                        
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <div class="card-icon" style="margin-bottom: 0;"><i class="fas fa-globe" aria-hidden="true"></i></div>
+                        <h3 class="card-title" style="margin-bottom: 0;">Generate Content Using Online Open Source Models</h3>
                     </div>
-                </div>
-
-                <div class="exploration-card fade-in">
-                    <div class="card-icon"><i class="fas fa-robot" aria-hidden="true"></i></div>
-                    <h3 class="card-title">Build A Hindi Chat Agent with BharatGPT</h3>
-                    <div class="card-content">
-                        <p style="color: var(--warning-color); font-weight: 600; margin-bottom: 1rem;"><strong>Important:</strong> Before following these steps, follow the <a href="PreEventInstructions.html" style="color: var(--primary-color); text-decoration: underline;">set-up instructions</a>.</p>
-                        
-                        <ol style="color: var(--secondary-text-color); line-height: 1.6; padding-left: 1.5rem; margin-bottom: 1.5rem;">
-                            <li style="margin: 0.75rem 0;">Log into your <a href="https://builder.corover.ai" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color); text-decoration: none; font-weight: 500;">CoRover.ai BharatGPT account</a>. Click Create AI Agent on its <a href="https://builder.corover.ai/#/onboarding/add-bot" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color); text-decoration: none; font-weight: 500;">dashboard</a>, then click Via Form.</li>
-                            
-                            <li style="margin: 0.75rem 0;">In Basic Info, set these values for your agent:
-                                <ul style="list-style: disc; padding-left: 1.5rem; margin-top: 0.5rem;">
-                                    <li style="margin: 0.25rem 0;">Select your AI Agent's languages: <strong>Hindi</strong></li>
-                                    <li style="margin: 0.25rem 0;">Select AI Agent type: <strong>Chatbot</strong> Also select <strong>Click, Voice, Text</strong></li>
-                                    <li style="margin: 0.25rem 0;">Choose language: <strong>Hindi</strong></li>
-                                    <li style="margin: 0.25rem 0;">Enter your AI Agent name: <strong>सहायिका</strong></li>
-                                    <li style="margin: 0.25rem 0;">Add welcome message: <strong>नमस्ते, मैं आपकी डिजिटल सहायिका हूँ.</strong></li>
-                                    <li style="margin: 0.25rem 0;">Add a placeholder: <strong>आपका प्रश्न क्या है?</strong></li>
-                                    <li style="margin: 0.25rem 0;">Add fallback message: <strong>क्षमा करें। मुझे इस विषय पर समुचित जानकारी नहीं है. क्या आप कोई और प्रश्न पूछना चाहते हैं?</strong></li>
-                                </ul>
-                            </li>
-                            
-                            <li style="margin: 0.75rem 0;">Click Continue to move to Branding.</li>
-                            
-                            <li style="margin: 0.75rem 0;">In Branding, select agent icon and color of your choice. Click Continue to move to Power Up.</li>
-                            
-                            <li style="margin: 0.75rem 0;">In Power Up, set these values for your agent:
-                                <ul style="list-style: disc; padding-left: 1.5rem; margin-top: 0.5rem;">
-                                    <li style="margin: 0.25rem 0;">Select Response layer: <strong>Prompt (Generative AI)</strong></li>
-                                    <li style="margin: 0.25rem 0;">Choose LLM model: <strong>BharatGPT Internet</strong></li>
-                                </ul>
-                            </li>
-                            
-                            <li style="margin: 0.75rem 0;">Click Create AI Agent. Your Hindi Chat Agent is ready.</li>
-                            
-                            <li style="margin: 0.75rem 0;">Click Test AI Agent to test it. Try chatting with it in your native language using <a href="https://www.google.co.in/inputtools/try/" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color); text-decoration: none; font-weight: 500;">Google Input Tools</a>.</li>
-                        </ol>
-                        
-                        <p style="color: var(--secondary-text-color); font-style: italic; margin-bottom: 1rem;">Here's a short clip of a similar Chat Agent in action:</p>
-                        
-                        <div style="position: relative; width: 100%; max-width: 480px; margin: 0 auto; background: #000; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);">
-                            <div style="position: relative; padding-bottom: 177.78%; height: 0; overflow: hidden;">
-                                <iframe src="https://www.youtube.com/embed/BMlY6wA9zjU" 
-                                        title="BharatGPT Hindi Chatbot" 
-                                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" 
-                                        allowfullscreen>
-                                </iframe>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="exploration-card fade-in">
-                    <div class="card-icon"><i class="fas fa-code" aria-hidden="true"></i></div>
-                    <h3 class="card-title">Build Indian Language Translator with Sarvam API</h3>
                     <div class="card-content">
                         <p style="color: var(--warning-color); font-weight: 600; margin-bottom: 1rem;"><strong>Important:</strong> Before following these steps, follow the <a href="PreEventInstructions.html" style="color: var(--primary-color); text-decoration: underline;">set-up instructions</a>.</p>
                         
