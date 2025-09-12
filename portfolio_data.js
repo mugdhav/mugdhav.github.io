@@ -197,6 +197,36 @@ const portfolioData = {
     //     searchTerms: 'searchable keywords...'     // Space-separated keywords for search
     // }
     events: [
+        // Featured September 2025 Pie & AI Events
+        {
+            id: 'pie-ai-pune-content-generation',
+            title: 'Pie & AI: Pune - Content Generation with Open Source Models',
+            status: 'coming-soon',
+            statusLabel: 'Coming Soon',
+            date: 'September 13, 2025, 11:00 AM - 12:00 PM IST',
+            location: 'Cafe Buddys Espresso Baner, Pune',
+            organization: 'Pie & AI by DeepLearning.AI',
+            description: 'A hands-on session exploring content generation using Open Source models, focusing on generating text, images, and code with discussion of their use cases. Bring your laptops for collaborative exploration of Open Source LLMs.',
+            icon: 'fas fa-brain',
+            link: 'https://www.eventbrite.com/e/pie-ai-pune-content-generation-with-open-source-models-tickets-1657864269659',
+            searchTerms: 'Pie AI Pune Content Generation Open Source Models DeepLearning.AI text images code LLMs collaborative exploration'
+        },
+        {
+            id: 'pie-ai-pune-sept-2025',
+            title: 'Pie & AI: Pune - Exploring Indian AI (September 2025)',
+            status: 'past',
+            statusLabel: 'Past',
+            date: 'September 7, 2025',
+            location: 'Aeka\'s Coffee Baner, Pune',
+            organization: 'Pie & AI by DeepLearning.AI',
+            description: 'Hands-on session exploring Indian LLMs, APIs, and platforms with discussion of their uses. Part of the ongoing Pie & AI meetup series focusing on Indian AI technologies.',
+            icon: 'fas fa-brain',
+            link: 'https://www.eventbrite.com/e/pie-ai-pune-exploring-indian-ai-tickets-1629219301789',
+            searchTerms: 'Pie AI Pune Exploring Indian AI September 2025 DeepLearning.AI LLMs APIs platforms Indian AI technologies meetup'
+        }
+        
+        // Other Events (Commented Out)
+        /*
         {
             id: 'ai-technical-writing-workshop',
             title: 'AI-Powered Technical Writing Workshop',
@@ -275,5 +305,6 @@ const portfolioData = {
             link: 'https://www.linkedin.com/events/7368907094529339393/',
             searchTerms: 'Pie AI Pune Exploring Indian AI Pune India Pie AI Pune Community Sarvam AI BharatGPT Hindi chat agents native language AI'
         }
+        */
     ]
 };
