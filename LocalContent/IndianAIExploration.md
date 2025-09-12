@@ -1,10 +1,10 @@
 # Pre-Event Instructions - Pie & AI: Pune
 
-## Pie & AI: Pune - Exploring Indian AI
+## Pie & AI: Pune - Content Generation with Open Source Models
 
 Greetings, fellow explorer!
 
-Thanks for registering for the event **[Pie & AI: Pune- Exploring Indian AI](https://www.eventbrite.com/e/1629219301789?aff=oddtdtcreator)**.
+Thanks for registering for the event **[Pie & AI: Pune - Content Generation with Open Source Models](https://www.eventbrite.com/e/pie-ai-pune-content-generation-with-open-source-models-tickets-1657864269659?aff=oddtdtcreator)**.
 
 To get the most from this event, please perform these quick setup steps before the event:
 
