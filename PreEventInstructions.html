@@ -473,6 +473,69 @@
                 font-size: 1.3rem;
             }
 
+            /* Banner image optimization for mobile */
+            .hero-content img {
+                max-width: 95% !important;
+            }
+
+            /* Setup instruction headings optimization for mobile */
+            .checklist h4 {
+                font-size: 1.1rem !important;
+                line-height: 1.4 !important;
+            }
+
+            .checklist h4 span {
+                width: 1.8rem !important;
+                height: 1.8rem !important;
+                font-size: 0.8rem !important;
+                margin-right: 0.5rem !important;
+            }
+
+            /* Sub-step numbering optimization for mobile */
+            .checklist p span[style*="background-color: var(--secondary-color)"] {
+                width: 1.3rem !important;
+                height: 1.3rem !important;
+                font-size: 0.7rem !important;
+                margin-right: 0.5rem !important;
+            }
+
+            /* Screenshot images optimization for mobile */
+            .checklist img {
+                max-width: 85% !important;
+            }
+
+            /* Content padding adjustment for mobile */
+            .content-section {
+                padding: 2rem 3% !important;
+            }
+
+            /* Step content margin adjustment for mobile */
+            .checklist div[style*="margin-left: 2.75rem"] {
+                margin-left: 1rem !important;
+            }
+
+            /* Code blocks margin adjustment for mobile */
+            .checklist div[style*="margin: 0.75rem 0 0.75rem 2.75rem"] {
+                margin: 0.75rem 0 0.75rem 1rem !important;
+            }
+
+            .checklist div[style*="margin: 1rem 0 0 2.75rem"] {
+                margin: 1rem 0 0 1rem !important;
+            }
+
+            .checklist div[style*="margin: 1rem 0 0 2.25rem"] {
+                margin: 1rem 0 0 1rem !important;
+            }
+
+            .checklist div[style*="margin: 0.75rem 0 0.75rem 2.25rem"] {
+                margin: 0.75rem 0 0.75rem 1rem !important;
+            }
+
+            /* Text paragraphs margin adjustment for mobile */
+            .checklist p[style*="margin-left: 2.75rem"] {
+                margin-left: 1rem !important;
+            }
+
             .instructions-grid {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
@@ -559,7 +622,7 @@
     <!-- Main Content -->
     <main role="main">
         <section class="content-section">
-            <h2 class="section-title">Pre-Event Instructions</h2>
+            <h2 class="section-title">Pre-Event Setup Instructions</h2>
             
             <p style="color: var(--secondary-text-color); font-size: 1.1rem; line-height: 1.7; margin-bottom: 2rem;">
                 Greetings, fellow explorer!
@@ -574,7 +637,7 @@
             </p>
 
             <div class="checklist">
-                <h3><i class="fas fa-check-circle" aria-hidden="true"></i> Pre-Event Setup Steps</h3>
+                <h3><i class="fas fa-check-circle" aria-hidden="true"></i> Setup Steps</h3>
                 
                 <div style="margin: 2rem 0;">
                     <h4 style="color: var(--text-color); font-size: 1.2rem; margin-bottom: 1rem; font-weight: 600;">
@@ -622,8 +685,13 @@
                 <div style="margin: 2rem 0;">
                     <h4 style="color: var(--text-color); font-size: 1.2rem; margin-bottom: 1rem; font-weight: 600;">
                         <span style="background-color: var(--primary-color); color: white; border-radius: 50%; width: 2rem; height: 2rem; display: inline-flex; align-items: center; justify-content: center; margin-right: 0.75rem; font-size: 0.9rem;">4</span>
-                        Install Phi3 Model
+                        Install A Model
                     </h4>
+                    
+                    <div style="margin: 1rem 0 2rem 2.75rem; text-align: center;">
+                        <img src="LocalContent/Images/AnnotatedPhi3_3_8TriggerScreenshot.png" alt="Phi3 Model Trigger Screenshot" style="max-width: 60%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); border: 1px solid rgba(0, 0, 0, 0.1);">
+                        <p style="color: var(--secondary-text-color); font-style: italic; font-size: 0.9rem; margin-top: 0.5rem;">Model Download and Installation with Prompt in Ollama application</p>
+                    </div>
                     
                     <div style="margin-left: 2.75rem;">
                         <div style="margin-bottom: 1.5rem;">
@@ -659,14 +727,10 @@
                         </div>
 
                         <div style="margin-bottom: 1.5rem;">
-                            <p style="color: var(--secondary-text-color); line-height: 1.7; display: flex; align-items: flex-start; margin-bottom: 0.75rem;">
+                            <p style="color: var(--secondary-text-color); line-height: 1.7; display: flex; align-items: flex-start;">
                                 <span style="background-color: var(--secondary-color); color: white; border-radius: 50%; width: 1.5rem; height: 1.5rem; display: inline-flex; align-items: center; justify-content: center; margin-right: 0.75rem; font-size: 0.8rem; flex-shrink: 0;">4</span>
-                                Submit the prompt.
+                                <span>Submit the prompt.</span>
                             </p>
-                            <div style="margin: 1rem 0 0 2.25rem; text-align: center;">
-                                <img src="LocalContent/Images/AnnotatedPhi3_3_8TriggerScreenshot.png" alt="Phi3 Model Trigger Screenshot" style="max-width: 60%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); border: 1px solid rgba(0, 0, 0, 0.1);">
-                                <p style="color: var(--secondary-text-color); font-style: italic; font-size: 0.9rem; margin-top: 0.5rem;">Phi3 Model Download Process</p>
-                            </div>
                         </div>
                     </div>
 
@@ -678,7 +742,7 @@
                 <div style="margin: 2rem 0;">
                     <h4 style="color: var(--text-color); font-size: 1.2rem; margin-bottom: 1rem; font-weight: 600;">
                         <span style="background-color: var(--primary-color); color: white; border-radius: 50%; width: 2rem; height: 2rem; display: inline-flex; align-items: center; justify-content: center; margin-right: 0.75rem; font-size: 0.9rem;">5</span>
-                        Verify Phi3 Installation
+                        Verify Model Installation
                     </h4>
                     <p style="color: var(--secondary-text-color); line-height: 1.7; margin-bottom: 0.75rem; margin-left: 2.75rem;">
                         Open a command prompt on your system and run the following command:
