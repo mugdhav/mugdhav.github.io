@@ -11,8 +11,10 @@ const portfolioData = {
         website: "https://www.vmugdha.com",
         // About Section
         about: {
-            paragraph1: "I'm a passionate professional who bridges the gap between technical complexity and user experience. With expertise in technical writing, UX design, and AI development, I create innovative solutions that are both powerful and user-friendly.",
-            paragraph2: "My unique combination of skills allows me to document complex systems clearly, design intuitive interfaces, and develop cutting-edge AI applications that solve real-world problems."
+            paragraph1: "I am a technical writer, AI developer, UX designer, and event organizer with over 15 years of experience in the IT industry.",
+            paragraph2: "I design content experiences that transform technical complexity into better user experience. These content experiences help companies increase their product/service adoption while keeping support costs low.",
+            paragraph3: "I also develop AI applications that enhance daily productivity and optimize workflows.",
+            paragraph4: "I am passionate about community building. As a DeepLearningAI Ambassador, I regularly organize tech events, workshops, and meetups to foster learning and collaboration in the tech community."
         }
     },
 
