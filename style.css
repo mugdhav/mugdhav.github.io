@@ -71,3 +71,35 @@ footer {
     padding: 15px;
     border-radius: 10px;
 }
+
+/* About Section - 2 Column Layout */
+.about-columns {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    width: 100%;
+}
+
+.about-column-left,
+.about-column-right {
+    display: block;
+}
+
+.about-column-left p,
+.about-column-right p {
+    line-height: 1.6;
+    margin: 0 0 1.5rem 0;
+}
+
+.about-column-left p:last-child,
+.about-column-right p:last-child {
+    margin-bottom: 0;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .about-columns {
+        grid-template-columns: 1fr !important;
+        gap: 2rem;
+    }
+}
