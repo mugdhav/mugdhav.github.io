@@ -870,6 +870,74 @@
         let currentSearch = '';
         let allEvents = [];
 
+        // Event status calculation functions
+        function calculateEventStatus(event) {
+            const now = new Date();
+            const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
+            // Parse start date
+            let startDate;
+            if (event.startDate) {
+                startDate = new Date(event.startDate);
+            } else if (event.date && event.date !== 'Coming Soon' && event.date !== 'Ongoing') {
+                // Parse date string - handle various formats
+                let dateStr = event.date;
+                if (dateStr.includes(',')) {
+                    const parts = dateStr.split(',');
+                    if (parts.length >= 2) {
+                        dateStr = parts[0] + ', ' + parts[1].trim().split(' ')[0];
+                    }
+                }
+                startDate = new Date(dateStr);
+            } else {
+                // Default to future for "Coming Soon" events
+                return {
+                    status: 'coming-soon',
+                    statusLabel: 'Coming Soon'
+                };
+            }
+
+            // Parse end date
+            let endDate;
+            if (event.endDate) {
+                endDate = new Date(event.endDate);
+            } else {
+                // Default to same day as start date if no end date specified
+                endDate = new Date(startDate);
+                endDate.setHours(23, 59, 59, 999); // End of day
+            }
+
+            const startDateOnly = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate());
+            const endDateOnly = new Date(endDate.getFullYear(), endDate.getMonth(), endDate.getDate());
+
+            // Determine status based on dates
+            if (startDateOnly > today) {
+                return {
+                    status: 'coming-soon',
+                    statusLabel: 'Coming Soon'
+                };
+            } else if (startDateOnly <= today && endDateOnly >= today) {
+                return {
+                    status: 'now',
+                    statusLabel: 'Happening Now!'
+                };
+            } else {
+                return {
+                    status: 'past',
+                    statusLabel: 'Past'
+                };
+            }
+        }
+
+        function enrichEventWithStatus(event) {
+            const statusInfo = calculateEventStatus(event);
+            return {
+                ...event,
+                status: statusInfo.status,
+                statusLabel: statusInfo.statusLabel
+            };
+        }
+
         // Dynamic Event Rendering
         function renderEventCards() {
             if (!portfolioData || !portfolioData.events) {
@@ -878,12 +946,63 @@
             }
 
             const carousel = document.getElementById('carousel');
-            allEvents = portfolioData.events;
 
-            // Sort events: coming-soon first, then now, then past
+            // Enrich events with dynamic status calculation
+            allEvents = portfolioData.events.map(event => enrichEventWithStatus(event));
+
+            // Sort events in reverse chronological order within each status:
+            // 1. Future events (coming-soon) - furthest future dates first
+            // 2. Ongoing events (now) - most recent first
+            // 3. Past events (past) - most recent past events first
             const sortedEvents = [...allEvents].sort((a, b) => {
                 const statusOrder = { 'coming-soon': 1, 'now': 2, 'past': 3 };
-                return statusOrder[a.status] - statusOrder[b.status];
+
+                // First sort by status priority
+                const statusDiff = statusOrder[a.status] - statusOrder[b.status];
+                if (statusDiff !== 0) {
+                    return statusDiff;
+                }
+
+                // Within same status, sort by date in reverse chronological order
+                // Extract date for comparison - handle different date formats
+                const getDateForSorting = (event) => {
+                    // If event has startDate (ISO format), use it
+                    if (event.startDate) {
+                        return new Date(event.startDate);
+                    }
+                    // If event has date string, try to parse it
+                    if (event.date && event.date !== 'Coming Soon' && event.date !== 'Ongoing') {
+                        // Handle various date formats
+                        let dateStr = event.date;
+                        // Remove time portion if present (e.g., "September 28, 2025, 11:00 AM - 12:00 PM IST")
+                        if (dateStr.includes(',')) {
+                            const parts = dateStr.split(',');
+                            if (parts.length >= 2) {
+                                dateStr = parts[0] + ', ' + parts[1].trim().split(' ')[0]; // "September 28, 2025"
+                            }
+                        }
+                        const parsedDate = new Date(dateStr);
+                        return isNaN(parsedDate.getTime()) ? new Date(0) : parsedDate;
+                    }
+                    // Default date for events without specific dates
+                    return new Date(0);
+                };
+
+                const dateA = getDateForSorting(a);
+                const dateB = getDateForSorting(b);
+
+                // For coming-soon events: newest dates first (furthest in future first)
+                if (a.status === 'coming-soon') {
+                    return dateB.getTime() - dateA.getTime();
+                }
+                // For past events: newest dates first (most recent past events first)
+                else if (a.status === 'past') {
+                    return dateB.getTime() - dateA.getTime();
+                }
+                // For ongoing events: keep original order or by date
+                else {
+                    return dateB.getTime() - dateA.getTime();
+                }
             });
 
             // Generate HTML for all events
@@ -931,7 +1050,10 @@
 
         // Utility functions for easy event management
         function getEventsByStatus(status) {
-            return allEvents.filter(event => event.status === status);
+            return allEvents.filter(event => {
+                const eventStatus = calculateEventStatus(event);
+                return eventStatus.status === status;
+            });
         }
 
         function getEventCounts() {
@@ -1098,7 +1220,8 @@
 
         function updateCarousel() {
             const carousel = document.getElementById('carousel');
-            const translateX = -(currentSlide * slideWidth * slidesToShow);
+            // Move by full container width for each slide group
+            const translateX = -(currentSlide * 100);
             carousel.style.transform = `translateX(${translateX}%)`;
 
             // Update indicators
@@ -1131,7 +1254,10 @@
             initializeTheme();
             renderEventCards(); // Render events from portfolio_data.js
             initializeSearchAndFilter();
-            // initializeCarousel(); // Called by initializeSearchAndFilter
+            // Ensure carousel is initialized after rendering
+            setTimeout(() => {
+                initializeCarousel();
+            }, 100);
             // startAutoPlay(); // Uncomment to enable auto-play
 
             // Reinitialize carousel on window resize
