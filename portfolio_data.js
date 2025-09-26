@@ -229,15 +229,28 @@ const portfolioData = {
         {
             id: 'pie-ai-pune-extracting-structuring',
             title: 'Pie & AI: Pune - Extracting and Structuring Information from Text',
-            status: 'coming-soon',
-            statusLabel: 'Coming Soon',
-            date: 'September 28, 2025',
+            startDate: '2025-09-28T11:00:00+05:30',
+            endDate: '2025-09-28T13:00:00+05:30',
+            date: 'September 28, 2025, 11:00 AM - 1:00 PM IST',
             location: 'Pune, India',
             organization: 'Pie & AI by DeepLearning.AI',
             description: 'Join us for an interactive session on extracting and structuring information from unstructured text using AI and machine learning techniques. Learn practical approaches to text mining, information extraction, and data structuring.',
             icon: 'fas fa-brain',
             link: 'https://www.linkedin.com/events/pie-ai-pune-extractingandstruct7377035631220146176/',
             searchTerms: 'Pie AI Pune Extracting Structuring Information Text DeepLearning.AI text mining information extraction data structuring machine learning AI techniques'
+        },
+        {
+            id: 'invent4customers-2024-sap',
+            title: 'Invent4Customers 2024 - AI Innovation Quizzes and Hackathon',
+            startDate: '2024-08-15T09:00:00+05:30',
+            endDate: '2024-11-15T18:00:00+05:30',
+            date: 'August - November 2024',
+            location: 'SAP Labs India, Pune',
+            organization: 'SAP Labs India',
+            description: 'A comprehensive 3-month innovation program featuring AI brain teasers, quizzes, 24-hour hackathon, and focused build sessions. Collaborated with Asian Paints, Henkel, Google, and SAP Customer Innovation Services to unite talents, drive innovation, and create exceptional customer experiences.',
+            icon: 'fas fa-lightbulb',
+            link: 'https://www.linkedin.com/posts/mugdhav_invent4customers-ai-lifeatsap-activity-7221871949134589952-PCmj',
+            searchTerms: 'Invent4Customers SAP Labs India Pune AI innovation hackathon quizzes Asian Paints Henkel Google customer innovation brain teasers volunteer'
         }
         
         // Other Events (Commented Out)
