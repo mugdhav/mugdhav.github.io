@@ -203,28 +203,41 @@ const portfolioData = {
         {
             id: 'pie-ai-pune-content-generation',
             title: 'Pie & AI: Pune - Content Generation with Open Source Models',
-            status: 'coming-soon',
-            statusLabel: 'Coming Soon',
+            startDate: '2025-09-13T11:00:00+05:30',
+            endDate: '2025-09-13T12:00:00+05:30',
             date: 'September 13, 2025, 11:00 AM - 12:00 PM IST',
             location: 'Cafe Buddys Espresso Baner, Pune',
             organization: 'Pie & AI by DeepLearning.AI',
             description: 'A hands-on session exploring content generation using Open Source models, focusing on generating text, images, and code with discussion of their use cases. Bring your laptops for collaborative exploration of Open Source LLMs.',
             icon: 'fas fa-brain',
-            link: 'https://www.eventbrite.com/e/pie-ai-pune-content-generation-with-open-source-models-tickets-1657864269659',
+            link: 'https://www.linkedin.com/pulse/generating-content-open-source-models-mugdha-vairagade-xujuf',
             searchTerms: 'Pie AI Pune Content Generation Open Source Models DeepLearning.AI text images code LLMs collaborative exploration'
         },
         {
             id: 'pie-ai-pune-sept-2025',
             title: 'Pie & AI: Pune - Exploring Indian AI (September 2025)',
-            status: 'past',
-            statusLabel: 'Past',
+            startDate: '2025-09-07T11:00:00+05:30',
+            endDate: '2025-09-07T12:30:00+05:30',
             date: 'September 7, 2025',
             location: 'Aeka\'s Coffee Baner, Pune',
             organization: 'Pie & AI by DeepLearning.AI',
             description: 'Hands-on session exploring Indian LLMs, APIs, and platforms with discussion of their uses. Part of the ongoing Pie & AI meetup series focusing on Indian AI technologies.',
             icon: 'fas fa-brain',
-            link: 'https://www.eventbrite.com/e/pie-ai-pune-exploring-indian-ai-tickets-1629219301789',
+            link: 'https://www.linkedin.com/pulse/experiment-indian-ai-mugdha-vairagade-cqvef',
             searchTerms: 'Pie AI Pune Exploring Indian AI September 2025 DeepLearning.AI LLMs APIs platforms Indian AI technologies meetup'
+        },
+        {
+            id: 'pie-ai-pune-extracting-structuring',
+            title: 'Pie & AI: Pune - Extracting and Structuring Information from Text',
+            status: 'coming-soon',
+            statusLabel: 'Coming Soon',
+            date: 'September 28, 2025',
+            location: 'Pune, India',
+            organization: 'Pie & AI by DeepLearning.AI',
+            description: 'Join us for an interactive session on extracting and structuring information from unstructured text using AI and machine learning techniques. Learn practical approaches to text mining, information extraction, and data structuring.',
+            icon: 'fas fa-brain',
+            link: 'https://www.linkedin.com/events/pie-ai-pune-extractingandstruct7377035631220146176/',
+            searchTerms: 'Pie AI Pune Extracting Structuring Information Text DeepLearning.AI text mining information extraction data structuring machine learning AI techniques'
         }
         
         // Other Events (Commented Out)

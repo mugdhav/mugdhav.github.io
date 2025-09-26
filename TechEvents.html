@@ -4,20 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tech Events - Mugdha Vairagade</title>
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/vnd.microsoft.icon" href="LocalContent/favicon/iopm5-km6uc-002.ico">
     <link rel="shortcut icon" type="image/x-icon" href="LocalContent/favicon/iopm5-km6uc-002.ico">
-    
+
     <!-- Apple Touch Icon -->
     <link rel="apple-touch-icon" href="LocalContent/favicon/iopm5-km6uc-003.ico">
-    
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
+
     <!-- Portfolio Data -->
     <script src="portfolio_data.js"></script>
-    
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-9HL4T713SQ"></script>
     <script>
@@ -27,7 +27,7 @@
 
       gtag('config', 'G-9HL4T713SQ');
     </script>
-    
+
     <!-- Structured Data for Events -->
     <script type="application/ld+json">
     {
@@ -42,19 +42,19 @@
         }
     }
     </script>
-    
+
     <!-- Meta tags -->
     <meta name="description" content="Explore tech events organized by Mugdha Vairagade, including Pie & AI: Pune and other AI, UX, and technical writing events.">
     <meta name="keywords" content="tech events, AI events, Pie & AI, Mugdha Vairagade, event organizer, technology meetups, AI workshops">
     <meta name="author" content="Mugdha Vairagade">
     <meta name="robots" content="index, follow">
-    
+
     <!-- Open Graph meta tags -->
     <meta property="og:title" content="Tech Events - Mugdha Vairagade">
     <meta property="og:description" content="Explore tech events organized by Mugdha Vairagade, including Pie & AI: Pune and other technology events">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.vmugdha.in/TechEvents.html">
-    
+
     <style>
         * {
             margin: 0;
@@ -745,14 +745,14 @@
         <div class="hero-content">
             <h1 id="hero-heading">Events</h1>
             <h2>Here are the events I organize or volunteer for.</h2>
-            
+
             <!-- Search and Filter Section -->
             <div class="search-container">
                 <div class="search-box">
                     <i class="fas fa-search search-icon"></i>
-                    <input 
-                        type="text" 
-                        id="event-search" 
+                    <input
+                        type="text"
+                        id="event-search"
                         placeholder="Search events by name, location, or organization..."
                         class="search-input"
                     >
@@ -760,7 +760,7 @@
                         <i class="fas fa-times"></i>
                     </button>
                 </div>
-                
+
                 <div class="filter-buttons">
                     <button class="filter-btn active" data-filter="all" id="all-filter">
                         All Events
@@ -783,7 +783,7 @@
     <main role="main">
         <section class="content-section">
             <h2 class="section-title">Event Showcase</h2>
-            
+
             <div class="events-count">
                 <h3><span id="event-count">0</span> Events</h3>
             </div>
@@ -792,7 +792,7 @@
                 <div class="carousel-wrapper" id="carousel">
                     <!-- Events will be dynamically rendered here -->
                 </div>
-                
+
                 <!-- Carousel Navigation -->
                 <div class="carousel-nav">
                     <button class="carousel-btn" id="prevBtn" onclick="moveCarousel(-1)">
@@ -802,7 +802,7 @@
                         <i class="fas fa-chevron-right"></i>
                     </button>
                 </div>
-                
+
                 <!-- Carousel Indicators -->
                 <div class="carousel-indicators" id="indicators"></div>
             </div>
@@ -832,13 +832,13 @@
         function toggleTheme() {
             const currentTheme = document.documentElement.getAttribute('data-theme');
             const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            
+
             document.documentElement.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
-            
+
             const themeToggle = document.getElementById('theme-toggle');
             const themeIcon = document.querySelector('.theme-icon');
-            
+
             themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
             themeToggle.setAttribute('data-tooltip', newTheme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
         }
@@ -847,14 +847,14 @@
         function initializeTheme() {
             const savedTheme = localStorage.getItem('theme') || 'light';
             document.documentElement.setAttribute('data-theme', savedTheme);
-            
+
             const themeToggle = document.getElementById('theme-toggle');
             const themeIcon = document.querySelector('.theme-icon');
-            
+
             if (themeIcon) {
                 themeIcon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
             }
-            
+
             if (themeToggle) {
                 themeToggle.setAttribute('data-tooltip', savedTheme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
             }
@@ -879,7 +879,7 @@
 
             const carousel = document.getElementById('carousel');
             allEvents = portfolioData.events;
-            
+
             // Sort events: coming-soon first, then now, then past
             const sortedEvents = [...allEvents].sort((a, b) => {
                 const statusOrder = { 'coming-soon': 1, 'now': 2, 'past': 3 };
@@ -897,7 +897,7 @@
         function createEventCardHTML(event) {
             const statusClass = getStatusClass(event.status);
             const linkIcon = event.link.includes('linkedin.com/events') ? 'fab fa-linkedin' : 'fab fa-linkedin';
-            
+
             return `
                 <div class="event-card" data-status="${event.status}" data-search="${event.searchTerms.toLowerCase()}">
                     <div class="event-status ${statusClass}">${event.statusLabel}</div>
@@ -947,7 +947,7 @@
             // Helper function for future event additions
             // Validates required fields and adds to portfolio data
             const requiredFields = ['id', 'title', 'status', 'statusLabel', 'date', 'location', 'organization', 'description', 'icon', 'link', 'searchTerms'];
-            
+
             const missingFields = requiredFields.filter(field => !eventData[field]);
             if (missingFields.length > 0) {
                 console.error('Missing required fields:', missingFields);
@@ -988,7 +988,7 @@
                     // Update active filter button
                     filterButtons.forEach(b => b.classList.remove('active'));
                     this.classList.add('active');
-                    
+
                     currentFilter = this.dataset.filter;
                     filterEvents();
                 });
@@ -1009,7 +1009,7 @@
             allCards.forEach(card => {
                 const status = card.dataset.status;
                 const searchText = card.dataset.search.toLowerCase();
-                
+
                 let matchesFilter = currentFilter === 'all' || status === currentFilter;
                 let matchesSearch = !currentSearch || searchText.includes(currentSearch);
 
@@ -1036,7 +1036,7 @@
                 carousel.style.display = 'flex';
                 document.querySelector('.carousel-nav').style.display = 'flex';
                 document.querySelector('.carousel-indicators').style.display = 'flex';
-                
+
                 // Reinitialize carousel with filtered results
                 currentSlide = 0;
                 initializeCarousel();
@@ -1049,9 +1049,9 @@
             const carousel = document.getElementById('carousel');
             const cards = document.querySelectorAll('.event-card:not(.hidden)');
             const indicatorsContainer = document.getElementById('indicators');
-            
+
             totalSlides = cards.length;
-            
+
             // Calculate slides to show based on screen width
             const screenWidth = window.innerWidth;
             if (screenWidth >= 1200) {
@@ -1061,9 +1061,9 @@
             } else {
                 slidesToShow = 1;
             }
-            
+
             slideWidth = 100 / slidesToShow;
-            
+
             // Create indicators
             indicatorsContainer.innerHTML = '';
             const maxSlides = Math.ceil(totalSlides / slidesToShow);
@@ -1074,20 +1074,20 @@
                 indicator.addEventListener('click', () => goToSlide(i));
                 indicatorsContainer.appendChild(indicator);
             }
-            
+
             updateCarousel();
         }
 
         function moveCarousel(direction) {
             const maxSlides = Math.ceil(totalSlides / slidesToShow);
             currentSlide += direction;
-            
+
             if (currentSlide < 0) {
                 currentSlide = maxSlides - 1;
             } else if (currentSlide >= maxSlides) {
                 currentSlide = 0;
             }
-            
+
             updateCarousel();
         }
 
@@ -1100,13 +1100,13 @@
             const carousel = document.getElementById('carousel');
             const translateX = -(currentSlide * slideWidth * slidesToShow);
             carousel.style.transform = `translateX(${translateX}%)`;
-            
+
             // Update indicators
             const indicators = document.querySelectorAll('.indicator');
             indicators.forEach((indicator, index) => {
                 indicator.classList.toggle('active', index === currentSlide);
             });
-            
+
             // Update navigation buttons
             const maxSlides = Math.ceil(totalSlides / slidesToShow);
             document.getElementById('prevBtn').disabled = currentSlide === 0;
@@ -1133,7 +1133,7 @@
             initializeSearchAndFilter();
             // initializeCarousel(); // Called by initializeSearchAndFilter
             // startAutoPlay(); // Uncomment to enable auto-play
-            
+
             // Reinitialize carousel on window resize
             window.addEventListener('resize', () => {
                 setTimeout(() => {
@@ -1142,7 +1142,7 @@
                     }
                 }, 100);
             });
-            
+
             // Smooth scroll behavior for anchor links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
