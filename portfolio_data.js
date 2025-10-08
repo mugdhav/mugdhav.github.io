@@ -262,7 +262,7 @@ const portfolioData = {
             organization: 'Tech Writers Community',
             description: 'Learn how to leverage AI tools for to create a simple portfolio website (almost) for free.',
             icon: 'fas fa-code',
-            link: 'https://www.linkedin.com/in/mugdhav',
+            link: 'https://www.linkedin.com/in/mugdhav/',
             searchTerms: 'Building Portfolio Websites AI low-code static website workshop tech writing virtual event technical writers community AI tools web development HTML CSS JavaScript GitHub Pages free hosting'
         },
         {
