@@ -277,6 +277,19 @@ const portfolioData = {
             icon: 'fas fa-palette',
             link: 'https://www.linkedin.com/posts/mugdhav_generativeai-art-pune-activity-7136282664839356416-Il2_',
             searchTerms: 'Generative AI Art Competition D-Shop Pune SAP Labs India AI art image generation audio video Holi Diwali copyright violations ethical AI content generation festive celebrations creative exploration'
+        },
+        {
+            id: 'dummy',
+            title: 'dummy',
+            startDate: '2022-03-15T10:00:00+05:30',
+            endDate: '2022-03-15T12:00:00+05:30',
+            date: 'March 15, 2022',
+            location: 'dummy',
+            organization: 'dummy',
+            description: 'dummy',
+            icon: 'fas fa-star',
+            link: 'https://www.linkedin.com/in/mugdhav',
+            searchTerms: 'dummy'
         }
         
         // Other Events (Commented Out)
