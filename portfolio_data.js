@@ -270,7 +270,7 @@ const portfolioData = {
             title: 'Generative AI Art Competition at D-Shop Pune',
             startDate: '2023-12-01T09:00:00+05:30',
             endDate: '2023-12-01T18:00:00+05:30',
-            date: 'December 2023',
+            date: 'October - November 2023',
             location: 'D-Shop Pune, India',
             organization: 'SAP Labs India',
             description: 'Organized a Generative AI Art competition for Pune colleagues to celebrate the launch of a new d-shop location. Participants created original art (images, audio, video) using generative AI, exploring themes from colorful Holi to Diwali on Mars. The competition included learning about preventing copyright violations and ethical AI content generation.',
