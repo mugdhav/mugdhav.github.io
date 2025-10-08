@@ -565,6 +565,27 @@
             color: var(--secondary-text-color);
         }
 
+        .about-text-column {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--secondary-text-color);
+        }
+
+        .about-text-column p {
+            margin-bottom: 1.5rem;
+        }
+
+        .about-diagram {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .about-diagram svg {
+            max-width: 100%;
+            height: auto;
+        }
+
 
         /* Portfolio Section */
         .portfolio {
@@ -854,17 +875,26 @@
                 <section id="about" class="section about" aria-labelledby="about-heading">
                     <h2 id="about-heading" class="section-title">About Me</h2>
                     <div class="about-content">
-                        <div class="about-columns fade-in">
-                            <div class="about-column-left">
-                                <p>${portfolioData.personal.about.paragraph1}</p>
-
-                                <p>${portfolioData.personal.about.paragraph2}</p>
-                            </div>
-                            <div class="about-column-right">
-                                <p>${portfolioData.personal.about.paragraph3}</p>
-
-                                <p>${portfolioData.personal.about.paragraph4}</p>
-                            </div>
+                        <div class="about-text-column fade-in">
+                            <p>${portfolioData.personal.about.paragraph1}</p>
+                            <p>${portfolioData.personal.about.paragraph2}</p>
+                            <p>${portfolioData.personal.about.paragraph3}</p>
+                            <p>${portfolioData.personal.about.paragraph4}</p>
+                        </div>
+                        <div class="about-diagram fade-in">
+                            <svg width="500" height="425" viewBox="0 0 500 425" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="250" cy="140" r="120" fill="pink" fill-opacity="0.5"/>
+                                <circle cx="160" cy="270" r="120" fill="lightblue" fill-opacity="0.5"/>
+                                <circle cx="340" cy="270" r="120" fill="lightgreen" fill-opacity="0.5"/>
+                                <text x="250" y="225" font-size="28" text-anchor="middle" fill="black" font-weight="bold" font-family="Verdana">Developer</text>
+                                <text x="250" y="255" font-size="28" text-anchor="middle" fill="black" font-weight="bold" font-family="Verdana">Relations</text>
+                                <text x="250" y="115" font-size="22" text-anchor="middle" fill="black" font-family="Verdana">Technical</text>
+                                <text x="250" y="140" font-size="22" text-anchor="middle" fill="black" font-family="Verdana">Writing</text>
+                                <text x="115" y="265" font-size="22" text-anchor="middle" fill="black" font-family="Verdana">AI Dev</text>
+                                <text x="115" y="290" font-size="22" text-anchor="middle" fill="black" font-family="Verdana">Development</text>
+                                <text x="385" y="265" font-size="22" text-anchor="middle" fill="black" font-family="Verdana">Tech</text>
+                                <text x="385" y="290" font-size="22" text-anchor="middle" fill="black" font-family="Verdana">Events</text>
+                            </svg>
                         </div>
                     </div>
                 </section>
