@@ -59,6 +59,38 @@ async function loadBlogPosts() {
 async function getSamplePosts() {
     return [
         {
+            id: 'pie-ai-pune-extracting-structuring',
+            title: 'Snapshots from Pie & AI Pune: Extracting and Structuring Information',
+            excerpt: 'A recap of a Pie & AI event in Pune focused on AI-powered information extraction, bringing together AI practitioners to explore technologies for extracting and structuring information from documents and images. Learn about APIs and frameworks like LandingAI ADE, Google Document AI, and DocETL; along with practical applications.',
+            date: '2025-10-06',
+            category: 'AI Development',
+            readTime: '3 min read',
+            slug: 'pie-ai-pune-extracting-structuring',
+            url: 'https://www.linkedin.com/pulse/snapshots-from-pie-ai-pune-extracting-structuring-mugdha-vairagade-uw7yf'
+        },
+        {
+            id: 'generating-content-open-source',
+            title: 'Generating Content with Open Source Models',
+            excerpt: 'Hosted another Pie & AI event focusing on content generation with Open Source models. Participants ranging from AI novices to experts explored lightweight models like phi3:3.8b and gemma3:4b using Ollama for local deployment. Discover how Open Source models offer data protection and cost savings.',
+            date: '2025-09-16',
+            category: 'AI Development',
+            readTime: '2 min read',
+            slug: 'generating-content-open-source',
+            url: 'https://www.linkedin.com/pulse/generating-content-open-source-models-mugdha-vairagade-xujuf'
+        },
+        {
+            id: 'experiment-indian-ai',
+            title: 'An Experiment with Indian AI',
+            excerpt: 'Sharing insights from the DeepLearning.AI community event Pie & AI: Pune - Exploring Indian AI. Participants engaged in hands-on experiments with Indian AI platforms like Sarvam AI and CoRover.AI BharatGPT, exploring their capabilities in native languages. Learn about the potential and limitations of Indian AI technologies.',
+            date: '2025-09-08',
+            category: 'AI Development',
+            readTime: '3 min read',
+            slug: 'experiment-indian-ai',
+            url: 'https://www.linkedin.com/pulse/experiment-indian-ai-mugdha-vairagade-cqvef'
+        }
+        //Comment out above and uncomment below to test with more posts
+        /*
+        {
             id: 'getting-started-crewai',
             title: 'Getting Started with CrewAI',
             excerpt: 'Learn how to set up CrewAI for building powerful multi-agent AI systems. This comprehensive guide covers installation, basic concepts, and your first project.',
@@ -111,7 +143,8 @@ async function getSamplePosts() {
             category: 'Career Tips',
             readTime: '7 min read',
             slug: 'career-tips-developers'
-        }
+        } 
+        */
     ];
 }
 
@@ -129,16 +162,20 @@ function renderBlogPosts() {
         return;
     }
 
-    const postsHTML = filteredPosts.map(post => `
-        <article class="blog-post">
-            <h3>${post.title}</h3>
-            <div class="meta">
-                ${formatDate(post.date)} • ${post.readTime} • ${post.category}
-            </div>
-            <p class="excerpt">${post.excerpt}</p>
-            <a href="post.html?slug=${post.slug}" class="read-more">Read More</a>
-        </article>
-    `).join('');
+    const postsHTML = filteredPosts.map(post => {
+        const postUrl = post.url ? post.url : `post.html?slug=${post.slug}`;
+        const targetAttr = post.url ? ' target="_blank" rel="noopener noreferrer"' : '';
+        return `
+            <article class="blog-post">
+                <h3>${post.title}</h3>
+                <div class="meta">
+                    ${formatDate(post.date)} • ${post.readTime} • ${post.category}
+                </div>
+                <p class="excerpt">${post.excerpt}</p>
+                <a href="${postUrl}"${targetAttr} class="read-more">Read More</a>
+            </article>
+        `;
+    }).join('');
 
     blogPostsContainer.innerHTML = postsHTML;
 }
@@ -178,11 +215,15 @@ function renderRecentPosts() {
     const recentPostsContainer = document.getElementById('recentPosts');
     const recentPosts = blogPosts.slice(0, 5); // Get 5 most recent posts
 
-    const recentHTML = recentPosts.map(post => `
-        <li>
-            <a href="post.html?slug=${post.slug}">${post.title}</a>
-        </li>
-    `).join('');
+    const recentHTML = recentPosts.map(post => {
+        const postUrl = post.url ? post.url : `post.html?slug=${post.slug}`;
+        const targetAttr = post.url ? ' target="_blank" rel="noopener noreferrer"' : '';
+        return `
+            <li>
+                <a href="${postUrl}"${targetAttr}>${post.title}</a>
+            </li>
+        `;
+    }).join('');
 
     recentPostsContainer.innerHTML = recentHTML;
 }
