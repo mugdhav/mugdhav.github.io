@@ -236,7 +236,7 @@ const portfolioData = {
             organization: 'Pie & AI by DeepLearning.AI',
             description: 'Join us for an interactive session on extracting and structuring information from unstructured text using AI and machine learning techniques. Learn practical approaches to text mining, information extraction, and data structuring.',
             icon: 'fas fa-brain',
-            link: 'https://www.linkedin.com/events/pie-ai-pune-extractingandstruct7377035631220146176/',
+            link: 'https://www.linkedin.com/pulse/snapshots-from-pie-ai-pune-extracting-structuring-mugdha-vairagade-uw7yf',
             searchTerms: 'Pie AI Pune Extracting Structuring Information Text DeepLearning.AI text mining information extraction data structuring machine learning AI techniques'
         },
         {
@@ -251,6 +251,32 @@ const portfolioData = {
             icon: 'fas fa-lightbulb',
             link: 'https://www.linkedin.com/posts/mugdhav_invent4customers-ai-lifeatsap-activity-7221871949134589952-PCmj',
             searchTerms: 'Invent4Customers SAP Labs India Pune AI innovation hackathon quizzes Asian Paints Henkel Google customer innovation brain teasers volunteer'
+        },
+        {
+            id: 'ai-low-code-static-website-workshop-tech-writing',
+            title: 'Building Portfolio Websites with AI',
+            status: 'coming-soon',
+            statusLabel: 'Coming Soon',
+            date: 'Coming Soon',
+            location: 'Virtual Event',
+            organization: 'Tech Writers Community',
+            description: 'Learn how to leverage AI tools for to create a simple portfolio website (almost) for free.',
+            icon: 'fas fa-code',
+            link: 'https://www.linkedin.com/in/mugdhav',
+            searchTerms: 'Building Portfolio Websites AI low-code static website workshop tech writing virtual event technical writers community AI tools web development HTML CSS JavaScript GitHub Pages free hosting'
+        },
+        {
+            id: 'gen-ai-art-competition-sap',
+            title: 'Generative AI Art Competition at D-Shop Pune',
+            startDate: '2023-12-01T09:00:00+05:30',
+            endDate: '2023-12-01T18:00:00+05:30',
+            date: 'December 2023',
+            location: 'D-Shop Pune, India',
+            organization: 'SAP Labs India',
+            description: 'Organized a Generative AI Art competition for Pune colleagues to celebrate the launch of a new d-shop location. Participants created original art (images, audio, video) using generative AI, exploring themes from colorful Holi to Diwali on Mars. The competition included learning about preventing copyright violations and ethical AI content generation.',
+            icon: 'fas fa-palette',
+            link: 'https://www.linkedin.com/posts/mugdhav_generativeai-art-pune-activity-7136282664839356416-Il2_',
+            searchTerms: 'Generative AI Art Competition D-Shop Pune SAP Labs India AI art image generation audio video Holi Diwali copyright violations ethical AI content generation festive celebrations creative exploration'
         }
         
         // Other Events (Commented Out)
