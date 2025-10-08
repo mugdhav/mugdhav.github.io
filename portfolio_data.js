@@ -115,11 +115,11 @@ const portfolioData = {
                     buttonLink: "https://github.com/mugdhav/SarvamAPICodeSample"
                 },
                 {
-                    image: "LocalContent/Images/UnicornFinderThumbnail2025-09-04010045.png",
+                    image: "LocalContent/Images/BharatGPTVideoThumbnail.png",
                     title: "Hindi Chat Agent with BharatGPT",
                     description: "A BharatGPT model-based chat agent that can interact in Hindi.",
-                    buttonText: "Try It Out",
-                    buttonLink: "chatbot.html"
+                    buttonText: "View Demo",
+                    buttonLink: "https://youtube.com/shorts/hQR19TK41DI"
                 }
             ]
         },
