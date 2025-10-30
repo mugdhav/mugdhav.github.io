@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Model Types - Knowledge Graph</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        #root {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .container {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        .title {
+            text-align: center;
+            color: #2d3748;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #718096;
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+        .graph-container {
+            position: relative;
+            min-height: 800px;
+            background: #f7fafc;
+            border-radius: 12px;
+            padding: 40px;
+        }
+        .node {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .node:hover {
+            transform: scale(1.05);
+        }
+        .node-box {
+            transition: all 0.3s ease;
+        }
+        .node:hover .node-box {
+            filter: brightness(1.1);
+        }
+        .legend-container {
+            margin-top: 40px;
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            border: 2px solid #e2e8f0;
+        }
+        .legend-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 16px;
+        }
+        .legend-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .legend-symbol {
+            flex-shrink: 0;
+        }
+        .legend-text {
+            font-size: 14px;
+            color: #4a5568;
+        }
+        .tooltip {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            pointer-events: none;
+            z-index: 1000;
+            max-width: 300px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        .examples {
+            margin-top: 40px;
+            background: #edf2f7;
+            border-radius: 12px;
+            padding: 24px;
+        }
+        .examples-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 16px;
+        }
+        .example-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 16px;
+        }
+        .example-card {
+            background: white;
+            padding: 16px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        .example-title {
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 8px;
+        }
+        .example-details {
+            font-size: 14px;
+            color: #4a5568;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState } = React;
+
+        function KnowledgeGraph() {
+            const [tooltip, setTooltip] = useState({ show: false, x: 0, y: 0, content: '' });
+
+            const showTooltip = (e, content) => {
+                const rect = e.target.getBoundingClientRect();
+                setTooltip({
+                    show: true,
+                    x: rect.left + rect.width / 2,
+                    y: rect.top - 10,
+                    content
+                });
+            };
+
+            const hideTooltip = () => {
+                setTooltip({ ...tooltip, show: false });
+            };
+
+            return (
+                <div className="container">
+                    <h1 className="title">AI Model Types Knowledge Graph</h1>
+                    <p className="subtitle">Understanding the relationships and hierarchies between different AI model categories</p>
+                    
+                    <div className="graph-container">
+                        <svg width="100%" height="750" viewBox="0 0 1200 750">
+                            <defs>
+                                {/* Arrow markers */}
+                                <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                                    <polygon points="0 0, 10 3, 0 6" fill="#4A5568" />
+                                </marker>
+                                
+                                {/* Patterns for properties */}
+                                <pattern id="dots" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse">
+                                    <circle cx="2" cy="2" r="1" fill="#CBD5E0" />
+                                </pattern>
+                            </defs>
+
+                            {/* Foundation Models - Top Level */}
+                            <g className="node" onMouseEnter={(e) => showTooltip(e, 'The parent category for all large-scale AI models trained on diverse data')} onMouseLeave={hideTooltip}>
+                                <rect className="node-box" x="425" y="50" width="350" height="90" rx="12" fill="#667eea" stroke="#5a67d8" strokeWidth="3" />
+                                <text x="600" y="85" textAnchor="middle" fill="white" fontSize="24" fontWeight="bold">Foundation Models</text>
+                                <text x="600" y="110" textAnchor="middle" fill="white" fontSize="14" opacity="0.9">(Parent Category)</text>
+                            </g>
+
+                            {/* Arrows from Foundation to LLM and SLM */}
+                            <line x1="550" y1="140" x2="400" y2="220" stroke="#4A5568" strokeWidth="3" markerEnd="url(#arrowhead)" />
+                            <line x1="650" y1="140" x2="800" y2="220" stroke="#4A5568" strokeWidth="3" markerEnd="url(#arrowhead)" />
+
+                            {/* Large Language Models */}
+                            <g className="node" onMouseEnter={(e) => showTooltip(e, 'Language-focused Foundation Models with 10B-1000B+ parameters. Examples: GPT-4, Claude, Gemini')} onMouseLeave={hideTooltip}>
+                                <rect className="node-box" x="200" y="220" width="400" height="100" rx="12" fill="#48bb78" stroke="#38a169" strokeWidth="3" />
+                                <text x="400" y="255" textAnchor="middle" fill="white" fontSize="22" fontWeight="bold">Large Language Models</text>
+                                <text x="400" y="278" textAnchor="middle" fill="white" fontSize="14">(LLMs)</text>
+                                <text x="400" y="298" textAnchor="middle" fill="white" fontSize="13" opacity="0.9">Language-focused, 10B-1000B+ params</text>
+                            </g>
+
+                            {/* Small Language Models */}
+                            <g className="node" onMouseEnter={(e) => showTooltip(e, 'Language-focused Foundation Models with under 10B parameters. Examples: Phi-3, Gemma, Mistral 7B')} onMouseLeave={hideTooltip}>
+                                <rect className="node-box" x="700" y="220" width="400" height="100" rx="12" fill="#4299e1" stroke="#3182ce" strokeWidth="3" />
+                                <text x="900" y="255" textAnchor="middle" fill="white" fontSize="22" fontWeight="bold">Small Language Models</text>
+                                <text x="900" y="278" textAnchor="middle" fill="white" fontSize="14">(SLMs)</text>
+                                <text x="900" y="298" textAnchor="middle" fill="white" fontSize="13" opacity="0.9">Language-focused, 100M-10B params</text>
+                            </g>
+
+                            {/* Distinction indicator */}
+                            <line x1="610" y1="270" x2="690" y2="270" stroke="#e53e3e" strokeWidth="2" strokeDasharray="5,5" />
+                            <text x="650" y="260" textAnchor="middle" fill="#e53e3e" fontSize="12" fontWeight="600">Mutually Exclusive</text>
+                            <text x="650" y="290" textAnchor="middle" fill="#718096" fontSize="11">(based on parameter count)</text>
+
+                            {/* Property boxes - Access Type */}
+                            <g className="node" onMouseEnter={(e) => showTooltip(e, 'Access Type: Independent property that can apply to any model type')} onMouseLeave={hideTooltip}>
+                                <rect x="100" y="400" width="450" height="120" rx="12" fill="#fef5e7" stroke="#f59e0b" strokeWidth="2" strokeDasharray="8,4" />
+                                <text x="325" y="430" textAnchor="middle" fontSize="20" fontWeight="bold" fill="#92400e">Access & Transparency</text>
+                                <text x="325" y="455" textAnchor="middle" fontSize="14" fill="#78350f">(Licensing)</text>
+                                
+                                <rect x="120" y="470" width="130" height="35" rx="6" fill="#dc2626" opacity="0.8" />
+                                <text x="185" y="492" textAnchor="middle" fill="white" fontSize="13" fontWeight="600">Proprietary</text>
+                                
+                                <rect x="260" y="470" width="130" height="35" rx="6" fill="#2563eb" opacity="0.8" />
+                                <text x="325" y="492" textAnchor="middle" fill="white" fontSize="13" fontWeight="600">Open Weight</text>
+                                
+                                <rect x="400" y="470" width="130" height="35" rx="6" fill="#16a34a" opacity="0.8" />
+                                <text x="465" y="492" textAnchor="middle" fill="white" fontSize="13" fontWeight="600">Open Source</text>
+                            </g>
+
+                            {/* Property boxes - Optimization */}
+                            <g className="node" onMouseEnter={(e) => showTooltip(e, 'Optimization: Compression technique that can be applied to any model')} onMouseLeave={hideTooltip}>
+                                <rect x="650" y="400" width="450" height="120" rx="12" fill="#fce7f3" stroke="#ec4899" strokeWidth="2" strokeDasharray="8,4" />
+                                <text x="875" y="430" textAnchor="middle" fontSize="20" fontWeight="bold" fill="#831843">Optimization Technique</text>
+                                <text x="875" y="455" textAnchor="middle" fontSize="14" fill="#831843">(Compression)</text>
+                                
+                                <rect x="715" y="470" width="140" height="35" rx="6" fill="#6366f1" opacity="0.8" />
+                                <text x="785" y="492" textAnchor="middle" fill="white" fontSize="13" fontWeight="600">Full Precision</text>
+                                
+                                <rect x="865" y="470" width="140" height="35" rx="6" fill="#8b5cf6" opacity="0.8" />
+                                <text x="935" y="492" textAnchor="middle" fill="white" fontSize="13" fontWeight="600">Quantized</text>
+                            </g>
+
+                            {/* Dotted lines showing properties apply to both LLM and SLM */}
+                            <line x1="325" y1="400" x2="400" y2="320" stroke="#f59e0b" strokeWidth="2" strokeDasharray="3,3" opacity="0.6" />
+                            <line x1="325" y1="400" x2="900" y2="320" stroke="#f59e0b" strokeWidth="2" strokeDasharray="3,3" opacity="0.6" />
+                            
+                            <line x1="875" y1="400" x2="400" y2="320" stroke="#ec4899" strokeWidth="2" strokeDasharray="3,3" opacity="0.6" />
+                            <line x1="875" y1="400" x2="900" y2="320" stroke="#ec4899" strokeWidth="2" strokeDasharray="3,3" opacity="0.6" />
+
+                            {/* Key relationships text */}
+                            <text x="600" y="580" textAnchor="middle" fontSize="16" fontWeight="bold" fill="#2d3748">Key Relationships</text>
+                            <text x="600" y="605" textAnchor="middle" fontSize="13" fill="#4a5568">Both LLMs and SLMs inherit from Foundation Models</text>
+                            <text x="600" y="625" textAnchor="middle" fontSize="13" fill="#4a5568">Access Type and Optimization are independent properties</text>
+                            <text x="600" y="645" textAnchor="middle" fontSize="13" fill="#4a5568">Any combination is possible (e.g., "Open Source Quantized SLM")</text>
+
+                            {/* Additional annotations */}
+                            <g opacity="0.7">
+                                <text x="100" y="180" fontSize="11" fill="#718096" fontStyle="italic">IS-A</text>
+                                <text x="1000" y="180" fontSize="11" fill="#718096" fontStyle="italic">IS-A</text>
+                                <text x="150" y="380" fontSize="11" fill="#718096" fontStyle="italic">applies to</text>
+                                <text x="1000" y="380" fontSize="11" fill="#718096" fontStyle="italic">applies to</text>
+                            </g>
+                        </svg>
+                    </div>
+
+                    {/* Legend */}
+                    <div className="legend-container">
+                        <div className="legend-title">Legend & Notation Guide</div>
+                        <div className="legend-grid">
+                            <div className="legend-item">
+                                <div className="legend-symbol">
+                                    <svg width="40" height="20">
+                                        <line x1="0" y1="10" x2="35" y2="10" stroke="#4A5568" strokeWidth="3" markerEnd="url(#arrowhead)" />
+                                    </svg>
+                                </div>
+                                <div className="legend-text"><strong>Solid arrow:</strong> IS-A relationship (inheritance/specialization)</div>
+                            </div>
+                            
+                            <div className="legend-item">
+                                <div className="legend-symbol">
+                                    <svg width="40" height="20">
+                                        <line x1="0" y1="10" x2="40" y2="10" stroke="#f59e0b" strokeWidth="2" strokeDasharray="3,3" />
+                                    </svg>
+                                </div>
+                                <div className="legend-text"><strong>Dotted line:</strong> Property that can apply to entity</div>
+                            </div>
+                            
+                            <div className="legend-item">
+                                <div className="legend-symbol">
+                                    <svg width="40" height="20">
+                                        <line x1="0" y1="10" x2="40" y2="10" stroke="#e53e3e" strokeWidth="2" strokeDasharray="5,5" />
+                                    </svg>
+                                </div>
+                                <div className="legend-text"><strong>Red dashed:</strong> Mutual exclusion (cannot be both)</div>
+                            </div>
+                            
+                            <div className="legend-item">
+                                <div className="legend-symbol">
+                                    <svg width="30" height="30">
+                                        <rect width="30" height="30" rx="4" fill="#667eea" stroke="#5a67d8" strokeWidth="2" />
+                                    </svg>
+                                </div>
+                                <div className="legend-text"><strong>Purple box:</strong> Parent/base category</div>
+                            </div>
+                            
+                            <div className="legend-item">
+                                <div className="legend-symbol">
+                                    <svg width="30" height="30">
+                                        <rect width="30" height="30" rx="4" fill="#48bb78" stroke="#38a169" strokeWidth="2" />
+                                    </svg>
+                                </div>
+                                <div className="legend-text"><strong>Green box:</strong> Large Language Models (LLMs)</div>
+                            </div>
+                            
+                            <div className="legend-item">
+                                <div className="legend-symbol">
+                                    <svg width="30" height="30">
+                                        <rect width="30" height="30" rx="4" fill="#4299e1" stroke="#3182ce" strokeWidth="2" />
+                                    </svg>
+                                </div>
+                                <div className="legend-text"><strong>Blue box:</strong> Small Language Models (SLMs)</div>
+                            </div>
+                            
+                            <div className="legend-item">
+                                <div className="legend-symbol">
+                                    <svg width="30" height="30">
+                                        <rect width="30" height="30" rx="4" fill="#fef5e7" stroke="#f59e0b" strokeWidth="2" strokeDasharray="4,2" />
+                                    </svg>
+                                </div>
+                                <div className="legend-text"><strong>Orange dashed box:</strong> Access/Transparency property</div>
+                            </div>
+                            
+                            <div className="legend-item">
+                                <div className="legend-symbol">
+                                    <svg width="30" height="30">
+                                        <rect width="30" height="30" rx="4" fill="#fce7f3" stroke="#ec4899" strokeWidth="2" strokeDasharray="4,2" />
+                                    </svg>
+                                </div>
+                                <div className="legend-text"><strong>Pink dashed box:</strong> Optimization property</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Real-world examples */}
+                    <div className="examples">
+                        <div className="examples-title">Real-World Model Examples</div>
+                        <div className="example-grid">
+                            <div className="example-card">
+                                <div className="example-title">GPT-4</div>
+                                <div className="example-details">
+                                    <strong>Type:</strong> Foundation Model → LLM<br/>
+                                    <strong>Parameters:</strong> ~1.7 trillion<br/>
+                                    <strong>Access:</strong> Proprietary<br/>
+                                    <strong>Optimization:</strong> Not applicable
+                                </div>
+                            </div>
+                            
+                            <div className="example-card">
+                                <div className="example-title">Meta Llama 2 70B</div>
+                                <div className="example-details">
+                                    <strong>Type:</strong> Foundation Model → LLM<br/>
+                                    <strong>Parameters:</strong> 70 billion<br/>
+                                    <strong>Access:</strong> Open Weight<br/>
+                                    <strong>Optimization:</strong> Quantized versions available
+                                </div>
+                            </div>
+                            
+                            <div className="example-card">
+                                <div className="example-title">Mistral 7B</div>
+                                <div className="example-details">
+                                    <strong>Type:</strong> Foundation Model → SLM<br/>
+                                    <strong>Parameters:</strong> 7 billion<br/>
+                                    <strong>Access:</strong> Open Weight<br/>
+                                    <strong>Optimization:</strong> Quantized versions available
+                                </div>
+                            </div>
+                            
+                            <div className="example-card">
+                                <div className="example-title">IBM Granite 3.0 3B</div>
+                                <div className="example-details">
+                                    <strong>Type:</strong> Foundation Model → SLM<br/>
+                                    <strong>Parameters:</strong> 3 billion<br/>
+                                    <strong>Access:</strong> Open Source<br/>
+                                    <strong>Optimization:</strong> Yes
+                                </div>
+                            </div>
+                            
+                            <div className="example-card">
+                                <div className="example-title">BLOOM</div>
+                                <div className="example-details">
+                                    <strong>Type:</strong> Foundation Model → LLM<br/>
+                                    <strong>Parameters:</strong> 176 billion<br/>
+                                    <strong>Access:</strong> Open Source<br/>
+                                    <strong>Optimization:</strong> Can be quantized
+                                </div>
+                            </div>
+                            
+                            <div className="example-card">
+                                <div className="example-title">Microsoft Phi-3</div>
+                                <div className="example-details">
+                                    <strong>Type:</strong> Foundation Model → SLM<br/>
+                                    <strong>Parameters:</strong> 3.8 billion<br/>
+                                    <strong>Access:</strong> Open Source<br/>
+                                    <strong>Optimization:</strong> Yes
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Tooltip */}
+                    {tooltip.show && (
+                        <div 
+                            className="tooltip" 
+                            style={{ 
+                                left: tooltip.x + 'px', 
+                                top: tooltip.y + 'px',
+                                transform: 'translateX(-50%) translateY(-100%)'
+                            }}
+                        >
+                            {tooltip.content}
+                        </div>
+                    )}
+                </div>
+            );
+        }
+
+        ReactDOM.render(<KnowledgeGraph />, document.getElementById('root'));
+    </script>
+</body>
+</html>
