@@ -205,7 +205,7 @@
 
         /* Section Styles */
         .section {
-            padding: 4rem 5%;
+            padding: 4rem 4%;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -298,7 +298,7 @@
             justify-content: center;
             flex-wrap: wrap;
             gap: 1rem;
-            padding: 2rem 5%;
+            padding: 2rem 4%;
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -374,7 +374,7 @@
             }
 
             .section {
-                padding: 2rem 5%;
+                padding: 2rem 4%;
             }
 
             .prompt-text {
@@ -388,7 +388,7 @@
             }
 
             .nav-buttons {
-                padding: 1rem 5%;
+                padding: 1rem 4%;
                 gap: 0.5rem;
             }
 
@@ -445,17 +445,19 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
+            <img src="LocalContent/Images/OpenSourceEventBanner_techWriter.png" alt="Pie & AI Pune: Your Personal AI – Run Models Locally Banner" style="max-width: 70%; height: auto; border-radius: 15px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); margin-bottom: 1.5rem;">
             <h1>AI Model Prompts</h1>
             <p>Curated prompts for testing Open Source models</p>
+            <p style="margin-top: 1rem;"><a href="https://www.eventbrite.com/e/pie-ai-pune-your-personal-ai-run-models-locally-tickets-1918807698479?utm-campaign=social&utm-content=attendeeshare&utm-medium=discovery&utm-term=listing&utm-source=cp&aff=ebdsshcopyurl" target="_blank" rel="noopener noreferrer" style="color: rgba(255, 255, 255, 0.95); text-decoration: underline; font-weight: 500;">Event Registration Link</a></p>
         </div>
     </section>
 
     <!-- Navigation Buttons -->
     <div class="nav-buttons">
         <a href="#general" class="nav-btn">🎯 General</a>
+        <a href="#documentation" class="nav-btn">📋 Documentation and Diagramming</a>
         <a href="#math-reasoning" class="nav-btn">🧮 Math and Reasoning</a>
         <a href="#code" class="nav-btn">💻 Code</a>
-        <a href="#documentation" class="nav-btn">📋 Documentation and Diagramming</a>
         <a href="#image-generation" class="nav-btn">🎨 Image Generation</a>
     </div>
 
@@ -484,16 +486,57 @@
             </ul>
         </section>
 
+        <!-- Documentation and Diagramming Section -->
+        <section id="documentation" class="section prompt-section">
+            <h2>📋 Documentation and Diagramming</h2>
+            <ul class="prompt-list">
+                <li class="prompt-item">
+                    <p class="prompt-text">You are a Senior Technical Editor. Follow the editing rules enclosed in ## to edit the content enclosed in "" "".
+#Editing Rules:
+1. Convert all passive voice sentences to active voice.
+2. Replace "&" with "and", "eg" with "for example", "etc" with ", and more".
+3. Whenever referring to actions to perform, address the reader. For example, "Set the Temperature value as 3."
+4. Edit content for conciseness without losing clarity.
+#
+
+""Content:
+The windows settings must be updated to reflect the new slider & radio button options, eg sound & theme color.""</p>
+                    <button class="copy-button" onclick="copyPrompt(this)">Copy</button>
+                </li>
+                <li class="prompt-item">
+                    <p class="prompt-text">Write a quick-start tutorial with just adequate information to get a new user started with Ollama desktop application. The tutorial teaches when and how to use the web search function of Ollama desktop application, using a suitable example. Keep the language simple, avoid long sentences and jargon.</p>
+                    <button class="copy-button" onclick="copyPrompt(this)">Copy</button>
+                </li>
+                <li class="prompt-item">
+                    <p class="prompt-text">Create an End User Agreement draft with Terms & Conditions for a desktop and web application by CorpX. Write the draft using the Chicago Manual of Style guide.
+The terms are 1) Store user data for personalization and billing, 2) This application will collect application performance data from user's machine, 3) User accepts the risk of any malfunction or data loss or damage that may arise from the use of this application, and agrees to indemnify and hold the CorpX harmless from any malfunction or data loss or damage that may arise from the use of its application.</p>
+                    <button class="copy-button" onclick="copyPrompt(this)">Copy</button>
+                </li>
+                <li class="prompt-item">
+                    <p class="prompt-text">Generate an SVG diagram of system architecture for an event organization, ticketing, and meeting application</p>
+                    <button class="copy-button" onclick="copyPrompt(this)">Copy</button>
+                </li>
+                <li class="prompt-item">
+                    <p class="prompt-text">Create a Mermaid .mmd file for a flowchart of an order's journey through a telecom BSS fulfilment system</p>
+                    <button class="copy-button" onclick="copyPrompt(this)">Copy</button>
+                </li>
+                <li class="prompt-item">
+                    <p class="prompt-text">Create step-by-step instructions for creating a Docker image of a Python application and deploying it. Identify all required software and dependencies in the prerequisites. Mention the next steps to take after deployment success or failure.</p>
+                    <button class="copy-button" onclick="copyPrompt(this)">Copy</button>
+                </li>
+                <li class="prompt-item">
+                    <p class="prompt-text">Create DITA topics explaining why the Turbo mode of Ollama is used and how to use it</p>
+                    <button class="copy-button" onclick="copyPrompt(this)">Copy</button>
+                </li>
+            </ul>
+        </section>
+
         <!-- Math and Reasoning Section -->
         <section id="math-reasoning" class="section prompt-section">
             <h2>🧮 Math and Reasoning</h2>
             <ul class="prompt-list">
                 <li class="prompt-item">
                     <p class="prompt-text">An investment gave 35% returns 5 years after the date of investment. The inflation rate was 5% in the year of investment and grew at the rate of 0.5% per year. What would be the inflation-adjusted total and annualized returns on the investment?</p>
-                    <button class="copy-button" onclick="copyPrompt(this)">Copy</button>
-                </li>
-                <li class="prompt-item">
-                    <p class="prompt-text">What should be my selection criteria when picking an Open Source model to run locally? What properties the ideal model should have in this case? Explain with reasons.</p>
                     <button class="copy-button" onclick="copyPrompt(this)">Copy</button>
                 </li>
                 <li class="prompt-item">
@@ -520,33 +563,6 @@
                 </li>
                 <li class="prompt-item">
                     <p class="prompt-text">Write a Python program that uses locally run Open Source models to summarize text input</p>
-                    <button class="copy-button" onclick="copyPrompt(this)">Copy</button>
-                </li>
-            </ul>
-        </section>
-
-        <!-- Documentation and Diagramming Section -->
-        <section id="documentation" class="section prompt-section">
-            <h2>📋 Documentation and Diagramming</h2>
-            <ul class="prompt-list">
-                <li class="prompt-item">
-                    <p class="prompt-text">Write a quick-start tutorial with just adequate information to get a new user started with Ollama desktop application. The tutorial teaches when and how to use the web search function of Ollama desktop application, using a suitable example. Keep the language simple, avoid long sentences and jargon.</p>
-                    <button class="copy-button" onclick="copyPrompt(this)">Copy</button>
-                </li>
-                <li class="prompt-item">
-                    <p class="prompt-text">Generate an SVG diagram of system architecture for an event organization, ticketing, and meeting application</p>
-                    <button class="copy-button" onclick="copyPrompt(this)">Copy</button>
-                </li>
-                <li class="prompt-item">
-                    <p class="prompt-text">Create a Mermaid .mmd file for a flowchart of an order's journey through a telecom BSS fulfilment system</p>
-                    <button class="copy-button" onclick="copyPrompt(this)">Copy</button>
-                </li>
-                <li class="prompt-item">
-                    <p class="prompt-text">Create step-by-step instructions for creating a Docker image of a Python application and deploying it. Identify all required software and dependencies in the prerequisites. Mention the next steps to take after deployment success or failure.</p>
-                    <button class="copy-button" onclick="copyPrompt(this)">Copy</button>
-                </li>
-                <li class="prompt-item">
-                    <p class="prompt-text">Create DITA topics explaining why the Turbo mode of Ollama is used and how to use it</p>
                     <button class="copy-button" onclick="copyPrompt(this)">Copy</button>
                 </li>
             </ul>
