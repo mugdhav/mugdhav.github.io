@@ -108,7 +108,7 @@ const portfolioData = {
                     buttonLink: "https://ai.studio/apps/drive/19H4i0hWXQe_OPV-v18GzQnzoobRhYvvr"
                 },
                 {
-                    image: "LocalContent/Images/UnicornFinderThumbnail2025-09-04010045.png",
+                    image: "LocalContent/Images/sarvam_indiantranslate.png",
                     title: "SarvamAI Indian Language Translator",
                     description: "A Python application leveraving SarvamAI API to translate text between Indian languages, including Hindi, Marathi, Tamil, Telugu, Bengali, and more.",
                     buttonText: "Try It Out",
