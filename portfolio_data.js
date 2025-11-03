@@ -3,7 +3,7 @@ const portfolioData = {
     // Personal Information
     personal: {
         name: "Mugdha Vairagade",
-        title: "Technical Writer | AI Developer | UX Designer | Event Organizer",
+        title: "Technical Writer | AI Developer | Event Organizer", // | UX Designer
         email: "vmugdha.web@gmail.com",
         linkedin: "https://www.linkedin.com/in/mugdhav",
         github: "https://github.com/mugdhav",
@@ -122,10 +122,10 @@ const portfolioData = {
                     buttonLink: "https://youtube.com/shorts/hQR19TK41DI"
                 }
             ]
-        },
+        }
 
         // UX Design Section
-        "ux-design": {
+        /* "ux-design": {
             sectionTitle: "UX Design",
             items: [
                 {
@@ -148,9 +148,9 @@ const portfolioData = {
                     description: "User-centered design for online marketplace with focus on conversion optimization.",
                     buttonText: "View Portfolio",
                     buttonLink: ""
-                }                
+                }
             ]
-        }
+        } */
     },
 
     // Navigation Items
@@ -168,15 +168,15 @@ const portfolioData = {
         {
             text: "Technical Articles",
             href: "#technical-articles"
-        },        
+        },
         {
             text: "AI Development",
             href: "#ai-development"
         },
-        {
+        /* {
             text: "UX Design",
             href: "#ux-design"
-        },
+        }, */
         {
             text: "Tech Events",
             href: "TechEvents.html"
