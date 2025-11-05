@@ -199,6 +199,20 @@ const portfolioData = {
     //     searchTerms: 'searchable keywords...'     // Space-separated keywords for search
     // }
     events: [
+        // Featured October 2025 Pie & AI Event
+        {
+            id: 'pie-ai-pune-run-models-locally',
+            title: 'Pie & AI: Pune - Your Personal AI - Run Models Locally',
+            startDate: '2025-10-31T15:00:00+05:30',
+            endDate: '2025-10-31T17:00:00+05:30',
+            date: 'October 31, 2025, 3:00 PM - 5:00 PM IST',
+            location: 'Virtual Event',
+            organization: 'Pie & AI by DeepLearning.AI',
+            description: 'Explore open-source and small language models (SLMs) that can be run locally, are available for free, and can generate content as competently as the commercially available models.',
+            icon: 'fas fa-brain',
+            link: 'https://www.linkedin.com/events/pie-aipune-yourpersonalai-runmo7389386357921538048/',
+            searchTerms: 'Pie AI Pune Personal AI Run Models Locally October 2025 DeepLearning.AI SLMs small language models open-source local models free AI virtual zoom'
+        },
         // Featured September 2025 Pie & AI Events
         {
             id: 'pie-ai-pune-content-generation',
