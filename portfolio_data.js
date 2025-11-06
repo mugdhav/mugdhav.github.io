@@ -45,6 +45,13 @@ const portfolioData = {
             sectionTitle: "Technical Articles",
             items: [
                 {
+                    icon: "📖",
+                    title: "Developer Documentation: SarvamAI Indian Language Translator",
+                    description: "Developer documentation including implementation guide, Python code samples, and a Google Colab notebook for integrating SarvamAI's Indian language translation API into applications. Includes step-by-step setup instructions and interactive examples.",
+                    buttonText: "View Documentation",
+                    buttonLink: "https://github.com/mugdhav/SarvamAPICodeSample.git"
+                },
+                {
                     icon: "📚",
                     title: "From MVP to Enterprise: Why Your AI Application Needs a Data Privacy Shield",
                     description: "This article discusses the importance of building Data Protection and Privacy layer for applications and lists the tools and APIs that can be used to build the layer.",
