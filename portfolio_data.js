@@ -47,7 +47,7 @@ const portfolioData = {
                 {
                     icon: "📖",
                     title: "Developer Documentation: SarvamAI Indian Language Translator",
-                    description: "Developer documentation including implementation guide, Python code samples, and a Google Colab notebook for integrating SarvamAI's Indian language translation API into applications. Includes step-by-step setup instructions and interactive examples.",
+                    description: "Implementation guide, Python code samples, and a Google Colab notebook for integrating SarvamAI's Indian language translation API into applications. Includes step-by-step setup instructions and interactive examples.",
                     buttonText: "View Documentation",
                     buttonLink: "https://github.com/mugdhav/SarvamAPICodeSample.git"
                 },
