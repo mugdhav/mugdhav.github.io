@@ -45,6 +45,13 @@ const portfolioData = {
             sectionTitle: "Technical Articles",
             items: [
                 {
+                    icon: "🎓",
+                    title: "Tutorial: Your Personal AI - Run Models Locally",
+                    description: "Step-by-step tutorial for setting up and running open-source and small language models (SLMs) like Phi3 and Gemma3 locally on your system using Ollama. Includes installation guide, model setup instructions, and verification steps along with test prompts.",
+                    buttonText: "View Tutorial",
+                    buttonLink: "PreEventInstructions.html"
+                },
+                {
                     icon: "📖",
                     title: "Developer Documentation: SarvamAI Indian Language Translator",
                     description: "Implementation guide, Python code samples, and a Google Colab notebook for integrating SarvamAI's Indian language translation API into applications. Includes step-by-step setup instructions and interactive examples.",
