@@ -506,7 +506,7 @@
                             Explore the <a href="https://ollama.com/library/phi3:3.8b" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color); text-decoration: none; font-weight: 500;">phi3:3.8b</a> and <a href="https://ollama.com/library/gemma3:4b" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color); text-decoration: none; font-weight: 500;">gemma3:4b</a> Open Source large language models (LLMs) in the Ollama model library. Note their sizes and intended uses. Do any intended uses match your requirements?
                         </p>
                         <p style="color: var(--secondary-text-color); line-height: 1.7;">
-                            Look up <a href="https://ollama.com/turbo" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color); text-decoration: none; font-weight: 500;">Ollama Turbo</a>. Understand what it is and which models are available in it.
+                            Look up <a href="https://ollama.com/cloud" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color); text-decoration: none; font-weight: 500;">Ollama cloud models</a>. Find out which models are available as Ollama cloud models and when to use them.
                         </p>
                     </div>
                 </div>
@@ -534,7 +534,12 @@
                                 <li style="margin: 0.5rem 0;">Start the Ollama desktop application.</li>
                                 <li style="margin: 0.5rem 0;">From the Settings of the application, sign out from your Ollama account. Also, enable Airplane mode.</li>
                             </ol>
-                            
+
+                            <div style="margin: 1.5rem 0; text-align: center;">
+                                <img src="LocalContent/Images/OllamaSettingsOfflineRawScreensho.png" alt="Ollama Settings with Airplane Mode Enabled" style="max-width: 70%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); border: 1px solid rgba(0, 0, 0, 0.1);">
+                                <p style="color: var(--secondary-text-color); font-style: italic; font-size: 0.9rem; margin-top: 0.5rem;">Ollama Settings - Signed Out with Airplane Mode Enabled</p>
+                            </div>
+
                             <p style="color: var(--secondary-text-color); margin-bottom: 1.5rem; line-height: 1.7;">
                                 Now the Ollama desktop application cannot connect to the internet or access models available online.
                             </p>
@@ -601,10 +606,9 @@
                     <div class="card-content">
                         <p style="color: var(--secondary-text-color); margin-bottom: 1.5rem; line-height: 1.7;">
                             Models performing tasks like image generation require more computational resources and memory than text-only models. Therefore, they are run online instead of locally to ensure optimal performance and access to powerful hardware.
-                        </p>
-                        
+                        </p>                        
                         <p style="color: var(--secondary-text-color); margin-bottom: 1.5rem; line-height: 1.7;">
-                            <strong>Ollama Turbo Mode:</strong> Ollama provides a Turbo mode that gives access to larger, more capable models online, such as <code style="background-color: var(--light-bg); padding: 0.2rem 0.4rem; border-radius: 4px; font-family: monospace;">gpt-oss:120b</code>, which would be impractical to run locally due to their massive size and resource requirements. Try prompting the gpt-oss:120b model in Ollama desktop application with Turbo mode enabled. See some prompt examples <a href="Prompts.html" style="color: var(--primary-color); text-decoration: none; font-weight: 500;">here</a>.
+                            <strong>Ollama Cloud Models:</strong> Ollama provides access to larger, more capable models run on cloud, such as <code style="background-color: var(--light-bg); padding: 0.2rem 0.4rem; border-radius: 4px; font-family: monospace;">gpt-oss:120b-cloud</code>, which would be impractical to run locally due to their massive size and resource requirements. Try prompting the gpt-oss:120b-cloud model in Ollama desktop application or from command line. See some prompt examples <a href="Prompts.html" style="color: var(--primary-color); text-decoration: none; font-weight: 500;">here</a>.
                         </p>
                         
                         <p style="color: var(--secondary-text-color); margin-bottom: 1.5rem; line-height: 1.7;">
