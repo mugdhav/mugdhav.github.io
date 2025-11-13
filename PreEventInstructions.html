@@ -14,7 +14,10 @@
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
+
+    <!-- Event Components CSS -->
+    <link rel="stylesheet" href="event-components.css">
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-9HL4T713SQ"></script>
     <script>
@@ -689,7 +692,7 @@
                     </h4>
                     
                     <div style="margin: 1rem 0 2rem 2.75rem; text-align: center;">
-                        <img src="LocalContent/Images/AnnotatedPhi3_3_8TriggerScreenshot.png" alt="Phi3 Model Trigger Screenshot" style="max-width: 60%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); border: 1px solid rgba(0, 0, 0, 0.1);">
+                        <img src="LocalContent/Images/AnnotatedPhi3_3_8TriggerScreenshot_update.png" alt="Phi3 Model Trigger Screenshot" style="max-width: 60%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); border: 1px solid rgba(0, 0, 0, 0.1);">
                         <p style="color: var(--secondary-text-color); font-style: italic; font-size: 0.9rem; margin-top: 0.5rem;">Model Download and Installation with Prompt in Ollama application</p>
                     </div>
                     
@@ -737,6 +740,31 @@
                     <p style="color: var(--secondary-text-color); line-height: 1.7; font-style: italic; margin-left: 2.75rem; background-color: rgba(16, 185, 129, 0.1); padding: 1rem; border-radius: 8px; border-left: 4px solid var(--success-color);">
                         <strong>Note:</strong> You might notice a progress bar in the desktop application indicating download and installation of the phi3:3.8b model, before you see a response to the prompt. Wait for the download and installation to finish, and the complete response to be displayed.
                     </p>
+
+                    <details class="troubleshooting-section">
+                        <summary>
+                            <span class="toggle-icon">+</span>
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <span>Troubleshooting: Model installation failure due network connection errors</span>
+                        </summary>
+                        <div class="troubleshooting-content">
+                            <p class="troubleshooting-description">
+                                If you see an error like "max retries exceeded" or "dial tcp: lookup... no such host", this indicates a network connectivity issue.
+                            </p>
+                            <div class="troubleshooting-image-container">
+                                <img src="LocalContent/Images/ollamaContent/model_installation_error_desktop.jpg" alt="Network error during model installation in Ollama desktop app" class="troubleshooting-image">
+                                <p class="troubleshooting-image-caption">Model installation error in Ollama desktop application</p>
+                            </div>
+                            <p class="solutions-heading">Solutions:</p>
+                            <ul class="solutions-list">
+                                <li>Check your internet connection and ensure it's stable.</li>
+                                <li>Disable VPN or proxy if you're using one.</li>
+                                <li>Check whether your firewall settings are blocking Ollama from downloading models.</li>
+                                <li>Try again after a few minutes. The model registry might be temporarily busy.</li>
+                                <li>If the problem persists, try using the CLI method: <code style="background-color: var(--light-bg); padding: 0.2rem 0.4rem; border-radius: 4px; font-family: monospace;">ollama pull phi3:3.8b</code>.</li>
+                            </ul>
+                        </div>
+                    </details>
                 </div>
 
                 <div style="margin: 2rem 0;">
@@ -782,6 +810,25 @@
                     <p style="color: var(--secondary-text-color); line-height: 1.7; font-style: italic; margin-left: 2.75rem; background-color: rgba(245, 158, 11, 0.1); padding: 1rem; border-radius: 8px; border-left: 4px solid var(--warning-color);">
                         <strong>Note:</strong> You might see the model installation in progress. Wait for the installation to finish.<br/>This is another way of installing Open Source models on Ollama.
                     </p>
+
+                    <details class="troubleshooting-section">
+                        <summary>
+                            <span class="toggle-icon">+</span>
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <span>Troubleshooting: Model installation errors</span>
+                        </summary>
+                        <div class="troubleshooting-content">
+                            <p class="troubleshooting-description">
+                                Same as in the Ollama desktop application, the "max retries exceeded" errors in Ollama CLI also indicate network connectivity issues.:
+                            </p>
+                            <div class="troubleshooting-image-container">
+                                <img src="LocalContent/Images/ollamaContent/model_installation_error_cli.jpg" alt="Network error during model installation in Ollama CLI" class="troubleshooting-image" style="max-width: 80%;">
+                                <p class="troubleshooting-image-caption">Model installation error in Ollama CLI</p>
+                            </div>
+                            <p class="solutions-heading">Solutions:</p>
+                            <p class="troubleshooting-description">See the troubleshooting steps for Ollama desktop application.</p>
+                        </div>
+                    </details>
                 </div>
 
                 <div style="margin: 2rem 0;">
@@ -944,5 +991,8 @@
             });
         }
     </script>
+
+    <!-- Event Components JavaScript -->
+    <script src="event-components.js"></script>
 </body>
 </html>

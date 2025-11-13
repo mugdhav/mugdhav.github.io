@@ -14,7 +14,10 @@
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
+
+    <!-- Event Components CSS -->
+    <link rel="stylesheet" href="event-components.css">
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-9HL4T713SQ"></script>
     <script>
@@ -592,11 +595,66 @@
                                 </ol>
                             </div>
                         </div>
-                        
+
+                        <details class="troubleshooting-section">
+                            <summary>
+                                <span class="toggle-icon">+</span>
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <span>Troubleshooting: Memory Errors</span>
+                            </summary>
+                            <div class="troubleshooting-content">
+                                <p class="troubleshooting-description">
+                                    If you see "Error: 500 Internal Server Error: model requires more system memory than is available", your system doesn't have enough RAM for the selected model.
+                                </p>
+                                <div class="troubleshooting-image-container">
+                                    <img src="LocalContent/Images/ollamaContent/failed_model_run_cli.jpg" alt="Memory error when running model" class="troubleshooting-image" style="max-width: 80%;">
+                                    <p class="troubleshooting-image-caption">Insufficient memory error in CLI</p>
+                                </div>
+                                <div class="troubleshooting-image-container">
+                                    <img src="LocalContent/Images/ollamaContent/failed_on_switchprompt-error-desktop.png" alt="Memory error in desktop app" class="troubleshooting-image">
+                                    <p class="troubleshooting-image-caption">Insufficient memory error in desktop application</p>
+                                </div>
+                                <p class="solutions-heading">Solutions:</p>
+                                <ol class="solutions-list">
+                                    <li><strong>Stop currently running models:</strong> Use <code style="background-color: var(--light-bg); padding: 0.2rem 0.4rem; border-radius: 4px; font-family: monospace;">ollama stop &lt;model_name&gt;</code> or stop them from the desktop app.</li>
+                                    <li><strong>Close other applications:</strong> Free up RAM by closing unnecessary programs.</li>
+                                    <li><strong>Try a smaller model:</strong> Use models with smaller parameter counts (e.g., phi3:3.8b instead of larger variants).</li>
+                                    <li><strong>Use cloud models:</strong> Switch to <a href="https://ollama.com/cloud" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color); text-decoration: none; font-weight: 500;">Ollama cloud models</a> like <code style="background-color: var(--light-bg); padding: 0.2rem 0.4rem; border-radius: 4px; font-family: monospace;">gpt-oss:120b-cloud</code>.</li>
+                                </ol>
+                            </div>
+                        </details>
+
+                        <details class="info-section">
+                            <summary>
+                                <span class="toggle-icon">+</span>
+                                <i class="fas fa-info-circle"></i>
+                                <span>How to Stop a Running Model</span>
+                            </summary>
+                            <div class="info-content">
+                                <p class="troubleshooting-description">
+                                    Stopping models when you're done using them frees up system memory and allows you to run different models.
+                                </p>
+                                <div class="troubleshooting-image-container">
+                                    <img src="LocalContent/Images/StopOllamaModel.png" alt="How to stop a running Ollama model" class="troubleshooting-image" style="max-width: 75%;">
+                                    <p class="troubleshooting-image-caption">Methods to stop a running model</p>
+                                </div>
+                                <div style="margin-top: 1rem;">
+                                    <p style="color: var(--text-color); font-weight: 600; margin-bottom: 0.5rem;">Desktop Application:</p>
+                                    <p class="troubleshooting-description" style="margin-bottom: 1rem;">Click the "Stop" button next to the model name in the sidebar.</p>
+
+                                    <p style="color: var(--text-color); font-weight: 600; margin-bottom: 0.5rem;">Command Line:</p>
+                                    <ul class="solutions-list">
+                                        <li>While in a chat session, type <code style="background-color: var(--light-bg); padding: 0.2rem 0.4rem; border-radius: 4px; font-family: monospace;">/bye</code>.</li>
+                                        <li>Or run: <code style="background-color: var(--light-bg); padding: 0.2rem 0.4rem; border-radius: 4px; font-family: monospace;">ollama stop &lt;model_name&gt;</code>.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </details>
+
                     </div>
                 </div>
             </div>
-            
+
             <div class="exploration-grid">
                 <div class="exploration-card fade-in">
                     <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
@@ -757,5 +815,8 @@
             });
         }
     </script>
+
+    <!-- Event Components JavaScript -->
+    <script src="event-components.js"></script>
 </body>
 </html>
