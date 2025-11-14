@@ -535,7 +535,7 @@
                             
                             <ol style="color: var(--secondary-text-color); line-height: 1.6; padding-left: 1.5rem; margin-bottom: 1.5rem;">
                                 <li style="margin: 0.5rem 0;">Start the Ollama desktop application.</li>
-                                <li style="margin: 0.5rem 0;">From the Settings of the application, sign out from your Ollama account. Also, enable Airplane mode.</li>
+                                <li style="margin: 0.5rem 0;">From the Settings of the application, sign out of your Ollama account. Also, enable Airplane mode.</li>
                             </ol>
 
                             <div style="margin: 1.5rem 0; text-align: center;">
@@ -564,14 +564,23 @@
 
                                 <div style="text-align: center; margin: 2rem 0;">
                                     <img src="LocalContent/Images/AnnotatedPhi3_3_8TriggerScreenshot_update.png" alt="Running a model in Ollama desktop application" style="width: 65%; height: auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);">
-                                    <p style="color: var(--secondary-text-color); margin-top: 1rem; text-align: center; font-style: italic;">Running a model in Ollama desktop application</p>
+                                    <p style="color: var(--secondary-text-color); margin-top: 1rem; text-align: center; font-style: italic;">Running a model in the Ollama desktop application</p>
+                                </div>
+
+                                <ol style="color: var(--secondary-text-color); line-height: 1.6; padding-left: 1.5rem;" start="3">
+                                    <li style="margin: 0.5rem 0;">Click the Stop button to stop the running model.</li>
+                                </ol>
+
+                                <div style="text-align: center; margin: 2rem 0;">
+                                    <img src="LocalContent/Images/ollamaContent/StopOllamaModel.png" alt="Stopping a model in Ollama desktop application" style="width: 65%; height: auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);">
+                                    <p style="color: var(--secondary-text-color); margin-top: 1rem; text-align: center; font-style: italic;">Stopping a model in the Ollama desktop application</p>
                                 </div>
                             </div>
                             
                             <div>
                                 <h5 style="color: var(--primary-color); margin-bottom: 0.75rem; font-weight: 600;">Run a Model Using Ollama Command Line Interface (CLI):</h5>
                                 <ol style="color: var(--secondary-text-color); line-height: 1.6; padding-left: 1.5rem;">
-                                    <li style="margin: 0.5rem 0;">In a Command Prompt or terminal, run the following command:
+                                    <li style="margin: 0.5rem 0;">In a Command Prompt or terminal, run the following command. The model is now running in prompt mode.<br/>
                                         <div style="background-color: rgba(37, 99, 235, 0.1); padding: 1rem; border-radius: 8px; margin: 0.5rem 0; border-left: 4px solid var(--primary-color); position: relative;">
                                             <code style="font-family: monospace; font-size: 1rem;">ollama run gemma3:4b</code>
                                             <button onclick="copyToClipboard('ollama run gemma3:4b')" style="position: absolute; top: 0.5rem; right: 0.5rem; background: var(--primary-color); color: white; border: none; border-radius: 4px; padding: 0.25rem 0.5rem; cursor: pointer; font-size: 0.8rem;" title="Copy to clipboard">
@@ -585,16 +594,34 @@
                                 
                                 <div style="text-align: center; margin: 2rem 0;">
                                     <img src="LocalContent/Images/ColorCodedOllamaCLIGemmaFullInteractionScreenshot.png" alt="Prompting a Model using Ollama CLI" style="width: 65%; height: auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);">
-                                    <p style="color: var(--secondary-text-color); margin-top: 1rem; text-align: center; font-style: italic;">Prompting a Model using Ollama CLI</p>
+                                    <p style="color: var(--secondary-text-color); margin-top: 1rem; text-align: center; font-style: italic;">Prompting a model using the Ollama CLI</p>
                                 </div>
                                 
                                 <ol style="color: var(--secondary-text-color); line-height: 1.6; padding-left: 1.5rem;" start="3">
-                                    <li style="margin: 0.5rem 0;">To stop the model at any time, enter the following command and press Enter.<br/> 
+                                    <li style="margin: 0.5rem 0;">To exit the model's prompt mode at any time, enter the following command and press Enter.<br/>
                                         <div style="background-color: rgba(37, 99, 235, 0.1); padding: 1rem; border-radius: 8px; margin: 0.5rem 0; border-left: 4px solid var(--primary-color); position: relative; display: inline-block; min-width: 120px;">
                                             <code style="font-family: monospace; font-size: 1rem;">/bye</code>
                                             <button onclick="copyToClipboard('/bye')" style="position: absolute; top: 0.5rem; right: 0.5rem; background: var(--primary-color); color: white; border: none; border-radius: 4px; padding: 0.25rem 0.5rem; cursor: pointer; font-size: 0.8rem;" title="Copy to clipboard">
                                                 <i class="fas fa-copy"></i>
                                             </button>
+                                        </div>
+
+                                        <div style="text-align: center; margin: 1.5rem 0;">
+                                            <img src="LocalContent/Images/ollamaContent/exit_prompt_mode_CLI.png" alt="Stopping a model using /bye command in Ollama CLI" style="width: 65%; height: auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);">
+                                            <p style="color: var(--secondary-text-color); margin-top: 1rem; text-align: center; font-style: italic;">Exit the model's prompt mode using the /bye command in Ollama CLI</p>
+                                        </div>
+                                    </li>
+                                    <li style="margin: 0.5rem 0;">Stop the running model using the following command:<br/>
+                                        <div style="background-color: rgba(37, 99, 235, 0.1); padding: 1rem; border-radius: 8px; margin: 0.5rem 0; border-left: 4px solid var(--primary-color); position: relative;">
+                                            <code style="font-family: monospace; font-size: 1rem;">ollama stop &lt;model_name&gt;</code>
+                                            <button onclick="copyToClipboard('ollama stop <model_name>')" style="position: absolute; top: 0.5rem; right: 0.5rem; background: var(--primary-color); color: white; border: none; border-radius: 4px; padding: 0.25rem 0.5rem; cursor: pointer; font-size: 0.8rem;" title="Copy to clipboard">
+                                                <i class="fas fa-copy"></i>
+                                            </button>
+                                        </div>
+
+                                        <div style="text-align: center; margin: 1.5rem 0;">
+                                            <img src="LocalContent/Images/ollamaContent/OllamaModelStopping.png" alt="Stopping a model using ollama stop command" style="width: 65%; height: auto; border-radius: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);">
+                                            <p style="color: var(--secondary-text-color); margin-top: 1rem; text-align: center; font-style: italic;">Stopping a model using the ollama stop command</p>
                                         </div>
                                     </li>
                                 </ol>
@@ -605,7 +632,7 @@
                             <summary>
                                 <span class="toggle-icon">+</span>
                                 <i class="fas fa-exclamation-triangle"></i>
-                                <span>Troubleshooting: Memory Errors</span>
+                                <span>Troubleshooting: Failed model runs due to system memory errors</span>
                             </summary>
                             <div class="troubleshooting-content">
                                 <p class="troubleshooting-description">
@@ -620,39 +647,17 @@
                                     <p class="troubleshooting-image-caption">Insufficient memory error in desktop application</p>
                                 </div>
                                 <p class="solutions-heading">Solutions:</p>
-                                <ol class="solutions-list">
-                                    <li><strong>Stop currently running models:</strong> Use <code style="background-color: var(--light-bg); padding: 0.2rem 0.4rem; border-radius: 4px; font-family: monospace;">ollama stop &lt;model_name&gt;</code> or stop them from the desktop app.</li>
-                                    <li><strong>Close other applications:</strong> Free up RAM by closing unnecessary programs.</li>
-                                    <li><strong>Try a smaller model:</strong> Use models with smaller parameter counts (e.g., phi3:3.8b instead of larger variants).</li>
-                                    <li><strong>Use cloud models:</strong> Switch to <a href="https://ollama.com/cloud" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color); text-decoration: none; font-weight: 500;">Ollama cloud models</a> like <code style="background-color: var(--light-bg); padding: 0.2rem 0.4rem; border-radius: 4px; font-family: monospace;">gpt-oss:120b-cloud</code>.</li>
-                                </ol>
-                            </div>
-                        </details>
-
-                        <details class="info-section">
-                            <summary>
-                                <span class="toggle-icon">+</span>
-                                <i class="fas fa-info-circle"></i>
-                                <span>How to Stop a Running Model</span>
-                            </summary>
-                            <div class="info-content">
-                                <p class="troubleshooting-description">
-                                    Stopping models when you're done using them frees up system memory and allows you to run different models.
-                                </p>
-                                <div class="troubleshooting-image-container">
-                                    <img src="LocalContent/Images/StopOllamaModel.png" alt="How to stop a running Ollama model" class="troubleshooting-image" style="max-width: 75%;">
-                                    <p class="troubleshooting-image-caption">Methods to stop a running model</p>
-                                </div>
-                                <div style="margin-top: 1rem;">
-                                    <p style="color: var(--text-color); font-weight: 600; margin-bottom: 0.5rem;">Desktop Application:</p>
-                                    <p class="troubleshooting-description" style="margin-bottom: 1rem;">Click the "Stop" button next to the model name in the sidebar.</p>
-
-                                    <p style="color: var(--text-color); font-weight: 600; margin-bottom: 0.5rem;">Command Line:</p>
-                                    <ul class="solutions-list">
-                                        <li>While in a chat session, type <code style="background-color: var(--light-bg); padding: 0.2rem 0.4rem; border-radius: 4px; font-family: monospace;">/bye</code>.</li>
-                                        <li>Or run: <code style="background-color: var(--light-bg); padding: 0.2rem 0.4rem; border-radius: 4px; font-family: monospace;">ollama stop &lt;model_name&gt;</code>.</li>
-                                    </ul>
-                                </div>
+                                <ul class="solutions-list">
+                                    <li>Check if other models are running using the <code style="background-color: var(--light-bg); padding: 0.2rem 0.4rem; border-radius: 4px; font-family: monospace;">ollama ps</code> command. Stop the running models using the <code style="background-color: var(--light-bg); padding: 0.2rem 0.4rem; border-radius: 4px; font-family: monospace;">ollama stop &lt;model_name&gt;</code> before running your desired model again.
+                                        <div class="troubleshooting-image-container" style="margin-top: 1rem;">
+                                            <img src="LocalContent/Images/ollamaContent/OllamaModelStatusandStopping.png" alt="Checking and stopping running models" class="troubleshooting-image" style="max-width: 80%;">
+                                            <p class="troubleshooting-image-caption">Checking model status and stopping models in the Ollama CLI</p>
+                                        </div>
+                                    </li>
+                                    <li>Close other applications to free up RAM.</li>
+                                    <li>Try a smaller model. For example, use phi3:mini instead of phi3:3.8b.</li>
+                                    <li>Use <a href="https://ollama.com/cloud" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color); text-decoration: none; font-weight: 500;">Ollama cloud models</a> like <code style="background-color: var(--light-bg); padding: 0.2rem 0.4rem; border-radius: 4px; font-family: monospace;">gpt-oss:120b-cloud</code>.</li>
+                                </ul>
                             </div>
                         </details>
 
