@@ -411,7 +411,7 @@ const portfolioData = {
             title: 'Conversation with Scott Abel - The Content Wrangler',
             date: 'December 2024',
             host: 'Mugdha Vairagade',
-            description: `An insightful conversation with Scott Abel, globally recognized content strategist and thought leader in technical communication. We discuss the evolution of technical writing, content strategy, and the future of documentation in the AI era.
+            description: `An insightful conversation with Scott Abel, globally recognized content strategist and thought leader in technical communication. We discuss the evolution of technical writing, content strategy, documentation success metrics, and the future of documentation in the AI era.
 
 <div class="podcast-resources">
 <h4>Resources Mentioned:</h4>
