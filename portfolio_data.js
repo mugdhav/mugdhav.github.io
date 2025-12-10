@@ -174,6 +174,7 @@ const portfolioData = {
         { text: "Portfolio", href: "#portfolio" },
         { text: "Blog", href: "blog/blog.html" },
         { text: "Tech Events", href: "TechEvents.html" },
+        { text: "Podcasts", href: "Podcasts.html" },
         { text: "Contact", href: "#contact" }
     ],
 
@@ -401,5 +402,31 @@ const portfolioData = {
             searchTerms: 'Pie AI Pune Exploring Indian AI Pune India Pie AI Pune Community Sarvam AI BharatGPT Hindi chat agents native language AI'
         }
         */
+    ],
+
+    // Podcasts Data
+    podcasts: [
+        {
+            id: 'conversation-scott-abel',
+            title: 'Conversation with Scott Abel - The Content Wrangler',
+            date: 'December 2024',
+            host: 'Mugdha Vairagade',
+            description: `An insightful conversation with Scott Abel, globally recognized content strategist and thought leader in technical communication. We discuss the evolution of technical writing, content strategy, and the future of documentation in the AI era.
+
+<div class="podcast-resources">
+<h4>Resources Mentioned:</h4>
+<ul>
+<li><a href="https://www.billtalksai.com/p/bill-talks-ai-training-courses" target="_blank" rel="noopener noreferrer">Bill Raymond's AI Training Courses</a></li>
+<li><a href="https://www.promptitude.io/" target="_blank" rel="noopener noreferrer">Promptitude</a> - Free upgrade from Promptitude Free Plan to SaaS Plan with promo code TCW2</li>
+<li><a href="https://www.emerse.ai/" target="_blank" rel="noopener noreferrer">Emerse.AI</a> - Immersive learning experience</li>
+<li><a href="https://www.make.com/" target="_blank" rel="noopener noreferrer">Make.com</a> - No-code AI automation</li>
+</ul>
+</div>`,
+            banner: 'LocalContent/podcast/FinalPodcastBanner.png',
+            audioFile: 'LocalContent/podcast/CompletePodcast_ConversationWithScottAbel.m4a',
+            transcriptFile: 'LocalContent/podcast/CompletePodcast_ConversationWithScottAbel.srt',
+            duration: 'TBD',
+            topics: ['Technical Writing', 'Content Strategy', 'AI in Documentation', 'Future of Tech Comm']
+        }
     ]
 };
