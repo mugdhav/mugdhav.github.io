@@ -458,5 +458,42 @@ const portfolioData = {
             duration: 'TBD',
             topics: ['Technical Writing', 'Content Strategy', 'AI in Documentation', 'Future of Tech Comm']
         }
+    ],
+
+    // Blog Posts Data
+    blogs: [
+        {
+            id: 'pie-ai-pune-extracting-structuring',
+            title: 'Snapshots from Pie & AI Pune: Extracting and Structuring Information',
+            excerpt: 'A recap of a Pie & AI event in Pune focused on AI-powered information extraction, bringing together AI practitioners to explore technologies for extracting and structuring information from documents and images. Learn about APIs and frameworks like LandingAI ADE, Google Document AI, and DocETL; along with practical applications.',
+            date: '2025-10-06',
+            category: 'AI Development',
+            readTime: '3 min read',
+            slug: 'pie-ai-pune-extracting-structuring',
+            url: 'https://www.linkedin.com/pulse/snapshots-from-pie-ai-pune-extracting-structuring-mugdha-vairagade-uw7yf',
+            featured: true
+        },
+        {
+            id: 'generating-content-open-source',
+            title: 'Generating Content with Open Source Models',
+            excerpt: 'Hosted another Pie & AI event focusing on content generation with Open Source models. Participants ranging from AI novices to experts explored lightweight models like phi3:3.8b and gemma3:4b using Ollama for local deployment. Discover how Open Source models offer data protection and cost savings.',
+            date: '2025-09-16',
+            category: 'AI Development',
+            readTime: '2 min read',
+            slug: 'generating-content-open-source',
+            url: 'https://www.linkedin.com/pulse/generating-content-open-source-models-mugdha-vairagade-xujuf',
+            featured: true
+        },
+        {
+            id: 'experiment-indian-ai',
+            title: 'An Experiment with Indian AI',
+            excerpt: 'Sharing insights from the DeepLearning.AI community event Pie & AI: Pune - Exploring Indian AI. Participants engaged in hands-on experiments with Indian AI platforms like Sarvam AI and CoRover.AI BharatGPT, exploring their capabilities in native languages. Learn about the potential and limitations of Indian AI technologies.',
+            date: '2025-09-08',
+            category: 'AI Development',
+            readTime: '3 min read',
+            slug: 'experiment-indian-ai',
+            url: 'https://www.linkedin.com/pulse/experiment-indian-ai-mugdha-vairagade-cqvef',
+            featured: true
+        }
     ]
 };

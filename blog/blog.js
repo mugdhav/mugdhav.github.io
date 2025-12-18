@@ -55,97 +55,16 @@ async function loadBlogPosts() {
     }
 }
 
-// Get sample blog posts (replace with actual markdown loading)
+// Get blog posts from portfolio data
 async function getSamplePosts() {
-    return [
-        {
-            id: 'pie-ai-pune-extracting-structuring',
-            title: 'Snapshots from Pie & AI Pune: Extracting and Structuring Information',
-            excerpt: 'A recap of a Pie & AI event in Pune focused on AI-powered information extraction, bringing together AI practitioners to explore technologies for extracting and structuring information from documents and images. Learn about APIs and frameworks like LandingAI ADE, Google Document AI, and DocETL; along with practical applications.',
-            date: '2025-10-06',
-            category: 'AI Development',
-            readTime: '3 min read',
-            slug: 'pie-ai-pune-extracting-structuring',
-            url: 'https://www.linkedin.com/pulse/snapshots-from-pie-ai-pune-extracting-structuring-mugdha-vairagade-uw7yf'
-        },
-        {
-            id: 'generating-content-open-source',
-            title: 'Generating Content with Open Source Models',
-            excerpt: 'Hosted another Pie & AI event focusing on content generation with Open Source models. Participants ranging from AI novices to experts explored lightweight models like phi3:3.8b and gemma3:4b using Ollama for local deployment. Discover how Open Source models offer data protection and cost savings.',
-            date: '2025-09-16',
-            category: 'AI Development',
-            readTime: '2 min read',
-            slug: 'generating-content-open-source',
-            url: 'https://www.linkedin.com/pulse/generating-content-open-source-models-mugdha-vairagade-xujuf'
-        },
-        {
-            id: 'experiment-indian-ai',
-            title: 'An Experiment with Indian AI',
-            excerpt: 'Sharing insights from the DeepLearning.AI community event Pie & AI: Pune - Exploring Indian AI. Participants engaged in hands-on experiments with Indian AI platforms like Sarvam AI and CoRover.AI BharatGPT, exploring their capabilities in native languages. Learn about the potential and limitations of Indian AI technologies.',
-            date: '2025-09-08',
-            category: 'AI Development',
-            readTime: '3 min read',
-            slug: 'experiment-indian-ai',
-            url: 'https://www.linkedin.com/pulse/experiment-indian-ai-mugdha-vairagade-cqvef'
-        }
-        //Comment out above and uncomment below to test with more posts
-        /*
-        {
-            id: 'getting-started-crewai',
-            title: 'Getting Started with CrewAI',
-            excerpt: 'Learn how to set up CrewAI for building powerful multi-agent AI systems. This comprehensive guide covers installation, basic concepts, and your first project.',
-            date: '2025-01-15',
-            category: 'AI Development',
-            readTime: '5 min read',
-            slug: 'getting-started-crewai'
-        },
-        {
-            id: 'ai-contact-centers',
-            title: 'The Future of AI in Contact Centers',
-            excerpt: 'Exploring how artificial intelligence is transforming customer service and contact center operations. From chatbots to predictive analytics.',
-            date: '2025-01-10',
-            category: 'AI Development',
-            readTime: '8 min read',
-            slug: 'ai-contact-centers'
-        },
-        {
-            id: 'responsive-portfolio',
-            title: 'Building Responsive Portfolio Sites',
-            excerpt: 'A complete guide to creating professional, responsive portfolio websites using modern CSS techniques and best practices.',
-            date: '2025-01-05',
-            category: 'Web Development',
-            readTime: '12 min read',
-            slug: 'responsive-portfolio'
-        },
-        {
-            id: 'ux-principles',
-            title: 'UX Design Principles for Beginners',
-            excerpt: 'Essential UX design principles every designer should know. Learn about user research, wireframing, and creating intuitive interfaces.',
-            date: '2024-12-28',
-            category: 'UX Design',
-            readTime: '6 min read',
-            slug: 'ux-principles'
-        },
-        {
-            id: 'technical-writing-guide',
-            title: 'Technical Writing Best Practices',
-            excerpt: 'Master the art of technical writing with these proven strategies. Learn how to write clear, concise documentation that users actually read.',
-            date: '2024-12-20',
-            category: 'Technical Writing',
-            readTime: '10 min read',
-            slug: 'technical-writing-guide'
-        },
-        {
-            id: 'career-tips-developers',
-            title: 'Career Tips for New Developers',
-            excerpt: 'Essential career advice for developers just starting out. From building your first portfolio to landing your dream job.',
-            date: '2024-12-15',
-            category: 'Career Tips',
-            readTime: '7 min read',
-            slug: 'career-tips-developers'
-        } 
-        */
-    ];
+    // Return blog posts from portfolio_data.js
+    if (typeof portfolioData !== 'undefined' && portfolioData.blogs) {
+        return portfolioData.blogs;
+    }
+
+    // Fallback to empty array if portfolio data not available
+    console.warn('Portfolio data not available. Make sure portfolio_data.js is loaded.');
+    return [];
 }
 
 // Render blog posts
