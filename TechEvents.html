@@ -375,6 +375,13 @@
             font-size: 0.9rem;
         }
 
+        .event-links {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
         .event-link {
             display: inline-block;
             background-color: var(--primary-color);
@@ -390,6 +397,14 @@
         .event-link:hover {
             background-color: var(--secondary-color);
             transform: translateY(-2px);
+        }
+
+        .event-link.secondary {
+            background-color: var(--accent-color);
+        }
+
+        .event-link.secondary:hover {
+            background-color: #7c3aed;
         }
 
         /* Carousel Navigation */
@@ -1016,7 +1031,45 @@
 
         function createEventCardHTML(event) {
             const statusClass = getStatusClass(event.status);
-            const linkIcon = event.link.includes('linkedin.com/events') ? 'fab fa-linkedin' : 'fab fa-linkedin';
+            const linkedInLink = event.linkedInLink || event.link; // Fallback to old 'link' field for backwards compatibility
+            const linkIcon = linkedInLink && linkedInLink.includes('linkedin.com/events') ? 'fab fa-linkedin' : 'fab fa-linkedin';
+
+            // Build buttons HTML
+            let buttonsHTML = '';
+
+            // Primary LinkedIn button (always shown if linkedInLink exists)
+            if (linkedInLink) {
+                buttonsHTML += `
+                    <a href="${linkedInLink}" target="_blank" rel="noopener noreferrer" class="event-link">
+                        <i class="${linkIcon}" style="margin-right: 0.5rem;"></i>Learn More
+                    </a>
+                `;
+            }
+
+            // Secondary buttons (conditional)
+            if (event.blogLink) {
+                buttonsHTML += `
+                    <a href="${event.blogLink}" target="_blank" rel="noopener noreferrer" class="event-link secondary">
+                        <i class="fas fa-book-open" style="margin-right: 0.5rem;"></i>Read
+                    </a>
+                `;
+            }
+
+            if (event.podcastLink) {
+                buttonsHTML += `
+                    <a href="${event.podcastLink}" target="_blank" rel="noopener noreferrer" class="event-link secondary">
+                        <i class="fas fa-podcast" style="margin-right: 0.5rem;"></i>Listen
+                    </a>
+                `;
+            }
+
+            if (event.videoLink) {
+                buttonsHTML += `
+                    <a href="${event.videoLink}" target="_blank" rel="noopener noreferrer" class="event-link secondary">
+                        <i class="fab fa-youtube" style="margin-right: 0.5rem;"></i>Watch
+                    </a>
+                `;
+            }
 
             return `
                 <div class="event-card" data-status="${event.status}" data-search="${event.searchTerms.toLowerCase()}">
@@ -1032,9 +1085,9 @@
                         <div class="event-description">
                             ${event.description}
                         </div>
-                        <a href="${event.link}" target="_blank" rel="noopener noreferrer" class="event-link">
-                            <i class="${linkIcon}" style="margin-right: 0.5rem;"></i>Learn More
-                        </a>
+                        <div class="event-links">
+                            ${buttonsHTML}
+                        </div>
                     </div>
                 </div>
             `;
