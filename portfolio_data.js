@@ -210,11 +210,27 @@ const portfolioData = {
     //     organization: 'Organizing Body',          // Who organizes/hosts the event
     //     description: 'Event description...',      // Brief description of the event
     //     icon: 'fas fa-icon-name',                 // FontAwesome icon class
-    //     link: 'https://link-to-event',            // URL for "Learn More" button
+    //     linkedInLink: 'https://linkedin.com/...',  // PRIMARY LINK - LinkedIn post (REQUIRED)
+    //     blogLink: 'blog.html#post-id',            // Secondary: Link to blog post (optional)
+    //     podcastLink: 'Podcasts.html',             // Secondary: Link to podcast episode (optional)
+    //     videoLink: 'https://youtube.com/...',     // Secondary: Link to YouTube video (optional)
     //     searchTerms: 'searchable keywords...'     // Space-separated keywords for search
     // }
     events: [
         // Featured October 2025 Pie & AI Event
+        {
+            id: 'preparing-ia-for-ai-content',
+            title: 'Preparing Information Architecture for AI‑Delivered Content',
+            startDate: '2025-12-22T19:30:00+05:30',
+            endDate: '2025-12-22T20:15:00+05:30',
+            date: 'December 22, 2025, 7:30 PM - 8:15 PM IST',
+            location: 'Virtual Event',
+            organization: 'Technical Writers and Information Architects Community',
+            description: 'Join Mugdha Vairagade and Rahel Anne Bailie for a dynamic conversation on preparing information architecture for AI‑delivered content. Explore the challenges, key considerations, foundational building blocks, and best practices that shape effective content delivery in AI‑driven environments. Q&A session included with practical takeaways to align your content strategy with the evolving landscape of AI.',
+            icon: 'fas fa-sitemap',
+            linkedInLink: 'https://www.linkedin.com/posts/mugdhav_ai-information-architect-activity-7407401500680990720-_qdK?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAD-ScYBeGEIIwA1VXFPoj__sofFCBEqfL8',
+            searchTerms: 'Preparing Information Architecture AI Delivered Content December 2025 Rahel Anne Bailie technical writers information architects AI-driven content content strategy virtual event IA best practices content delivery'
+        },
         {
             id: 'pie-ai-pune-run-models-locally',
             title: 'Pie & AI: Pune - Your Personal AI - Run Models Locally',
@@ -225,7 +241,7 @@ const portfolioData = {
             organization: 'Pie & AI by DeepLearning.AI',
             description: 'Explore open-source and small language models (SLMs) that can be run locally, are available for free, and can generate content as competently as the commercially available models.',
             icon: 'fas fa-brain',
-            link: 'https://www.linkedin.com/events/pie-aipune-yourpersonalai-runmo7389386357921538048/',
+            linkedInLink: 'https://www.linkedin.com/events/pie-aipune-yourpersonalai-runmo7389386357921538048/',
             searchTerms: 'Pie AI Pune Personal AI Run Models Locally October 2025 DeepLearning.AI SLMs small language models open-source local models free AI virtual zoom'
         },
         // Featured September 2025 Pie & AI Events
@@ -239,7 +255,7 @@ const portfolioData = {
             organization: 'Pie & AI by DeepLearning.AI',
             description: 'A hands-on session exploring content generation using Open Source models, focusing on generating text, images, and code with discussion of their use cases. Bring your laptops for collaborative exploration of Open Source LLMs.',
             icon: 'fas fa-brain',
-            link: 'https://www.linkedin.com/pulse/generating-content-open-source-models-mugdha-vairagade-xujuf',
+            linkedInLink: 'https://www.linkedin.com/pulse/generating-content-open-source-models-mugdha-vairagade-xujuf',
             searchTerms: 'Pie AI Pune Content Generation Open Source Models DeepLearning.AI text images code LLMs collaborative exploration'
         },
         {
@@ -252,7 +268,7 @@ const portfolioData = {
             organization: 'Pie & AI by DeepLearning.AI',
             description: 'Hands-on session exploring Indian LLMs, APIs, and platforms with discussion of their uses. Part of the ongoing Pie & AI meetup series focusing on Indian AI technologies.',
             icon: 'fas fa-brain',
-            link: 'https://www.linkedin.com/pulse/experiment-indian-ai-mugdha-vairagade-cqvef',
+            linkedInLink: 'https://www.linkedin.com/pulse/experiment-indian-ai-mugdha-vairagade-cqvef',
             searchTerms: 'Pie AI Pune Exploring Indian AI September 2025 DeepLearning.AI LLMs APIs platforms Indian AI technologies meetup'
         },
         {
@@ -265,7 +281,7 @@ const portfolioData = {
             organization: 'Pie & AI by DeepLearning.AI',
             description: 'Join us for an interactive session on extracting and structuring information from unstructured text using AI and machine learning techniques. Learn practical approaches to text mining, information extraction, and data structuring.',
             icon: 'fas fa-brain',
-            link: 'https://www.linkedin.com/pulse/snapshots-from-pie-ai-pune-extracting-structuring-mugdha-vairagade-uw7yf',
+            linkedInLink: 'https://www.linkedin.com/pulse/snapshots-from-pie-ai-pune-extracting-structuring-mugdha-vairagade-uw7yf',
             searchTerms: 'Pie AI Pune Extracting Structuring Information Text DeepLearning.AI text mining information extraction data structuring machine learning AI techniques'
         },
         {
@@ -278,7 +294,7 @@ const portfolioData = {
             organization: 'SAP Labs India',
             description: 'A comprehensive 3-month innovation program featuring AI brain teasers, quizzes, 24-hour hackathon, and focused build sessions. Collaborated with Asian Paints, Henkel, Google, and SAP Customer Innovation Services to unite talents, drive innovation, and create exceptional customer experiences.',
             icon: 'fas fa-lightbulb',
-            link: 'https://www.linkedin.com/posts/mugdhav_invent4customers-ai-lifeatsap-activity-7221871949134589952-PCmj',
+            linkedInLink: 'https://www.linkedin.com/posts/mugdhav_invent4customers-ai-lifeatsap-activity-7221871949134589952-PCmj',
             searchTerms: 'Invent4Customers SAP Labs India Pune AI innovation hackathon quizzes Asian Paints Henkel Google customer innovation brain teasers volunteer'
         },
         {
@@ -291,7 +307,7 @@ const portfolioData = {
             organization: 'Tech Writers Community',
             description: 'Learn how to leverage AI tools for to create a simple portfolio website (almost) for free.',
             icon: 'fas fa-code',
-            link: 'https://www.linkedin.com/in/mugdhav/',
+            linkedInLink: 'https://www.linkedin.com/in/mugdhav/',
             searchTerms: 'Building Portfolio Websites AI low-code static website workshop tech writing virtual event technical writers community AI tools web development HTML CSS JavaScript GitHub Pages free hosting'
         },
         {
@@ -304,8 +320,22 @@ const portfolioData = {
             organization: 'SAP Labs India',
             description: 'Organized a Generative AI Art competition for Pune colleagues to celebrate the launch of a new d-shop location. Participants created original art (images, audio, video) using generative AI, exploring themes from colorful Holi to Diwali on Mars. The competition included learning about preventing copyright violations and ethical AI content generation.',
             icon: 'fas fa-palette',
-            link: 'https://www.linkedin.com/posts/mugdhav_generativeai-art-pune-activity-7136282664839356416-Il2_',
+            linkedInLink: 'https://www.linkedin.com/posts/mugdhav_generativeai-art-pune-activity-7136282664839356416-Il2_',
             searchTerms: 'Generative AI Art Competition D-Shop Pune SAP Labs India AI art image generation audio video Holi Diwali copyright violations ethical AI content generation festive celebrations creative exploration'
+        },
+        {
+            id: 'scott-abel-podcast-release',
+            title: 'Podcast Release: Conversation with Scott Abel - The Content Wrangler',
+            startDate: '2025-12-11T10:00:00+05:30',
+            endDate: '2025-12-11T10:00:00+05:30',
+            date: 'December 11, 2025',
+            location: 'Online Podcast',
+            organization: 'Independent Publication',
+            description: 'Published an engaging podcast conversation with Scott Abel, host of The Content Wrangler and a leading voice in the technical communication community. The conversation centered on documentation success metrics, while also covering harnessing AI for documentation, showcasing documentation as a key enabler for product/service success, and innovative tools and workflows that support technical writers.',
+            icon: 'fas fa-podcast',
+            linkedInLink: 'https://www.linkedin.com/posts/mugdhav_podcasts-mugdha-vairagade-activity-7404560180212105216-LdsB?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAD-ScYBeGEIIwA1VXFPoj__sofFCBEqfL8',
+            podcastLink: 'Podcasts.html',
+            searchTerms: 'Scott Abel podcast Content Wrangler technical communication documentation success metrics AI documentation tools workflows technical writers December 2025 holiday present'
         },
         {
             id: 'dummy',
