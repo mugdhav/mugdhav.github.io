@@ -15,6 +15,9 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
+    <!-- PDF.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@4.0.269/build/pdf.min.mjs" type="module"></script>
+
     <!-- Portfolio Data -->
     <script src="portfolio_data.js"></script>
     <script src="podcast_transcripts.js"></script>
@@ -261,64 +264,65 @@
 
         /* Podcast Container */
         .podcast-container {
-            margin-top: 3rem;
-            margin-bottom: 3rem;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
         }
 
         .podcast-full {
             background-color: var(--light-bg);
-            border-radius: 15px;
+            border-radius: 12px;
             box-shadow: var(--shadow);
             overflow: hidden;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
         }
 
         .podcast-banner {
             width: 100%;
             height: auto;
-            max-height: 400px;
+            max-height: 250px;
             object-fit: cover;
         }
 
         .podcast-info {
-            padding: 2rem;
+            padding: 1.5rem;
         }
 
         .podcast-header {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         .podcast-title {
-            font-size: 2rem;
+            font-size: 1.5rem;
             color: var(--text-color);
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.5rem;
             font-weight: 700;
         }
 
         .podcast-meta {
             display: flex;
-            gap: 2rem;
+            gap: 1.5rem;
             flex-wrap: wrap;
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
             color: var(--secondary-text-color);
+            font-size: 0.9rem;
         }
 
         .podcast-meta-item {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.4rem;
         }
 
         .podcast-description {
             color: var(--secondary-text-color);
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-            font-size: 1.05rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
         }
 
         .podcast-resources {
-            margin-top: 1.5rem;
-            padding: 1.25rem;
+            margin-top: 1rem;
+            padding: 1rem;
             background-color: var(--light-bg);
             border-radius: 8px;
             border-left: 4px solid var(--primary-color);
@@ -326,8 +330,8 @@
 
         .podcast-resources h4 {
             color: var(--text-color);
-            font-size: 1.1rem;
-            margin-bottom: 0.75rem;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
             font-weight: 600;
         }
 
@@ -338,9 +342,10 @@
         }
 
         .podcast-resources li {
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.5rem;
             padding-left: 1.5rem;
             position: relative;
+            font-size: 0.9rem;
         }
 
         .podcast-resources li:before {
@@ -365,17 +370,17 @@
 
         .podcast-topics {
             display: flex;
-            gap: 0.5rem;
+            gap: 0.4rem;
             flex-wrap: wrap;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         .topic-tag {
             background-color: var(--primary-color);
             color: var(--white);
-            padding: 0.4rem 0.8rem;
+            padding: 0.3rem 0.7rem;
             border-radius: 20px;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 500;
         }
 
@@ -383,8 +388,8 @@
         .audio-player-container {
             background-color: var(--white);
             border-radius: 12px;
-            padding: 1.5rem;
-            margin-bottom: 2rem;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         }
 
@@ -397,7 +402,8 @@
         .transcript-section {
             background-color: var(--white);
             border-radius: 12px;
-            padding: 2rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         }
 
@@ -405,13 +411,13 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
             border-bottom: 2px solid var(--light-bg);
         }
 
         .transcript-header h3 {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             color: var(--text-color);
             display: flex;
             align-items: center;
@@ -422,10 +428,11 @@
             background-color: var(--primary-color);
             color: var(--white);
             border: none;
-            padding: 0.6rem 1.2rem;
+            padding: 0.5rem 1rem;
             border-radius: 8px;
             cursor: pointer;
             font-weight: 500;
+            font-size: 0.9rem;
             transition: var(--transition);
             display: flex;
             align-items: center;
@@ -438,9 +445,9 @@
         }
 
         .transcript-content {
-            max-height: 500px;
+            max-height: 400px;
             overflow-y: auto;
-            padding: 1rem;
+            padding: 0.75rem;
             background-color: var(--light-bg);
             border-radius: 8px;
         }
@@ -450,13 +457,14 @@
         }
 
         .transcript-line {
-            padding: 0.75rem;
-            margin-bottom: 0.5rem;
+            padding: 0.5rem;
+            margin-bottom: 0.4rem;
             border-radius: 6px;
             cursor: pointer;
             transition: var(--transition);
             display: flex;
-            gap: 1rem;
+            gap: 0.75rem;
+            font-size: 0.9rem;
         }
 
         .transcript-line:hover {
@@ -472,14 +480,14 @@
         .transcript-timestamp {
             color: var(--primary-color);
             font-weight: 600;
-            font-size: 0.9rem;
-            min-width: 80px;
+            font-size: 0.85rem;
+            min-width: 70px;
             flex-shrink: 0;
         }
 
         .transcript-text {
             color: var(--text-color);
-            line-height: 1.6;
+            line-height: 1.5;
         }
 
         /* Coming Soon Section */
@@ -611,6 +619,262 @@
 
         .transcript-content::-webkit-scrollbar-thumb:hover {
             background: var(--secondary-color);
+        }
+
+        /* Slide Deck Section - LinkedIn Style */
+        .slide-deck-section {
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+        }
+
+        .slide-deck-section:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+        }
+
+        .slide-deck-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--light-bg);
+        }
+
+        .slide-deck-header h3 {
+            font-size: 1.2rem;
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .slide-counter {
+            font-size: 0.9rem;
+            color: var(--secondary-text-color);
+            font-weight: 500;
+        }
+
+        .slide-counter #current-slide-conversation-scott-abel {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        /* Carousel Container */
+        .slide-deck-carousel {
+            position: relative;
+            background-color: var(--light-bg);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .slide-canvas-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0.75rem;
+            min-height: 350px;
+            background-color: #f8f9fa;
+        }
+
+        .slide-canvas {
+            max-width: 100%;
+            height: auto;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            border-radius: 4px;
+        }
+
+        /* Navigation Buttons - LinkedIn Style */
+        .carousel-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: var(--transition);
+            z-index: 10;
+            opacity: 0;
+        }
+
+        .slide-deck-carousel:hover .carousel-nav-btn {
+            opacity: 1;
+        }
+
+        .carousel-nav-btn:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-nav-btn.prev-btn {
+            left: 1rem;
+        }
+
+        .carousel-nav-btn.next-btn {
+            right: 1rem;
+        }
+
+        /* Dot Indicators - LinkedIn Style */
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem 0;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--secondary-text-color);
+            cursor: pointer;
+            transition: var(--transition);
+            opacity: 0.4;
+        }
+
+        .dot:hover {
+            opacity: 0.7;
+            transform: scale(1.2);
+        }
+
+        .dot.active {
+            background-color: var(--primary-color);
+            opacity: 1;
+            transform: scale(1.3);
+        }
+
+        /* Loading State */
+        .slide-deck-loading {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 20;
+        }
+
+        .slide-deck-loading i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .slide-deck-loading p {
+            color: var(--text-color);
+            font-size: 1.1rem;
+        }
+
+        /* Dark Mode Support */
+        [data-theme="dark"] .slide-canvas-container {
+            background-color: #1a1a1a;
+        }
+
+        [data-theme="dark"] .carousel-nav-btn {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        [data-theme="dark"] .carousel-nav-btn:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        [data-theme="dark"] .slide-deck-loading {
+            background-color: rgba(17, 24, 39, 0.95);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .podcast-info {
+                padding: 1rem;
+            }
+
+            .podcast-title {
+                font-size: 1.3rem;
+            }
+
+            .podcast-banner {
+                max-height: 200px;
+            }
+
+            .slide-deck-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.75rem;
+            }
+
+            .slide-canvas-container {
+                min-height: 250px;
+                padding: 0.5rem;
+            }
+
+            .carousel-nav-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+                opacity: 0.8;
+            }
+
+            .carousel-nav-btn.prev-btn {
+                left: 0.5rem;
+            }
+
+            .carousel-nav-btn.next-btn {
+                right: 0.5rem;
+            }
+
+            .dot {
+                width: 10px;
+                height: 10px;
+            }
+
+            .transcript-section {
+                padding: 1rem;
+            }
+
+            .audio-player-container {
+                padding: 0.75rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .podcast-info {
+                padding: 0.75rem;
+            }
+
+            .podcast-title {
+                font-size: 1.2rem;
+            }
+
+            .slide-deck-section {
+                padding: 1rem;
+            }
+
+            .slide-deck-header h3 {
+                font-size: 1.1rem;
+            }
+
+            .slide-counter {
+                font-size: 0.85rem;
+            }
+
+            .transcript-header h3 {
+                font-size: 1.1rem;
+            }
         }
     </style>
 </head>
@@ -1010,6 +1274,38 @@
                                 <p style="text-align: center; color: var(--secondary-text-color);">Loading transcript...</p>
                             </div>
                         </div>
+
+                        ${podcast.summaryDeck ? `
+                        <!-- Slide Deck Section -->
+                        <div class="slide-deck-section">
+                            <div class="slide-deck-header">
+                                <h3><i class="fas fa-presentation"></i> Summary Slides</h3>
+                                <div class="slide-counter" id="slide-counter-${podcast.id}">
+                                    <span id="current-slide-${podcast.id}">1</span> / <span id="total-slides-${podcast.id}">0</span>
+                                </div>
+                            </div>
+
+                            <div class="slide-deck-carousel" id="slide-carousel-${podcast.id}">
+                                <div class="slide-canvas-container">
+                                    <canvas id="slide-canvas-${podcast.id}" class="slide-canvas"></canvas>
+                                </div>
+
+                                <button class="carousel-nav-btn prev-btn" onclick="navigateSlide('${podcast.id}', -1)" aria-label="Previous slide">
+                                    <i class="fas fa-chevron-left" aria-hidden="true"></i>
+                                </button>
+                                <button class="carousel-nav-btn next-btn" onclick="navigateSlide('${podcast.id}', 1)" aria-label="Next slide">
+                                    <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                                </button>
+
+                                <div class="carousel-dots" id="carousel-dots-${podcast.id}"></div>
+
+                                <div class="slide-deck-loading" id="slide-loading-${podcast.id}">
+                                    <i class="fas fa-spinner fa-spin"></i>
+                                    <p>Loading slides...</p>
+                                </div>
+                            </div>
+                        </div>
+                        ` : ''}
                     </div>
                 </div>
             `).join('');
@@ -1022,9 +1318,221 @@
             portfolioData.podcasts.forEach(podcast => {
                 console.log('Loading transcript for podcast:', podcast.id);
                 loadTranscript(podcast.id, podcast.transcriptFile);
+
+                // Load slide deck if available
+                if (podcast.summaryDeck) {
+                    console.log('Loading slide deck for podcast:', podcast.id);
+                    initializeSlideDeck(podcast.id, podcast.summaryDeck);
+                    loadPDF(podcast.id, podcast.summaryDeck);
+                }
             });
 
-            console.log('All transcript load requests initiated');
+            console.log('All transcript and slide deck load requests initiated');
+        }
+
+        // Slide Deck State Management
+        const slideDeckState = {};
+
+        function initializeSlideDeck(podcastId, pdfPath) {
+            slideDeckState[podcastId] = {
+                currentPage: 1,
+                totalPages: 0,
+                pdfDoc: null,
+                isLoading: false,
+                renderTask: null
+            };
+        }
+
+        // Load PDF using PDF.js
+        async function loadPDF(podcastId, pdfPath) {
+            const state = slideDeckState[podcastId];
+            const loadingElement = document.getElementById(`slide-loading-${podcastId}`);
+
+            try {
+                state.isLoading = true;
+                if (loadingElement) {
+                    loadingElement.style.display = 'flex';
+                }
+
+                // Dynamic import of PDF.js
+                const pdfjsLib = await import('https://cdn.jsdelivr.net/npm/pdfjs-dist@4.0.269/build/pdf.min.mjs');
+
+                // Configure PDF.js worker
+                pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@4.0.269/build/pdf.worker.min.mjs';
+
+                // Ensure relative path (don't let browser convert to absolute file path)
+                const url = new URL(pdfPath, window.location.href).href;
+                console.log('Loading PDF from URL:', url);
+
+                // Load PDF document with proper configuration
+                const loadingTask = pdfjsLib.getDocument({
+                    url: url,
+                    verbosity: 0
+                });
+                const pdfDoc = await loadingTask.promise;
+
+                state.pdfDoc = pdfDoc;
+                state.totalPages = pdfDoc.numPages;
+
+                // Update UI
+                const totalSlidesElement = document.getElementById(`total-slides-${podcastId}`);
+                if (totalSlidesElement) {
+                    totalSlidesElement.textContent = state.totalPages;
+                }
+
+                // Create dot indicators
+                createDotIndicators(podcastId, state.totalPages);
+
+                // Render first page
+                await renderSlide(podcastId, 1);
+
+                state.isLoading = false;
+                if (loadingElement) {
+                    loadingElement.style.display = 'none';
+                }
+
+                console.log(`PDF loaded successfully for ${podcastId}: ${state.totalPages} pages`);
+
+            } catch (error) {
+                console.error('Error loading PDF:', error);
+                if (loadingElement) {
+                    loadingElement.innerHTML = `
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <p>Unable to load slides</p>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">Error: ${error.message}</p>
+                    `;
+                }
+            }
+        }
+
+        // Render a specific slide
+        async function renderSlide(podcastId, pageNum) {
+            const state = slideDeckState[podcastId];
+            if (!state || !state.pdfDoc) {
+                console.error('PDF document not loaded for', podcastId);
+                return;
+            }
+
+            const canvas = document.getElementById(`slide-canvas-${podcastId}`);
+            if (!canvas) {
+                console.error('Canvas element not found for', podcastId);
+                return;
+            }
+
+            const context = canvas.getContext('2d');
+
+            try {
+                // Cancel any ongoing render
+                if (state.renderTask) {
+                    try {
+                        await state.renderTask.cancel();
+                    } catch (e) {
+                        // Ignore cancellation errors
+                    }
+                }
+
+                // Get page
+                const page = await state.pdfDoc.getPage(pageNum);
+
+                // Calculate scale for responsive sizing
+                const container = canvas.parentElement;
+                const containerWidth = container.offsetWidth;
+                const viewport = page.getViewport({ scale: 1 });
+                const scale = (containerWidth / viewport.width) * 0.95; // 95% to add padding
+                const scaledViewport = page.getViewport({ scale: scale });
+
+                // Set canvas dimensions with device pixel ratio for sharp rendering
+                const dpr = window.devicePixelRatio || 1;
+                canvas.width = scaledViewport.width * dpr;
+                canvas.height = scaledViewport.height * dpr;
+                canvas.style.width = scaledViewport.width + 'px';
+                canvas.style.height = scaledViewport.height + 'px';
+
+                // Scale context for high DPI
+                context.scale(dpr, dpr);
+
+                // Render page
+                const renderContext = {
+                    canvasContext: context,
+                    viewport: scaledViewport
+                };
+
+                state.renderTask = page.render(renderContext);
+                await state.renderTask.promise;
+                state.renderTask = null;
+
+                // Update UI
+                state.currentPage = pageNum;
+                const currentSlideElement = document.getElementById(`current-slide-${podcastId}`);
+                if (currentSlideElement) {
+                    currentSlideElement.textContent = pageNum;
+                }
+                updateDotIndicators(podcastId, pageNum);
+
+                console.log(`Rendered slide ${pageNum} for ${podcastId}`);
+
+            } catch (error) {
+                if (error.name !== 'RenderingCancelledException') {
+                    console.error('Error rendering slide:', error);
+                }
+            }
+        }
+
+        // Navigate slides (prev/next)
+        function navigateSlide(podcastId, direction) {
+            const state = slideDeckState[podcastId];
+            if (!state) {
+                console.error('Slide deck state not found for', podcastId);
+                return;
+            }
+
+            let newPage = state.currentPage + direction;
+
+            // Wrap around
+            if (newPage < 1) newPage = state.totalPages;
+            if (newPage > state.totalPages) newPage = 1;
+
+            renderSlide(podcastId, newPage);
+        }
+
+        // Go to specific slide
+        function goToSlide(podcastId, pageNum) {
+            renderSlide(podcastId, pageNum);
+        }
+
+        // Create dot indicators
+        function createDotIndicators(podcastId, totalPages) {
+            const dotsContainer = document.getElementById(`carousel-dots-${podcastId}`);
+            if (!dotsContainer) {
+                console.error('Dots container not found for', podcastId);
+                return;
+            }
+
+            dotsContainer.innerHTML = '';
+
+            // Create dots for all pages
+            for (let i = 1; i <= totalPages; i++) {
+                const dot = document.createElement('div');
+                dot.className = 'dot';
+                if (i === 1) dot.classList.add('active');
+                dot.setAttribute('aria-label', `Go to slide ${i}`);
+                dot.addEventListener('click', () => goToSlide(podcastId, i));
+                dotsContainer.appendChild(dot);
+            }
+
+            console.log(`Created ${totalPages} dot indicators for ${podcastId}`);
+        }
+
+        // Update dot indicators
+        function updateDotIndicators(podcastId, currentPage) {
+            const dots = document.querySelectorAll(`#carousel-dots-${podcastId} .dot`);
+            dots.forEach((dot, index) => {
+                if (index + 1 === currentPage) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
         }
 
         // Initialize page

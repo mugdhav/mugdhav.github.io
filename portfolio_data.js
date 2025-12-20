@@ -452,9 +452,10 @@ const portfolioData = {
 <li><a href="https://www.make.com/" target="_blank" rel="noopener noreferrer">Make.com</a> - No-code AI automation</li>
 </ul>
 </div>`,
-            banner: 'LocalContent/podcast/FinalPodcastBanner.png',
-            audioFile: 'LocalContent/podcast/CompletePodcast_ConversationWithScottAbel.m4a',
-            transcriptFile: 'LocalContent/podcast/CompletePodcast_ConversationWithScottAbel.srt',
+            banner: 'LocalContent/podcasts/scottabel_docsuccmetrics/FinalPodcastBanner.png',
+            audioFile: 'LocalContent/podcasts/scottabel_docsuccmetrics/CompletePodcast_ConversationWithScottAbel.m4a',
+            transcriptFile: 'LocalContent/podcasts/scottabel_docsuccmetrics/CompletePodcast_ConversationWithScottAbel.srt',
+            summaryDeck: 'LocalContent/podcasts/scottabel_docsuccmetrics/ScottAbelPodcastDocSuccessMetrics.pdf',
             duration: 'TBD',
             topics: ['Technical Writing', 'Content Strategy', 'AI in Documentation', 'Future of Tech Comm']
         }
