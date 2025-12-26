@@ -437,8 +437,32 @@ const portfolioData = {
     // Podcasts Data
     podcasts: [
         {
+            id: 'conversation-rahel-bailie',
+            title: 'Conversation with Rahel Anne Bailie - Preparing Information Architecture for AI‑Delivered Content',
+            date: 'December 2025',
+            host: 'Mugdha Vairagade',
+            description: `A dynamic conversation with Rahel Anne Bailie exploring the challenges, key considerations, building blocks, and best practices that shape effective content delivery in AI‑driven environments. This session was recorded during a virtual event for technical writers and information architects.
+
+<div class="podcast-resources">
+<h4>Rahel's Recommendation - People to Follow:</h4>
+<ul>
+<li><a href="https://idratherbewriting.com/" target="_blank" rel="noopener noreferrer">Tom Johnson</a></li>
+<li><a href="https://medium.com/@nc_mike" target="_blank" rel="noopener noreferrer">Michael Iantosca</a></li>
+<li><a href="https://passo.uno" target="_blank" rel="noopener noreferrer">Fabrizio Ferri-Benedetti</a></li>
+<li><a href="https://www.isophist.com/" target="_blank" rel="noopener noreferrer">Lance Cummings</a></li>
+<li><a href="https://kanesimms.substack.com/" target="_blank" rel="noopener noreferrer">Kane Simms</a></li>
+</ul>
+</div>`,
+            banner: 'LocalContent/podcasts/rahebailie_iaprep/LumaEventBanner_moresquare.png',
+            audioFile: 'LocalContent/podcasts/rahebailie_iaprep/FinalCut_AudioConversationRahelBailie.mp3',
+            transcriptFile: 'LocalContent/podcasts/rahebailie_iaprep/FinalCut_AudioConversationRahelBailie.srt',
+            summaryDeck: 'LocalContent/podcasts/rahebailie_iaprep/The_New_Content_Mandate.pdf',
+            duration: '45 min',
+            topics: ['Information Architecture', 'AI-Delivered Content', 'Content Strategy', 'Technical Writing']
+        },
+        {
             id: 'conversation-scott-abel',
-            title: 'Conversation with Scott Abel - The Content Wrangler',
+            title: 'Conversation with Scott Abel - Documentation Success Metrics in the AI Age',
             date: 'December 2024',
             host: 'Mugdha Vairagade',
             description: `An insightful conversation with Scott Abel, globally recognized content strategist and thought leader in technical communication. We discuss the evolution of technical writing, content strategy, documentation success metrics, and the future of documentation in the AI era.

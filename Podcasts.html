@@ -266,6 +266,52 @@
         .podcast-container {
             margin-top: 2rem;
             margin-bottom: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .podcast-card {
+            background-color: var(--light-bg);
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: fit-content;
+        }
+
+        .podcast-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .podcast-card:has(.podcast-expanded-content.active) {
+            transform: none;
+        }
+
+        .podcast-card:has(.podcast-expanded-content.active):hover {
+            transform: scale(1.01);
+        }
+
+        .podcast-banner-container {
+            width: 100%;
+            height: 250px;
+            background-color: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            overflow: hidden;
+        }
+
+        .podcast-banner {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
         }
 
         .podcast-full {
@@ -276,15 +322,11 @@
             margin-bottom: 2rem;
         }
 
-        .podcast-banner {
-            width: 100%;
-            height: auto;
-            max-height: 250px;
-            object-fit: cover;
-        }
-
         .podcast-info {
             padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .podcast-header {
@@ -292,10 +334,63 @@
         }
 
         .podcast-title {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             color: var(--text-color);
             margin-bottom: 0.5rem;
             font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .podcast-description-card {
+            color: var(--secondary-text-color);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .podcast-expand-btn {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .podcast-expand-btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        .podcast-expanded-content {
+            display: none;
+            padding: 1.5rem;
+            background-color: var(--white);
+            border-top: 2px solid var(--light-bg);
+            animation: slideDown 0.3s ease;
+        }
+
+        .podcast-expanded-content.active {
+            display: block;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                max-height: 0;
+            }
+            to {
+                opacity: 1;
+                max-height: 2000px;
+            }
         }
 
         .podcast-meta {
@@ -563,11 +658,25 @@
                 font-size: 1.3rem;
             }
 
+            .podcast-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .podcast-banner-container {
+                height: 200px;
+            }
+
             .podcast-title {
-                font-size: 1.5rem;
+                font-size: 1.1rem;
+            }
+
+            .podcast-description-card {
+                font-size: 0.85rem;
             }
 
             .podcast-meta {
+                font-size: 0.85rem;
                 flex-direction: column;
                 gap: 0.5rem;
             }
@@ -781,6 +890,10 @@
         }
 
         /* Dark Mode Support */
+        [data-theme="dark"] .podcast-banner-container {
+            background-color: #1a1a1a;
+        }
+
         [data-theme="dark"] .slide-canvas-container {
             background-color: #1a1a1a;
         }
@@ -1186,6 +1299,38 @@
             }
         }
 
+        // Extract plain text description (before the resources div)
+        function getPlainDescription(description) {
+            // Split by the resources div and get the text before it
+            const parts = description.split('<div class="podcast-resources">');
+            return parts[0].trim();
+        }
+
+        // Toggle podcast expansion
+        function togglePodcast(podcastId) {
+            const expandedContent = document.getElementById(`expanded-${podcastId}`);
+            const button = document.querySelector(`#podcast-card-${podcastId} .podcast-expand-btn`);
+
+            if (expandedContent.classList.contains('active')) {
+                expandedContent.classList.remove('active');
+                button.innerHTML = '<i class="fas fa-chevron-down"></i> View Details';
+            } else {
+                expandedContent.classList.add('active');
+                button.innerHTML = '<i class="fas fa-chevron-up"></i> Hide Details';
+
+                // Load transcript and slides if not already loaded
+                const podcast = portfolioData.podcasts.find(p => p.id === podcastId);
+                if (podcast && !expandedContent.dataset.loaded) {
+                    loadTranscript(podcastId, podcast.transcriptFile);
+                    if (podcast.summaryDeck) {
+                        initializeSlideDeck(podcastId, podcast.summaryDeck);
+                        loadPDF(podcastId, podcast.summaryDeck);
+                    }
+                    expandedContent.dataset.loaded = 'true';
+                }
+            }
+        }
+
         // Render podcasts
         function renderPodcasts() {
             console.log('renderPodcasts called');
@@ -1211,38 +1356,48 @@
             }
 
             const html = portfolioData.podcasts.map(podcast => `
-                <div class="podcast-full fade-in" id="podcast-${podcast.id}">
-                    <img src="${podcast.banner}" alt="${podcast.title}" class="podcast-banner">
+                <div class="podcast-card fade-in" id="podcast-card-${podcast.id}">
+                    <div class="podcast-banner-container">
+                        <img src="${podcast.banner}" alt="${podcast.title}" class="podcast-banner">
+                    </div>
 
                     <div class="podcast-info">
-                        <div class="podcast-header">
-                            <h3 class="podcast-title">${podcast.title}</h3>
+                        <h3 class="podcast-title">${podcast.title}</h3>
 
-                            <div class="podcast-meta">
-                                <div class="podcast-meta-item">
-                                    <i class="fas fa-calendar"></i>
-                                    <span>${podcast.date}</span>
-                                </div>
-                                <div class="podcast-meta-item">
-                                    <i class="fas fa-microphone"></i>
-                                    <span>Host: ${podcast.host}</span>
-                                </div>
-                                ${podcast.duration !== 'TBD' ? `
-                                <div class="podcast-meta-item">
-                                    <i class="fas fa-clock"></i>
-                                    <span>${podcast.duration}</span>
-                                </div>
-                                ` : ''}
+                        <div class="podcast-meta" style="margin-bottom: 0.75rem;">
+                            <div class="podcast-meta-item">
+                                <i class="fas fa-calendar"></i>
+                                <span>${podcast.date}</span>
                             </div>
-
-                            <div class="podcast-description">${podcast.description}</div>
-
-                            <div class="podcast-topics">
-                                ${podcast.topics.map(topic => `
-                                    <span class="topic-tag">${topic}</span>
-                                `).join('')}
+                            <div class="podcast-meta-item">
+                                <i class="fas fa-microphone"></i>
+                                <span>Host: ${podcast.host}</span>
                             </div>
+                            ${podcast.duration !== 'TBD' ? `
+                            <div class="podcast-meta-item">
+                                <i class="fas fa-clock"></i>
+                                <span>${podcast.duration}</span>
+                            </div>
+                            ` : ''}
                         </div>
+
+                        <div class="podcast-description-card">${getPlainDescription(podcast.description)}</div>
+
+                        <div class="podcast-topics" style="margin-bottom: 1rem;">
+                            ${podcast.topics.map(topic => `
+                                <span class="topic-tag">${topic}</span>
+                            `).join('')}
+                        </div>
+
+                        <button class="podcast-expand-btn" onclick="togglePodcast('${podcast.id}')">
+                            <i class="fas fa-chevron-down"></i> View Details
+                        </button>
+                    </div>
+
+                    <!-- Expanded Content -->
+                    <div class="podcast-expanded-content" id="expanded-${podcast.id}">${podcast.description.includes('<div class="podcast-resources">') ? `
+                        <div style="margin-bottom: 1.5rem;">${podcast.description.split('<div class="podcast-resources">')[1].replace('</div>', '').trim()}</div>
+                        ` : ''}
 
                         <!-- Audio Player -->
                         <div class="audio-player-container">
@@ -1253,7 +1408,7 @@
                                 preload="metadata"
                                 ontimeupdate="updateTranscriptHighlight('${podcast.id}', this.currentTime)"
                             >
-                                <source src="${podcast.audioFile}" type="audio/mp4">
+                                <source src="${podcast.audioFile}" type="audio/mpeg">
                                 Your browser does not support the audio element.
                             </audio>
                         </div>
@@ -1312,22 +1467,7 @@
 
             container.innerHTML = html;
 
-            console.log('Podcasts HTML rendered, loading transcripts...');
-
-            // Load transcripts for all podcasts
-            portfolioData.podcasts.forEach(podcast => {
-                console.log('Loading transcript for podcast:', podcast.id);
-                loadTranscript(podcast.id, podcast.transcriptFile);
-
-                // Load slide deck if available
-                if (podcast.summaryDeck) {
-                    console.log('Loading slide deck for podcast:', podcast.id);
-                    initializeSlideDeck(podcast.id, podcast.summaryDeck);
-                    loadPDF(podcast.id, podcast.summaryDeck);
-                }
-            });
-
-            console.log('All transcript and slide deck load requests initiated');
+            console.log('Podcasts HTML rendered');
         }
 
         // Slide Deck State Management
