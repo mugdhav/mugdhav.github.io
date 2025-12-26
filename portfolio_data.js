@@ -229,6 +229,7 @@ const portfolioData = {
             description: 'Join Mugdha Vairagade and Rahel Anne Bailie for a dynamic conversation on preparing information architecture for AI‑delivered content. Explore the challenges, key considerations, foundational building blocks, and best practices that shape effective content delivery in AI‑driven environments. Q&A session included with practical takeaways to align your content strategy with the evolving landscape of AI.',
             icon: 'fas fa-sitemap',
             linkedInLink: 'https://www.linkedin.com/posts/mugdhav_ai-information-architect-activity-7407401500680990720-_qdK?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAD-ScYBeGEIIwA1VXFPoj__sofFCBEqfL8',
+            podcastLink: 'Podcasts.html#conversation-rahel-bailie',
             searchTerms: 'Preparing Information Architecture AI Delivered Content December 2025 Rahel Anne Bailie technical writers information architects AI-driven content content strategy virtual event IA best practices content delivery'
         },
         {
@@ -325,13 +326,13 @@ const portfolioData = {
         },
         {
             id: 'scott-abel-podcast-release',
-            title: 'Podcast Release: Conversation with Scott Abel - The Content Wrangler',
+            title: 'Conversation with Scott Abel - Documentation Success Metrics in the AI Age',
             startDate: '2025-12-11T10:00:00+05:30',
             endDate: '2025-12-11T10:00:00+05:30',
             date: 'December 11, 2025',
             location: 'Online Podcast',
             organization: 'Independent Publication',
-            description: 'Published an engaging podcast conversation with Scott Abel, host of The Content Wrangler and a leading voice in the technical communication community. The conversation centered on documentation success metrics, while also covering harnessing AI for documentation, showcasing documentation as a key enabler for product/service success, and innovative tools and workflows that support technical writers.',
+            description: 'An engaging podcast conversation with Scott Abel, host of The Content Wrangler and a leading voice in the technical communication community. The conversation centered on documentation success metrics, while also covering harnessing AI for documentation, showcasing documentation as a key enabler for product/service success, and innovative tools and workflows that support technical writers.',
             icon: 'fas fa-podcast',
             linkedInLink: 'https://www.linkedin.com/posts/mugdhav_podcasts-mugdha-vairagade-activity-7404560180212105216-LdsB?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAD-ScYBeGEIIwA1VXFPoj__sofFCBEqfL8',
             podcastLink: 'Podcasts.html',
