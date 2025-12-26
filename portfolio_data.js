@@ -488,6 +488,17 @@ const portfolioData = {
     // Blog Posts Data
     blogs: [
         {
+            id: 'preparing-ia-for-ai-delivered-content',
+            title: 'Preparing Information Architecture for AI-Delivered Content',
+            excerpt: 'A comprehensive exploration of how information architects and technical writers can prepare their content ecosystems for AI-powered delivery. Discusses challenges like fragmented content, missing metadata, and the shift from creating content for humans to creating it for AI systems that help humans find what they need.',
+            date: '2025-12-26',
+            category: 'Technical Writing',
+            readTime: '2 min read',
+            slug: 'preparing-ia-for-ai-delivered-content',
+            url: 'https://www.linkedin.com/pulse/preparing-information-architecture-aidelivered-mugdha-vairagade-deo5f',
+            featured: true
+        },
+        {
             id: 'pie-ai-pune-extracting-structuring',
             title: 'Snapshots from Pie & AI Pune: Extracting and Structuring Information',
             excerpt: 'A recap of a Pie & AI event in Pune focused on AI-powered information extraction, bringing together AI practitioners to explore technologies for extracting and structuring information from documents and images. Learn about APIs and frameworks like LandingAI ADE, Google Document AI, and DocETL; along with practical applications.',

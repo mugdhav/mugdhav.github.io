@@ -268,6 +268,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
+            align-items: stretch;
         }
 
         .podcast-card {
@@ -278,7 +279,7 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
-            height: fit-content;
+            height: 100%;
         }
 
         .podcast-card:hover {
@@ -326,6 +327,16 @@
             flex: 1;
             display: flex;
             flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .podcast-info-top {
+            flex: 0 0 auto;
+        }
+
+        .podcast-info-bottom {
+            flex: 0 0 auto;
+            margin-top: auto;
         }
 
         .podcast-header {
@@ -344,7 +355,6 @@
             color: var(--secondary-text-color);
             font-size: 0.9rem;
             line-height: 1.6;
-            margin-bottom: 1rem;
         }
 
         .podcast-expand-btn {
@@ -1485,40 +1495,44 @@
                     </div>
 
                     <div class="podcast-info">
-                        <h3 class="podcast-title">${podcast.title}</h3>
+                        <div class="podcast-info-top">
+                            <h3 class="podcast-title">${podcast.title}</h3>
 
-                        <div class="podcast-meta" style="margin-bottom: 0.75rem;">
-                            <div class="podcast-meta-item">
-                                <i class="fas fa-calendar"></i>
-                                <span>${podcast.date}</span>
+                            <div class="podcast-meta" style="margin-bottom: 0.75rem;">
+                                <div class="podcast-meta-item">
+                                    <i class="fas fa-calendar"></i>
+                                    <span>${podcast.date}</span>
+                                </div>
+                                <div class="podcast-meta-item">
+                                    <i class="fas fa-microphone"></i>
+                                    <span>Host: ${podcast.host}</span>
+                                </div>
+                                ${podcast.duration !== 'TBD' ? `
+                                <div class="podcast-meta-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span>${podcast.duration}</span>
+                                </div>
+                                ` : ''}
                             </div>
-                            <div class="podcast-meta-item">
-                                <i class="fas fa-microphone"></i>
-                                <span>Host: ${podcast.host}</span>
-                            </div>
-                            ${podcast.duration !== 'TBD' ? `
-                            <div class="podcast-meta-item">
-                                <i class="fas fa-clock"></i>
-                                <span>${podcast.duration}</span>
-                            </div>
-                            ` : ''}
+
+                            <div class="podcast-description-card">${getPlainDescription(podcast.description)}</div>
                         </div>
 
-                        <div class="podcast-description-card">${getPlainDescription(podcast.description)}</div>
+                        <div class="podcast-info-bottom">
+                            <div class="podcast-topics" style="margin-bottom: 1rem;">
+                                ${podcast.topics.map(topic => `
+                                    <span class="topic-tag">${topic}</span>
+                                `).join('')}
+                            </div>
 
-                        <div class="podcast-topics" style="margin-bottom: 1rem;">
-                            ${podcast.topics.map(topic => `
-                                <span class="topic-tag">${topic}</span>
-                            `).join('')}
-                        </div>
-
-                        <div class="podcast-actions">
-                            <button class="podcast-expand-btn" onclick="togglePodcast('${podcast.id}')">
-                                <i class="fas fa-chevron-down"></i> View Details
-                            </button>
-                            <button class="podcast-share-btn" onclick="sharePodcast('${podcast.id}')" id="share-btn-${podcast.id}">
-                                <i class="fas fa-share-alt"></i> Share
-                            </button>
+                            <div class="podcast-actions">
+                                <button class="podcast-expand-btn" onclick="togglePodcast('${podcast.id}')">
+                                    <i class="fas fa-chevron-down"></i> View Details
+                                </button>
+                                <button class="podcast-share-btn" onclick="sharePodcast('${podcast.id}')" id="share-btn-${podcast.id}">
+                                    <i class="fas fa-share-alt"></i> Share
+                                </button>
+                            </div>
                         </div>
                     </div>
 
