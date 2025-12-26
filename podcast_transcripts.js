@@ -4586,5 +4586,10 @@ and Make listed in the podcast
 1146
 00:47:12,390 --> 00:47:13,869
 description. Happy exploring.
+`,
+    'conversation-rahel-bailie': `
+1
+00:00:00,000 --> 00:00:05,000
+Transcript coming soon. This podcast episode will be transcribed and added here.
 `
 };
