@@ -4587,9 +4587,256 @@ and Make listed in the podcast
 00:47:12,390 --> 00:47:13,869
 description. Happy exploring.
 `,
-    'conversation-rahel-bailie': `
-1
-00:00:00,000 --> 00:00:05,000
-Transcript coming soon. This podcast episode will be transcribed and added here.
+    'conversation-rahel-bailie': `1
+00:00:00,100 --> 00:00:02,718
+Hello everyone, and welcome. Thank you
+
+2
+00:00:02,718 --> 00:00:05,337
+for joining us today for this
+
+3
+00:00:05,337 --> 00:00:07,955
+conversation on a topic that is
+
+4
+00:00:07,955 --> 00:00:09,700
+becoming increasingly important for
+
+5
+00:00:09,700 --> 00:00:12,319
+everyone working with content. As AI
+
+6
+00:00:12,319 --> 00:00:14,937
+reshapes how people discover and use
+
+7
+00:00:14,937 --> 00:00:17,119
+information, we are under growing
+
+8
+00:00:17,119 --> 00:00:19,737
+pressure to deliver content that is
+
+9
+00:00:19,737 --> 00:00:22,246
+precise, structured. In context aware, we
+
+10
+00:00:22,246 --> 00:00:24,987
+are no longer creating content just for
+
+11
+00:00:24,987 --> 00:00:27,728
+human readers. We are creating it for
+
+12
+00:00:27,728 --> 00:00:30,469
+the systems that help humans find what
+
+13
+00:00:30,469 --> 00:00:33,210
+they need. And that Chef puts a
+
+14
+00:00:33,210 --> 00:00:35,168
+spotlight on the foundations of
+
+15
+00:00:35,168 --> 00:00:37,126
+information architecture, the models, the
+
+16
+00:00:37,126 --> 00:00:39,084
+metadata, the relationships that make
+
+17
+00:00:39,084 --> 00:00:41,159
+content understandable to both. People
+
+18
+00:00:41,159 --> 00:00:43,794
+and machines and to help us
+
+19
+00:00:43,794 --> 00:00:46,429
+unpack what this means in practice
+
+20
+00:00:46,429 --> 00:00:49,063
+and how teams can build content
+
+21
+00:00:49,063 --> 00:00:51,698
+ecosystems that are ready for intelligent
+
+22
+00:00:51,698 --> 00:00:54,333
+delivery. We are joined today by
+
+23
+00:00:54,333 --> 00:00:56,968
+Rail, who has been shaping this
+
+24
+00:00:56,968 --> 00:00:59,603
+conversation for years. So I'm delighted
+
+25
+00:00:59,603 --> 00:01:02,182
+to introduce Ryan. 1920 and
+
+26
+00:01:02,182 --> 00:01:05,062
+those very few people who
+
+27
+00:01:05,062 --> 00:01:06,790
+don't know her.
+
+28
+00:01:08,170 --> 00:01:10,806
+Then there's a quick introduction.
+
+29
+00:01:10,806 --> 00:01:13,442
+Right is uh, globally respected
+
+30
+00:01:13,442 --> 00:01:16,078
+expert in content strategy and
+
+31
+00:01:16,078 --> 00:01:18,714
+content operations. She's known for
+
+32
+00:01:18,714 --> 00:01:21,349
+her ability to diagnose complex
+
+33
+00:01:21,349 --> 00:01:23,985
+ecosystems and build scalable standard
+
+34
+00:01:23,985 --> 00:01:26,621
+driven operations. She's also the
+
+35
+00:01:26,621 --> 00:01:29,163
+co-author of two influential. Looks
+
+36
+00:01:29,163 --> 00:01:30,979
+content strategy connecting the dots
+
+37
+00:01:30,979 --> 00:01:33,157
+between business brands and benefits and
+
+38
+00:01:33,157 --> 00:01:35,699
+also the language of content strategy her
+
+39
+00:01:35,699 --> 00:01:37,877
+work has helped organizations around the
+
+40
+00:01:37,877 --> 00:01:40,419
+world treat content as our true business
+
+41
+00:01:40,419 --> 00:01:43,324
+that. So Ryan, thank you so much for
+
+42
+00:01:43,324 --> 00:01:46,228
+joining us thrilled to have you here and
+
+43
+00:01:46,228 --> 00:01:48,770
+happy to be here thank you for.
+
+44
+00:01:48,870 --> 00:01:51,746
+Fighting me. Great. Uh,
+
+45
+00:01:51,746 --> 00:01:54,391
+so, uh, dear audience, before we dive
+
+46
+00:01:54,391 --> 00:01:57,037
+in, just a few quick housekeeping notes.
+
+47
+00:01:57,037 --> 00:01:59,682
+I've also pinned them in the chat
+
+48
+00:01:59,682 --> 00:02:01,950
+for you. I'm recording this conversation.
+
+49
+00:02:01,950 --> 00:02:04,595
+This will be shared on LinkedIn after
+
+50
+00:02:04,595 --> 00:02:07,241
+the event and since we have a
+
+51
+00:02:07,241 --> 00:02:09,886
+lot to cover, so we will open
+
+52
+00:02:09,886 --> 00:02:12,778
+up for Q&A. And your feedback at the
+
+53
+00:02:12,778 --> 00:02:14,755
+end of this conversation. In the
+
+54
+00:02:14,755 --> 00:02:17,061
+meantime, if any question comes to your
+
+55
+00:02:17,061 --> 00:02:20,027
+mind at any point, please drop it in the
+
+56
+00:02:20,027 --> 00:02:22,663
+chat and I'll gather them and invite you
+
+57
+00:02:22,663 --> 00:02:25,299
+to unmute during the Q&A if you would
+
+58
+00:02:25,299 --> 00:02:27,605
+like to ask your questions directly to
+
+59
+00:02:27,605 --> 00:02:30,571
+Ryan and in the due course if you run
+
+60
+00:02:30,571 --> 00:02:33,168
+into any. Critical issues. Feel free to
+
+61
+00:02:33,168 --> 00:02:35,783
+log out and rejoin using the meeting
+
+62
+00:02:35,783 --> 00:02:38,772
+link, which is also there in the chat.
+
+63
+00:02:38,772 --> 00:02:40,640
+OK, with that, let's begin.
 `
 };
