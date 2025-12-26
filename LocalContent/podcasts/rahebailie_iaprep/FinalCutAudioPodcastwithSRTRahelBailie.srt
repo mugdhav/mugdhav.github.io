@@ -1,0 +1,5355 @@
+1
+00:00:00,100 --> 00:00:02,718
+Hello everyone, and welcome. Thank you
+
+2
+00:00:02,718 --> 00:00:05,337
+for joining us today for this
+
+3
+00:00:05,337 --> 00:00:07,955
+conversation on a topic that is
+
+4
+00:00:07,955 --> 00:00:09,700
+becoming increasingly important for
+
+5
+00:00:09,700 --> 00:00:12,319
+everyone working with content. As AI
+
+6
+00:00:12,319 --> 00:00:14,937
+reshapes how people discover and use
+
+7
+00:00:14,937 --> 00:00:17,119
+information, we are under growing
+
+8
+00:00:17,119 --> 00:00:19,737
+pressure to deliver content that is
+
+9
+00:00:19,737 --> 00:00:22,246
+precise, structured. In context aware, we
+
+10
+00:00:22,246 --> 00:00:24,987
+are no longer creating content just for
+
+11
+00:00:24,987 --> 00:00:27,728
+human readers. We are creating it for
+
+12
+00:00:27,728 --> 00:00:30,469
+the systems that help humans find what
+
+13
+00:00:30,469 --> 00:00:33,210
+they need. And that Chef puts a
+
+14
+00:00:33,210 --> 00:00:35,168
+spotlight on the foundations of
+
+15
+00:00:35,168 --> 00:00:37,126
+information architecture, the models, the
+
+16
+00:00:37,126 --> 00:00:39,084
+metadata, the relationships that make
+
+17
+00:00:39,084 --> 00:00:41,159
+content understandable to both. People
+
+18
+00:00:41,159 --> 00:00:43,794
+and machines and to help us
+
+19
+00:00:43,794 --> 00:00:46,429
+unpack what this means in practice
+
+20
+00:00:46,429 --> 00:00:49,063
+and how teams can build content
+
+21
+00:00:49,063 --> 00:00:51,698
+ecosystems that are ready for intelligent
+
+22
+00:00:51,698 --> 00:00:54,333
+delivery. We are joined today by
+
+23
+00:00:54,333 --> 00:00:56,968
+Rail, who has been shaping this
+
+24
+00:00:56,968 --> 00:00:59,603
+conversation for years. So I'm delighted
+
+25
+00:00:59,603 --> 00:01:02,182
+to introduce Ryan. 1920 and
+
+26
+00:01:02,182 --> 00:01:05,062
+those very few people who
+
+27
+00:01:05,062 --> 00:01:06,790
+don't know her.
+
+28
+00:01:08,170 --> 00:01:10,806
+Then there's a quick introduction.
+
+29
+00:01:10,806 --> 00:01:13,442
+Right is uh, globally respected
+
+30
+00:01:13,442 --> 00:01:16,078
+expert in content strategy and
+
+31
+00:01:16,078 --> 00:01:18,714
+content operations. She's known for
+
+32
+00:01:18,714 --> 00:01:21,349
+her ability to diagnose complex
+
+33
+00:01:21,349 --> 00:01:23,985
+ecosystems and build scalable standard
+
+34
+00:01:23,985 --> 00:01:26,621
+driven operations. She's also the
+
+35
+00:01:26,621 --> 00:01:29,163
+co-author of two influential. Looks
+
+36
+00:01:29,163 --> 00:01:30,979
+content strategy connecting the dots
+
+37
+00:01:30,979 --> 00:01:33,157
+between business brands and benefits and
+
+38
+00:01:33,157 --> 00:01:35,699
+also the language of content strategy her
+
+39
+00:01:35,699 --> 00:01:37,877
+work has helped organizations around the
+
+40
+00:01:37,877 --> 00:01:40,419
+world treat content as our true business
+
+41
+00:01:40,419 --> 00:01:43,324
+that. So Ryan, thank you so much for
+
+42
+00:01:43,324 --> 00:01:46,228
+joining us thrilled to have you here and
+
+43
+00:01:46,228 --> 00:01:48,770
+happy to be here thank you for.
+
+44
+00:01:48,870 --> 00:01:51,746
+Fighting me. Great. Uh,
+
+45
+00:01:51,746 --> 00:01:54,391
+so, uh, dear audience, before we dive
+
+46
+00:01:54,391 --> 00:01:57,037
+in, just a few quick housekeeping notes.
+
+47
+00:01:57,037 --> 00:01:59,682
+I've also pinned them in the chat
+
+48
+00:01:59,682 --> 00:02:01,950
+for you. I'm recording this conversation.
+
+49
+00:02:01,950 --> 00:02:04,595
+This will be shared on LinkedIn after
+
+50
+00:02:04,595 --> 00:02:07,241
+the event and since we have a
+
+51
+00:02:07,241 --> 00:02:09,886
+lot to cover, so we will open
+
+52
+00:02:09,886 --> 00:02:12,778
+up for Q&A. And your feedback at the
+
+53
+00:02:12,778 --> 00:02:14,755
+end of this conversation. In the
+
+54
+00:02:14,755 --> 00:02:17,061
+meantime, if any question comes to your
+
+55
+00:02:17,061 --> 00:02:20,027
+mind at any point, please drop it in the
+
+56
+00:02:20,027 --> 00:02:22,663
+chat and I'll gather them and invite you
+
+57
+00:02:22,663 --> 00:02:25,299
+to unmute during the Q&A if you would
+
+58
+00:02:25,299 --> 00:02:27,605
+like to ask your questions directly to
+
+59
+00:02:27,605 --> 00:02:30,571
+Ryan and in the due course if you run
+
+60
+00:02:30,571 --> 00:02:33,168
+into any. Critical issues. Feel free to
+
+61
+00:02:33,168 --> 00:02:35,783
+log out and rejoin using the meeting
+
+62
+00:02:35,783 --> 00:02:38,772
+link, which is also there in the chat.
+
+63
+00:02:38,772 --> 00:02:40,640
+OK, with that, let's begin.
+
+64
+00:02:42,320 --> 00:02:45,113
+Let's begin with a look at the
+
+65
+00:02:45,113 --> 00:02:46,709
+challenges that our information
+
+66
+00:02:46,709 --> 00:02:48,704
+architects and technical writers face
+
+67
+00:02:48,704 --> 00:02:51,497
+today. So as we move towards AI
+
+68
+00:02:51,497 --> 00:02:53,492
+driven content delivery, long standing
+
+69
+00:02:53,492 --> 00:02:55,088
+information architecture challenges come
+
+70
+00:02:55,088 --> 00:02:57,482
+into sharper focus. Challenges that can
+
+71
+00:02:57,482 --> 00:03:00,275
+lead even the most sophisticated AI tools
+
+72
+00:03:00,275 --> 00:03:02,812
+to return results that feel. Irrelevant
+
+73
+00:03:02,812 --> 00:03:05,070
+and misleading, for example, fragmented
+
+74
+00:03:05,070 --> 00:03:07,329
+content or inconsistent metadata being
+
+75
+00:03:07,329 --> 00:03:10,039
+the most visible challenge. So right
+
+76
+00:03:10,039 --> 00:03:12,749
+from your perspective, what are the
+
+77
+00:03:12,749 --> 00:03:15,460
+challenges like? Which are the hidden
+
+78
+00:03:15,460 --> 00:03:17,266
+challenges that information architects
+
+79
+00:03:17,266 --> 00:03:19,977
+need to address for AI powered
+
+80
+00:03:19,977 --> 00:03:20,880
+content delivery?
+
+81
+00:03:22,590 --> 00:03:25,237
+Well, I would like to to
+
+82
+00:03:25,237 --> 00:03:27,883
+kind of frame this by saying
+
+83
+00:03:27,883 --> 00:03:30,530
+that it doesn't really matter where
+
+84
+00:03:30,530 --> 00:03:33,177
+you are working, whether you're in
+
+85
+00:03:33,177 --> 00:03:35,823
+a very small organization or very
+
+86
+00:03:35,823 --> 00:03:38,470
+large organization, a lot of the
+
+87
+00:03:38,470 --> 00:03:41,117
+challenges are the same because what
+
+88
+00:03:41,117 --> 00:03:43,965
+happens is that. We were told
+
+89
+00:03:43,965 --> 00:03:46,754
+to use AI and, you know, do
+
+90
+00:03:46,754 --> 00:03:49,543
+do AI, and nobody really starts thinking
+
+91
+00:03:49,543 --> 00:03:52,332
+about the strategic part of what are
+
+92
+00:03:52,332 --> 00:03:54,723
+we trying to accomplish because there's
+
+93
+00:03:54,723 --> 00:03:57,512
+no single right way to do, you
+
+94
+00:03:57,512 --> 00:04:00,301
+know, to use AI. How you use
+
+95
+00:04:00,301 --> 00:04:03,090
+it is going to depend on what.
+
+96
+00:04:03,160 --> 00:04:06,094
+Want to do with it. So we have,
+
+97
+00:04:06,094 --> 00:04:09,029
+uh, we all have legacy content and we
+
+98
+00:04:09,029 --> 00:04:11,596
+started in this business. I've been in
+
+99
+00:04:11,596 --> 00:04:14,530
+this business for a long, long time. So
+
+100
+00:04:14,530 --> 00:04:17,465
+the tools that we had at the beginning
+
+101
+00:04:17,465 --> 00:04:20,032
+didn't really they, they weren't fit for
+
+102
+00:04:20,032 --> 00:04:22,966
+purpose for the way we have to deliver
+
+103
+00:04:22,966 --> 00:04:25,842
+content today. So everything has kind of
+
+104
+00:04:25,842 --> 00:04:28,149
+grown organically. You know, we started
+
+105
+00:04:28,149 --> 00:04:30,840
+off using word perfect and then it
+
+106
+00:04:30,840 --> 00:04:33,532
+was, um, word and then it was,
+
+107
+00:04:33,532 --> 00:04:36,223
+um Framemaker and then it was and,
+
+108
+00:04:36,223 --> 00:04:38,914
+you know, it just kind of grew
+
+109
+00:04:38,914 --> 00:04:41,605
+and grew and grew. And so if
+
+110
+00:04:41,605 --> 00:04:44,297
+we were to take those documents that
+
+111
+00:04:44,297 --> 00:04:46,996
+we were doing. Back then,
+
+112
+00:04:46,996 --> 00:04:49,957
+because a lot of us are working
+
+113
+00:04:49,957 --> 00:04:52,495
+on machines or software services or
+
+114
+00:04:52,495 --> 00:04:55,456
+whatever it may be that have existed
+
+115
+00:04:55,456 --> 00:04:58,416
+for many, many, many years. So we
+
+116
+00:04:58,416 --> 00:05:01,377
+still go back to some of those
+
+117
+00:05:01,377 --> 00:05:04,338
+legacy documents and we we don't have
+
+118
+00:05:04,338 --> 00:05:07,155
+the kind of robustness. That is
+
+119
+00:05:07,155 --> 00:05:09,939
+needed, uh, in today's world. So you
+
+120
+00:05:09,939 --> 00:05:11,927
+mentioned, for example, missing metadata.
+
+121
+00:05:11,927 --> 00:05:14,711
+Well, that's an obvious one because, you
+
+122
+00:05:14,711 --> 00:05:17,096
+know, we're using Word perfect or
+
+123
+00:05:17,096 --> 00:05:19,085
+Microsoft Word. You can't componentize
+
+124
+00:05:19,085 --> 00:05:21,868
+content and you can't put the, the
+
+125
+00:05:21,868 --> 00:05:24,652
+kind of metadata on it that you
+
+126
+00:05:24,652 --> 00:05:27,583
+want and you combine that. With not
+
+127
+00:05:27,583 --> 00:05:30,322
+knowing um, who your market is and
+
+128
+00:05:30,322 --> 00:05:33,062
+what the strategy is supposed to be,
+
+129
+00:05:33,062 --> 00:05:35,802
+then how are you supposed to know
+
+130
+00:05:35,802 --> 00:05:38,541
+how you need to tag it up?
+
+131
+00:05:38,541 --> 00:05:41,281
+So one of the common things I
+
+132
+00:05:41,281 --> 00:05:44,020
+see is when, um, like the United
+
+133
+00:05:44,020 --> 00:05:46,760
+States is such a big market, they.
+
+134
+00:05:46,830 --> 00:05:48,628
+Often start with just domestic product
+
+135
+00:05:48,628 --> 00:05:51,625
+and so you don't have to tag it up with
+
+136
+00:05:51,625 --> 00:05:54,023
+the country or the language or any of
+
+137
+00:05:54,023 --> 00:05:56,121
+those things because it's one market. And
+
+138
+00:05:56,121 --> 00:05:58,818
+so if you know that you're going to be
+
+139
+00:05:58,818 --> 00:06:00,616
+expanding into many markets, then you
+
+140
+00:06:00,616 --> 00:06:02,714
+might start tagging it up differently for
+
+141
+00:06:02,714 --> 00:06:04,812
+those markets. And if you're in things
+
+142
+00:06:04,812 --> 00:06:06,610
+like, you know automotive, there's a.
+
+143
+00:06:06,920 --> 00:06:09,675
+Ohh, well known, uh, well well known
+
+144
+00:06:09,675 --> 00:06:12,430
+to people who've been in the industry
+
+145
+00:06:12,430 --> 00:06:15,186
+as long as me. Um, example of
+
+146
+00:06:15,186 --> 00:06:16,760
+someone who wanted a.
+
+147
+00:06:18,360 --> 00:06:20,537
+Side mirror or a wing mirror, they would
+
+148
+00:06:20,537 --> 00:06:22,985
+call it in the UK for the passenger side
+
+149
+00:06:22,985 --> 00:06:25,978
+of a car and it came and it was the wrong
+
+150
+00:06:25,978 --> 00:06:28,427
+side of the car. Because in the UK they
+
+151
+00:06:28,427 --> 00:06:30,876
+drive on the other side of the road. So
+
+152
+00:06:30,876 --> 00:06:33,052
+the passengers are on the left and they
+
+153
+00:06:33,052 --> 00:06:35,229
+wanted the the, the, the wing mirror for
+
+154
+00:06:35,229 --> 00:06:37,406
+the right. So when you have those kinds
+
+155
+00:06:37,406 --> 00:06:39,713
+of things. If you know that you're,
+
+156
+00:06:39,713 --> 00:06:42,084
+you're, you are going to be expanding
+
+157
+00:06:42,084 --> 00:06:44,116
+into those countries, you start thinking
+
+158
+00:06:44,116 --> 00:06:46,825
+about those things like, ohh, I need to
+
+159
+00:06:46,825 --> 00:06:49,534
+be able to tag this up in a
+
+160
+00:06:49,534 --> 00:06:51,904
+different way. And so we haven't done
+
+161
+00:06:51,904 --> 00:06:54,275
+that. No matter whether you're, you know,
+
+162
+00:06:54,275 --> 00:06:56,984
+in like as in a small company or
+
+163
+00:06:56,984 --> 00:06:59,625
+a big company. So it's kind of
+
+164
+00:06:59,625 --> 00:07:01,853
+a ubiquitous problem because how we
+
+165
+00:07:01,853 --> 00:07:04,452
+deliver content today is so much more
+
+166
+00:07:04,452 --> 00:07:07,422
+complex than how we delivered it even 10
+
+167
+00:07:07,422 --> 00:07:10,393
+years ago or five years ago. And now
+
+168
+00:07:10,393 --> 00:07:13,363
+with AI coming in, it's so important to
+
+169
+00:07:13,363 --> 00:07:16,334
+have all the pieces in place to be
+
+170
+00:07:16,334 --> 00:07:18,860
+able to deliver the content. The way you
+
+171
+00:07:18,860 --> 00:07:21,552
+need to. Well, that's very
+
+172
+00:07:21,552 --> 00:07:24,238
+interesting. So I think there is an
+
+173
+00:07:24,238 --> 00:07:26,925
+angle of localization also that you bring
+
+174
+00:07:26,925 --> 00:07:29,612
+up as one of the challenges. Yeah,
+
+175
+00:07:29,612 --> 00:07:31,915
+yes. And localization can mean multiple
+
+176
+00:07:31,915 --> 00:07:34,602
+languages or it could mean the same
+
+177
+00:07:34,602 --> 00:07:36,905
+language, but just in different markets.
+
+178
+00:07:36,905 --> 00:07:39,592
+Yeah, certainly. So that's a helpful look
+
+179
+00:07:39,592 --> 00:07:42,411
+at the. And then just beneath the
+
+180
+00:07:42,411 --> 00:07:45,185
+surface, right, building on that, I would
+
+181
+00:07:45,185 --> 00:07:47,958
+love to shift focus towards the practical
+
+182
+00:07:47,958 --> 00:07:50,732
+side of preparing for AI powered content
+
+183
+00:07:50,732 --> 00:07:52,317
+delivery while addressing these
+
+184
+00:07:52,317 --> 00:07:54,694
+challenges. So tell me, when information
+
+185
+00:07:54,694 --> 00:07:56,675
+architects and technical writers are
+
+186
+00:07:56,675 --> 00:07:59,053
+planning for this future, what key
+
+187
+00:07:59,053 --> 00:08:01,430
+considerations they should keep in mind?
+
+188
+00:08:02,970 --> 00:08:05,705
+Well, there are a number of things
+
+189
+00:08:05,705 --> 00:08:08,440
+and I think it's important to look
+
+190
+00:08:08,440 --> 00:08:11,176
+at content holistically and to look at
+
+191
+00:08:11,176 --> 00:08:13,911
+the system holistically. So one of the
+
+192
+00:08:13,911 --> 00:08:16,646
+things that you might want to think
+
+193
+00:08:16,646 --> 00:08:19,381
+of is how, what are you using?
+
+194
+00:08:19,381 --> 00:08:22,116
+Is it a large language model? Is
+
+195
+00:08:22,116 --> 00:08:24,719
+it a smaller language model?Is
+
+196
+00:08:24,719 --> 00:08:27,509
+it something in house? Are you doing
+
+197
+00:08:27,509 --> 00:08:29,900
+something using third party agents? You
+
+198
+00:08:29,900 --> 00:08:32,691
+know, are you using Agenta Ki and
+
+199
+00:08:32,691 --> 00:08:35,481
+and what are where are all these
+
+200
+00:08:35,481 --> 00:08:38,271
+things coming from? Because we know. So
+
+201
+00:08:38,271 --> 00:08:41,061
+we all know about hallucinations now. We
+
+202
+00:08:41,061 --> 00:08:43,851
+don't even have to say that at
+
+203
+00:08:43,851 --> 00:08:46,081
+anymore. Because we're so familiar with
+
+204
+00:08:46,081 --> 00:08:48,532
+the the idea that these large language
+
+205
+00:08:48,532 --> 00:08:51,334
+models can go off the rails, but how
+
+206
+00:08:51,334 --> 00:08:54,135
+do we keep them on the rails? So
+
+207
+00:08:54,135 --> 00:08:56,937
+do we use a RAG model, for example?
+
+208
+00:08:56,937 --> 00:08:59,738
+Then what kind of RAG model and is?
+
+209
+00:08:59,738 --> 00:09:02,539
+How are we doing the prompts and and
+
+210
+00:09:02,539 --> 00:09:05,417
+how are we?What
+
+211
+00:09:05,417 --> 00:09:07,952
+are we sharing inadvertently with
+
+212
+00:09:07,952 --> 00:09:10,486
+the world as opposed to
+
+213
+00:09:10,486 --> 00:09:13,021
+what are we what do
+
+214
+00:09:13,021 --> 00:09:15,555
+we need to, you know,
+
+215
+00:09:15,555 --> 00:09:18,090
+the intellectual property that we
+
+216
+00:09:18,090 --> 00:09:20,625
+should keep within our organization
+
+217
+00:09:20,625 --> 00:09:23,159
+and then, you know, when
+
+218
+00:09:23,159 --> 00:09:26,019
+we're creating the. If you're
+
+219
+00:09:26,019 --> 00:09:28,342
+familiar with Lance Cummings, Doctor
+
+220
+00:09:28,342 --> 00:09:31,129
+Lance Cummings, he talks about how
+
+221
+00:09:31,129 --> 00:09:33,452
+to structure prompts for technical
+
+222
+00:09:33,452 --> 00:09:36,239
+writing and he will talk about
+
+223
+00:09:36,239 --> 00:09:39,026
+the how you give the AI
+
+224
+00:09:39,026 --> 00:09:41,814
+a persona like such as you
+
+225
+00:09:41,814 --> 00:09:44,601
+know you are an expert in
+
+226
+00:09:44,601 --> 00:09:46,727
+electrical engineering. In this field,
+
+227
+00:09:46,727 --> 00:09:49,704
+for example, but you also have to give
+
+228
+00:09:49,704 --> 00:09:52,682
+a persona for the audience. And so now
+
+229
+00:09:52,682 --> 00:09:55,660
+it's not enough to just give the one
+
+230
+00:09:55,660 --> 00:09:58,638
+persona for this end, you need to to
+
+231
+00:09:58,638 --> 00:10:01,616
+give it for the other end. And then
+
+232
+00:10:01,616 --> 00:10:03,104
+you're creating very specific
+
+233
+00:10:03,104 --> 00:10:04,593
+instructions, but you're also
+
+234
+00:10:04,593 --> 00:10:07,511
+constraining the model. To say like for
+
+235
+00:10:07,511 --> 00:10:10,155
+example, we are only looking at this
+
+236
+00:10:10,155 --> 00:10:12,799
+body of documents, if you think about
+
+237
+00:10:12,799 --> 00:10:15,443
+this and they call it like the
+
+238
+00:10:15,443 --> 00:10:18,088
+open world versus the closed world model.
+
+239
+00:10:18,088 --> 00:10:20,732
+So the open world model, you say
+
+240
+00:10:20,732 --> 00:10:23,376
+we want to get insights. However, in
+
+241
+00:10:23,376 --> 00:10:26,020
+our business it's not so much about.
+
+242
+00:10:26,090 --> 00:10:28,072
+Getting insights for example, like how
+
+243
+00:10:28,072 --> 00:10:30,384
+many customers took things out of their
+
+244
+00:10:30,384 --> 00:10:32,366
+shopping cart before they checked out,
+
+245
+00:10:32,366 --> 00:10:35,339
+right? I mean, that would be the the kind
+
+246
+00:10:35,339 --> 00:10:37,982
+of this example of what kind of insights
+
+247
+00:10:37,982 --> 00:10:40,624
+do we see about the market in general.
+
+248
+00:10:40,624 --> 00:10:42,606
+That's for a different department. We
+
+249
+00:10:42,606 --> 00:10:45,579
+have the the problem of we have a big
+
+250
+00:10:45,579 --> 00:10:48,311
+body of content. And users want
+
+251
+00:10:48,311 --> 00:10:51,174
+to find that that one thing
+
+252
+00:10:51,174 --> 00:10:54,037
+amongst it's like that needle in
+
+253
+00:10:54,037 --> 00:10:56,900
+the haystack. And we want to
+
+254
+00:10:56,900 --> 00:10:59,763
+deliver it on that first try
+
+255
+00:10:59,763 --> 00:11:02,626
+because people are starting to become
+
+256
+00:11:02,626 --> 00:11:05,489
+accustomed to being able to to
+
+257
+00:11:05,489 --> 00:11:08,250
+get that answer. On the first try,
+
+258
+00:11:08,250 --> 00:11:10,110
+and this is how some organizations
+
+259
+00:11:10,110 --> 00:11:12,280
+actually set up their metrics, how what
+
+260
+00:11:12,280 --> 00:11:14,760
+is the successful answer is when they can
+
+261
+00:11:14,760 --> 00:11:17,550
+get it on the first try and not have
+
+262
+00:11:17,550 --> 00:11:19,720
+to fiddle around with the keywords or
+
+263
+00:11:19,720 --> 00:11:21,890
+they don't have to call customer service,
+
+264
+00:11:21,890 --> 00:11:24,370
+they could just ask and get the answer.
+
+265
+00:11:24,370 --> 00:11:26,850
+And so how do we make that happen?
+
+266
+00:11:27,290 --> 00:11:29,998
+On the one hand, we've got this body
+
+267
+00:11:29,998 --> 00:11:32,706
+of content, so it's closed and we want
+
+268
+00:11:32,706 --> 00:11:35,413
+to get an answer out of that. We
+
+269
+00:11:35,413 --> 00:11:37,783
+don't have this big world problem, but
+
+270
+00:11:37,783 --> 00:11:40,490
+what we do have is a content curation
+
+271
+00:11:40,490 --> 00:11:43,198
+situation. I don't want to call it a
+
+272
+00:11:43,198 --> 00:11:45,568
+problem because I think it's actually an
+
+273
+00:11:45,568 --> 00:11:48,514
+opportunity for us as writers. To to
+
+274
+00:11:48,514 --> 00:11:51,436
+influence how well the content is
+
+275
+00:11:51,436 --> 00:11:54,358
+delivered. So it's not just enough
+
+276
+00:11:54,358 --> 00:11:57,280
+to curate the content, which needs
+
+277
+00:11:57,280 --> 00:12:00,201
+to be done, but we also
+
+278
+00:12:00,201 --> 00:12:03,123
+have to curate the context. And
+
+279
+00:12:03,123 --> 00:12:06,045
+so when you combine those two
+
+280
+00:12:06,045 --> 00:12:09,021
+things, we become more of. Curators,
+
+281
+00:12:09,021 --> 00:12:11,828
+then actual writers, because you can get
+
+282
+00:12:11,828 --> 00:12:14,635
+a lot of information that's already been
+
+283
+00:12:14,635 --> 00:12:17,442
+written in your that you wrote last
+
+284
+00:12:17,442 --> 00:12:20,248
+year or two years ago or five
+
+285
+00:12:20,248 --> 00:12:23,055
+years ago. And now the challenge is
+
+286
+00:12:23,055 --> 00:12:25,862
+how do I get that pulled out
+
+287
+00:12:25,862 --> 00:12:28,669
+and given to or delivered to the
+
+288
+00:12:28,669 --> 00:12:30,923
+audience?Without delivering them like,
+
+289
+00:12:30,923 --> 00:12:33,728
+you know, the whole essay, the whole PDF
+
+290
+00:12:33,728 --> 00:12:36,183
+or the whole chapter or the whole
+
+291
+00:12:36,183 --> 00:12:38,638
+section, whatever it may be, they just
+
+292
+00:12:38,638 --> 00:12:41,093
+want that one piece of information like
+
+293
+00:12:41,093 --> 00:12:43,197
+at what temperature does this product
+
+294
+00:12:43,197 --> 00:12:46,002
+melt? Well, you would want them to say
+
+295
+00:12:46,002 --> 00:12:48,107
+this product melts at this temperature
+
+296
+00:12:48,107 --> 00:12:50,799
+and and that's it, right?So how
+
+297
+00:12:50,799 --> 00:12:53,453
+do you get that pulled out? So
+
+298
+00:12:53,453 --> 00:12:56,108
+we're we are now becoming curators as
+
+299
+00:12:56,108 --> 00:12:58,384
+opposed to, I don't mean just
+
+300
+00:12:58,384 --> 00:13:01,039
+disparagingly, but only if, if we combine
+
+301
+00:13:01,039 --> 00:13:03,693
+our skill set to only writing, then
+
+302
+00:13:03,693 --> 00:13:06,348
+we're missing a trick here because now
+
+303
+00:13:06,348 --> 00:13:09,003
+we need to be curators. It's almost
+
+304
+00:13:09,003 --> 00:13:11,738
+like the managing editor. Of a, of
+
+305
+00:13:11,738 --> 00:13:14,479
+a magazine, right? You want to be able
+
+306
+00:13:14,479 --> 00:13:16,878
+to see what goes in, what complements
+
+307
+00:13:16,878 --> 00:13:19,619
+each other, how people are going to find
+
+308
+00:13:19,619 --> 00:13:22,018
+that information. And one of the other
+
+309
+00:13:22,018 --> 00:13:23,731
+things is around content maintenance,
+
+310
+00:13:23,731 --> 00:13:26,473
+because I call it The Dirty little secret
+
+311
+00:13:26,473 --> 00:13:29,214
+of our industry is that it's not so
+
+312
+00:13:29,214 --> 00:13:31,859
+much the cost of the creation. Creation,
+
+313
+00:13:31,859 --> 00:13:34,852
+content creation costs money. You know,
+
+314
+00:13:34,852 --> 00:13:37,846
+not, um, I'm not downplaying that,
+
+315
+00:13:37,846 --> 00:13:40,340
+but let's say it costs.
+
+316
+00:13:41,760 --> 00:13:44,296
+£100 to create an article
+
+317
+00:13:44,296 --> 00:13:46,832
+because it takes you that
+
+318
+00:13:46,832 --> 00:13:49,368
+long to do the the
+
+319
+00:13:49,368 --> 00:13:51,904
+drafting, the writing, the getting
+
+320
+00:13:51,904 --> 00:13:54,439
+the sign off and so
+
+321
+00:13:54,439 --> 00:13:56,975
+on. Now that gets propagated
+
+322
+00:13:56,975 --> 00:13:59,511
+maybe into 12 places and
+
+323
+00:13:59,511 --> 00:14:02,230
+now you have 13. Copies to
+
+324
+00:14:02,230 --> 00:14:04,883
+update so when you go to to update it,
+
+325
+00:14:04,883 --> 00:14:07,832
+not only do you still have to do all the
+
+326
+00:14:07,832 --> 00:14:10,486
+same steps, you have to draft you have to
+
+327
+00:14:10,486 --> 00:14:12,845
+yeah, you have well, first of all you
+
+328
+00:14:12,845 --> 00:14:15,203
+have to find your original and then you
+
+329
+00:14:15,203 --> 00:14:17,562
+have to draft the update. Then you have
+
+330
+00:14:17,562 --> 00:14:20,511
+to go get it signed off and so on and
+
+331
+00:14:20,511 --> 00:14:22,841
+so forth so you're not really. Saving
+
+332
+00:14:22,841 --> 00:14:25,670
+much time there, but now you
+
+333
+00:14:25,670 --> 00:14:28,498
+have to go find the other
+
+334
+00:14:28,498 --> 00:14:31,326
+12 instances and update them as
+
+335
+00:14:31,326 --> 00:14:34,154
+well. And so this maintenance challenge
+
+336
+00:14:34,154 --> 00:14:36,982
+is, is compounded with AI if
+
+337
+00:14:36,982 --> 00:14:39,810
+you're not really looking at that
+
+338
+00:14:39,810 --> 00:14:42,639
+kind of single sourcing and robust
+
+339
+00:14:42,639 --> 00:14:45,247
+reuse. Strategy so you have to think
+
+340
+00:14:45,247 --> 00:14:46,969
+about the maintenance challenges and
+
+341
+00:14:46,969 --> 00:14:48,347
+everybody's maintenance challenges will
+
+342
+00:14:48,347 --> 00:14:50,759
+be slightly different, but the big thing
+
+343
+00:14:50,759 --> 00:14:53,170
+now is everyone wants to deliver through
+
+344
+00:14:53,170 --> 00:14:55,926
+some sort of a natural language query, in
+
+345
+00:14:55,926 --> 00:14:58,682
+other words, a chat bot. So you know,
+
+346
+00:14:58,682 --> 00:15:01,093
+here's the body of content and now
+
+347
+00:15:01,093 --> 00:15:03,548
+there's going to be this chat. Thought
+
+348
+00:15:03,548 --> 00:15:06,089
+that asks a question you can ask in
+
+349
+00:15:06,089 --> 00:15:08,313
+natural language and the L will interpret
+
+350
+00:15:08,313 --> 00:15:10,855
+it and it will generate an answer based
+
+351
+00:15:10,855 --> 00:15:13,078
+on the information. And so that brings
+
+352
+00:15:13,078 --> 00:15:15,302
+its own challenges because it's no longer
+
+353
+00:15:15,302 --> 00:15:17,844
+like, ohh, let's create a PDF or let's
+
+354
+00:15:17,844 --> 00:15:20,068
+create some HTML pages. Now it's hey,
+
+355
+00:15:20,068 --> 00:15:22,609
+where are those micro facts and how are
+
+356
+00:15:22,609 --> 00:15:25,225
+we going to take?Those and make
+
+357
+00:15:25,225 --> 00:15:28,201
+them deliverable by an LM in a
+
+358
+00:15:28,201 --> 00:15:31,177
+way that will be useful for the
+
+359
+00:15:31,177 --> 00:15:34,153
+user. So if you have 12 products,
+
+360
+00:15:34,153 --> 00:15:37,128
+uh, let's take a printer. How to
+
+361
+00:15:37,128 --> 00:15:39,679
+change the printer cartridge? This has
+
+362
+00:15:39,679 --> 00:15:42,655
+always been one of my bug bears.
+
+363
+00:15:42,655 --> 00:15:45,100
+I'm spatially challenged. So I'm always
+
+364
+00:15:45,100 --> 00:15:47,387
+looking at the cartridge and going, I
+
+365
+00:15:47,387 --> 00:15:50,328
+don't know how this goes in and I want
+
+366
+00:15:50,328 --> 00:15:53,268
+to look it up now. If I say, how
+
+367
+00:15:53,268 --> 00:15:55,555
+do I change a printer cartridge, I'm
+
+368
+00:15:55,555 --> 00:15:57,842
+going to get very generic things like
+
+369
+00:15:57,842 --> 00:16:00,456
+open the cover, uh, take out the old
+
+370
+00:16:00,456 --> 00:16:02,743
+cartridge, put in the new cartridge. But
+
+371
+00:16:02,743 --> 00:16:04,737
+it's like that's not. Answering the
+
+372
+00:16:04,737 --> 00:16:06,588
+question, the question is which direction
+
+373
+00:16:06,588 --> 00:16:09,365
+is up and which is, you know, what should
+
+374
+00:16:09,365 --> 00:16:12,141
+be facing me and how do I click it
+
+375
+00:16:12,141 --> 00:16:14,918
+in and so on. So how does it know?
+
+376
+00:16:14,918 --> 00:16:17,694
+So it has to be tagged with the model
+
+377
+00:16:17,694 --> 00:16:19,854
+number because if it's not the model
+
+378
+00:16:19,854 --> 00:16:22,322
+number, it won't know which of the 200
+
+379
+00:16:22,322 --> 00:16:24,790
+printers that you make is the right one.
+
+380
+00:16:24,890 --> 00:16:27,453
+And so they all have different shapes and
+
+381
+00:16:27,453 --> 00:16:30,015
+sizes of cartridges. And so those are the
+
+382
+00:16:30,015 --> 00:16:32,578
+kinds of things that we think about now
+
+383
+00:16:32,578 --> 00:16:35,460
+is how do I make sure that the delivery
+
+384
+00:16:35,460 --> 00:16:37,382
+system, whether that's a content delivery
+
+385
+00:16:37,382 --> 00:16:40,265
+platform or a web series of web pages or
+
+386
+00:16:40,265 --> 00:16:42,507
+a customer support portal or whatever it
+
+387
+00:16:42,507 --> 00:16:45,070
+may be, how do I make sure that?
+
+388
+00:16:45,190 --> 00:16:47,863
+They can get the right answer. And in
+
+389
+00:16:47,863 --> 00:16:49,868
+some industries, like for a printer
+
+390
+00:16:49,868 --> 00:16:52,542
+cartridge, if I have to ask two or
+
+391
+00:16:52,542 --> 00:16:54,881
+three times, I will eventually find the
+
+392
+00:16:54,881 --> 00:16:57,554
+answer and it won't be critical. But if
+
+393
+00:16:57,554 --> 00:17:00,227
+this is a medical device or if this
+
+394
+00:17:00,227 --> 00:17:02,232
+is something, you know, financial where
+
+395
+00:17:02,232 --> 00:17:04,906
+you could stand to lose a lot of
+
+396
+00:17:04,906 --> 00:17:07,890
+money. If you don't choose the right
+
+397
+00:17:07,890 --> 00:17:10,459
+option for your investment, you know,
+
+398
+00:17:10,459 --> 00:17:13,457
+that can be quite life changing for
+
+399
+00:17:13,457 --> 00:17:16,455
+people. And so you know, the the
+
+400
+00:17:16,455 --> 00:17:19,453
+challenge is to get it right and
+
+401
+00:17:19,453 --> 00:17:22,450
+to get it right the first time.
+
+402
+00:17:22,450 --> 00:17:25,020
+And and that's not something that.
+
+403
+00:17:25,780 --> 00:17:28,429
+We're used to having to do
+
+404
+00:17:28,429 --> 00:17:31,079
+before, and so that's creating like
+
+405
+00:17:31,079 --> 00:17:33,728
+this whole other level of awareness
+
+406
+00:17:33,728 --> 00:17:36,377
+that hasn't been there. Umm, So
+
+407
+00:17:36,377 --> 00:17:39,027
+now all the challenges could compounded
+
+408
+00:17:39,027 --> 00:17:41,676
+basically. Now the technical writers or
+
+409
+00:17:41,676 --> 00:17:43,884
+information architects have to consider
+
+410
+00:17:43,884 --> 00:17:46,729
+about all possible personas. That might
+
+411
+00:17:46,729 --> 00:17:49,037
+be interacting with a particular system
+
+412
+00:17:49,037 --> 00:17:51,729
+or content system to get the answers.
+
+413
+00:17:51,729 --> 00:17:54,422
+And on top of that, they have
+
+414
+00:17:54,422 --> 00:17:56,729
+to write everything possible that these
+
+415
+00:17:56,729 --> 00:17:59,422
+people might ask, you know, as many
+
+416
+00:17:59,422 --> 00:18:01,729
+things that they can understand and
+
+417
+00:18:01,729 --> 00:18:04,422
+organize it so that AI can deliver
+
+418
+00:18:04,422 --> 00:18:07,407
+content based on that. So that's, yes,
+
+419
+00:18:07,407 --> 00:18:10,172
+it's it, it, it means that we have
+
+420
+00:18:10,172 --> 00:18:12,591
+to think more carefully about what we're
+
+421
+00:18:12,591 --> 00:18:15,010
+writing. So I sometimes use that example
+
+422
+00:18:15,010 --> 00:18:17,775
+of, um, when we used to document like
+
+423
+00:18:17,775 --> 00:18:20,540
+all the fields, right? So there's a date
+
+424
+00:18:20,540 --> 00:18:23,305
+field. So you say you enter the date
+
+425
+00:18:23,305 --> 00:18:25,724
+and the date field that tells nobody
+
+426
+00:18:25,724 --> 00:18:28,686
+anything. What it, what would be
+
+427
+00:18:28,686 --> 00:18:31,410
+useful is to say what, uh, what's
+
+428
+00:18:31,410 --> 00:18:34,133
+uh, the, the format, what date format
+
+429
+00:18:34,133 --> 00:18:36,857
+do you have to use? Is it
+
+430
+00:18:36,857 --> 00:18:39,581
+day, day, month, month, year, or you
+
+431
+00:18:39,581 --> 00:18:42,305
+know, year, year, year, year, or is
+
+432
+00:18:42,305 --> 00:18:44,640
+it, uh, year, year, year, year?
+
+433
+00:18:45,970 --> 00:18:48,665
+Month to month, date, date. And if
+
+434
+00:18:48,665 --> 00:18:51,360
+you're in the system itself, you might
+
+435
+00:18:51,360 --> 00:18:54,055
+be able to see that you know
+
+436
+00:18:54,055 --> 00:18:56,750
+is grayed out in the the form
+
+437
+00:18:56,750 --> 00:18:59,445
+field. But if you are looking for
+
+438
+00:18:59,445 --> 00:19:01,370
+something that's more sophisticated than
+
+439
+00:19:01,370 --> 00:19:04,065
+the date and you need to find
+
+440
+00:19:04,065 --> 00:19:05,990
+that information, how do you?
+
+441
+00:19:07,500 --> 00:19:10,348
+How is it written so that it's useful
+
+442
+00:19:10,348 --> 00:19:13,195
+to your user? And that becomes a bigger
+
+443
+00:19:13,195 --> 00:19:15,687
+challenge because you can't just kind of
+
+444
+00:19:15,687 --> 00:19:18,179
+sleepwalk through your job. You have to
+
+445
+00:19:18,179 --> 00:19:20,671
+really be out there thinking how what
+
+446
+00:19:20,671 --> 00:19:23,518
+does the user need? And you know that
+
+447
+00:19:23,518 --> 00:19:26,010
+thing about how we never seem to.
+
+448
+00:19:26,380 --> 00:19:29,310
+Yeah, um, time with users, right. So you
+
+449
+00:19:29,310 --> 00:19:31,874
+say, well, well, how many Internet users
+
+450
+00:19:31,874 --> 00:19:34,438
+have you interviewed? Ohh, no, no, we
+
+451
+00:19:34,438 --> 00:19:37,369
+don't get to talk to the users. Well,
+
+452
+00:19:37,369 --> 00:19:39,567
+now it's important to understand what
+
+453
+00:19:39,567 --> 00:19:42,497
+they need and how they need it so
+
+454
+00:19:42,497 --> 00:19:45,061
+that you can deliver that information. So
+
+455
+00:19:45,061 --> 00:19:47,618
+I saw a. Uh,
+
+456
+00:19:47,618 --> 00:19:50,206
+a presentation where they were
+
+457
+00:19:50,206 --> 00:19:52,795
+talking about, um, lifts, elevators
+
+458
+00:19:52,795 --> 00:19:55,383
+and so to, um, to
+
+459
+00:19:55,383 --> 00:19:57,972
+do elevator repair, they would
+
+460
+00:19:57,972 --> 00:20:00,560
+have the directions, but they
+
+461
+00:20:00,560 --> 00:20:03,148
+found that it was easier
+
+462
+00:20:03,148 --> 00:20:05,737
+to teach how to do
+
+463
+00:20:05,737 --> 00:20:08,517
+the elevator repairs. By building
+
+464
+00:20:08,517 --> 00:20:11,409
+a plywood elevator safely on
+
+465
+00:20:11,409 --> 00:20:14,302
+the ground and having AR
+
+466
+00:20:14,302 --> 00:20:17,194
+glasses or VR glasses, AR
+
+467
+00:20:17,194 --> 00:20:20,086
+glasses and having them go
+
+468
+00:20:20,086 --> 00:20:22,400
+into this environment and.
+
+469
+00:20:23,840 --> 00:20:26,296
+Do it as if they're working on it and
+
+470
+00:20:26,296 --> 00:20:28,206
+then the instructions would show in the
+
+471
+00:20:28,206 --> 00:20:30,116
+glasses. Well, how are you taking that
+
+472
+00:20:30,116 --> 00:20:32,026
+into account if you don't know that
+
+473
+00:20:32,026 --> 00:20:33,390
+that's how they're using it?
+
+474
+00:20:34,770 --> 00:20:36,850
+Right. So those are those are things that
+
+475
+00:20:36,850 --> 00:20:39,190
+we have to think about now that we didn't
+
+476
+00:20:39,190 --> 00:20:41,010
+really have to think about before. So
+
+477
+00:20:41,010 --> 00:20:43,090
+it's really making us wonder kind of what
+
+478
+00:20:43,090 --> 00:20:45,690
+are we doing and why are we doing it and
+
+479
+00:20:45,690 --> 00:20:48,030
+how are we doing it so that it's useful
+
+480
+00:20:48,030 --> 00:20:49,850
+because at some point what we're doing
+
+481
+00:20:49,850 --> 00:20:51,150
+may not be useful anymore.
+
+482
+00:20:52,710 --> 00:20:55,424
+So now it becomes important we understand
+
+483
+00:20:55,424 --> 00:20:58,137
+our users, the content users, what they
+
+484
+00:20:58,137 --> 00:21:00,851
+need and how the content is being
+
+485
+00:21:00,851 --> 00:21:03,564
+delivered. So all these things we have
+
+486
+00:21:03,564 --> 00:21:06,278
+to factor in when we write, hey,
+
+487
+00:21:06,278 --> 00:21:08,991
+you know, even put pen to paper
+
+488
+00:21:08,991 --> 00:21:11,705
+or whatever type anything. So we have
+
+489
+00:21:11,705 --> 00:21:14,318
+to consider. All these things beforehand
+
+490
+00:21:14,318 --> 00:21:17,307
+and plan them. So, yeah, so that's
+
+491
+00:21:17,307 --> 00:21:20,296
+a great tool for laying out all
+
+492
+00:21:20,296 --> 00:21:21,150
+those constraints.
+
+493
+00:21:23,640 --> 00:21:26,223
+So it's began preparing for AI powered
+
+494
+00:21:26,223 --> 00:21:28,806
+delivery. It is about building the right
+
+495
+00:21:28,806 --> 00:21:31,019
+foundation so that content can actually
+
+496
+00:21:31,019 --> 00:21:32,864
+move through the intelligence systems
+
+497
+00:21:32,864 --> 00:21:34,709
+that now organizations are putting
+
+498
+00:21:34,709 --> 00:21:37,292
+together so that the content is accurate
+
+499
+00:21:37,292 --> 00:21:40,128
+and consistent. Now
+
+500
+00:21:40,128 --> 00:21:43,071
+when teams start putting together
+
+501
+00:21:43,071 --> 00:21:46,014
+these systems, what do you
+
+502
+00:21:46,014 --> 00:21:48,956
+see as essential building blocks
+
+503
+00:21:48,956 --> 00:21:51,899
+or an information architecture that
+
+504
+00:21:51,899 --> 00:21:54,841
+truly supports AI driven content
+
+505
+00:21:54,841 --> 00:21:57,557
+delivery?So
+
+506
+00:21:57,557 --> 00:22:00,392
+we are talking about building
+
+507
+00:22:00,392 --> 00:22:03,226
+blocks. Yes. One of the
+
+508
+00:22:03,226 --> 00:22:06,061
+things that that's been happening
+
+509
+00:22:06,061 --> 00:22:08,896
+recently is that we started
+
+510
+00:22:08,896 --> 00:22:11,731
+an association called Kinetic Kinetic
+
+511
+00:22:11,731 --> 00:22:14,565
+Council and I coined the
+
+512
+00:22:14,565 --> 00:22:17,400
+the term kinetic information because.
+
+513
+00:22:17,730 --> 00:22:20,351
+Penises, the definition of kinesis
+
+514
+00:22:20,351 --> 00:22:22,972
+is that that there's an
+
+515
+00:22:22,972 --> 00:22:25,593
+outside force you have. You
+
+516
+00:22:25,593 --> 00:22:28,214
+have something that's innate and
+
+517
+00:22:28,214 --> 00:22:30,835
+or static, and then an
+
+518
+00:22:30,835 --> 00:22:33,456
+outside force comes and it
+
+519
+00:22:33,456 --> 00:22:36,077
+there's movement in response to
+
+520
+00:22:36,077 --> 00:22:38,739
+this external stimulus. And when
+
+521
+00:22:38,739 --> 00:22:41,397
+you think about a, um, content in
+
+522
+00:22:41,397 --> 00:22:43,674
+an AI context, that's exactly what
+
+523
+00:22:43,674 --> 00:22:46,332
+happens. We create all the content and
+
+524
+00:22:46,332 --> 00:22:48,989
+we keep it in a repository somewhere,
+
+525
+00:22:48,989 --> 00:22:51,647
+whether that's in a CMS or a
+
+526
+00:22:51,647 --> 00:22:54,304
+CDP or within our CCMS, wherever we,
+
+527
+00:22:54,304 --> 00:22:56,961
+we hold it and then an AI
+
+528
+00:22:56,961 --> 00:22:59,886
+and an LM or. The CMS
+
+529
+00:22:59,886 --> 00:23:02,426
+or something comes and calls that content
+
+530
+00:23:02,426 --> 00:23:04,966
+and then that content gets delivered for
+
+531
+00:23:04,966 --> 00:23:07,869
+a user to one or more users. And
+
+532
+00:23:07,869 --> 00:23:10,771
+so when we think about content, now we
+
+533
+00:23:10,771 --> 00:23:13,311
+have to think about the, you know,
+
+534
+00:23:13,311 --> 00:23:15,851
+kinetic, kinetic content. So we have to
+
+535
+00:23:15,851 --> 00:23:18,391
+think about content as having Kinesis and
+
+536
+00:23:18,391 --> 00:23:21,378
+to do that. We can't think of
+
+537
+00:23:21,378 --> 00:23:24,069
+just an authoring system. So some people
+
+538
+00:23:24,069 --> 00:23:26,760
+will say, well, you know, I put
+
+539
+00:23:26,760 --> 00:23:29,451
+my content into a CCMS and now
+
+540
+00:23:29,451 --> 00:23:31,757
+it's componentized and I've got metadata
+
+541
+00:23:31,757 --> 00:23:34,448
+on it. I'm done. And you can't
+
+542
+00:23:34,448 --> 00:23:37,139
+really think about it that way. You
+
+543
+00:23:37,139 --> 00:23:39,830
+have to think about an authoring system.
+
+544
+00:23:39,930 --> 00:23:42,573
+So ideally a CMS or something
+
+545
+00:23:42,573 --> 00:23:45,217
+similar, something that lets you put
+
+546
+00:23:45,217 --> 00:23:47,860
+lots of semantic metadata on it
+
+547
+00:23:47,860 --> 00:23:50,503
+and then you think about the
+
+548
+00:23:50,503 --> 00:23:53,147
+semantics. So semantics are, you know,
+
+549
+00:23:53,147 --> 00:23:55,790
+a knowledge graph of some sort.
+
+550
+00:23:57,180 --> 00:23:59,350
+The red graph seems to be.
+
+551
+00:24:00,110 --> 00:24:02,971
+The thing to use at least right now, so
+
+552
+00:24:02,971 --> 00:24:05,515
+you have a a knowledge graph that will
+
+553
+00:24:05,515 --> 00:24:07,740
+create all the relationships for you. And
+
+554
+00:24:07,740 --> 00:24:09,648
+then and when you think about
+
+555
+00:24:09,648 --> 00:24:11,556
+relationships, you think, think of like
+
+556
+00:24:11,556 --> 00:24:14,417
+how a mind map works, right? You have all
+
+557
+00:24:14,417 --> 00:24:16,643
+these concepts that connect to each other
+
+558
+00:24:16,643 --> 00:24:19,186
+and then they connect to other things and
+
+559
+00:24:19,186 --> 00:24:21,774
+so on. So. The, the, UM,
+
+560
+00:24:21,774 --> 00:24:24,747
+the knowledge graph is kind of that
+
+561
+00:24:24,747 --> 00:24:27,720
+same. It operates that same way. It's
+
+562
+00:24:27,720 --> 00:24:30,693
+not just a taxonomy, It's not just,
+
+563
+00:24:30,693 --> 00:24:32,391
+um, hierarchical is forming
+
+564
+00:24:32,391 --> 00:24:35,364
+relationships. And to do that is great,
+
+565
+00:24:35,364 --> 00:24:38,337
+but then you have to constrain it
+
+566
+00:24:38,337 --> 00:24:41,310
+as well. So that's where the rag.
+
+567
+00:24:41,590 --> 00:24:44,560
+Comes in. So all of all of this
+
+568
+00:24:44,560 --> 00:24:47,159
+is part of the orchestration layer. So
+
+569
+00:24:47,159 --> 00:24:49,758
+the orchestration of the content is like
+
+570
+00:24:49,758 --> 00:24:52,358
+once it's written and once you've added
+
+571
+00:24:52,358 --> 00:24:55,328
+metadata, then it goes into kind of into
+
+572
+00:24:55,328 --> 00:24:58,298
+the oven and gets baked with, you know,
+
+573
+00:24:58,298 --> 00:25:01,269
+with the help of the knowledge graph and
+
+574
+00:25:01,269 --> 00:25:04,005
+and. And you know the rag model
+
+575
+00:25:04,005 --> 00:25:06,919
+that helps with the delivery and then you
+
+576
+00:25:06,919 --> 00:25:09,833
+get to the delivery end. The delivery end
+
+577
+00:25:09,833 --> 00:25:12,382
+could be so many different things. Now
+
+578
+00:25:12,382 --> 00:25:15,296
+it's it's yes, you could still have a
+
+579
+00:25:15,296 --> 00:25:18,210
+PDF, you could have HTML, you could have.
+
+580
+00:25:20,790 --> 00:25:23,309
+AR, VR content delivery platforms marked
+
+581
+00:25:23,309 --> 00:25:26,247
+down like there's so many ways that
+
+582
+00:25:26,247 --> 00:25:29,186
+it could be delivered. So you have
+
+583
+00:25:29,186 --> 00:25:32,124
+to think of this in the holistic
+
+584
+00:25:32,124 --> 00:25:35,063
+sense of a content ecosystem and not
+
+585
+00:25:35,063 --> 00:25:37,581
+just like a tool, because whatever
+
+586
+00:25:37,581 --> 00:25:40,549
+whichever tool you pick, it's only. Part
+
+587
+00:25:40,549 --> 00:25:43,512
+of the puzzle and so you have to think
+
+588
+00:25:43,512 --> 00:25:46,475
+about it in the the bigger sense and in
+
+589
+00:25:46,475 --> 00:25:48,450
+particularly when you get into multiple.
+
+590
+00:25:48,520 --> 00:25:51,420
+The languages and multiple markets,
+
+591
+00:25:51,420 --> 00:25:54,320
+because that becomes quite complex.
+
+592
+00:25:55,320 --> 00:25:58,112
+Umm, you have to factor in machine
+
+593
+00:25:58,112 --> 00:26:00,106
+translation, etcetera. So, but there's
+
+594
+00:26:00,106 --> 00:26:02,897
+one thing I've, uh, that comes to
+
+595
+00:26:02,897 --> 00:26:05,689
+my mind. We had, we have had
+
+596
+00:26:05,689 --> 00:26:08,480
+so many complex CMS CMS systems so
+
+597
+00:26:08,480 --> 00:26:11,272
+far and what I see the content
+
+598
+00:26:11,272 --> 00:26:14,064
+delivery when it happens via a digital
+
+599
+00:26:14,064 --> 00:26:16,535
+assistant or say. GPT or
+
+600
+00:26:16,535 --> 00:26:19,272
+uh, cloud, uh, third party
+
+601
+00:26:19,272 --> 00:26:22,010
+agents or an organization's own
+
+602
+00:26:22,010 --> 00:26:24,747
+digital assistant, they read the
+
+603
+00:26:24,747 --> 00:26:27,485
+information from flat files and
+
+604
+00:26:27,485 --> 00:26:30,222
+in knowledge graphs, right? Which
+
+605
+00:26:30,222 --> 00:26:32,960
+are basically specially designed a
+
+606
+00:26:32,960 --> 00:26:35,797
+particular format of information. In
+
+607
+00:26:35,797 --> 00:26:38,083
+the relationships and information are
+
+608
+00:26:38,083 --> 00:26:41,046
+defined. Work in that
+
+609
+00:26:41,046 --> 00:26:43,908
+scenario is the use of the complex
+
+610
+00:26:43,908 --> 00:26:46,770
+content hierarchies that we had in our
+
+611
+00:26:46,770 --> 00:26:49,632
+legacy content and the CMS that we
+
+612
+00:26:49,632 --> 00:26:52,494
+had, you know, the various containers and
+
+613
+00:26:52,494 --> 00:26:54,538
+folders and directory systems and
+
+614
+00:26:54,538 --> 00:26:57,400
+whatnot. So what happens to that? So.
+
+615
+00:26:58,390 --> 00:26:59,480
+So, um.
+
+616
+00:27:01,380 --> 00:27:04,022
+I'll answer this question in
+
+617
+00:27:04,022 --> 00:27:06,664
+kind of 2 levels. So
+
+618
+00:27:06,664 --> 00:27:09,306
+the first thing is we
+
+619
+00:27:09,306 --> 00:27:11,948
+can still can I, can
+
+620
+00:27:11,948 --> 00:27:14,591
+I use unstructured content? Yes,
+
+621
+00:27:14,591 --> 00:27:17,233
+it can. Will it give
+
+622
+00:27:17,233 --> 00:27:19,875
+you highly accurate answers? No,
+
+623
+00:27:19,875 --> 00:27:22,673
+the more structure. To add
+
+624
+00:27:22,673 --> 00:27:25,530
+to the content, the better.
+
+625
+00:27:27,550 --> 00:27:30,407
+AI can use it and part
+
+626
+00:27:30,407 --> 00:27:33,264
+of it is because it understands
+
+627
+00:27:33,264 --> 00:27:36,121
+the context. So if you are
+
+628
+00:27:36,121 --> 00:27:38,978
+going to ask, I've got a
+
+629
+00:27:38,978 --> 00:27:41,835
+few examples but one that just
+
+630
+00:27:41,835 --> 00:27:44,692
+comes to mind is at one
+
+631
+00:27:44,692 --> 00:27:47,668
+point I was. Asking and and
+
+632
+00:27:47,668 --> 00:27:50,532
+this is this isn't even AI, this
+
+633
+00:27:50,532 --> 00:27:53,397
+is just with Google search. I was
+
+634
+00:27:53,397 --> 00:27:56,262
+asking about wine bars and so they
+
+635
+00:27:56,262 --> 00:27:59,127
+showed me all of the the establishments
+
+636
+00:27:59,127 --> 00:28:01,991
+in my neighborhood that I could go
+
+637
+00:28:01,991 --> 00:28:04,856
+to meet friends to drink wine, but
+
+638
+00:28:04,856 --> 00:28:07,721
+I wanted to buy a piece of
+
+639
+00:28:07,721 --> 00:28:10,599
+furniture. So when you're looking
+
+640
+00:28:10,599 --> 00:28:13,558
+at wine bars, you have the schema for
+
+641
+00:28:13,558 --> 00:28:16,516
+venue because venue is, uh, you know, in
+
+642
+00:28:16,516 --> 00:28:19,105
+schema.org venue is, you know, wine bar
+
+643
+00:28:19,105 --> 00:28:22,063
+could be a venue, but as soon as
+
+644
+00:28:22,063 --> 00:28:25,022
+I say I want to buy a wine
+
+645
+00:28:25,022 --> 00:28:27,611
+bar, then they know, they understand the
+
+646
+00:28:27,611 --> 00:28:30,508
+context is that by. Equals product equals
+
+647
+00:28:30,508 --> 00:28:33,125
+show furniture and you'll get a
+
+648
+00:28:33,125 --> 00:28:35,305
+completely different set of search
+
+649
+00:28:35,305 --> 00:28:37,922
+results. Now when you take that
+
+650
+00:28:37,922 --> 00:28:40,538
+and you amplify it so they
+
+651
+00:28:40,538 --> 00:28:43,155
+say garbage in garbage out and
+
+652
+00:28:43,155 --> 00:28:45,771
+so it's like garbage in is
+
+653
+00:28:45,771 --> 00:28:48,388
+amplified garbage out for AI and
+
+654
+00:28:48,388 --> 00:28:50,991
+what we. You don't want is
+
+655
+00:28:50,991 --> 00:28:53,845
+is that amplification of poor content. So
+
+656
+00:28:53,845 --> 00:28:56,700
+if you have a little bit of
+
+657
+00:28:56,700 --> 00:28:59,146
+structure, like in Microsoft Word using
+
+658
+00:28:59,146 --> 00:29:02,000
+the style sheets, you've got a little
+
+659
+00:29:02,000 --> 00:29:04,855
+bit of a structure, but it doesn't
+
+660
+00:29:04,855 --> 00:29:07,709
+tell you enough to be useful. So
+
+661
+00:29:07,709 --> 00:29:10,612
+an example would be. Uh, and this
+
+662
+00:29:10,612 --> 00:29:13,232
+came from a vendor who was showing us
+
+663
+00:29:13,232 --> 00:29:15,524
+their software. If you have, um, a
+
+664
+00:29:15,524 --> 00:29:17,815
+document like a Word document that was
+
+665
+00:29:17,815 --> 00:29:20,762
+saved as a PDF and you have in there
+
+666
+00:29:20,762 --> 00:29:23,709
+heading 1 heading to, but by the time you
+
+667
+00:29:23,709 --> 00:29:26,001
+get to heading through, you're just using
+
+668
+00:29:26,001 --> 00:29:28,620
+italics. So you get like, what is the
+
+669
+00:29:28,620 --> 00:29:31,449
+dosage of this medication?So here's about
+
+670
+00:29:31,449 --> 00:29:34,326
+the medication. Here's the dosage. And
+
+671
+00:29:34,326 --> 00:29:37,203
+then it goes like for adults,
+
+672
+00:29:37,203 --> 00:29:40,080
+for teenagers, for children, for infants.
+
+673
+00:29:40,080 --> 00:29:42,957
+So you've got four different doses
+
+674
+00:29:42,957 --> 00:29:45,834
+for four different audiences. And if
+
+675
+00:29:45,834 --> 00:29:48,711
+you're just using a, you know,
+
+676
+00:29:48,711 --> 00:29:51,428
+a PDF. The the the LM
+
+677
+00:29:51,428 --> 00:29:53,540
+might pick up the wrong one.
+
+678
+00:29:54,830 --> 00:29:57,470
+Because it won't know
+
+679
+00:29:57,470 --> 00:29:59,450
+from the structure.
+
+680
+00:30:01,110 --> 00:30:03,682
+There's not enough structure to inform it
+
+681
+00:30:03,682 --> 00:30:06,621
+accurately, so it might pick up the right
+
+682
+00:30:06,621 --> 00:30:09,560
+one and it might not pick up the
+
+683
+00:30:09,560 --> 00:30:12,500
+right one depending on how it was written
+
+684
+00:30:12,500 --> 00:30:14,704
+editorially. Now if you have more
+
+685
+00:30:14,704 --> 00:30:17,643
+structure, then it's going to be able to
+
+686
+00:30:17,643 --> 00:30:20,583
+pick up the right one because the the
+
+687
+00:30:20,583 --> 00:30:22,777
+metadata. On it and the knowledge graph
+
+688
+00:30:22,777 --> 00:30:25,119
+will have said that this is about this
+
+689
+00:30:25,119 --> 00:30:27,169
+product and it's about this dosage and
+
+690
+00:30:27,169 --> 00:30:29,511
+it's for this audience and it might even
+
+691
+00:30:29,511 --> 00:30:32,146
+go as far as it's in this market because
+
+692
+00:30:32,146 --> 00:30:34,196
+in this country we don't sell that
+
+693
+00:30:34,196 --> 00:30:36,245
+product. In this country we sell that
+
+694
+00:30:36,245 --> 00:30:38,588
+product and in this this other country we
+
+695
+00:30:38,588 --> 00:30:40,637
+sell the product but under a different
+
+696
+00:30:40,637 --> 00:30:43,419
+name. And so it can tell all
+
+697
+00:30:43,419 --> 00:30:45,588
+those relationships and it can deliver
+
+698
+00:30:45,588 --> 00:30:48,481
+the right thing to the right person. So
+
+699
+00:30:48,481 --> 00:30:51,373
+the the more structure you have, the more
+
+700
+00:30:51,373 --> 00:30:53,904
+context the AI understands and the more
+
+701
+00:30:53,904 --> 00:30:55,350
+accurately it can deliver.
+
+702
+00:30:56,970 --> 00:30:59,749
+The results and there is
+
+703
+00:30:59,749 --> 00:31:02,528
+you know the IRS, which
+
+704
+00:31:02,528 --> 00:31:05,307
+is a delivery schema especially
+
+705
+00:31:05,307 --> 00:31:07,531
+meant for technical documentation.
+
+706
+00:31:07,531 --> 00:31:10,310
+They've run different tests on
+
+707
+00:31:10,310 --> 00:31:13,089
+it and it's it once
+
+708
+00:31:13,089 --> 00:31:15,868
+if you have highly structured
+
+709
+00:31:15,868 --> 00:31:18,581
+content plus. A knowledge graph
+
+710
+00:31:18,581 --> 00:31:21,082
+plus the using IDs, you
+
+711
+00:31:21,082 --> 00:31:23,583
+get very very high quality
+
+712
+00:31:23,583 --> 00:31:26,084
+results consistently. You know, even
+
+713
+00:31:26,084 --> 00:31:28,586
+when you run the test
+
+714
+00:31:28,586 --> 00:31:30,587
+2030405060 times you're getting
+
+715
+00:31:30,587 --> 00:31:33,088
+consistently high quality results, but
+
+716
+00:31:33,088 --> 00:31:35,589
+without that if you are
+
+717
+00:31:35,589 --> 00:31:37,590
+only using the LM.
+
+718
+00:31:38,420 --> 00:31:41,019
+And you didn't have the knowledge graph
+
+719
+00:31:41,019 --> 00:31:43,989
+and the the semantic layer and and so
+
+720
+00:31:43,989 --> 00:31:46,959
+on. And you're just running it on Word
+
+721
+00:31:46,959 --> 00:31:49,558
+docs or PDFs. It's somewhere around 25%
+
+722
+00:31:49,558 --> 00:31:52,157
+compared to 85%. So that's a huge
+
+723
+00:31:52,157 --> 00:31:54,825
+difference, right?The
+
+724
+00:31:54,825 --> 00:31:57,375
+structure means, uh, difference here. So
+
+725
+00:31:57,375 --> 00:32:00,350
+what our legacy content, if it was
+
+726
+00:32:00,350 --> 00:32:03,325
+well structured, will serve us well. Uh,
+
+727
+00:32:03,325 --> 00:32:06,300
+so we, yes, definitely. And when I
+
+728
+00:32:06,300 --> 00:32:08,850
+say structure, I'm not meaning editorial
+
+729
+00:32:08,850 --> 00:32:10,550
+conventions like, you know.
+
+730
+00:32:12,470 --> 00:32:15,243
+But the most important paragraph at
+
+731
+00:32:15,243 --> 00:32:18,015
+the right after the H1? That's
+
+732
+00:32:18,015 --> 00:32:20,326
+an editorial convention. I'm talking
+
+733
+00:32:20,326 --> 00:32:23,098
+about the semantics where you actually
+
+734
+00:32:23,098 --> 00:32:25,871
+add the metadata on to make
+
+735
+00:32:25,871 --> 00:32:28,643
+it very explicit to the machines
+
+736
+00:32:28,643 --> 00:32:30,954
+to understand what that particular
+
+737
+00:32:30,954 --> 00:32:33,430
+sentence or paragraph. This section is
+
+738
+00:32:33,430 --> 00:32:36,383
+about. Umm, so that's
+
+739
+00:32:36,383 --> 00:32:39,310
+great insight. Thanks for breaking that
+
+740
+00:32:39,310 --> 00:32:42,237
+down, Ryan. And once these foundational
+
+741
+00:32:42,237 --> 00:32:45,164
+building blocks of, you know, semantics,
+
+742
+00:32:45,164 --> 00:32:48,091
+orchestration, delivery, they are all in
+
+743
+00:32:48,091 --> 00:32:51,018
+place. The next challenge is figuring
+
+744
+00:32:51,018 --> 00:32:53,944
+out how teams can actually work
+
+745
+00:32:53,944 --> 00:32:56,510
+with them. Day-to-day. So, looking
+
+746
+00:32:56,510 --> 00:32:59,110
+at the practical side of
+
+747
+00:32:59,110 --> 00:33:01,190
+implementation, what day-to-day practices
+
+748
+00:33:01,190 --> 00:33:03,270
+should information architects and
+
+749
+00:33:03,270 --> 00:33:05,870
+technical writers should follow so
+
+750
+00:33:05,870 --> 00:33:08,470
+as they prepare for a
+
+751
+00:33:08,470 --> 00:33:10,030
+given content delivery?
+
+752
+00:33:11,560 --> 00:33:14,277
+I think that it, it, there is no
+
+753
+00:33:14,277 --> 00:33:16,995
+kind of 1 formula. Everything is going to
+
+754
+00:33:16,995 --> 00:33:19,033
+be different depending on what you're
+
+755
+00:33:19,033 --> 00:33:21,750
+trying to achieve. So the first thing you
+
+756
+00:33:21,750 --> 00:33:24,467
+have to do is focus on what you're
+
+757
+00:33:24,467 --> 00:33:26,845
+trying to achieve, what is the business
+
+758
+00:33:26,845 --> 00:33:28,883
+goal? And then you determine which
+
+759
+00:33:28,883 --> 00:33:30,921
+practices are right for your organization
+
+760
+00:33:30,921 --> 00:33:33,652
+and then. What is right for your
+
+761
+00:33:33,652 --> 00:33:36,287
+team? So you need to kind of
+
+762
+00:33:36,287 --> 00:33:38,922
+work backwards from that and you you
+
+763
+00:33:38,922 --> 00:33:41,557
+need to use a fit for purpose
+
+764
+00:33:41,557 --> 00:33:44,192
+tools. So if if your company is
+
+765
+00:33:44,192 --> 00:33:46,450
+expecting you to do miracles with
+
+766
+00:33:46,450 --> 00:33:49,085
+Microsoft Word, it's not going to happen.
+
+767
+00:33:49,085 --> 00:33:51,720
+It just won't happen. And so you.
+
+768
+00:33:51,810 --> 00:33:54,780
+Want to have some sort of a tool, a
+
+769
+00:33:54,780 --> 00:33:56,760
+production grade authoring tool. This is
+
+770
+00:33:56,760 --> 00:33:57,750
+what I'm um.
+
+771
+00:33:59,800 --> 00:34:02,713
+You know, we use the term CMS, but
+
+772
+00:34:02,713 --> 00:34:04,898
+outside of our industry, nobody ever
+
+773
+00:34:04,898 --> 00:34:07,446
+understands what that is. But really you
+
+774
+00:34:07,446 --> 00:34:10,359
+want an authoring tool that is, um, you
+
+775
+00:34:10,359 --> 00:34:13,272
+know, they want you to, to run a
+
+776
+00:34:13,272 --> 00:34:15,457
+content production line. Well, then you
+
+777
+00:34:15,457 --> 00:34:18,370
+need a production line tool, right? So I.
+
+778
+00:34:18,490 --> 00:34:21,252
+And sometimes use the donut factory as an
+
+779
+00:34:21,252 --> 00:34:24,014
+example. It's like you can make Donuts in
+
+780
+00:34:24,014 --> 00:34:26,085
+your home kitchen using the little
+
+781
+00:34:26,085 --> 00:34:28,847
+silicon mold where you can do 6 at
+
+782
+00:34:28,847 --> 00:34:31,609
+a time, but that's not going to help
+
+783
+00:34:31,609 --> 00:34:34,026
+you supply an entire bakery. If you're
+
+784
+00:34:34,026 --> 00:34:36,788
+doing the bakery, you need, you know, the
+
+785
+00:34:36,788 --> 00:34:39,205
+big dough mixer and the big extruder
+
+786
+00:34:39,205 --> 00:34:42,173
+that. Spits out 24 doughnuts at a
+
+787
+00:34:42,173 --> 00:34:45,097
+time and puts them on an assembly line
+
+788
+00:34:45,097 --> 00:34:48,022
+to go into the fryer. And so to,
+
+789
+00:34:48,022 --> 00:34:50,946
+to get that, um, that kind of operational
+
+790
+00:34:50,946 --> 00:34:53,870
+efficiency, you need to be able to, um.
+
+791
+00:34:55,540 --> 00:34:57,930
+Tag up your contents and so on. It's not
+
+792
+00:34:57,930 --> 00:35:00,054
+enough to take the content and then throw
+
+793
+00:35:00,054 --> 00:35:02,444
+it over the wall with the big long e-mail
+
+794
+00:35:02,444 --> 00:35:04,303
+and expect somebody else to read your
+
+795
+00:35:04,303 --> 00:35:06,162
+mind about which content goes with which
+
+796
+00:35:06,162 --> 00:35:08,551
+audience and so on. You need to be able
+
+797
+00:35:08,551 --> 00:35:10,676
+to do it because you know why you're
+
+798
+00:35:10,676 --> 00:35:12,800
+writing it, right? So as you're writing a
+
+799
+00:35:12,800 --> 00:35:14,393
+particular sentence, it's like, ohh, I
+
+800
+00:35:14,393 --> 00:35:17,212
+better tag that. Happens with, you know,
+
+801
+00:35:17,212 --> 00:35:19,932
+um. Monaco only or whatever
+
+802
+00:35:19,932 --> 00:35:22,005
+he'll, uh, Luxembourg only. So when
+
+803
+00:35:22,005 --> 00:35:24,769
+you're creating this, you have to kind of
+
+804
+00:35:24,769 --> 00:35:27,188
+work backwards. And we're used to doing
+
+805
+00:35:27,188 --> 00:35:29,952
+that in, in content where they need this
+
+806
+00:35:29,952 --> 00:35:32,371
+delivered at this time. And how many
+
+807
+00:35:32,371 --> 00:35:35,135
+weeks do we need to be able to
+
+808
+00:35:35,135 --> 00:35:37,899
+do, you know, to, to have to do
+
+809
+00:35:37,899 --> 00:35:40,313
+these things?And we work backwards all
+
+810
+00:35:40,313 --> 00:35:42,607
+the time for scheduling. So we also need
+
+811
+00:35:42,607 --> 00:35:44,900
+to work backwards when it comes to, you
+
+812
+00:35:44,900 --> 00:35:47,193
+know, what our practices are to be able
+
+813
+00:35:47,193 --> 00:35:50,060
+to say OK and to be able to do to
+
+814
+00:35:50,060 --> 00:35:52,927
+get this result, we need to be able to do
+
+815
+00:35:52,927 --> 00:35:55,793
+this. And to do that, we need to be able
+
+816
+00:35:55,793 --> 00:35:58,373
+to do that. To do that, I need these
+
+817
+00:35:58,373 --> 00:36:00,596
+tools. To be able to accomplish all of
+
+818
+00:36:00,596 --> 00:36:03,519
+this. Hmm ohh but didn't grant
+
+819
+00:36:03,519 --> 00:36:04,170
+too much.
+
+820
+00:36:06,330 --> 00:36:09,058
+Alright, I do understand that
+
+821
+00:36:09,058 --> 00:36:11,786
+because we are looking at,
+
+822
+00:36:11,786 --> 00:36:14,513
+uh, wide spectrum of, uh,
+
+823
+00:36:14,513 --> 00:36:17,241
+you know, uh, availability of
+
+824
+00:36:17,241 --> 00:36:19,969
+tools. They are large organizations
+
+825
+00:36:19,969 --> 00:36:22,697
+that provide their employees with
+
+826
+00:36:22,697 --> 00:36:25,424
+in-house AI, digital agents, alms
+
+827
+00:36:25,424 --> 00:36:27,305
+and. Cortana playgrounds, dedicated
+
+828
+00:36:27,305 --> 00:36:29,397
+playgrounds to test their prompts,
+
+829
+00:36:29,397 --> 00:36:32,326
+etcetera. And on the other hand, there
+
+830
+00:36:32,326 --> 00:36:35,254
+are startups that don't have that kind
+
+831
+00:36:35,254 --> 00:36:38,183
+of, you know, uh, situation. They have
+
+832
+00:36:38,183 --> 00:36:40,850
+resource scarcity. So
+
+833
+00:36:40,850 --> 00:36:43,430
+we are looking at both ends
+
+834
+00:36:43,430 --> 00:36:46,010
+of spectrum here where people have
+
+835
+00:36:46,010 --> 00:36:48,590
+a lot, but still they, uh,
+
+836
+00:36:48,590 --> 00:36:50,740
+struggle with fragmented content and
+
+837
+00:36:50,740 --> 00:36:53,320
+spread across, you know, content league
+
+838
+00:36:53,320 --> 00:36:55,900
+of sorts where a lot of
+
+839
+00:36:55,900 --> 00:36:58,480
+different pieces of contents are there,
+
+840
+00:36:58,480 --> 00:37:01,380
+video, audio, text, whatnot. And on the
+
+841
+00:37:01,380 --> 00:37:03,886
+other hand, there could be a startup that
+
+842
+00:37:03,886 --> 00:37:06,079
+is just, you know, putting together their
+
+843
+00:37:06,079 --> 00:37:07,959
+operations for this first time, telling
+
+844
+00:37:07,959 --> 00:37:10,152
+their technical writers, all you have is
+
+845
+00:37:10,152 --> 00:37:12,658
+GitHub knock you hours get it Then we
+
+846
+00:37:12,658 --> 00:37:15,477
+will give you add the most one ChatGPT or
+
+847
+00:37:15,477 --> 00:37:17,670
+rather sorry, open AI license. That's it.
+
+848
+00:37:17,670 --> 00:37:20,177
+That's what you are getting. So it can
+
+849
+00:37:20,177 --> 00:37:23,134
+be. A little bit of a difficult
+
+850
+00:37:23,134 --> 00:37:25,679
+situation for technical writers in either
+
+851
+00:37:25,679 --> 00:37:28,223
+situation to understand what their makes
+
+852
+00:37:28,223 --> 00:37:31,192
+use of in their current setup, so
+
+853
+00:37:31,192 --> 00:37:34,011
+I think. We have to
+
+854
+00:37:34,011 --> 00:37:36,466
+spell it out. If you can give both
+
+855
+00:37:36,466 --> 00:37:38,614
+situations some kind of, you know, best
+
+856
+00:37:38,614 --> 00:37:41,376
+practice 1 where there is a lot but very
+
+857
+00:37:41,376 --> 00:37:43,524
+little guidance and the other place where
+
+858
+00:37:43,524 --> 00:37:45,672
+they are starting from the scratch and
+
+859
+00:37:45,672 --> 00:37:47,820
+they have the ability to build something
+
+860
+00:37:47,820 --> 00:37:50,275
+from the ground but they don't have many
+
+861
+00:37:50,275 --> 00:37:52,423
+resources. If you could give some kind
+
+862
+00:37:52,423 --> 00:37:55,260
+of. Price for that? Well,
+
+863
+00:37:55,260 --> 00:37:58,031
+um. So
+
+864
+00:37:58,031 --> 00:38:00,908
+first of all, the field is moving
+
+865
+00:38:00,908 --> 00:38:03,785
+very fast. So every few months there's
+
+866
+00:38:03,785 --> 00:38:05,840
+something new, something new and
+
+867
+00:38:05,840 --> 00:38:08,717
+something new. So even what I tell
+
+868
+00:38:08,717 --> 00:38:11,594
+you today might be outdated next week.
+
+869
+00:38:11,594 --> 00:38:14,060
+But, um, if you're just starting.
+
+870
+00:38:15,460 --> 00:38:18,180
+Or you are a very small team or
+
+871
+00:38:18,180 --> 00:38:20,900
+a team of 1. Then you could you
+
+872
+00:38:20,900 --> 00:38:22,600
+could do something like um.
+
+873
+00:38:24,510 --> 00:38:26,832
+You could use
+
+874
+00:38:26,832 --> 00:38:28,380
+markdown and.
+
+875
+00:38:32,090 --> 00:38:34,907
+It's not going to be perfect, but
+
+876
+00:38:34,907 --> 00:38:37,724
+it's better than nothing. So you could
+
+877
+00:38:37,724 --> 00:38:40,541
+use Markdown and GitHub. You could also
+
+878
+00:38:40,541 --> 00:38:43,358
+get an A license to Oxygen and
+
+879
+00:38:43,358 --> 00:38:46,176
+use GitHub. And they've made this kind
+
+880
+00:38:46,176 --> 00:38:48,993
+of like a a very modest CMS
+
+881
+00:38:48,993 --> 00:38:51,841
+for single person. So, you
+
+882
+00:38:51,841 --> 00:38:54,453
+know, you could you, you could
+
+883
+00:38:54,453 --> 00:38:57,065
+do it that way and then,
+
+884
+00:38:57,065 --> 00:38:59,678
+um, you may not have a
+
+885
+00:38:59,678 --> 00:39:02,290
+knowledge graph, but you can certainly.
+
+886
+00:39:03,590 --> 00:39:04,320
+Um.
+
+887
+00:39:08,070 --> 00:39:10,255
+Use whatever information architecture and
+
+888
+00:39:10,255 --> 00:39:12,876
+taxonomy tools that you have, even
+
+889
+00:39:12,876 --> 00:39:15,498
+if it's an Excel spreadsheet. You
+
+890
+00:39:15,498 --> 00:39:18,119
+can make your taxonomy in the
+
+891
+00:39:18,119 --> 00:39:20,741
+Excel spreadsheet and use those. I
+
+892
+00:39:20,741 --> 00:39:22,925
+guess it's like consistent tagging,
+
+893
+00:39:22,925 --> 00:39:25,110
+right? So that's what's important.
+
+894
+00:39:25,590 --> 00:39:28,503
+And it, you know, you, you
+
+895
+00:39:28,503 --> 00:39:31,417
+start with that when you're a
+
+896
+00:39:31,417 --> 00:39:34,330
+bigger team then you will, you
+
+897
+00:39:34,330 --> 00:39:37,244
+might even have in-house created systems,
+
+898
+00:39:37,244 --> 00:39:40,157
+right? Because there will be other
+
+899
+00:39:40,157 --> 00:39:43,071
+departments working on other projects and
+
+900
+00:39:43,071 --> 00:39:45,984
+there might be things that you
+
+901
+00:39:45,984 --> 00:39:48,713
+can. Um, kind of tag
+
+902
+00:39:48,713 --> 00:39:51,523
+onto their license or, uh, reuse
+
+903
+00:39:51,523 --> 00:39:54,333
+some of the, the work that
+
+904
+00:39:54,333 --> 00:39:57,143
+they've done and it won't all
+
+905
+00:39:57,143 --> 00:39:59,953
+fit, but sometimes you can, you
+
+906
+00:39:59,953 --> 00:40:02,763
+know, get kick started that way
+
+907
+00:40:02,763 --> 00:40:05,573
+there you probably will have things
+
+908
+00:40:05,573 --> 00:40:08,191
+like a. The CMS and,
+
+909
+00:40:08,191 --> 00:40:11,157
+uh, the AI and the CMS is
+
+910
+00:40:11,157 --> 00:40:14,122
+going to be for kind of editorial
+
+911
+00:40:14,122 --> 00:40:17,088
+quality. It won't give you much more
+
+912
+00:40:17,088 --> 00:40:20,054
+than that. You'll have some sort of
+
+913
+00:40:20,054 --> 00:40:23,020
+a knowledge graph or some sort of
+
+914
+00:40:23,020 --> 00:40:25,985
+semantic tool and then you may use
+
+915
+00:40:25,985 --> 00:40:28,607
+a content delivery platform. You
+
+916
+00:40:28,607 --> 00:40:31,229
+know, such as like a fluid
+
+917
+00:40:31,229 --> 00:40:33,850
+topics or, um, uh, there are
+
+918
+00:40:33,850 --> 00:40:36,472
+a few others that are kind
+
+919
+00:40:36,472 --> 00:40:39,094
+of attached to a CMS and,
+
+920
+00:40:39,094 --> 00:40:41,716
+um, that will, that will alleviate
+
+921
+00:40:41,716 --> 00:40:44,337
+your burden a little bit because
+
+922
+00:40:44,337 --> 00:40:46,959
+the things that you used to
+
+923
+00:40:46,959 --> 00:40:49,544
+have to do. Manually in
+
+924
+00:40:49,544 --> 00:40:52,255
+in knowledge graph software or
+
+925
+00:40:52,255 --> 00:40:54,966
+in taxonomy software. Now the
+
+926
+00:40:54,966 --> 00:40:57,677
+LM and in the the
+
+927
+00:40:57,677 --> 00:41:00,388
+delivery platform will take some
+
+928
+00:41:00,388 --> 00:41:03,098
+of that burden on. So
+
+929
+00:41:03,098 --> 00:41:05,809
+it's it works very differently
+
+930
+00:41:05,809 --> 00:41:08,520
+so I think for me.
+
+931
+00:41:08,630 --> 00:41:11,489
+It's it's the idea that you have to
+
+932
+00:41:11,489 --> 00:41:14,348
+kind of keep up with what's going on
+
+933
+00:41:14,348 --> 00:41:15,420
+in the marketplace.
+
+934
+00:41:17,070 --> 00:41:19,345
+You know, just stay informed because
+
+935
+00:41:19,345 --> 00:41:21,1000
+there might not be something for you
+
+936
+00:41:21,1000 --> 00:41:24,655
+today, but there could be something for
+
+937
+00:41:24,655 --> 00:41:27,309
+you 3 months from now, but you
+
+938
+00:41:27,309 --> 00:41:29,964
+won't find out about it unless you
+
+939
+00:41:29,964 --> 00:41:32,618
+are keeping your ear to the ground.
+
+940
+00:41:32,618 --> 00:41:35,273
+Yeah, so they can listen to your
+
+941
+00:41:35,273 --> 00:41:37,982
+podcast as well as. Meet your
+
+942
+00:41:37,982 --> 00:41:40,962
+LinkedIn post about this to learn more
+
+943
+00:41:40,962 --> 00:41:43,814
+about that uh. Now
+
+944
+00:41:43,814 --> 00:41:46,658
+data does lend itself well into
+
+945
+00:41:46,658 --> 00:41:49,503
+this particular ecosystem, you know, it
+
+946
+00:41:49,503 --> 00:41:52,347
+does provides a structure and it
+
+947
+00:41:52,347 --> 00:41:55,191
+allows us to include metadata also.
+
+948
+00:41:55,191 --> 00:41:58,035
+But there's one thing I mentioned
+
+949
+00:41:58,035 --> 00:42:00,880
+this before. Finally, what actually is
+
+950
+00:42:00,880 --> 00:42:03,775
+fed into the digital assistance. Or
+
+951
+00:42:03,775 --> 00:42:06,503
+chat, GPD or whatever that is
+
+952
+00:42:06,503 --> 00:42:09,232
+flat printed so they make sense
+
+953
+00:42:09,232 --> 00:42:11,961
+of information that is in text
+
+954
+00:42:11,961 --> 00:42:14,689
+form. So how do we, you
+
+955
+00:42:14,689 --> 00:42:17,418
+know, cross that bridge that we
+
+956
+00:42:17,418 --> 00:42:20,147
+have content written in detail, very
+
+957
+00:42:20,147 --> 00:42:22,875
+well tagged and also annotated for
+
+958
+00:42:22,875 --> 00:42:25,466
+you?Single source for different
+
+959
+00:42:25,466 --> 00:42:27,724
+audiences, different locale, uh, sorry,
+
+960
+00:42:27,724 --> 00:42:30,434
+locales, yeah, uh, you know, for
+
+961
+00:42:30,434 --> 00:42:33,143
+global audience. And then we are
+
+962
+00:42:33,143 --> 00:42:35,853
+required to generate something in text.
+
+963
+00:42:35,853 --> 00:42:38,562
+So that is a do you
+
+964
+00:42:38,562 --> 00:42:41,272
+think there is still a need
+
+965
+00:42:41,272 --> 00:42:44,043
+for data in this scenario?Now,
+
+966
+00:42:44,043 --> 00:42:46,651
+can we find something else that could
+
+967
+00:42:46,651 --> 00:42:49,632
+supplant data, uh, when it comes to, you
+
+968
+00:42:49,632 --> 00:42:52,240
+know, the well structured content? Uh, is
+
+969
+00:42:52,240 --> 00:42:54,104
+there another format, another rival
+
+970
+00:42:54,104 --> 00:42:57,085
+format or anything else that could do the
+
+971
+00:42:57,085 --> 00:42:59,752
+job well?Asked
+
+972
+00:42:59,752 --> 00:43:02,707
+for AI and right now it's
+
+973
+00:43:02,707 --> 00:43:05,661
+the best that's you know, it
+
+974
+00:43:05,661 --> 00:43:08,616
+performs better than any anything else.
+
+975
+00:43:08,616 --> 00:43:11,570
+Um, markdown is the second best.
+
+976
+00:43:13,030 --> 00:43:15,737
+And the reason the second best is because
+
+977
+00:43:15,737 --> 00:43:17,090
+a lot of um.
+
+978
+00:43:18,860 --> 00:43:21,491
+A lot of the technology
+
+979
+00:43:21,491 --> 00:43:24,122
+for delivering content it has
+
+980
+00:43:24,122 --> 00:43:26,753
+like native markdown, but markdown
+
+981
+00:43:26,753 --> 00:43:29,384
+has its limitations. And so
+
+982
+00:43:29,384 --> 00:43:32,015
+how do you compensate for
+
+983
+00:43:32,015 --> 00:43:34,646
+those limitations? Well, you know,
+
+984
+00:43:34,646 --> 00:43:37,278
+so it really is, is
+
+985
+00:43:37,278 --> 00:43:39,915
+is is. The and the
+
+986
+00:43:39,915 --> 00:43:42,604
+reason that that it is the
+
+987
+00:43:42,604 --> 00:43:45,293
+best is because the markdown is,
+
+988
+00:43:45,293 --> 00:43:47,983
+uh, sorry, the markup is richer.
+
+989
+00:43:47,983 --> 00:43:50,672
+So what you're writing is really
+
+990
+00:43:50,672 --> 00:43:53,361
+important now. So if you say
+
+991
+00:43:53,361 --> 00:43:56,051
+it, I'll use the noun instead
+
+992
+00:43:56,051 --> 00:43:58,740
+of it, right? So if it's.
+
+993
+00:43:58,870 --> 00:44:01,759
+The the P2240, call it the
+
+994
+00:44:01,759 --> 00:44:04,647
+P2240 all the time. Don't say
+
+995
+00:44:04,647 --> 00:44:07,404
+it because. The AI,
+
+996
+00:44:07,404 --> 00:44:10,359
+the LM, is going to be reading
+
+997
+00:44:10,359 --> 00:44:13,313
+the text. Now you could say it
+
+998
+00:44:13,313 --> 00:44:16,268
+everywhere and then you would have to
+
+999
+00:44:16,268 --> 00:44:19,222
+put the metadata in for P2240 because
+
+1000
+00:44:19,222 --> 00:44:22,177
+that distinguishes it from the P2241 and
+
+1001
+00:44:22,177 --> 00:44:25,132
+the P2242 and the P42243. Or you
+
+1002
+00:44:25,132 --> 00:44:27,584
+could just do it. In
+
+1003
+00:44:27,584 --> 00:44:30,281
+the text itself, so
+
+1004
+00:44:30,281 --> 00:44:32,979
+it's not as important
+
+1005
+00:44:32,979 --> 00:44:35,676
+anymore to have um,
+
+1006
+00:44:35,676 --> 00:44:38,443
+uh. For example,
+
+1007
+00:44:38,443 --> 00:44:41,429
+an entire topic. Yeah, I mean, topics
+
+1008
+00:44:41,429 --> 00:44:44,415
+are still good because when you need
+
+1009
+00:44:44,415 --> 00:44:47,401
+to read the entire topic, it's there.
+
+1010
+00:44:47,401 --> 00:44:50,388
+But if you just need that one
+
+1011
+00:44:50,388 --> 00:44:52,947
+piece of information, then the one
+
+1012
+00:44:52,947 --> 00:44:55,080
+sentence can do the trick.
+
+1013
+00:44:56,150 --> 00:44:58,980
+But if the sentence is poorly
+
+1014
+00:44:58,980 --> 00:45:01,810
+written, then it's not going to
+
+1015
+00:45:01,810 --> 00:45:04,640
+be useful for the LM, right?
+
+1016
+00:45:04,640 --> 00:45:07,470
+So it's it. This is where
+
+1017
+00:45:07,470 --> 00:45:10,300
+it all comes together. And and
+
+1018
+00:45:10,300 --> 00:45:13,130
+as I said, can the LM
+
+1019
+00:45:13,130 --> 00:45:15,960
+use unstructured content? Yes, it can.
+
+1020
+00:45:16,370 --> 00:45:19,153
+But it doesn't give you good results.
+
+1021
+00:45:19,153 --> 00:45:21,936
+So the best results are still with
+
+1022
+00:45:21,936 --> 00:45:24,720
+with dinner because dinner was built for
+
+1023
+00:45:24,720 --> 00:45:26,310
+that kind of, um.
+
+1024
+00:45:27,870 --> 00:45:30,406
+That kind of delivery before its time it
+
+1025
+00:45:30,406 --> 00:45:32,942
+was built for that kind of delivery if
+
+1026
+00:45:32,942 --> 00:45:35,478
+you used it or well, because there are
+
+1027
+00:45:35,478 --> 00:45:38,013
+more than one way to use data and
+
+1028
+00:45:38,013 --> 00:45:39,598
+sometimes people aren't putting the
+
+1029
+00:45:39,598 --> 00:45:41,817
+tagging in and they aren't doing the
+
+1030
+00:45:41,817 --> 00:45:43,719
+information architecture in a way that's
+
+1031
+00:45:43,719 --> 00:45:46,572
+going to be useful. So this goes back to
+
+1032
+00:45:46,572 --> 00:45:49,430
+what are the goals. That you're
+
+1033
+00:45:49,430 --> 00:45:51,318
+trying like the business goals, then what
+
+1034
+00:45:51,318 --> 00:45:53,476
+are the objectives? And then what is, you
+
+1035
+00:45:53,476 --> 00:45:55,365
+know, what are your practices and what
+
+1036
+00:45:55,365 --> 00:45:57,793
+tools are you using? And so you have to
+
+1037
+00:45:57,793 --> 00:45:59,681
+start there to know whether you're doing
+
+1038
+00:45:59,681 --> 00:46:01,300
+it right up at the beginning.
+
+1039
+00:46:02,990 --> 00:46:05,837
+Right. So structured content and use of
+
+1040
+00:46:05,837 --> 00:46:08,683
+data is a couple of takeaways that
+
+1041
+00:46:08,683 --> 00:46:11,530
+I can understand from this. Uh, apart
+
+1042
+00:46:11,530 --> 00:46:13,970
+from that, uh, looking across everything
+
+1043
+00:46:13,970 --> 00:46:16,410
+well that we discussed the challenges,
+
+1044
+00:46:16,410 --> 00:46:18,037
+foundations and day-to-day practices,
+
+1045
+00:46:18,037 --> 00:46:20,883
+what are the key takeaways that you
+
+1046
+00:46:20,883 --> 00:46:23,730
+would want the people who are attending?
+
+1047
+00:46:23,800 --> 00:46:26,557
+Right, though, uh, to carry with them as
+
+1048
+00:46:26,557 --> 00:46:28,625
+they prepare for a different content
+
+1049
+00:46:28,625 --> 00:46:31,382
+delivery key take away. So I, I think
+
+1050
+00:46:31,382 --> 00:46:34,140
+we kind of touched on them already. So
+
+1051
+00:46:34,140 --> 00:46:36,897
+one is to start with, what is the
+
+1052
+00:46:36,897 --> 00:46:39,309
+return on investment that you wanna get
+
+1053
+00:46:39,309 --> 00:46:42,067
+that your business wants to get? Like is
+
+1054
+00:46:42,067 --> 00:46:44,914
+their goal to reduce support?Is
+
+1055
+00:46:44,914 --> 00:46:47,519
+their goal to have self-service? Is
+
+1056
+00:46:47,519 --> 00:46:50,123
+their goal to have 100% accurate
+
+1057
+00:46:50,123 --> 00:46:51,860
+delivery? And then, uh.
+
+1058
+00:46:52,920 --> 00:46:55,340
+Work backwards from there to figure out
+
+1059
+00:46:55,340 --> 00:46:58,107
+what you want to do and how you
+
+1060
+00:46:58,107 --> 00:46:59,490
+need to do it.
+
+1061
+00:47:00,840 --> 00:47:03,489
+No, that's the the first one
+
+1062
+00:47:03,489 --> 00:47:06,139
+and the second one. Is that
+
+1063
+00:47:06,139 --> 00:47:08,788
+because the second aspect is that
+
+1064
+00:47:08,788 --> 00:47:11,438
+because the the field is progressing
+
+1065
+00:47:11,438 --> 00:47:14,087
+so quickly, just keep learning. Yeah,
+
+1066
+00:47:14,087 --> 00:47:16,737
+there are a number of people
+
+1067
+00:47:16,737 --> 00:47:19,694
+talking about. How they
+
+1068
+00:47:19,694 --> 00:47:22,378
+use AI and how they're experimenting
+
+1069
+00:47:22,378 --> 00:47:25,061
+with it and, um, you know,
+
+1070
+00:47:25,061 --> 00:47:27,744
+learn from them. I, I published
+
+1071
+00:47:27,744 --> 00:47:30,427
+recently a series of people to
+
+1072
+00:47:30,427 --> 00:47:33,111
+follow who talk about AI and
+
+1073
+00:47:33,111 --> 00:47:35,794
+LinkedIn, and I think there were
+
+1074
+00:47:35,794 --> 00:47:38,646
+12 or 13 of them. And
+
+1075
+00:47:38,646 --> 00:47:41,574
+so those are some folks to start with,
+
+1076
+00:47:41,574 --> 00:47:43,770
+um, and semantics folks, there's, um.
+
+1077
+00:47:45,200 --> 00:47:47,807
+Uh, Jessica Talisman and a few others I,
+
+1078
+00:47:47,807 --> 00:47:50,088
+I can't remember, uh, Larry Swanson. You
+
+1079
+00:47:50,088 --> 00:47:52,369
+could always share the names later. You
+
+1080
+00:47:52,369 --> 00:47:54,650
+can always share the names later. Yeah.
+
+1081
+00:47:54,650 --> 00:47:57,583
+So, you know, just learn from them so it
+
+1082
+00:47:57,583 --> 00:47:59,864
+doesn't happen. When I say learn, it
+
+1083
+00:47:59,864 --> 00:48:02,797
+doesn't mean ohh, I have to sign up for
+
+1084
+00:48:02,797 --> 00:48:05,404
+a course and take a course and spend
+
+1085
+00:48:05,404 --> 00:48:07,476
+every. Uh, weeknight doing this sometimes
+
+1086
+00:48:07,476 --> 00:48:09,513
+it's just in five minute increments here
+
+1087
+00:48:09,513 --> 00:48:11,551
+and there. Yeah. You know, Michael Leon
+
+1088
+00:48:11,551 --> 00:48:14,171
+Tosca is a great one to, to follow on
+
+1089
+00:48:14,171 --> 00:48:16,500
+LinkedIn. So you just read one of his
+
+1090
+00:48:16,500 --> 00:48:18,829
+posts and that's it for, you know, the
+
+1091
+00:48:18,829 --> 00:48:21,158
+day or for the week. And now you've
+
+1092
+00:48:21,158 --> 00:48:23,196
+learned a little something and it will
+
+1093
+00:48:23,196 --> 00:48:24,360
+give you that that.
+
+1094
+00:48:27,010 --> 00:48:29,444
+That lead is like being a detective and
+
+1095
+00:48:29,444 --> 00:48:31,879
+finding these clues to, you know, what do
+
+1096
+00:48:31,879 --> 00:48:34,617
+I want to do? How can I do this
+
+1097
+00:48:34,617 --> 00:48:37,051
+better? How can I make it easier for
+
+1098
+00:48:37,051 --> 00:48:39,181
+myself? How can I meet those business
+
+1099
+00:48:39,181 --> 00:48:41,616
+goals? So you have to just keep keep
+
+1100
+00:48:41,616 --> 00:48:44,475
+sleuthing. Probably make
+
+1101
+00:48:44,475 --> 00:48:47,417
+use of something like Notebook LM AI to
+
+1102
+00:48:47,417 --> 00:48:49,992
+figure out this information for you and
+
+1103
+00:48:49,992 --> 00:48:52,934
+give you the gist of it. So that's
+
+1104
+00:48:52,934 --> 00:48:55,140
+a great way to do that.
+
+1105
+00:48:56,430 --> 00:48:58,270
+That is great for that.
+
+1106
+00:49:00,290 --> 00:49:02,950
+So thank you so much for
+
+1107
+00:49:02,950 --> 00:49:05,611
+all these insights and that gives
+
+1108
+00:49:05,611 --> 00:49:08,271
+our listeners a solid view of
+
+1109
+00:49:08,271 --> 00:49:10,932
+both the strategic and practical size
+
+1110
+00:49:10,932 --> 00:49:13,592
+of preparing AI driven content delivery.
+
+1111
+00:49:13,592 --> 00:49:16,253
+And now I'm going to open
+
+1112
+00:49:16,253 --> 00:49:18,913
+the floor for Q&A and let's
+
+1113
+00:49:18,913 --> 00:49:21,764
+hear questions. For our audiences, have
+
+1114
+00:49:21,764 --> 00:49:24,576
+any so, uh, their audience, I
+
+1115
+00:49:24,576 --> 00:49:27,387
+am unmuting you. You go ahead
+
+1116
+00:49:27,387 --> 00:49:30,199
+and ask your questions and you
+
+1117
+00:49:30,199 --> 00:49:33,010
+can also put those in chat.
+
+1118
+00:49:40,010 --> 00:49:42,496
+I just want to say your session was so
+
+1119
+00:49:42,496 --> 00:49:44,154
+good, that's why we didn't have
+
+1120
+00:49:44,154 --> 00:49:46,860
+questions. Oh, oh,
+
+1121
+00:49:46,860 --> 00:49:47,730
+thank you.
+
+1122
+00:49:49,660 --> 00:49:52,421
+Ohh, they could add some
+
+1123
+00:49:52,421 --> 00:49:54,630
+value, yeah. Hi everybody.
+
+1124
+00:49:56,060 --> 00:49:58,804
+Just was wondering, uh, in all this talk
+
+1125
+00:49:58,804 --> 00:50:01,549
+that is there a trade off between making
+
+1126
+00:50:01,549 --> 00:50:04,293
+our content more readable for AI? Does it
+
+1127
+00:50:04,293 --> 00:50:06,695
+become less, uh, less consumable by human
+
+1128
+00:50:06,695 --> 00:50:09,439
+beings? Like I mean, the example that you
+
+1129
+00:50:09,439 --> 00:50:12,183
+gave where you don't write it right? So
+
+1130
+00:50:12,183 --> 00:50:14,928
+you, you kind of putting the name again.
+
+1131
+00:50:14,928 --> 00:50:17,667
+So it seemed like. The natural way for
+
+1132
+00:50:17,667 --> 00:50:20,241
+humans to read it, yeah, just for one
+
+1133
+00:50:20,241 --> 00:50:22,493
+thing. What are your thoughts? Like, I
+
+1134
+00:50:22,493 --> 00:50:25,389
+mean, does it have to be, uh, two ways?
+
+1135
+00:50:25,389 --> 00:50:27,963
+Like, I mean, better for AI, better for
+
+1136
+00:50:27,963 --> 00:50:30,858
+humans, or is it going to be better for
+
+1137
+00:50:30,858 --> 00:50:33,679
+both?It's a, that's
+
+1138
+00:50:33,679 --> 00:50:36,458
+an excellent question actually. And, and,
+
+1139
+00:50:36,458 --> 00:50:39,236
+um, I'm glad you're giving me
+
+1140
+00:50:39,236 --> 00:50:42,015
+the opportunity to cover it. So
+
+1141
+00:50:42,015 --> 00:50:44,794
+let's think about it this way.
+
+1142
+00:50:44,794 --> 00:50:47,572
+Is that the consumer is the
+
+1143
+00:50:47,572 --> 00:50:50,351
+third line of, of consumption because
+
+1144
+00:50:50,351 --> 00:50:53,195
+first it's, um. The the
+
+1145
+00:50:53,195 --> 00:50:55,874
+LM or the AI that's consuming your
+
+1146
+00:50:55,874 --> 00:50:58,552
+content and then it's through the search
+
+1147
+00:50:58,552 --> 00:51:01,231
+engine or the delivery portal and then
+
+1148
+00:51:01,231 --> 00:51:03,909
+it's from the person. So if it's
+
+1149
+00:51:03,909 --> 00:51:06,588
+not a machine readable, it's never going
+
+1150
+00:51:06,588 --> 00:51:09,266
+to make it to the person because
+
+1151
+00:51:09,266 --> 00:51:11,945
+there will be somebody's stuff who's more
+
+1152
+00:51:11,945 --> 00:51:14,230
+machine readable. Than yours if you're
+
+1153
+00:51:14,230 --> 00:51:17,110
+looking at it from that like a search
+
+1154
+00:51:17,110 --> 00:51:19,630
+engine perspective. If it's, if it's a
+
+1155
+00:51:19,630 --> 00:51:21,790
+self-contained, that's a bit of a
+
+1156
+00:51:21,790 --> 00:51:24,310
+different story. I would counter that the
+
+1157
+00:51:24,310 --> 00:51:24,670
+UM.
+
+1158
+00:51:27,010 --> 00:51:29,590
+The principles of like plain language
+
+1159
+00:51:29,590 --> 00:51:32,170
+and and modularity and so on,
+
+1160
+00:51:32,170 --> 00:51:34,320
+where everything is kind of
+
+1161
+00:51:34,320 --> 00:51:36,470
+self-contained. I don't think that
+
+1162
+00:51:36,470 --> 00:51:39,050
+dropping it and using like the
+
+1163
+00:51:39,050 --> 00:51:41,630
+proper noun is actually making it
+
+1164
+00:51:41,630 --> 00:51:44,210
+less readable for a person. I
+
+1165
+00:51:44,210 --> 00:51:46,790
+think it's actually making it more
+
+1166
+00:51:46,790 --> 00:51:49,310
+readable. For a person, because
+
+1167
+00:51:49,310 --> 00:51:51,310
+they've shown that, uh.
+
+1168
+00:51:52,340 --> 00:51:55,043
+People in today's world don't really
+
+1169
+00:51:55,043 --> 00:51:57,745
+understand how modifiers work. So when
+
+1170
+00:51:57,745 --> 00:52:00,448
+you say it, they don't know
+
+1171
+00:52:00,448 --> 00:52:03,151
+what it's modifying. So it's and
+
+1172
+00:52:03,151 --> 00:52:05,854
+particularly if you have someone for
+
+1173
+00:52:05,854 --> 00:52:08,556
+whom English is the second or
+
+1174
+00:52:08,556 --> 00:52:11,259
+third language, and this goes for,
+
+1175
+00:52:11,259 --> 00:52:14,143
+you know. In any language, when
+
+1176
+00:52:14,143 --> 00:52:16,816
+you stop to think about it,
+
+1177
+00:52:16,816 --> 00:52:19,490
+um, when you stop to think
+
+1178
+00:52:19,490 --> 00:52:21,719
+about language, um, you're, you're
+
+1179
+00:52:21,719 --> 00:52:24,376
+really, um. Looking
+
+1180
+00:52:24,376 --> 00:52:27,009
+at clearer for the end user, but
+
+1181
+00:52:27,009 --> 00:52:29,642
+it's also making it clearer for the
+
+1182
+00:52:29,642 --> 00:52:32,275
+intermediary steps, which is the AI and
+
+1183
+00:52:32,275 --> 00:52:33,780
+then the search engine.
+
+1184
+00:52:35,600 --> 00:52:36,710
+Or the chat bot.
+
+1185
+00:52:38,400 --> 00:52:41,266
+And boy is adding to what trial as
+
+1186
+00:52:41,266 --> 00:52:43,773
+saying we are already seeing this change
+
+1187
+00:52:43,773 --> 00:52:46,281
+in behavior of human behavior. They don't
+
+1188
+00:52:46,281 --> 00:52:49,146
+want to go to a help hotel or
+
+1189
+00:52:49,146 --> 00:52:52,012
+search for it. They would rather pick up
+
+1190
+00:52:52,012 --> 00:52:54,520
+their phone probably and ask a question
+
+1191
+00:52:54,520 --> 00:52:57,385
+to say Gemini or perplexity or if they
+
+1192
+00:52:57,385 --> 00:52:59,737
+have their companies. Own chat boards,
+
+1193
+00:52:59,737 --> 00:53:02,554
+they would ask the question directly in
+
+1194
+00:53:02,554 --> 00:53:05,372
+natural language. In that case, the way
+
+1195
+00:53:05,372 --> 00:53:08,189
+the content was written, if it says
+
+1196
+00:53:08,189 --> 00:53:11,006
+P22 instead of eight, it doesn't matter
+
+1197
+00:53:11,006 --> 00:53:13,823
+to the human reader also because they
+
+1198
+00:53:13,823 --> 00:53:16,640
+are consuming it the same way, you
+
+1199
+00:53:16,640 --> 00:53:19,613
+know, through the machine. So that is
+
+1200
+00:53:19,613 --> 00:53:22,116
+a marked behavior change and because of
+
+1201
+00:53:22,116 --> 00:53:24,977
+it, I don't think the content in the
+
+1202
+00:53:24,977 --> 00:53:27,838
+back, you know, under the hood and the
+
+1203
+00:53:27,838 --> 00:53:29,984
+content that is being delivered, there's
+
+1204
+00:53:29,984 --> 00:53:32,487
+a slight difference. What do you say
+
+1205
+00:53:32,487 --> 00:53:33,560
+right about that?
+
+1206
+00:53:35,350 --> 00:53:37,857
+What is delivered is more attuned to the
+
+1207
+00:53:37,857 --> 00:53:40,773
+audience. Well, what is delivered
+
+1208
+00:53:40,773 --> 00:53:43,013
+is, you know, generative. So it's
+
+1209
+00:53:43,013 --> 00:53:45,626
+generated and it's depending on. So like,
+
+1210
+00:53:45,626 --> 00:53:48,612
+you know, not all elements are good at
+
+1211
+00:53:48,612 --> 00:53:51,598
+the same thing. And so, um, some LM's
+
+1212
+00:53:51,598 --> 00:53:54,584
+will be better at kind of analysis and
+
+1213
+00:53:54,584 --> 00:53:57,570
+others will be better at the kind of,
+
+1214
+00:53:57,570 --> 00:54:00,273
+you know, ohh. Editorial aspects.
+
+1215
+00:54:00,273 --> 00:54:02,979
+So when you're thinking about,
+
+1216
+00:54:02,979 --> 00:54:05,686
+um, content, really just think
+
+1217
+00:54:05,686 --> 00:54:08,393
+about the user, but also
+
+1218
+00:54:08,393 --> 00:54:11,100
+follow the the principles like
+
+1219
+00:54:11,100 --> 00:54:13,806
+plain language principles and natural
+
+1220
+00:54:13,806 --> 00:54:16,513
+language processing principles and so
+
+1221
+00:54:16,513 --> 00:54:19,220
+on to to think about.
+
+1222
+00:54:19,430 --> 00:54:22,199
+How to make it clear? So going back
+
+1223
+00:54:22,199 --> 00:54:24,968
+to like, you know how we have the
+
+1224
+00:54:24,968 --> 00:54:27,738
+dosage right? So if you have I I
+
+1225
+00:54:27,738 --> 00:54:30,507
+want to know the dosage for an infant,
+
+1226
+00:54:30,507 --> 00:54:33,276
+it's going to be very clear. If you
+
+1227
+00:54:33,276 --> 00:54:36,045
+say the dosage for an infant is instead
+
+1228
+00:54:36,045 --> 00:54:39,031
+of saying you know. The
+
+1229
+00:54:39,031 --> 00:54:41,766
+dosage is right because the dosage is
+
+1230
+00:54:41,766 --> 00:54:44,502
+1 teaspoon maybe 3 paragraphs before you
+
+1231
+00:54:44,502 --> 00:54:47,237
+said, you know, here the, the, the,
+
+1232
+00:54:47,237 --> 00:54:49,973
+the, the, the categories. And now you
+
+1233
+00:54:49,973 --> 00:54:52,708
+say the dosage is this the. And
+
+1234
+00:54:52,708 --> 00:54:55,444
+so if you're reading the whole thing,
+
+1235
+00:54:55,444 --> 00:54:58,179
+it'll be easy for you to understand
+
+1236
+00:54:58,179 --> 00:55:01,038
+that. You mentioned the audiences in
+
+1237
+00:55:01,038 --> 00:55:03,416
+this order and now you're talking about
+
+1238
+00:55:03,416 --> 00:55:06,133
+it in this order, but the machine won't
+
+1239
+00:55:06,133 --> 00:55:08,511
+understand that, and because of that, it
+
+1240
+00:55:08,511 --> 00:55:11,228
+might get delivered to the user the wrong
+
+1241
+00:55:11,228 --> 00:55:13,946
+way. So if you are very, very clear
+
+1242
+00:55:13,946 --> 00:55:16,323
+and you're thinking about clarity for the
+
+1243
+00:55:16,323 --> 00:55:18,361
+machine, then you're also thinking about
+
+1244
+00:55:18,361 --> 00:55:21,217
+clarity for the user. That almost
+
+1245
+00:55:21,217 --> 00:55:23,725
+as a proxy. You're using a machine as a
+
+1246
+00:55:23,725 --> 00:55:26,233
+proxy for the user. I don't know if that
+
+1247
+00:55:26,233 --> 00:55:29,208
+makes sense. Right, I think,
+
+1248
+00:55:29,208 --> 00:55:31,950
+I think it all depends on um, you
+
+1249
+00:55:31,950 --> 00:55:34,691
+know, how correct is the answer given by
+
+1250
+00:55:34,691 --> 00:55:37,433
+the machine. So I'm sure that if the
+
+1251
+00:55:37,433 --> 00:55:39,489
+answer is precise, people will definitely
+
+1252
+00:55:39,489 --> 00:55:40,860
+prefer to do that.
+
+1253
+00:55:42,810 --> 00:55:44,871
+Instead of, you know, actually going
+
+1254
+00:55:44,871 --> 00:55:47,276
+through the docs. So yeah, makes sense.
+
+1255
+00:55:47,276 --> 00:55:50,025
+But yeah, I, I mean, like maybe it
+
+1256
+00:55:50,025 --> 00:55:52,430
+was a bad example. Uh, some examples
+
+1257
+00:55:52,430 --> 00:55:55,179
+could be like maybe you could put more
+
+1258
+00:55:55,179 --> 00:55:57,927
+images for humans, but maybe I would not
+
+1259
+00:55:57,927 --> 00:55:59,989
+understand that very well. Or perhaps
+
+1260
+00:55:59,989 --> 00:56:02,400
+tables, you know, maybe I gets. Confused
+
+1261
+00:56:02,400 --> 00:56:04,640
+with tables that gets thrown off. I don't
+
+1262
+00:56:04,640 --> 00:56:05,760
+know that that's true.
+
+1263
+00:56:07,320 --> 00:56:10,029
+So, you know, and now this comes back
+
+1264
+00:56:10,029 --> 00:56:12,400
+to what I said earlier about rethinking
+
+1265
+00:56:12,400 --> 00:56:15,109
+the way we do content, because if you
+
+1266
+00:56:15,109 --> 00:56:17,818
+think about like, what is the, what is
+
+1267
+00:56:17,818 --> 00:56:20,188
+the purpose of all text? Well, the
+
+1268
+00:56:20,188 --> 00:56:22,898
+purpose of all text is to describe what's
+
+1269
+00:56:22,898 --> 00:56:25,607
+going on in an image. So yeah, if
+
+1270
+00:56:25,607 --> 00:56:27,300
+you think about different learners.
+
+1271
+00:56:27,420 --> 00:56:29,694
+Different learning styles. Yeah, image is
+
+1272
+00:56:29,694 --> 00:56:32,346
+great, but you could also include the
+
+1273
+00:56:32,346 --> 00:56:34,999
+alt text that makes it readable or
+
+1274
+00:56:34,999 --> 00:56:37,273
+you know, you're describing the image
+
+1275
+00:56:37,273 --> 00:56:39,926
+that makes it readable for the machine
+
+1276
+00:56:39,926 --> 00:56:42,578
+so it can deliver things to the
+
+1277
+00:56:42,578 --> 00:56:45,231
+the consumer and I don't know enough
+
+1278
+00:56:45,231 --> 00:56:45,610
+about.
+
+1279
+00:56:47,890 --> 00:56:50,602
+Like reading the captions of images and
+
+1280
+00:56:50,602 --> 00:56:53,314
+all the different LM's and so on
+
+1281
+00:56:53,314 --> 00:56:56,025
+and so forth. So I don't want
+
+1282
+00:56:56,025 --> 00:56:58,350
+to mislead you, but it's worth
+
+1283
+00:56:58,350 --> 00:57:00,674
+experimenting with those things so that
+
+1284
+00:57:00,674 --> 00:57:03,386
+you know which LM is better for
+
+1285
+00:57:03,386 --> 00:57:05,710
+your particular use case. Because let's
+
+1286
+00:57:05,710 --> 00:57:08,490
+say you're doing API. Documentation for
+
+1287
+00:57:08,490 --> 00:57:11,290
+developers, well, that's a very
+
+1288
+00:57:11,290 --> 00:57:14,090
+different use case than, um,
+
+1289
+00:57:14,090 --> 00:57:15,770
+delivering, um, um.
+
+1290
+00:57:17,920 --> 00:57:20,074
+Medical information to the average
+
+1291
+00:57:20,074 --> 00:57:22,658
+person, right? So you, you, you
+
+1292
+00:57:22,658 --> 00:57:25,242
+want to say, OK, well, when
+
+1293
+00:57:25,242 --> 00:57:27,826
+I'm doing this API documentation, uh,
+
+1294
+00:57:27,826 --> 00:57:30,411
+what are the questions that the
+
+1295
+00:57:30,411 --> 00:57:32,995
+developers are going to ask so
+
+1296
+00:57:32,995 --> 00:57:35,579
+that I can have that information,
+
+1297
+00:57:35,579 --> 00:57:38,550
+um. You know, kind of go through the
+
+1298
+00:57:38,550 --> 00:57:41,168
+LM and go through the the search engine
+
+1299
+00:57:41,168 --> 00:57:43,459
+to them or however it's being delivered
+
+1300
+00:57:43,459 --> 00:57:46,076
+to them. And that's kind of what, you
+
+1301
+00:57:46,076 --> 00:57:48,040
+know, when you're thinking about content
+
+1302
+00:57:48,040 --> 00:57:49,676
+curation and then context curation,
+
+1303
+00:57:49,676 --> 00:57:51,966
+that's what we're talking about is making
+
+1304
+00:57:51,966 --> 00:57:54,584
+sure that it's going to work for the
+
+1305
+00:57:54,584 --> 00:57:57,278
+person at the other end. And it's
+
+1306
+00:57:57,278 --> 00:57:59,860
+got to work for all the intermediaries
+
+1307
+00:57:59,860 --> 00:58:02,811
+before it can get to that person. But
+
+1308
+00:58:02,811 --> 00:58:05,763
+it should be good for both. It shouldn't
+
+1309
+00:58:05,763 --> 00:58:08,714
+favor the machines over the users, but it
+
+1310
+00:58:08,714 --> 00:58:11,296
+should be equally good for both purposes.
+
+1311
+00:58:11,296 --> 00:58:13,510
+That's a very good insight, so.
+
+1312
+00:58:14,430 --> 00:58:17,237
+We are about to wrap up this
+
+1313
+00:58:17,237 --> 00:58:19,643
+conversation now and thank you everyone
+
+1314
+00:58:19,643 --> 00:58:22,049
+for your thoughtful questions. And a
+
+1315
+00:58:22,049 --> 00:58:24,856
+special thank you to Ryan for sharing
+
+1316
+00:58:24,856 --> 00:58:27,664
+such value with insights with us today.
+
+1317
+00:58:27,664 --> 00:58:30,471
+It has been rich and in Azure
+
+1318
+00:58:30,471 --> 00:58:32,877
+using conversation. So folks, it's time
+
+1319
+00:58:32,877 --> 00:58:35,772
+to wrap up. I hope to
+
+1320
+00:58:35,772 --> 00:58:38,718
+welcome you back in the coming year
+
+1321
+00:58:38,718 --> 00:58:41,243
+for more conversations as the space
+
+1322
+00:58:41,243 --> 00:58:44,189
+continues to evolve. And one more thing,
+
+1323
+00:58:44,189 --> 00:58:47,135
+do watch out for follow up post
+
+1324
+00:58:47,135 --> 00:58:50,081
+to this conversation. And I'm going to
+
+1325
+00:58:50,081 --> 00:58:53,027
+bother right to share all the names
+
+1326
+00:58:53,027 --> 00:58:55,749
+that she had forgotten. Right now, but
+
+1327
+00:58:55,749 --> 00:58:58,595
+I'm sure she will share all the names of
+
+1328
+00:58:58,595 --> 00:59:01,442
+the people she wants us to watch out for
+
+1329
+00:59:01,442 --> 00:59:03,972
+and follow. And also I need tools that
+
+1330
+00:59:03,972 --> 00:59:06,502
+she herself make use of to say add
+
+1331
+00:59:06,502 --> 00:59:08,400
+metadata or create knowledge graphs and
+
+1332
+00:59:08,400 --> 00:59:10,297
+whatnot. So her tool recommendations and
+
+1333
+00:59:10,297 --> 00:59:12,511
+people recommendations are going to be in
+
+1334
+00:59:12,511 --> 00:59:13,460
+that follow up.
+
+1335
+00:59:14,980 --> 00:59:17,753
+So I guess until then,
+
+1336
+00:59:17,753 --> 00:59:20,526
+bye bye to you all
+
+1337
+00:59:20,526 --> 00:59:22,190
+and happy 2026.
+
+1338
+00:59:24,690 --> 00:59:27,474
+Bye, bye. Thanks for for having me.
+
+1339
+00:59:27,474 --> 00:59:29,860
+Bye. Thank you. Thank you everyone.

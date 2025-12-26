@@ -455,7 +455,7 @@ const portfolioData = {
 </div>`,
             banner: 'LocalContent/podcasts/rahebailie_iaprep/LumaEventBanner_moresquare.png',
             audioFile: 'LocalContent/podcasts/rahebailie_iaprep/FinalCut_AudioConversationRahelBailie.mp3',
-            transcriptFile: 'LocalContent/podcasts/rahebailie_iaprep/FinalCut_AudioConversationRahelBailie.srt',
+            transcriptFile: 'LocalContent/podcasts/rahebailie_iaprep/FinalCutAudioPodcastwithSRTRahelBailie.srt',
             summaryDeck: 'LocalContent/podcasts/rahebailie_iaprep/The_New_Content_Mandate.pdf',
             duration: '45 min',
             topics: ['Information Architecture', 'AI-Delivered Content', 'Content Strategy', 'Technical Writing']

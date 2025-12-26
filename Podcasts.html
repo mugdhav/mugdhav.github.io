@@ -370,6 +370,41 @@
             transform: translateY(-2px);
         }
 
+        .podcast-actions {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .podcast-share-btn {
+            background-color: var(--white);
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .podcast-share-btn:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .podcast-share-btn.copied {
+            background-color: #10b981;
+            color: var(--white);
+            border-color: #10b981;
+        }
+
         .podcast-expanded-content {
             display: none;
             padding: 1.5rem;
@@ -679,6 +714,18 @@
                 font-size: 0.85rem;
                 flex-direction: column;
                 gap: 0.5rem;
+            }
+
+            .podcast-actions {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .podcast-expand-btn,
+            .podcast-share-btn {
+                width: 100%;
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
             }
 
             .transcript-header {
@@ -1176,29 +1223,30 @@
         }
 
         // Load and parse transcript
-        function loadTranscript(podcastId, transcriptFile) {
+        async function loadTranscript(podcastId, transcriptFile) {
             const transcriptContent = document.getElementById(`transcript-content-${podcastId}`);
 
             try {
-                console.log('Loading transcript for:', podcastId);
+                console.log('Loading transcript for:', podcastId, 'from file:', transcriptFile);
 
-                // Check if transcript data is embedded
-                if (typeof podcastTranscripts !== 'undefined' && podcastTranscripts[podcastId]) {
-                    console.log('Using embedded transcript data');
-                    const srtText = podcastTranscripts[podcastId];
-                    console.log('SRT text length:', srtText.length);
+                // Fetch the SRT file dynamically
+                const response = await fetch(transcriptFile);
 
-                    transcriptData[podcastId] = parseSRT(srtText);
-                    console.log('Parsed subtitles:', transcriptData[podcastId].length);
-
-                    if (transcriptData[podcastId].length === 0) {
-                        throw new Error('No subtitles parsed from SRT data');
-                    }
-
-                    renderTranscript(podcastId);
-                } else {
-                    throw new Error('Transcript data not found for podcast: ' + podcastId);
+                if (!response.ok) {
+                    throw new Error(`Failed to fetch transcript file: ${response.statusText}`);
                 }
+
+                const srtText = await response.text();
+                console.log('SRT text loaded, length:', srtText.length);
+
+                transcriptData[podcastId] = parseSRT(srtText);
+                console.log('Parsed subtitles:', transcriptData[podcastId].length);
+
+                if (transcriptData[podcastId].length === 0) {
+                    throw new Error('No subtitles parsed from SRT file');
+                }
+
+                renderTranscript(podcastId);
             } catch (error) {
                 console.error('Error loading transcript:', error);
                 if (transcriptContent) {
@@ -1209,7 +1257,7 @@
                             <p style="font-size: 0.9rem; margin-bottom: 1rem;">Error: ${error.message}</p>
                             <div style="background: var(--light-bg); padding: 1rem; border-radius: 8px; margin-top: 1rem; text-align: left;">
                                 <p style="font-size: 0.85rem; line-height: 1.6;">
-                                    Please make sure <code style="font-size: 0.8rem;">podcast_transcripts.js</code> is loaded correctly.
+                                    The transcript file could not be loaded. Please ensure the SRT file exists at: <code style="font-size: 0.8rem;">${transcriptFile}</code>
                                 </p>
                             </div>
                         </div>
@@ -1307,7 +1355,7 @@
         }
 
         // Toggle podcast expansion
-        function togglePodcast(podcastId) {
+        function togglePodcast(podcastId, skipScroll = false) {
             const expandedContent = document.getElementById(`expanded-${podcastId}`);
             const button = document.querySelector(`#podcast-card-${podcastId} .podcast-expand-btn`);
 
@@ -1327,6 +1375,88 @@
                         loadPDF(podcastId, podcast.summaryDeck);
                     }
                     expandedContent.dataset.loaded = 'true';
+                }
+
+                // Scroll to podcast card if not skipped
+                if (!skipScroll) {
+                    const card = document.getElementById(`podcast-card-${podcastId}`);
+                    if (card) {
+                        setTimeout(() => {
+                            card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }, 100);
+                    }
+                }
+            }
+        }
+
+        // Share podcast - copy link to clipboard
+        function sharePodcast(podcastId) {
+            const url = `${window.location.origin}${window.location.pathname}#${podcastId}`;
+
+            // Try to use the Clipboard API
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(url).then(() => {
+                    showShareSuccess(podcastId);
+                }).catch(() => {
+                    // Fallback for older browsers
+                    fallbackCopyToClipboard(url, podcastId);
+                });
+            } else {
+                // Fallback for older browsers
+                fallbackCopyToClipboard(url, podcastId);
+            }
+        }
+
+        // Fallback copy method for older browsers
+        function fallbackCopyToClipboard(text, podcastId) {
+            const textArea = document.createElement('textarea');
+            textArea.value = text;
+            textArea.style.position = 'fixed';
+            textArea.style.left = '-999999px';
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+
+            try {
+                document.execCommand('copy');
+                showShareSuccess(podcastId);
+            } catch (err) {
+                console.error('Failed to copy:', err);
+                alert('Failed to copy link. Please copy manually: ' + text);
+            }
+
+            document.body.removeChild(textArea);
+        }
+
+        // Show success feedback when link is copied
+        function showShareSuccess(podcastId) {
+            const button = document.getElementById(`share-btn-${podcastId}`);
+            const originalHTML = button.innerHTML;
+
+            button.classList.add('copied');
+            button.innerHTML = '<i class="fas fa-check"></i> Link Copied!';
+
+            setTimeout(() => {
+                button.classList.remove('copied');
+                button.innerHTML = originalHTML;
+            }, 2000);
+        }
+
+        // Handle URL hash on page load
+        function handleURLHash() {
+            const hash = window.location.hash.substring(1); // Remove the # symbol
+            if (hash) {
+                // Check if the hash corresponds to a podcast
+                const podcast = portfolioData.podcasts.find(p => p.id === hash);
+                if (podcast) {
+                    // Wait for the DOM to be fully rendered
+                    setTimeout(() => {
+                        togglePodcast(hash);
+                        const card = document.getElementById(`podcast-card-${hash}`);
+                        if (card) {
+                            card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    }, 500);
                 }
             }
         }
@@ -1389,9 +1519,14 @@
                             `).join('')}
                         </div>
 
-                        <button class="podcast-expand-btn" onclick="togglePodcast('${podcast.id}')">
-                            <i class="fas fa-chevron-down"></i> View Details
-                        </button>
+                        <div class="podcast-actions">
+                            <button class="podcast-expand-btn" onclick="togglePodcast('${podcast.id}')">
+                                <i class="fas fa-chevron-down"></i> View Details
+                            </button>
+                            <button class="podcast-share-btn" onclick="sharePodcast('${podcast.id}')" id="share-btn-${podcast.id}">
+                                <i class="fas fa-share-alt"></i> Share
+                            </button>
+                        </div>
                     </div>
 
                     <!-- Expanded Content -->
@@ -1687,6 +1822,12 @@
 
             initializeTheme();
             renderPodcasts();
+
+            // Handle URL hash for direct podcast links
+            handleURLHash();
+
+            // Listen for hash changes (when user navigates back/forward)
+            window.addEventListener('hashchange', handleURLHash);
 
             // Smooth scroll behavior for anchor links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
