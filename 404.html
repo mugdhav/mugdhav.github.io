@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Moved - Mugdha Vairagade</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/vnd.microsoft.icon" href="assets/favicon/iopm5-km6uc-002.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/favicon/iopm5-km6uc-002.ico">
+
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" href="assets/favicon/iopm5-km6uc-003.ico">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Meta tags -->
+    <meta name="robots" content="noindex">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --text-color: #1f2937;
+            --light-bg: #f3f4f6;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+            --secondary-text-color: #4b5563;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #3b82f6;
+            --secondary-color: #60a5fa;
+            --text-color: #e5e7eb;
+            --light-bg: #1f2937;
+            --white: #111827;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            --secondary-text-color: #ffffff;
+            --success-color: #34d399;
+            --warning-color: #fbbf24;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--white);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .theme-toggle {
+            background: var(--light-bg);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 5%;
+        }
+
+        .error-container {
+            max-width: 800px;
+            text-align: center;
+        }
+
+        .error-code {
+            font-size: 8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+
+        .error-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+        }
+
+        .error-message {
+            font-size: 1.1rem;
+            color: var(--secondary-text-color);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .reorganization-notice {
+            background-color: var(--light-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--warning-color);
+        }
+
+        .reorganization-notice h3 {
+            color: var(--warning-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .reorganization-notice p {
+            color: var(--secondary-text-color);
+            margin-bottom: 0;
+        }
+
+        .redirect-section {
+            margin-top: 2rem;
+        }
+
+        .redirect-section h3 {
+            color: var(--text-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .redirect-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .redirect-item {
+            background-color: var(--light-bg);
+            padding: 1rem 1.5rem;
+            margin-bottom: 0.75rem;
+            border-radius: 8px;
+            transition: var(--transition);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: left;
+        }
+
+        .redirect-item:hover {
+            transform: translateX(5px);
+            box-shadow: var(--shadow);
+        }
+
+        .old-path {
+            color: var(--secondary-text-color);
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+
+        .arrow {
+            color: var(--primary-color);
+            margin: 0 1rem;
+        }
+
+        .new-path {
+            color: var(--primary-color);
+            font-weight: 600;
+            text-decoration: none;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+
+        .new-path:hover {
+            text-decoration: underline;
+        }
+
+        .cta-buttons {
+            margin-top: 2rem;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.75rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-secondary {
+            background-color: var(--light-bg);
+            color: var(--text-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--secondary-text-color);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        @media (max-width: 768px) {
+            .error-code {
+                font-size: 5rem;
+            }
+
+            .error-title {
+                font-size: 1.5rem;
+            }
+
+            .redirect-item {
+                flex-direction: column;
+                gap: 0.5rem;
+                align-items: flex-start;
+            }
+
+            .arrow {
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="/" class="logo">Mugdha's Portfolio</a>
+            <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()">
+                <span class="theme-icon">🌙</span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <div class="error-container">
+            <div class="error-code">404</div>
+            <h1 class="error-title">Page Has Moved</h1>
+            <p class="error-message">
+                The page you're looking for has been moved to a new location as part of our website reorganization.
+            </p>
+
+            <div class="reorganization-notice">
+                <h3><i class="fas fa-exclamation-triangle"></i> Website Reorganized</h3>
+                <p>We recently reorganized our website for better performance and maintainability. All content is still available at new locations.</p>
+            </div>
+
+            <div class="redirect-section">
+                <h3>Common Page Locations:</h3>
+                <ul class="redirect-list">
+                    <li class="redirect-item">
+                        <span class="old-path">/TechEvents.html</span>
+                        <span class="arrow">→</span>
+                        <a href="/pages/TechEvents.html" class="new-path">/pages/TechEvents.html</a>
+                    </li>
+                    <li class="redirect-item">
+                        <span class="old-path">/Podcasts.html</span>
+                        <span class="arrow">→</span>
+                        <a href="/pages/Podcasts.html" class="new-path">/pages/Podcasts.html</a>
+                    </li>
+                    <li class="redirect-item">
+                        <span class="old-path">/PreEventInstructions.html</span>
+                        <span class="arrow">→</span>
+                        <a href="/pages/PreEventInstructions.html" class="new-path">/pages/PreEventInstructions.html</a>
+                    </li>
+                    <li class="redirect-item">
+                        <span class="old-path">/EventExplore.html</span>
+                        <span class="arrow">→</span>
+                        <a href="/pages/EventExplore.html" class="new-path">/pages/EventExplore.html</a>
+                    </li>
+                    <li class="redirect-item">
+                        <span class="old-path">/LocalContent/*</span>
+                        <span class="arrow">→</span>
+                        <a href="/assets/" class="new-path">/assets/*</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="cta-buttons">
+                <a href="/" class="btn btn-primary">
+                    <i class="fas fa-home"></i> Go to Homepage
+                </a>
+                <a href="/pages/TechEvents.html" class="btn btn-secondary">
+                    <i class="fas fa-calendar"></i> Tech Events
+                </a>
+                <a href="/blog/blog.html" class="btn btn-secondary">
+                    <i class="fas fa-blog"></i> Blog
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Theme toggle functionality
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+
+            const icon = document.querySelector('.theme-icon');
+            icon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+
+            const tooltip = document.querySelector('.theme-toggle');
+            tooltip.setAttribute('data-tooltip',
+                newTheme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'
+            );
+        }
+
+        // Load saved theme
+        function loadTheme() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+
+            const icon = document.querySelector('.theme-icon');
+            icon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
+        }
+
+        // Auto-redirect if we can detect the old path
+        function autoRedirect() {
+            const path = window.location.pathname;
+            const redirectMap = {
+                '/TechEvents.html': '/pages/TechEvents.html',
+                '/Podcasts.html': '/pages/Podcasts.html',
+                '/PreEventInstructions.html': '/pages/PreEventInstructions.html',
+                '/EventExplore.html': '/pages/EventExplore.html',
+                '/pie-ai-event-capture.html': '/pages/pie-ai-event-capture.html'
+            };
+
+            if (redirectMap[path]) {
+                // Show brief message then redirect
+                setTimeout(() => {
+                    window.location.href = redirectMap[path];
+                }, 2000);
+            }
+        }
+
+        // Initialize
+        loadTheme();
+        autoRedirect();
+    </script>
+</body>
+</html>
