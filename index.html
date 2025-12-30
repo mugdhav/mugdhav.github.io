@@ -14,7 +14,13 @@
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
+
+    <!-- External CSS Files -->
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+
     <!-- Search Libraries -->
     <script src="https://unpkg.com/lunr/lunr.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
@@ -92,87 +98,9 @@
     <meta name="twitter:title" content="Mugdha Vairagade - Technical Writer, AI Developer, Event Organizer"><!-- , UX Designer -->
     <meta name="twitter:description" content="Expert in creating user-friendly AI applications and comprehensive documentation"><!-- , and intuitive interfaces -->
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        /* Page-specific styles for index page */
 
-        :root {
-            --primary-color: #2563eb;
-            --secondary-color: #1e40af;
-            --text-color: #1f2937;
-            --light-bg: #f3f4f6;
-            --white: #ffffff;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --transition: all 0.3s ease;
-            --secondary-text-color: #4b5563;
-            --footer-text-color: #ffffff;
-        }
-
-        [data-theme="dark"] {
-            --primary-color: #3b82f6;
-            --secondary-color: #60a5fa;
-            --text-color: #e5e7eb;
-            --light-bg: #1f2937;
-            --white: #111827;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-            --secondary-text-color: #ffffff;
-            --footer-text-color: #ffffff;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--white);
-            overflow-x: hidden;
-        }
-
-        /* Header Styles */
-        header {
-            background-color: var(--white);
-            box-shadow: var(--shadow);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            transition: var(--transition);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 5%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .theme-toggle {
-            background: none;
-            border: 2px solid var(--primary-color);
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: var(--transition);
-        }
-
-        .theme-toggle:hover {
-            background-color: var(--primary-color);
-            transform: scale(1.1);
-        }
-
+        /* Search Modal Styles */
         .search-toggle-btn {
             background: none;
             border: 2px solid var(--primary-color);
@@ -348,79 +276,6 @@
         .no-results-icon {
             margin-bottom: 16px;
             opacity: 0.5;
-        }
-
-        .theme-icon {
-            font-size: 1.2rem;
-            transition: var(--transition);
-        }
-
-        .theme-toggle {
-            position: relative;
-        }
-
-        .theme-toggle::after {
-            content: attr(data-tooltip);
-            position: absolute;
-            bottom: -35px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: var(--text-color);
-            color: var(--white);
-            padding: 0.5rem 0.75rem;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            white-space: nowrap;
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition);
-            z-index: 1000;
-        }
-
-        .theme-toggle:hover::after {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .logo:hover {
-            transform: scale(1.05);
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-color);
-            font-weight: 500;
-            transition: var(--transition);
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--primary-color);
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
         }
 
         /* Hero Section */
