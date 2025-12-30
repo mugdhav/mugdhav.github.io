@@ -816,6 +816,8 @@
     
     <!-- Load data first, then the main script -->
     <script src="assets/js/portfolio_data.js"></script>
+    <script src="assets/js/navigation.js"></script>
+    <script src="assets/js/shared-components.js"></script>
     <script>
         // Wait for data to load
         if (typeof portfolioData !== 'undefined') {
@@ -830,32 +832,7 @@
             
             app.innerHTML = `
                 <!-- Header -->
-                <header role="banner">
-                    <nav role="navigation" aria-label="Main navigation">
-                        <a href="#home" class="logo" aria-label="Go to homepage">Mugdha's Portfolio</a>
-                        <div class="nav-right">
-                            <button id="search-toggle" class="search-toggle-btn" aria-label="Search site">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <circle cx="11" cy="11" r="8"></circle>
-                                    <path d="m21 21-4.35-4.35"></path>
-                                </svg>
-                            </button>
-                            <button id="theme-toggle" class="theme-toggle" data-tooltip="Switch to dark mode" onclick="toggleTheme()">
-                                <span class="theme-icon">🌙</span>
-                            </button>
-                            <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
-                        </div>
-                        <ul class="nav-links" id="navLinks">
-                            ${portfolioData.navigation.map(item => 
-                                `<li><a href="${item.href}">${item.text}</a></li>`
-                            ).join('')}
-                        </ul>
-                    </nav>
-                </header>
+                <div id="header-container"></div>
 
                 <!-- Hero Section -->
                 <main role="main">
@@ -946,18 +923,18 @@
                 </main>
 
                 <!-- Footer -->
-                <footer role="contentinfo">
-                    <p>&copy; 2025 ${portfolioData.personal.name}. All rights reserved.</p>
-                </footer>
+                <div id="footer-container"></div>
             `;
+
+            // Initialize components with search button for index.html
+            initializeComponents({ showSearch: true });
 
             // Initialize search overlay and bind events
             initializeSearchOverlay();
             bindSearchEvents();
-            
+
             // Initialize animations and event listeners after rendering
             initializePortfolio();
-            initializeTheme();
             
             // Search will be initialized when first clicked (lazy initialization)
         }
@@ -1013,44 +990,6 @@
                     document.getElementById('navLinks').classList.remove('active');
                 });
             });
-        }
-
-        // Mobile menu toggle
-        function toggleMobileMenu() {
-            const navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('active');
-        }
-
-        // Theme toggle functionality
-        function toggleTheme() {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            
-            document.documentElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            
-            const themeToggle = document.getElementById('theme-toggle');
-            const themeIcon = document.querySelector('.theme-icon');
-            
-            themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
-            themeToggle.setAttribute('data-tooltip', newTheme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
-        }
-
-        // Initialize theme on page load
-        function initializeTheme() {
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            document.documentElement.setAttribute('data-theme', savedTheme);
-            
-            const themeToggle = document.getElementById('theme-toggle');
-            const themeIcon = document.querySelector('.theme-icon');
-            
-            if (themeIcon) {
-                themeIcon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
-            }
-            
-            if (themeToggle) {
-                themeToggle.setAttribute('data-tooltip', savedTheme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
-            }
         }
 
         // Search functionality

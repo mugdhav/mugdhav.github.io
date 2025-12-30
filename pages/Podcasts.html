@@ -1048,30 +1048,7 @@
     </style>
 </head>
 <body>
-    <header role="banner">
-        <nav role="navigation" aria-label="Main navigation">
-            <a href="../index.html" class="logo" aria-label="Go to homepage">Mugdha's Portfolio</a>
-            <div class="nav-right">
-                <button id="theme-toggle" class="theme-toggle" data-tooltip="Switch to dark mode" onclick="toggleTheme()">
-                    <span class="theme-icon">🌙</span>
-                </button>
-                <div class="mobile-menu-toggle" onclick="toggleMobileMenu()">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="../index.html#home">Home</a></li>
-                <li><a href="../index.html#about">About</a></li>
-                <li><a href="../index.html#portfolio">Portfolio</a></li>
-                <li><a href="../blog/blog.html">Blog</a></li>
-                <li><a href="TechEvents.html">Tech Events</a></li>
-                <li><a href="Podcasts.html">Podcasts</a></li>
-                <li><a href="../index.html#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <div id="header-container"></div>
 
     <!-- Hero Section -->
     <section class="hero" aria-labelledby="hero-heading">
@@ -1099,53 +1076,15 @@
     </main>
 
     <!-- Footer -->
-    <footer role="contentinfo">
-        <p>&copy; 2025 Mugdha Vairagade. All rights reserved.</p>
-    </footer>
+    <div id="footer-container"></div>
 
+    <script src="../assets/js/navigation.js"></script>
+    <script src="../assets/js/shared-components.js"></script>
     <script>
         // Global variables for transcript management
         let currentAudio = null;
         let transcriptData = {};
         let currentPodcastId = null;
-
-        // Mobile menu toggle
-        function toggleMobileMenu() {
-            const navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('active');
-        }
-
-        // Theme toggle functionality
-        function toggleTheme() {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-
-            document.documentElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-
-            const themeToggle = document.getElementById('theme-toggle');
-            const themeIcon = document.querySelector('.theme-icon');
-
-            themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
-            themeToggle.setAttribute('data-tooltip', newTheme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
-        }
-
-        // Initialize theme on page load
-        function initializeTheme() {
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            document.documentElement.setAttribute('data-theme', savedTheme);
-
-            const themeToggle = document.getElementById('theme-toggle');
-            const themeIcon = document.querySelector('.theme-icon');
-
-            if (themeIcon) {
-                themeIcon.textContent = savedTheme === 'dark' ? '☀️' : '🌙';
-            }
-
-            if (themeToggle) {
-                themeToggle.setAttribute('data-tooltip', savedTheme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
-            }
-        }
 
         // Parse SRT file
         function parseSRT(srtText) {

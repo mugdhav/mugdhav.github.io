@@ -389,25 +389,7 @@
 <body>
     <div id="app">
         <!-- Header -->
-        <header>
-            <nav>
-                <a href="../index.html" class="logo">Mugdha's Portfolio</a>
-                <div class="nav-right">
-                    <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()">
-                        <span class="theme-icon">🌙</span>
-                    </button>
-                </div>
-                <ul class="nav-links">
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="../index.html#about">About</a></li>
-                    <li><a href="../index.html#portfolio">Portfolio</a></li>
-                    <li><a href="blog.html" class="active">Blog</a></li>
-                    <li><a href="../TechEvents.html">Tech Events</a></li>
-                    <li><a href="../Podcasts.html">Podcasts</a></li>
-                    <li><a href="../index.html#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </header>
+        <div id="header-container"></div>
 
         <!-- Blog Header -->
         <section class="blog-header">
@@ -446,13 +428,13 @@
         </main>
 
         <!-- Footer -->
-        <footer>
-            <p>&copy; 2025 Mugdha Vairagade. All rights reserved.</p>
-        </footer>
+        <div id="footer-container"></div>
     </div>
 
     <!-- Portfolio Data -->
     <script src="../assets/js/portfolio_data.js"></script>
+    <script src="../assets/js/navigation.js"></script>
+    <script src="../assets/js/shared-components.js"></script>
     <script src="blog.js"></script>
 </body>
 </html>
