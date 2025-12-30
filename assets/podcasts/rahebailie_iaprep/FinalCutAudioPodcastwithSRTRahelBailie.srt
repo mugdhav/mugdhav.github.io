@@ -32,7 +32,7 @@ pressure to deliver content that is
 
 9
 00:00:19,737 --> 00:00:22,246
-precise, structured. In context aware, we
+precise, structured, and context aware. We
 
 10
 00:00:22,246 --> 00:00:24,987
@@ -48,7 +48,7 @@ the systems that help humans find what
 
 13
 00:00:30,469 --> 00:00:33,210
-they need. And that Chef puts a
+they need. And that shift puts a
 
 14
 00:00:33,210 --> 00:00:35,168
@@ -88,7 +88,7 @@ delivery. We are joined today by
 
 23
 00:00:54,333 --> 00:00:56,968
-Rail, who has been shaping this
+Rahel, who has been shaping this
 
 24
 00:00:56,968 --> 00:00:59,603
@@ -96,7 +96,7 @@ conversation for years. So I'm delighted
 
 25
 00:00:59,603 --> 00:01:02,182
-to introduce Ryan. 1920 and
+to introduce Rahel Anne Bailie. And
 
 26
 00:01:02,182 --> 00:01:05,062
@@ -112,7 +112,7 @@ Then there's a quick introduction.
 
 29
 00:01:10,806 --> 00:01:13,442
-Right is uh, globally respected
+Rahel is uh, globally respected
 
 30
 00:01:13,442 --> 00:01:16,078
@@ -812,7 +812,7 @@ anymore. Because we're so familiar with
 
 204
 00:08:46,081 --> 00:08:48,532
-the the idea that these large language
+the idea that these large language
 
 205
 00:08:48,532 --> 00:08:51,334
