@@ -70,7 +70,7 @@ const portfolioData = {
                     title: "Voice Agent Contact Centres Explained",
                     description: "An article describing voice agent contact centers, their architecture, and how they enhance customer service.",
                     buttonText: "View Article",
-                    buttonLink: "assets/pdfs/UnderstandingAIEnabledContactCenterWork.pdf"
+                    buttonLink: "/assets/pdfs/UnderstandingAIEnabledContactCenterWork.pdf"
                 },
                 {
                     icon: "📖",
@@ -87,49 +87,49 @@ const portfolioData = {
             sectionTitle: "AI Development",
             items: [
                 {
-                    image: "assets/images/portfolio/UnicornFinderThumbnail2025-09-04010045.png",
+                    image: "/assets/images/portfolio/UnicornFinderThumbnail2025-09-04010045.png",
                     title: "UnicornFinder - AI Analyst for Startups",
                     description: "Venture capitalists can use this tool to evaluate startups and get investment insights.",
                     buttonText: "Try It Out",
                     buttonLink: "https://ai.studio/apps/drive/1BQ4qO7IU4pwYhYBmQ9eTLy-tLE6v51OJ"
                 },
                 {
-                    image: "assets/images/portfolio/img_to_dita_convert_thumbnail.jpg",
+                    image: "/assets/images/portfolio/img_to_dita_convert_thumbnail.jpg",
                     title: "Image To DITA Converter",
                     description: "An AI-enabled tool that uses LLMs with vision capabilities to identify workflows in user-provided images. It then generates DITA task topics for any of the identified workflows.",
                     buttonText: "View Demo",
                     buttonLink: "https://youtu.be/783w_xChhn0"
                 },
                 {
-                    image: "assets/images/portfolio/Thumbnail_Oldversion_Screenshot_2025-07-30_120954.png",
+                    image: "/assets/images/portfolio/Thumbnail_Oldversion_Screenshot_2025-07-30_120954.png",
                     title: "Jira to Release Notes Draft Generator",
                     description: "An AI-enabled tool that generates feature release notes drafts based on feature description in Jira.",
                     buttonText: "View Demo",
                     buttonLink: "https://youtu.be/RWlTJ-76QoY"
                 },
                 {
-                    image: "assets/images/portfolio/Thumbnailn8nRunningLocally2025-08-08_233516.png",
+                    image: "/assets/images/portfolio/Thumbnailn8nRunningLocally2025-08-08_233516.png",
                     title: "GitHub Repository Interview Workflow with n8n",
                     description: "An n8n workflow that helps technical writers \"interview\" GitHub repositories instead of interviewing human developers, getting relevant information directly from application code.",
                     buttonText: "View Demo",
                     buttonLink: "https://youtu.be/9P01zPxpbdY"
                 },                
                 {
-                    image: "assets/images/portfolio/GameInMotion.png",
+                    image: "/assets/images/portfolio/GameInMotion.png",
                     title: "React Pong",
                     description: "A simple Pong game against AI, built with React and Typescript.",
                     buttonText: "Try It Out",
                     buttonLink: "https://ai.studio/apps/drive/19H4i0hWXQe_OPV-v18GzQnzoobRhYvvr"
                 },
                 {
-                    image: "assets/images/portfolio/sarvam_indiantranslate.png",
+                    image: "/assets/images/portfolio/sarvam_indiantranslate.png",
                     title: "SarvamAI Indian Language Translator",
                     description: "A Python application leveraving SarvamAI API to translate text between Indian languages, including Hindi, Marathi, Tamil, Telugu, Bengali, and more.",
                     buttonText: "Try It Out",
                     buttonLink: "https://github.com/mugdhav/SarvamAPICodeSample"
                 },
                 {
-                    image: "assets/images/portfolio/BharatGPTVideoThumbnail.png",
+                    image: "/assets/images/portfolio/BharatGPTVideoThumbnail.png",
                     title: "Hindi Chat Agent with BharatGPT",
                     description: "A BharatGPT model-based chat agent that can interact in Hindi.",
                     buttonText: "View Demo",
@@ -454,10 +454,10 @@ const portfolioData = {
 <li><a href="https://kanesimms.substack.com/" target="_blank" rel="noopener noreferrer">Kane Simms</a></li>
 </ul>
 </div>`,
-            banner: 'assets/podcasts/rahebailie_iaprep/LumaEventBanner_moresquare.png',
-            audioFile: 'assets/podcasts/rahebailie_iaprep/FinalCut_AudioConversationRahelBailie.mp3',
-            transcriptFile: 'assets/podcasts/rahebailie_iaprep/FinalCutAudioPodcastwithSRTRahelBailie.srt',
-            summaryDeck: 'assets/podcasts/rahebailie_iaprep/The_New_Content_Mandate.pdf',
+            banner: '/assets/podcasts/rahebailie_iaprep/LumaEventBanner_moresquare.png',
+            audioFile: '/assets/podcasts/rahebailie_iaprep/FinalCut_AudioConversationRahelBailie.mp3',
+            transcriptFile: '/assets/podcasts/rahebailie_iaprep/FinalCutAudioPodcastwithSRTRahelBailie.srt',
+            summaryDeck: '/assets/podcasts/rahebailie_iaprep/The_New_Content_Mandate.pdf',
             duration: '45 min',
             topics: ['Information Architecture', 'AI-Delivered Content', 'Content Strategy', 'Technical Writing']
         },
@@ -477,10 +477,10 @@ const portfolioData = {
 <li><a href="https://www.make.com/" target="_blank" rel="noopener noreferrer">Make.com</a> - No-code AI automation</li>
 </ul>
 </div>`,
-            banner: 'assets/podcasts/scottabel_docsuccmetrics/FinalPodcastBanner.png',
-            audioFile: 'assets/podcasts/scottabel_docsuccmetrics/CompletePodcast_ConversationWithScottAbel.m4a',
-            transcriptFile: 'assets/podcasts/scottabel_docsuccmetrics/CompletePodcast_ConversationWithScottAbel.srt',
-            summaryDeck: 'assets/podcasts/scottabel_docsuccmetrics/ScottAbelPodcastDocSuccessMetrics.pdf',
+            banner: '/assets/podcasts/scottabel_docsuccmetrics/FinalPodcastBanner.png',
+            audioFile: '/assets/podcasts/scottabel_docsuccmetrics/CompletePodcast_ConversationWithScottAbel.m4a',
+            transcriptFile: '/assets/podcasts/scottabel_docsuccmetrics/CompletePodcast_ConversationWithScottAbel.srt',
+            summaryDeck: '/assets/podcasts/scottabel_docsuccmetrics/ScottAbelPodcastDocSuccessMetrics.pdf',
             duration: 'TBD',
             topics: ['Technical Writing', 'Content Strategy', 'AI in Documentation', 'Future of Tech Comm']
         }
