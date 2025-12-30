@@ -15,87 +15,20 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
+    <!-- External CSS Files -->
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+
     <!-- Meta tags -->
     <meta name="robots" content="noindex">
 
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary-color: #2563eb;
-            --secondary-color: #1e40af;
-            --text-color: #1f2937;
-            --light-bg: #f3f4f6;
-            --white: #ffffff;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --transition: all 0.3s ease;
-            --secondary-text-color: #4b5563;
-            --success-color: #10b981;
-            --warning-color: #f59e0b;
-        }
-
-        [data-theme="dark"] {
-            --primary-color: #3b82f6;
-            --secondary-color: #60a5fa;
-            --text-color: #e5e7eb;
-            --light-bg: #1f2937;
-            --white: #111827;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-            --secondary-text-color: #ffffff;
-            --success-color: #34d399;
-            --warning-color: #fbbf24;
-        }
-
+        /* Page-specific styles for 404 error page */
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--white);
-            min-height: 100vh;
             display: flex;
             flex-direction: column;
-        }
-
-        header {
-            background-color: var(--white);
-            box-shadow: var(--shadow);
-            padding: 1rem 5%;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            text-decoration: none;
-        }
-
-        .theme-toggle {
-            background: var(--light-bg);
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 1.2rem;
-            transition: var(--transition);
-        }
-
-        .theme-toggle:hover {
-            transform: scale(1.1);
         }
 
         main {
@@ -206,46 +139,6 @@
 
         .new-path:hover {
             text-decoration: underline;
-        }
-
-        .cta-buttons {
-            margin-top: 2rem;
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 0.75rem 2rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
-            display: inline-block;
-        }
-
-        .btn-primary {
-            background-color: var(--primary-color);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background-color: var(--secondary-color);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow);
-        }
-
-        .btn-secondary {
-            background-color: var(--light-bg);
-            color: var(--text-color);
-        }
-
-        .btn-secondary:hover {
-            background-color: var(--secondary-text-color);
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: var(--shadow);
         }
 
         @media (max-width: 768px) {
