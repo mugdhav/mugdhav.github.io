@@ -1,0 +1,365 @@
+/* Theme: Calm - Minimal, Professional, Gumroad-Inspired Portfolio Theme */
+
+[data-theme-style="calm"] {
+    /* ============================================
+       COLORS
+       ============================================ */
+    --primary-color: #111111;
+    --secondary-color: #555555;
+    --accent-color: #333333;
+    --text-color: #111111;
+    --secondary-text-color: #555555;
+    --light-bg: #f5f5f5;
+    --white: #ffffff;
+    --border-color: #e0e0e0;
+    --section-bg: #f5f5f5;
+    --section-separator: 1px solid #e0e0e0;
+
+    /* ============================================
+       TYPOGRAPHY
+       ============================================ */
+    --font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --section-title-size: 1.375rem;      /* 22px */
+    --card-title-size: 0.9375rem;        /* 15px */
+    --body-text-size: 0.875rem;          /* 14px */
+    --letter-spacing: 0.05em;
+    --title-font-weight: 500;
+    --body-font-weight: 400;
+
+    /* ============================================
+       LAYOUT & SPACING
+       ============================================ */
+    --section-padding: 2.5rem 5%;
+    --card-padding: 1rem 1.125rem 0.875rem;
+    --grid-gap: 1.125rem;                /* 18px */
+    --grid-columns: repeat(3, minmax(0, 1fr));
+    --max-content-width: 980px;
+
+    /* ============================================
+       VISUAL EFFECTS
+       ============================================ */
+    --border-radius: 12px;
+    --shadow: none;
+    --card-bg: var(--white);
+    --card-border: 1px solid var(--border-color);
+    --hover-transform: none;
+    --hover-shadow: none;
+
+    /* ============================================
+       HERO SECTION
+       ============================================ */
+    --hero-gradient: transparent;
+    --hero-display: none;
+}
+
+/* ============================================
+   CALM THEME SPECIFIC STYLES
+   ============================================ */
+
+/* Hero Section - Hidden in Calm */
+[data-theme-style="calm"] .hero {
+    display: none;
+}
+
+/* Sections - Reduced spacing with dividers */
+[data-theme-style="calm"] .section {
+    padding: 1.25rem 5%;
+    border-bottom: var(--section-separator);
+}
+
+/* About Section - Ensure title is visible and text size matches theme */
+[data-theme-style="calm"] .about .section-title,
+[data-theme-style="calm"] #about-heading {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    color: var(--text-color) !important;
+    height: auto !important;
+    overflow: visible !important;
+    position: relative !important;
+    clip: auto !important;
+    clip-path: none !important;
+}
+
+/* About text - Match body text size in Calm theme */
+[data-theme-style="calm"] .about-text,
+[data-theme-style="calm"] .about-text-column {
+    font-size: var(--body-text-size);
+    line-height: 1.6;
+}
+
+/* Section Titles - Left aligned, minimal, no underline, reduced spacing */
+[data-theme-style="calm"] .section-title {
+    text-align: left;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    color: var(--text-color) !important;
+    height: auto !important;
+    overflow: visible !important;
+    clip: auto !important;
+    clip-path: none !important;
+}
+
+/* Remove underline from section titles in Calm theme */
+[data-theme-style="calm"] .section-title::after {
+    display: none;
+}
+
+/* Section Kickers - Visible in Calm (except for work sections) */
+[data-theme-style="calm"] .section-kicker {
+    font-size: 0.8125rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--secondary-text-color);
+    margin-bottom: 0.625rem;
+    font-weight: 500;
+}
+
+/* Hide kickers for work sections in Calm */
+[data-theme-style="calm"] .technical-articles .section-kicker,
+[data-theme-style="calm"] .ai-development .section-kicker,
+[data-theme-style="calm"] .events .section-kicker,
+[data-theme-style="calm"] .portfolio .section-kicker {
+    display: none;
+}
+
+/* Section Descriptions - Visible and full width in Calm */
+[data-theme-style="calm"] .section-description {
+    display: block;
+    max-width: 100%;
+}
+
+/* About Section - Full width in Calm */
+[data-theme-style="calm"] .about .section-description {
+    max-width: 100%;
+}
+
+/* Portfolio Grid - 3 columns */
+[data-theme-style="calm"] .portfolio-grid,
+[data-theme-style="calm"] .events-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* Category Titles - Smaller in Calm (swapped with section-title), reduced spacing */
+[data-theme-style="calm"] .category-title {
+    font-size: 1.375rem;
+    font-weight: 500;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Portfolio Cards - Clean with borders */
+[data-theme-style="calm"] .portfolio-item,
+[data-theme-style="calm"] .event-card,
+[data-theme-style="calm"] .podcast-card,
+[data-theme-style="calm"] .card {
+    background-color: var(--card-bg);
+    border: var(--card-border);
+    box-shadow: none;
+}
+
+/* Portfolio Image - Light background */
+[data-theme-style="calm"] .portfolio-image {
+    background: #fafafa;
+    color: #666; /* Darker for better contrast */
+    height: 160px;
+    font-size: 0; /* Hide emoji text, show SVG icons instead */
+}
+
+/* Show SVG icons in Calm */
+[data-theme-style="calm"] .portfolio-icon {
+    display: block;
+    width: 48px;
+    height: 48px;
+    stroke: #999;
+    stroke-width: 1.5;
+    fill: none;
+}
+
+/* Card Hover Effects - Subtle border change */
+[data-theme-style="calm"] .portfolio-item:hover,
+[data-theme-style="calm"] .event-card:hover,
+[data-theme-style="calm"] .card:hover {
+    border-color: var(--text-color);
+    transform: none;
+    box-shadow: none;
+}
+
+/* Podcast cards - slight scale on hover in Calm */
+[data-theme-style="calm"] .podcast-card:hover {
+    transform: scale(1.01);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Buttons - Minimal underlined text */
+[data-theme-style="calm"] .portfolio-button {
+    background: transparent;
+    color: var(--text-color);
+    border: none;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    padding: 0;
+    border-radius: 0;
+    margin-top: 0.5rem;
+    font-size: 0.8125rem;
+}
+
+[data-theme-style="calm"] .portfolio-button:hover {
+    color: var(--text-color);
+    transform: none;
+    box-shadow: none;
+}
+
+/* Tags - Outlined with borders */
+[data-theme-style="calm"] .tag {
+    border: 1px solid var(--border-color);
+    background: #fafafa;
+    color: var(--secondary-text-color);
+    font-weight: 400;
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+/* Event Cards - Clean */
+[data-theme-style="calm"] .event-card {
+    background-color: var(--white);
+    border: var(--card-border);
+}
+
+/* Podcast Cards - Clean */
+[data-theme-style="calm"] .podcast-card {
+    background-color: var(--white);
+    border: var(--card-border);
+}
+
+/* Portfolio Section - Remove bottom border (uses tab panels now) */
+[data-theme-style="calm"] .portfolio {
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Technical Articles & AI Development inside tab panels - No border */
+[data-theme-style="calm"] .portfolio-tab-panel .technical-articles,
+[data-theme-style="calm"] .portfolio-tab-panel .ai-development {
+    border-bottom: none;
+}
+
+/* AI Development Section - Remove bottom border */
+[data-theme-style="calm"] .ai-development {
+    border-bottom: none;
+}
+
+/* Contact Section - Remove bottom border to prevent double divider */
+[data-theme-style="calm"] .contact {
+    border-bottom: none;
+}
+
+/* Footer - Light in Calm */
+[data-theme-style="calm"] footer {
+    background-color: var(--light-bg);
+    color: var(--secondary-text-color);
+    border-top: var(--card-border);
+    font-size: 0.75rem;
+    padding: 1.625rem 0 0.75rem;
+}
+
+/* Section Ordering for Calm - About comes first */
+[data-theme-style="calm"] .about { order: 1; }
+[data-theme-style="calm"] .technical-articles { order: 2; }
+[data-theme-style="calm"] .ai-development { order: 3; }
+[data-theme-style="calm"] .portfolio { order: 2; }
+[data-theme-style="calm"] .events { order: 2; }
+[data-theme-style="calm"] .podcasts { order: 2; }
+[data-theme-style="calm"] .contact { order: 10; }
+
+/* Images - Contain with padding in Calm */
+[data-theme-style="calm"] .portfolio-image img {
+    object-fit: contain;
+    padding: 1rem;
+    background: #fafafa;
+}
+
+/* Topline - Visible in Calm */
+[data-theme-style="calm"] .portfolio-topline {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.75rem;
+    color: var(--secondary-text-color);
+    margin-bottom: 0.5rem;
+}
+
+/* Portfolio Tabs - Calm Theme */
+[data-theme-style="calm"] .portfolio-tabs-nav {
+    border-bottom: 1px solid var(--border-color);
+    gap: 1.5rem;
+}
+
+[data-theme-style="calm"] .portfolio-tab-button {
+    color: var(--secondary-text-color);
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+[data-theme-style="calm"] .portfolio-tab-button.active {
+    color: var(--text-color);
+}
+
+[data-theme-style="calm"] .portfolio-tab-indicator {
+    background-color: var(--text-color);
+    height: 1px;
+}
+
+[data-theme-style="calm"] .portfolio-tabs-content {
+    margin-top: 1.5rem;
+}
+
+/* Event status badges - Subtle in Calm */
+[data-theme-style="calm"] .event-status {
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+}
+
+[data-theme-style="calm"] .event-status.happening-now {
+    background-color: transparent;
+    border-color: var(--text-color);
+    color: var(--text-color);
+    animation: none;
+}
+
+/* Podcast topics - Subtle in Calm */
+[data-theme-style="calm"] .topic-tag {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--secondary-text-color);
+}
+
+/* Header Search - Calm theme specific */
+[data-theme-style="calm"] .header-search-container {
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+}
+
+[data-theme-style="calm"] .header-search-container:focus-within {
+    border-color: var(--text-color);
+    box-shadow: none;
+}
+
+[data-theme-style="calm"] .header-search-input::placeholder {
+    color: var(--secondary-text-color);
+    opacity: 0.7;
+}
+
+/* Mobile responsive - Single column */
+@media (max-width: 768px) {
+    [data-theme-style="calm"] .portfolio-grid,
+    [data-theme-style="calm"] .events-grid {
+        grid-template-columns: 1fr;
+    }
+}

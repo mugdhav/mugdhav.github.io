@@ -1,0 +1,95 @@
+/* Portfolio Tabs - Base Styles */
+
+.portfolio-tabs-container {
+    width: 100%;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+/* Tab Navigation */
+.portfolio-tabs-nav {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    border-bottom: 1px solid var(--border-color);
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.portfolio-tab-button {
+    background: none;
+    border: none;
+    color: var(--secondary-text-color);
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.5rem 0;
+    cursor: pointer;
+    transition: var(--transition);
+    position: relative;
+    white-space: nowrap;
+    font-family: var(--font-family);
+    letter-spacing: var(--letter-spacing);
+}
+
+.portfolio-tab-button:hover {
+    color: var(--text-color);
+}
+
+.portfolio-tab-button.active {
+    color: var(--primary-color);
+}
+
+/* Tab Indicator Line */
+.portfolio-tab-indicator {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    height: 3px;
+    background-color: var(--primary-color);
+    transition: left 0.3s ease, width 0.3s ease;
+    transform: translateX(-50%);
+    width: 100px;
+}
+
+/* Tab Panels */
+.portfolio-tabs-content {
+    position: relative;
+}
+
+.portfolio-tab-panel {
+    display: none;
+    animation: tabFadeIn 0.3s ease;
+}
+
+.portfolio-tab-panel.active {
+    display: block;
+}
+
+/* Tab Fade-in Animation */
+@keyframes tabFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .portfolio-tabs-nav {
+        gap: 1rem;
+        padding-bottom: 0.75rem;
+    }
+
+    .portfolio-tab-button {
+        font-size: 0.9rem;
+        padding: 0.4rem 0;
+    }
+
+    .portfolio-tab-indicator {
+        height: 2px;
+    }
+}

@@ -1,0 +1,254 @@
+/* Theme: Jazzy - Vibrant, Colorful, Modern Portfolio Theme */
+
+[data-theme-style="jazzy"] {
+    /* ============================================
+       COLORS
+       ============================================ */
+    --primary-color: #2563eb;
+    --secondary-color: #1e40af;
+    --accent-color: #7c3aed;
+    --text-color: #1f2937;
+    --secondary-text-color: #4b5563;
+    --light-bg: #f3f4f6;
+    --white: #ffffff;
+    --border-color: transparent;
+    --section-bg: #ffffff;
+    --section-separator: none;
+
+    /* ============================================
+       TYPOGRAPHY
+       ============================================ */
+    --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --section-title-size: 2.5rem;
+    --card-title-size: 1.3rem;
+    --body-text-size: 1rem;
+    --letter-spacing: normal;
+    --title-font-weight: 700;
+    --body-font-weight: 400;
+
+    /* ============================================
+       LAYOUT & SPACING
+       ============================================ */
+    --section-padding: 5rem 5%;
+    --card-padding: 1.5rem;
+    --grid-gap: 2rem;
+    --grid-columns: repeat(auto-fit, minmax(300px, 1fr));
+    --max-content-width: 1200px;
+
+    /* ============================================
+       VISUAL EFFECTS
+       ============================================ */
+    --border-radius: 15px;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --card-bg: var(--light-bg);
+    --card-border: none;
+    --hover-transform: scale(1.03);
+    --hover-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+
+    /* ============================================
+       HERO SECTION
+       ============================================ */
+    --hero-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --hero-display: flex;
+}
+
+/* ============================================
+   JAZZY THEME SPECIFIC STYLES
+   ============================================ */
+
+/* Hero Section - Visible in Jazzy */
+[data-theme-style="jazzy"] .hero {
+    display: var(--hero-display);
+    background: var(--hero-gradient);
+}
+
+/* Section Titles - Centered, no underline */
+[data-theme-style="jazzy"] .section-title {
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    position: relative;
+    width: 100%;
+}
+
+/* Remove underline from section titles in Jazz theme */
+[data-theme-style="jazzy"] .section-title::after {
+    display: none;
+}
+
+/* Section Kickers - Hidden in Jazzy */
+[data-theme-style="jazzy"] .section-kicker {
+    display: none;
+}
+
+/* Section Descriptions - Hidden in Jazzy */
+[data-theme-style="jazzy"] .section-description {
+    display: none;
+}
+
+/* Portfolio Grid - 3 cards per row */
+[data-theme-style="jazzy"] .portfolio-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+/* Portfolio Cards - Gradient backgrounds and adjusted sizes */
+[data-theme-style="jazzy"] .portfolio-image {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    height: 180px;
+}
+
+[data-theme-style="jazzy"] .portfolio-title {
+    font-size: 1.1rem;
+}
+
+[data-theme-style="jazzy"] .portfolio-description {
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Hide SVG icons in Jazzy, show emojis */
+[data-theme-style="jazzy"] .portfolio-icon {
+    display: none;
+}
+
+/* Card Hover Effects */
+[data-theme-style="jazzy"] .portfolio-item:hover,
+[data-theme-style="jazzy"] .event-card:hover,
+[data-theme-style="jazzy"] .podcast-card:hover,
+[data-theme-style="jazzy"] .card:hover {
+    transform: var(--hover-transform);
+    box-shadow: var(--hover-shadow);
+}
+
+/* Buttons - Bold and filled */
+[data-theme-style="jazzy"] .portfolio-button,
+[data-theme-style="jazzy"] .btn-primary {
+    background-color: var(--primary-color);
+    color: var(--white);
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+}
+
+[data-theme-style="jazzy"] .portfolio-button:hover,
+[data-theme-style="jazzy"] .btn-primary:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+}
+
+/* Tags - Filled with color */
+[data-theme-style="jazzy"] .tag {
+    background-color: rgba(37, 99, 235, 0.1);
+    color: var(--primary-color);
+    font-weight: 600;
+    border: none;
+}
+
+/* Event Cards - Vibrant */
+[data-theme-style="jazzy"] .event-card {
+    background-color: var(--light-bg);
+}
+
+/* Podcast Cards - Vibrant */
+[data-theme-style="jazzy"] .podcast-card {
+    background-color: var(--light-bg);
+}
+
+[data-theme-style="jazzy"] .podcast-card:hover {
+    transform: scale(1.03);
+    box-shadow: var(--hover-shadow);
+}
+
+/* Footer - Dark in Jazzy */
+[data-theme-style="jazzy"] footer {
+    background-color: #1f2937;
+    color: white;
+}
+
+/* Section Ordering for Jazzy */
+[data-theme-style="jazzy"] .hero { order: 1; }
+[data-theme-style="jazzy"] .about { order: 2; }
+[data-theme-style="jazzy"] .technical-articles { order: 3; }
+[data-theme-style="jazzy"] .ai-development { order: 4; }
+[data-theme-style="jazzy"] .portfolio { order: 3; }
+[data-theme-style="jazzy"] .events { order: 3; }
+[data-theme-style="jazzy"] .podcasts { order: 3; }
+[data-theme-style="jazzy"] .contact { order: 10; }
+
+/* Images - Cover fit in Jazzy */
+[data-theme-style="jazzy"] .portfolio-image img {
+    object-fit: cover;
+}
+
+/* Topline - Hidden in Jazzy */
+[data-theme-style="jazzy"] .portfolio-topline {
+    display: none;
+}
+
+/* Portfolio Tabs - Jazzy Theme */
+[data-theme-style="jazzy"] .portfolio-tabs-nav {
+    border-bottom: 2px solid var(--light-bg);
+    gap: 2.5rem;
+}
+
+[data-theme-style="jazzy"] .portfolio-tab-button {
+    color: var(--secondary-text-color);
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+[data-theme-style="jazzy"] .portfolio-tab-button.active {
+    color: var(--primary-color);
+}
+
+[data-theme-style="jazzy"] .portfolio-tab-indicator {
+    background-color: var(--primary-color);
+    height: 4px;
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
+}
+
+[data-theme-style="jazzy"] .portfolio-tabs-content {
+    margin-top: 2rem;
+}
+
+/* Mobile responsive - Jazzy tabs */
+@media (max-width: 768px) {
+    [data-theme-style="jazzy"] .portfolio-tab-button {
+        font-size: 1rem;
+    }
+
+    [data-theme-style="jazzy"] .portfolio-tab-indicator {
+        height: 3px;
+    }
+}
+
+/* Header Search - Jazzy theme specific */
+[data-theme-style="jazzy"] .header-search-container {
+    background-color: rgba(37, 99, 235, 0.05);
+    border: 2px solid transparent;
+    border-radius: 10px;
+}
+
+[data-theme-style="jazzy"] .header-search-container:focus-within {
+    border-color: var(--primary-color);
+    background-color: var(--white);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+[data-theme-style="jazzy"] .search-icon-inline {
+    color: var(--primary-color);
+    opacity: 0.7;
+}
+
+[data-theme-style="jazzy"] .header-search-input::placeholder {
+    color: var(--secondary-text-color);
+    opacity: 0.6;
+}
+
+/* Mobile responsive - Single column on small screens */
+@media (max-width: 768px) {
+    [data-theme-style="jazzy"] .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+}

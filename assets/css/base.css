@@ -1,40 +1,37 @@
-/* Base CSS - CSS Variables, Reset, and Global Styles */
+/* Base CSS - Theme-Agnostic Variables, Reset, and Global Styles */
+/*
+   NOTE: Theme-specific variables (colors, sizing) are now in:
+   - assets/css/theme-jazzy.css (vibrant theme)
+   - assets/css/theme-calm.css (minimal theme)
 
-/* Root CSS Variables */
+   This file contains only shared/utility variables that work across all themes.
+*/
+
+/* Root CSS Variables - Theme-Agnostic */
 :root {
-    /* Primary Colors */
-    --primary-color: #2563eb;
-    --secondary-color: #1e40af;
-    --text-color: #1f2937;
-    --secondary-text-color: #4b5563;
-    --light-bg: #f3f4f6;
-    --white: #ffffff;
+    /* Layout */
+    --header-height: 127px;  /* Fixed header height (122px for 2-row layout) + 5px margin */
 
-    /* Utility Colors */
+    /* Utility Colors (not theme-specific) */
     --success-color: #10b981;
     --danger-color: #ef4444;
     --warning-color: #f59e0b;
     --info-color: #3b82f6;
 
-    /* Effects */
-    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Transitions & Animations */
     --transition: all 0.3s ease;
+    --transition-fast: all 0.15s ease;
+    --transition-slow: all 0.5s ease;
 
-    /* Gradients */
-    --hero-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-
-    /* Spacing */
+    /* Spacing (utility classes) */
     --spacing-sm: 0.5rem;
     --spacing-md: 1rem;
     --spacing-lg: 2rem;
     --spacing-xl: 3rem;
+    --spacing-2xl: 4rem;
+    --spacing-3xl: 5rem;
 
-    /* Border */
-    --border-radius: 8px;
-    --border-radius-sm: 4px;
-    --border-radius-lg: 12px;
-
-    /* Typography */
+    /* Typography Utilities (in addition to theme-specific) */
     --font-size-sm: 0.875rem;
     --font-size-base: 1rem;
     --font-size-lg: 1.125rem;
@@ -43,32 +40,40 @@
     --font-size-3xl: 1.875rem;
     --font-size-4xl: 2.25rem;
     --font-size-5xl: 3rem;
-
-    /* Footer */
-    --footer-text-color: #ffffff;
 }
 
-/* Dark Theme Variables */
+/* Dark Mode Variables - Works with Both Jazzy & Calm Themes */
+/* Dark mode adjusts colors while preserving the chosen theme style */
 [data-theme="dark"] {
-    /* Primary Colors */
-    --primary-color: #3b82f6;
-    --secondary-color: #60a5fa;
+    /* Override theme colors for dark mode */
     --text-color: #e5e7eb;
     --secondary-text-color: #9ca3af;
     --light-bg: #1f2937;
     --white: #111827;
+    --border-color: #374151;
+    --section-bg: #111827;
 
-    /* Utility Colors */
+    /* Utility Colors (adjusted for dark) */
     --success-color: #34d399;
     --danger-color: #f87171;
     --warning-color: #fbbf24;
     --info-color: #60a5fa;
+}
 
-    /* Effects */
-    --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+/* Dark mode with Jazzy theme */
+[data-theme="dark"][data-theme-style="jazzy"] {
+    --primary-color: #3b82f6;
+    --secondary-color: #60a5fa;
+    --card-bg: #1f2937;
+    --hero-gradient: linear-gradient(135deg, #4c1d95 0%, #5b21b6 100%);
+}
 
-    /* Footer */
-    --footer-text-color: #ffffff;
+/* Dark mode with Calm theme */
+[data-theme="dark"][data-theme-style="calm"] {
+    --primary-color: #e5e7eb;
+    --secondary-color: #9ca3af;
+    --card-bg: #1f2937;
+    --border-color: #374151;
 }
 
 /* Universal Reset */
@@ -80,12 +85,22 @@
 
 /* Global Body Styles */
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-family: var(--font-family, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif);
+    font-size: var(--body-text-size, 1rem);
+    letter-spacing: var(--letter-spacing, normal);
     line-height: 1.6;
     color: var(--text-color);
-    background-color: var(--white);
+    background-color: var(--section-bg, var(--white, #ffffff));
     min-height: 100vh;
     overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    padding-top: var(--header-height);  /* Account for fixed header */
+}
+
+/* Main container for section ordering */
+main {
+    display: flex;
+    flex-direction: column;
 }
 
 /* Base Typography */
@@ -119,4 +134,37 @@ a:hover {
 /* Section Spacing */
 section {
     padding: var(--spacing-xl) var(--spacing-md);
+    scroll-margin-top: var(--header-height);
+}
+
+/* Search Result Highlight Animation */
+@keyframes searchHighlight {
+    0%, 100% {
+        background-color: transparent;
+        box-shadow: none;
+    }
+    50% {
+        background-color: rgba(37, 99, 235, 0.1);
+        box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.2);
+    }
+}
+
+.search-highlight-target {
+    animation: searchHighlight 2s ease-in-out 2;
+    border: 2px solid var(--primary-color);
+    border-radius: 8px;
+    scroll-margin-top: calc(var(--header-height) + 2rem);
+}
+
+/* Screen Reader Only - Accessibility */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
 }
