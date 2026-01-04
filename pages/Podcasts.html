@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme-style="calm" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,6 +20,18 @@
     <link rel="stylesheet" href="../assets/css/layout.css">
     <link rel="stylesheet" href="../assets/css/components.css">
     <link rel="stylesheet" href="../assets/css/animations.css">
+
+    <!-- Theme System CSS -->
+    <link rel="stylesheet" href="../assets/css/theme-jazzy.css">
+    <link rel="stylesheet" href="../assets/css/theme-calm.css">
+    <link rel="stylesheet" href="../assets/css/theme-switcher.css">
+
+    <!-- Search UI CSS -->
+    <link rel="stylesheet" href="../assets/css/search-ui.css">
+
+    <!-- Search Libraries -->
+    <script src="https://unpkg.com/lunr/lunr.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
 
     <!-- PDF.js Library -->
     <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@4.0.269/build/pdf.min.mjs" type="module"></script>
@@ -1305,7 +1317,7 @@
             }
 
             const html = portfolioData.podcasts.map(podcast => `
-                <div class="podcast-card fade-in" id="podcast-card-${podcast.id}">
+                <div class="podcast-card fade-in" id="${podcast.id}">
                     <div class="podcast-banner-container">
                         <img src="${podcast.banner}" alt="${podcast.title}" class="podcast-banner">
                     </div>
@@ -1697,5 +1709,15 @@
 
     <!-- Podcast Transcripts Data -->
     <script src="../assets/js/podcast_transcripts.js"></script>
+
+    <!-- Enhanced Search System -->
+    <script src="../assets/js/enhanced-search.js"></script>
+    <script src="../assets/js/search-ui.js"></script>
+
+    <!-- Scroll to Content Script -->
+    <script src="../assets/js/scroll-to-content.js"></script>
+
+    <!-- Theme Manager Script -->
+    <script src="../assets/js/theme-manager.js"></script>
 </body>
 </html>

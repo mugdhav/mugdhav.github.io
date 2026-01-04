@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme-style="calm" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,6 +26,18 @@
     <link rel="stylesheet" href="../assets/css/layout.css">
     <link rel="stylesheet" href="../assets/css/components.css">
     <link rel="stylesheet" href="../assets/css/animations.css">
+
+    <!-- Theme System CSS -->
+    <link rel="stylesheet" href="../assets/css/theme-jazzy.css">
+    <link rel="stylesheet" href="../assets/css/theme-calm.css">
+    <link rel="stylesheet" href="../assets/css/theme-switcher.css">
+
+    <!-- Search UI CSS -->
+    <link rel="stylesheet" href="../assets/css/search-ui.css">
+
+    <!-- Search Libraries -->
+    <script src="https://unpkg.com/lunr/lunr.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
 
     <style>
         /* Page-specific styles for blog page */
@@ -85,6 +97,39 @@
             transform: translateY(-2px);
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
+
+        /* Calm Theme - Hide hero section */
+        [data-theme-style="calm"] .blog-header {
+            display: none;
+        }
+
+        /* Calm Theme - Show heading below header */
+        .blog-page-title {
+            display: none;
+            grid-column: 1 / -1;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--text-color);
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        [data-theme-style="calm"] .blog-page-title {
+            display: block;
+        }
+
+        /* Calm Theme - Comment out search (hidden) */
+        /*
+        .calm-search-container {
+            display: none;
+        }
+        [data-theme-style="calm"] .calm-search-container {
+            display: flex;
+            gap: 0.5rem;
+            max-width: 500px;
+            margin: 2rem auto;
+        }
+        */
 
         /* Main Content */
         .main-content {
@@ -286,6 +331,9 @@
 
         <!-- Main Content -->
         <main class="main-content">
+            <!-- Page Title (visible in Calm theme only) -->
+            <h1 class="blog-page-title">Thoughts on Tech, UX & AI</h1>
+
             <section class="blog-posts" id="blogPosts">
                 <div class="loading">Loading blog posts...</div>
             </section>
@@ -316,6 +364,17 @@
     <script src="../assets/js/portfolio_data.js"></script>
     <script src="../assets/js/navigation.js"></script>
     <script src="../assets/js/shared-components.js"></script>
+
+    <!-- Enhanced Search System -->
+    <script src="../assets/js/enhanced-search.js"></script>
+    <script src="../assets/js/search-ui.js"></script>
+
+    <!-- Scroll to Content Script -->
+    <script src="../assets/js/scroll-to-content.js"></script>
+
     <script src="blog.js"></script>
+
+    <!-- Theme Manager Script -->
+    <script src="../assets/js/theme-manager.js"></script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme-style="calm" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,6 +20,18 @@
     <link rel="stylesheet" href="../assets/css/layout.css">
     <link rel="stylesheet" href="../assets/css/components.css">
     <link rel="stylesheet" href="../assets/css/animations.css">
+
+    <!-- Theme System CSS -->
+    <link rel="stylesheet" href="../assets/css/theme-jazzy.css">
+    <link rel="stylesheet" href="../assets/css/theme-calm.css">
+    <link rel="stylesheet" href="../assets/css/theme-switcher.css">
+
+    <!-- Search UI CSS -->
+    <link rel="stylesheet" href="../assets/css/search-ui.css">
+
+    <!-- Search Libraries -->
+    <script src="https://unpkg.com/lunr/lunr.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
 
     <!-- Portfolio Data -->
     <script src="../assets/js/portfolio_data.js"></script>
@@ -886,7 +898,7 @@
             }
 
             return `
-                <div class="event-card" data-status="${event.status}" data-search="${event.searchTerms.toLowerCase()}">
+                <div class="event-card" id="${event.id}" data-status="${event.status}" data-search="${event.searchTerms.toLowerCase()}">
                     <div class="event-status ${statusClass}">${event.statusLabel}</div>
                     <div class="event-image">
                         <i class="${event.icon}"></i>
@@ -1172,5 +1184,15 @@
             });
         });
     </script>
+
+    <!-- Enhanced Search System -->
+    <script src="../assets/js/enhanced-search.js"></script>
+    <script src="../assets/js/search-ui.js"></script>
+
+    <!-- Scroll to Content Script -->
+    <script src="../assets/js/scroll-to-content.js"></script>
+
+    <!-- Theme Manager Script -->
+    <script src="../assets/js/theme-manager.js"></script>
 </body>
 </html>
