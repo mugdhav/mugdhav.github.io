@@ -259,6 +259,31 @@ mark.search-highlight {
     background: var(--secondary-text-color);
 }
 
+/* Theme-specific styles for Jazzy theme */
+[data-theme-style="jazzy"] .filter-btn {
+    background-color: var(--light-bg);
+    border: 2px solid var(--primary-color);
+    border-radius: 20px;
+    font-weight: 600;
+    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.1);
+}
+
+[data-theme-style="jazzy"] .filter-btn:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border-color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(37, 99, 235, 0.2);
+}
+
+[data-theme-style="jazzy"] .filter-btn.active {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border-color: var(--primary-color);
+    font-weight: 700;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
 /* Theme-specific styles for Calm theme */
 [data-theme-style="calm"] .search-modal {
     border: 1px solid var(--border-color);
