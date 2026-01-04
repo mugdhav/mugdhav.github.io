@@ -85,7 +85,7 @@ function renderBlogPosts() {
         const postUrl = post.url ? post.url : `post.html?slug=${post.slug}`;
         const targetAttr = post.url ? ' target="_blank" rel="noopener noreferrer"' : '';
         return `
-            <article class="blog-post">
+            <article class="blog-post" id="${post.id}">
                 <h3>${post.title}</h3>
                 <div class="meta">
                     ${formatDate(post.date)} • ${post.readTime} • ${post.category}

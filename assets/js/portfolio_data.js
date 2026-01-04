@@ -45,40 +45,60 @@ const portfolioData = {
             sectionTitle: "Technical Articles",
             items: [
                 {
+                    id: "tech-article-0",
                     icon: "🎓",
+                    svgIcon: '<svg class="portfolio-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 14l9-5-9-5-9 5 9 5z"/><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"/></svg>',
                     title: "Tutorial: Your Personal AI - Run Models Locally",
                     description: "Step-by-step tutorial for setting up and running open-source and small language models (SLMs) like Phi3 and Gemma3 locally on your system using Ollama. Includes installation guide, model setup instructions, and verification steps along with test prompts.",
                     buttonText: "View Tutorial",
-                    buttonLink: "pages/PreEventInstructions.html"
+                    buttonLink: "pages/PreEventInstructions.html",
+                    category: "Tutorial",
+                    year: 2025
                 },
                 {
+                    id: "tech-article-1",
                     icon: "📖",
+                    svgIcon: '<svg class="portfolio-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/></svg>',
                     title: "Developer Documentation: SarvamAI Indian Language Translator",
                     description: "Implementation guide, Python code samples, and a Google Colab notebook for integrating SarvamAI's Indian language translation API into applications. Includes step-by-step setup instructions and interactive examples.",
                     buttonText: "View Documentation",
-                    buttonLink: "https://github.com/mugdhav/SarvamAPICodeSample.git"
+                    buttonLink: "https://github.com/mugdhav/SarvamAPICodeSample.git",
+                    category: "Documentation",
+                    year: 2025
                 },
                 {
+                    id: "tech-article-2",
                     icon: "📚",
+                    svgIcon: '<svg class="portfolio-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>',
                     title: "From MVP to Enterprise: Why Your AI Application Needs a Data Privacy Shield",
                     description: "This article discusses the importance of building Data Protection and Privacy layer for applications and lists the tools and APIs that can be used to build the layer.",
                     buttonText: "View Article",
-                    buttonLink: "https://www.linkedin.com/pulse/from-mvp-enterprise-why-your-ai-application-needs-data-vairagade-xboue"
+                    buttonLink: "https://www.linkedin.com/pulse/from-mvp-enterprise-why-your-ai-application-needs-data-vairagade-xboue",
+                    category: "Data Privacy",
+                    year: 2025
                 },
                 {
+                    id: "tech-article-3",
                     icon: "🔧",
+                    svgIcon: '<svg class="portfolio-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18"/></svg>',
                     title: "Voice Agent Contact Centres Explained",
                     description: "An article describing voice agent contact centers, their architecture, and how they enhance customer service.",
                     buttonText: "View Article",
-                    buttonLink: "/assets/pdfs/UnderstandingAIEnabledContactCenterWork.pdf"
+                    buttonLink: "/assets/pdfs/UnderstandingAIEnabledContactCenterWork.pdf",
+                    category: "Voice Agents",
+                    year: 2025
                 },
                 {
-                    icon: "📖",
+                    id: "tech-article-4",
+                    icon: "⚠️",
+                    svgIcon: '<svg class="portfolio-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"/></svg>',
                     title: "No Error Messages!",
                     description: "This LinkedIn article emphasises on clear UX design that helps reduce user input errors.",
                     buttonText: "Read Article",
-                    buttonLink: "https://www.linkedin.com/pulse/error-messages-mugdha-vairagade-8bkhf"
-                }                
+                    buttonLink: "https://www.linkedin.com/pulse/error-messages-mugdha-vairagade-8bkhf",
+                    category: "UX Article",
+                    year: 2025
+                }
             ]
         },
         
@@ -87,53 +107,74 @@ const portfolioData = {
             sectionTitle: "AI Development",
             items: [
                 {
+                    id: "ai-dev-0",
                     image: "/assets/images/portfolio/UnicornFinderThumbnail2025-09-04010045.png",
                     title: "UnicornFinder - AI Analyst for Startups",
                     description: "Venture capitalists can use this tool to evaluate startups and get investment insights.",
                     buttonText: "Try It Out",
-                    buttonLink: "https://ai.studio/apps/drive/1BQ4qO7IU4pwYhYBmQ9eTLy-tLE6v51OJ"
+                    buttonLink: "https://ai.studio/apps/drive/1BQ4qO7IU4pwYhYBmQ9eTLy-tLE6v51OJ",
+                    category: "AI Application",
+                    year: 2025
                 },
                 {
+                    id: "ai-dev-1",
                     image: "/assets/images/portfolio/img_to_dita_convert_thumbnail.jpg",
                     title: "Image To DITA Converter",
                     description: "An AI-enabled tool that uses LLMs with vision capabilities to identify workflows in user-provided images. It then generates DITA task topics for any of the identified workflows.",
                     buttonText: "View Demo",
-                    buttonLink: "https://youtu.be/783w_xChhn0"
+                    buttonLink: "https://youtu.be/783w_xChhn0",
+                    category: "Technical Writing Tool",
+                    year: 2025
                 },
                 {
+                    id: "ai-dev-2",
                     image: "/assets/images/portfolio/Thumbnail_Oldversion_Screenshot_2025-07-30_120954.png",
                     title: "Jira to Release Notes Draft Generator",
                     description: "An AI-enabled tool that generates feature release notes drafts based on feature description in Jira.",
                     buttonText: "View Demo",
-                    buttonLink: "https://youtu.be/RWlTJ-76QoY"
+                    buttonLink: "https://youtu.be/RWlTJ-76QoY",
+                    category: "Technical Writing Tool",
+                    year: 2024
                 },
                 {
+                    id: "ai-dev-3",
                     image: "/assets/images/portfolio/Thumbnailn8nRunningLocally2025-08-08_233516.png",
                     title: "GitHub Repository Interview Workflow with n8n",
                     description: "An n8n workflow that helps technical writers \"interview\" GitHub repositories instead of interviewing human developers, getting relevant information directly from application code.",
                     buttonText: "View Demo",
-                    buttonLink: "https://youtu.be/9P01zPxpbdY"
-                },                
+                    buttonLink: "https://youtu.be/9P01zPxpbdY",
+                    category: "Workflow Automation",
+                    year: 2025
+                },
                 {
+                    id: "ai-dev-4",
                     image: "/assets/images/portfolio/GameInMotion.png",
                     title: "React Pong",
                     description: "A simple Pong game against AI, built with React and Typescript.",
                     buttonText: "Try It Out",
-                    buttonLink: "https://ai.studio/apps/drive/19H4i0hWXQe_OPV-v18GzQnzoobRhYvvr"
+                    buttonLink: "https://ai.studio/apps/drive/19H4i0hWXQe_OPV-v18GzQnzoobRhYvvr",
+                    category: "Game Development",
+                    year: 2025
                 },
                 {
+                    id: "ai-dev-5",
                     image: "/assets/images/portfolio/sarvam_indiantranslate.png",
                     title: "SarvamAI Indian Language Translator",
                     description: "A Python application leveraving SarvamAI API to translate text between Indian languages, including Hindi, Marathi, Tamil, Telugu, Bengali, and more.",
                     buttonText: "Try It Out",
-                    buttonLink: "https://github.com/mugdhav/SarvamAPICodeSample"
+                    buttonLink: "https://github.com/mugdhav/SarvamAPICodeSample",
+                    category: "AI Translation App",
+                    year: 2025
                 },
                 {
+                    id: "ai-dev-6",
                     image: "/assets/images/portfolio/BharatGPTVideoThumbnail.png",
                     title: "Hindi Chat Agent with BharatGPT",
                     description: "A BharatGPT model-based chat agent that can interact in Hindi.",
                     buttonText: "View Demo",
-                    buttonLink: "https://youtube.com/shorts/hQR19TK41DI"
+                    buttonLink: "https://youtube.com/shorts/hQR19TK41DI",
+                    category: "Chat Agent",
+                    year: 2025
                 }
             ]
         }
@@ -458,13 +499,13 @@ const portfolioData = {
             audioFile: '/assets/podcasts/rahebailie_iaprep/FinalCut_AudioConversationRahelBailie.mp3',
             transcriptFile: '/assets/podcasts/rahebailie_iaprep/FinalCutAudioPodcastwithSRTRahelBailie.srt',
             summaryDeck: '/assets/podcasts/rahebailie_iaprep/The_New_Content_Mandate.pdf',
-            duration: '45 min',
+            duration: '60 min',
             topics: ['Information Architecture', 'AI-Delivered Content', 'Content Strategy', 'Technical Writing']
         },
         {
             id: 'conversation-scott-abel',
             title: 'Conversation with Scott Abel - Documentation Success Metrics in the AI Age',
-            date: 'December 2024',
+            date: 'December 2025',
             host: 'Mugdha Vairagade',
             description: `An insightful conversation with Scott Abel, globally recognized content strategist and thought leader in technical communication. We discuss the evolution of technical writing, content strategy, documentation success metrics, and the future of documentation in the AI era.
 
@@ -481,13 +522,24 @@ const portfolioData = {
             audioFile: '/assets/podcasts/scottabel_docsuccmetrics/CompletePodcast_ConversationWithScottAbel.m4a',
             transcriptFile: '/assets/podcasts/scottabel_docsuccmetrics/CompletePodcast_ConversationWithScottAbel.srt',
             summaryDeck: '/assets/podcasts/scottabel_docsuccmetrics/ScottAbelPodcastDocSuccessMetrics.pdf',
-            duration: 'TBD',
-            topics: ['Technical Writing', 'Content Strategy', 'AI in Documentation', 'Future of Tech Comm']
+            duration: '45 min',
+            topics: ['Technical Writing', 'Documentation Success Metrics', 'AI in Documentation', 'Future of Tech Comm']
         }
     ],
 
     // Blog Posts Data
     blogs: [
+        {
+            id: 'find-your-perfect-ai-agent',
+            title: 'Find Your Perfect AI Agent: A Guide for Non-Tech Professionals',
+            excerpt: 'This easy‑to‑follow guide helps professionals from non‑technical backgrounds understand what AI agents are, what those agents can do for them, and how to find the right agents for their needs.',
+            date: '2025-12-28',
+            category: 'AI Development',
+            readTime: '3 min read',
+            slug: 'find-your-perfect-ai-agent',
+            url: 'https://www.linkedin.com/pulse/find-your-perfect-ai-agent-mugdha-vairagade-tt3xf',
+            featured: true
+        },
         {
             id: 'preparing-ia-for-ai-delivered-content',
             title: 'Preparing Information Architecture for AI-Delivered Content',
