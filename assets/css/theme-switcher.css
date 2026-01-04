@@ -35,8 +35,8 @@
 
 /* Theme icon images */
 .theme-icon-img {
-    width: 25px;  /* Increased by 15% from 22px (originally 18px + 20% + 15%) */
-    height: 25px; /* Increased by 15% from 22px (originally 18px + 20% + 15%) */
+    width: 40px;  /* Increased by 15% from 22px (originally 18px + 20% + 15%) */
+    height: 40px; /* Increased by 15% from 22px (originally 18px + 20% + 15%) */
     object-fit: contain;
     border-radius: 50%;
     transition: var(--transition);
@@ -93,8 +93,8 @@
     }
 
     .theme-icon-img {
-        width: 22px;  /* Increased by 15% from 19px (originally 16px + 20% + 15%) */
-        height: 22px; /* Increased by 15% from 19px (originally 16px + 20% + 15%) */
+        width: 38px;  /* Increased by 15% from 19px (originally 16px + 20% + 15%) */
+        height: 38px; /* Increased by 15% from 19px (originally 16px + 20% + 15%) */
     }
 }
 
