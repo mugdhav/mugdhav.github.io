@@ -498,7 +498,7 @@ const portfolioData = {
             banner: '../assets/podcasts/rahebailie_iaprep/LumaEventBanner_moresquare.png',
             audioFile: '../assets/podcasts/rahebailie_iaprep/FinalCut_AudioConversationRahelBailie.mp3',
             transcriptFile: '../assets/podcasts/rahebailie_iaprep/FinalCutAudioPodcastwithSRTRahelBailie.srt',
-            slidesPath: '../assets/podcasts/rahebailie_iaprep/slides/',
+            slidesPath: '../assets/podcasts/rahebailie_iaprep/slides/The_New_Content_Mandate/',
             slideCount: 14,
             duration: '60 min',
             topics: ['Information Architecture', 'AI-Delivered Content', 'Content Strategy', 'Technical Writing']
@@ -522,7 +522,7 @@ const portfolioData = {
             banner: '../assets/podcasts/scottabel_docsuccmetrics/FinalPodcastBanner.png',
             audioFile: '../assets/podcasts/scottabel_docsuccmetrics/CompletePodcast_ConversationWithScottAbel.m4a',
             transcriptFile: '../assets/podcasts/scottabel_docsuccmetrics/CompletePodcast_ConversationWithScottAbel.srt',
-            slidesPath: '../assets/podcasts/scottabel_docsuccmetrics/slides/',
+            slidesPath: '../assets/podcasts/scottabel_docsuccmetrics/slides/ScottAbelPodcastDocSuccessMetrics/',
             slideCount: 14,
             duration: '45 min',
             topics: ['Technical Writing', 'Documentation Success Metrics', 'AI in Documentation', 'Future of Tech Comm']

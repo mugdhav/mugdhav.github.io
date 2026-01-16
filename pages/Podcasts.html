@@ -1165,7 +1165,7 @@
         // Toggle transcript visibility
         function toggleTranscript(podcastId) {
             const content = document.getElementById(`transcript-content-${podcastId}`);
-            const button = document.querySelector(`#podcast-${podcastId} .transcript-toggle`);
+            const button = document.querySelector(`#podcast-card-${podcastId} .transcript-toggle`);
 
             if (content.classList.contains('collapsed')) {
                 content.classList.remove('collapsed');
@@ -1330,7 +1330,7 @@
             }
 
             const html = portfolioData.podcasts.map(podcast => `
-                <div class="podcast-card fade-in" id="${podcast.id}">
+                <div class="podcast-card fade-in" id="podcast-card-${podcast.id}">
                     <div class="podcast-banner-container">
                         <img src="${podcast.banner}" alt="${podcast.title}" class="podcast-banner">
                     </div>
