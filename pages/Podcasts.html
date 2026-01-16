@@ -33,8 +33,6 @@
     <script src="https://unpkg.com/lunr/lunr.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
 
-    <!-- PDF.js Library -->
-    <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@4.0.269/build/pdf.min.mjs" type="module"></script>
 
     <!-- Portfolio Data -->
     <script src="../assets/js/portfolio_data.js"></script>
@@ -1185,6 +1183,22 @@
             return parts[0].trim();
         }
 
+        // Get the correct MIME type for audio files
+        function getAudioMimeType(filename) {
+            if (!filename) return 'audio/mpeg';
+            const ext = filename.split('.').pop().toLowerCase();
+            const mimeTypes = {
+                'mp3': 'audio/mpeg',
+                'm4a': 'audio/mp4',
+                'mp4': 'audio/mp4',
+                'wav': 'audio/wav',
+                'ogg': 'audio/ogg',
+                'webm': 'audio/webm',
+                'aac': 'audio/aac'
+            };
+            return mimeTypes[ext] || 'audio/mpeg';
+        }
+
         // Toggle podcast expansion
         function togglePodcast(podcastId, skipScroll = false) {
             const expandedContent = document.getElementById(`expanded-${podcastId}`);
@@ -1201,9 +1215,8 @@
                 const podcast = portfolioData.podcasts.find(p => p.id === podcastId);
                 if (podcast && !expandedContent.dataset.loaded) {
                     loadTranscript(podcastId, podcast.transcriptFile);
-                    if (podcast.summaryDeck) {
-                        initializeSlideDeck(podcastId, podcast.summaryDeck);
-                        loadPDF(podcastId, podcast.summaryDeck);
+                    if (podcast.slideCount) {
+                        initializeSlides(podcastId, podcast.slidesPath, podcast.slideCount);
                     }
                     expandedContent.dataset.loaded = 'true';
                 }
@@ -1378,7 +1391,7 @@
                                 preload="metadata"
                                 ontimeupdate="updateTranscriptHighlight('${podcast.id}', this.currentTime)"
                             >
-                                <source src="${podcast.audioFile}" type="audio/mpeg">
+                                <source src="${podcast.audioFile}" type="${getAudioMimeType(podcast.audioFile)}">
                                 Your browser does not support the audio element.
                             </audio>
                         </div>
@@ -1400,19 +1413,19 @@
                             </div>
                         </div>
 
-                        ${podcast.summaryDeck ? `
+                        ${podcast.slideCount ? `
                         <!-- Slide Deck Section -->
                         <div class="slide-deck-section">
                             <div class="slide-deck-header">
-                                <h3><i class="fas fa-presentation"></i> Summary Slides</h3>
+                                <h3><i class="fas fa-images"></i> Summary Slides</h3>
                                 <div class="slide-counter" id="slide-counter-${podcast.id}">
-                                    <span id="current-slide-${podcast.id}">1</span> / <span id="total-slides-${podcast.id}">0</span>
+                                    <span id="current-slide-${podcast.id}">1</span> / <span id="total-slides-${podcast.id}">${podcast.slideCount}</span>
                                 </div>
                             </div>
 
                             <div class="slide-deck-carousel" id="slide-carousel-${podcast.id}">
                                 <div class="slide-canvas-container">
-                                    <canvas id="slide-canvas-${podcast.id}" class="slide-canvas"></canvas>
+                                    <img id="slide-img-${podcast.id}" class="slide-canvas" src="${podcast.slidesPath}Slide1.PNG" alt="Slide 1">
                                 </div>
 
                                 <button class="carousel-nav-btn prev-btn" onclick="navigateSlide('${podcast.id}', -1)" aria-label="Previous slide">
@@ -1423,11 +1436,6 @@
                                 </button>
 
                                 <div class="carousel-dots" id="carousel-dots-${podcast.id}"></div>
-
-                                <div class="slide-deck-loading" id="slide-loading-${podcast.id}">
-                                    <i class="fas fa-spinner fa-spin"></i>
-                                    <p>Loading slides...</p>
-                                </div>
                             </div>
                         </div>
                         ` : ''}
@@ -1443,149 +1451,47 @@
         // Slide Deck State Management
         const slideDeckState = {};
 
-        function initializeSlideDeck(podcastId, pdfPath) {
+        // Initialize slides for a podcast
+        function initializeSlides(podcastId, slidesPath, slideCount) {
             slideDeckState[podcastId] = {
-                currentPage: 1,
-                totalPages: 0,
-                pdfDoc: null,
-                isLoading: false,
-                renderTask: null
+                currentSlide: 1,
+                totalSlides: slideCount,
+                slidesPath: slidesPath
             };
+
+            // Create dot indicators
+            createDotIndicators(podcastId, slideCount);
+
+            console.log(`Initialized ${slideCount} slides for ${podcastId}`);
         }
 
-        // Load PDF using PDF.js
-        async function loadPDF(podcastId, pdfPath) {
+        // Render a specific slide (show image)
+        function renderSlide(podcastId, slideNum) {
             const state = slideDeckState[podcastId];
-            const loadingElement = document.getElementById(`slide-loading-${podcastId}`);
-
-            try {
-                state.isLoading = true;
-                if (loadingElement) {
-                    loadingElement.style.display = 'flex';
-                }
-
-                // Dynamic import of PDF.js
-                const pdfjsLib = await import('https://cdn.jsdelivr.net/npm/pdfjs-dist@4.0.269/build/pdf.min.mjs');
-
-                // Configure PDF.js worker
-                pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@4.0.269/build/pdf.worker.min.mjs';
-
-                // Ensure relative path (don't let browser convert to absolute file path)
-                const url = new URL(pdfPath, window.location.href).href;
-                console.log('Loading PDF from URL:', url);
-
-                // Load PDF document with proper configuration
-                const loadingTask = pdfjsLib.getDocument({
-                    url: url,
-                    verbosity: 0
-                });
-                const pdfDoc = await loadingTask.promise;
-
-                state.pdfDoc = pdfDoc;
-                state.totalPages = pdfDoc.numPages;
-
-                // Update UI
-                const totalSlidesElement = document.getElementById(`total-slides-${podcastId}`);
-                if (totalSlidesElement) {
-                    totalSlidesElement.textContent = state.totalPages;
-                }
-
-                // Create dot indicators
-                createDotIndicators(podcastId, state.totalPages);
-
-                // Render first page
-                await renderSlide(podcastId, 1);
-
-                state.isLoading = false;
-                if (loadingElement) {
-                    loadingElement.style.display = 'none';
-                }
-
-                console.log(`PDF loaded successfully for ${podcastId}: ${state.totalPages} pages`);
-
-            } catch (error) {
-                console.error('Error loading PDF:', error);
-                if (loadingElement) {
-                    loadingElement.innerHTML = `
-                        <i class="fas fa-exclamation-triangle"></i>
-                        <p>Unable to load slides</p>
-                        <p style="font-size: 0.9rem; margin-top: 0.5rem;">Error: ${error.message}</p>
-                    `;
-                }
-            }
-        }
-
-        // Render a specific slide
-        async function renderSlide(podcastId, pageNum) {
-            const state = slideDeckState[podcastId];
-            if (!state || !state.pdfDoc) {
-                console.error('PDF document not loaded for', podcastId);
+            if (!state) {
+                console.error('Slide state not found for', podcastId);
                 return;
             }
 
-            const canvas = document.getElementById(`slide-canvas-${podcastId}`);
-            if (!canvas) {
-                console.error('Canvas element not found for', podcastId);
+            const img = document.getElementById(`slide-img-${podcastId}`);
+            if (!img) {
+                console.error('Slide image element not found for', podcastId);
                 return;
             }
 
-            const context = canvas.getContext('2d');
+            // Update image source (PowerPoint exports as Slide1.PNG, Slide2.PNG, etc.)
+            img.src = `${state.slidesPath}Slide${slideNum}.PNG`;
+            img.alt = `Slide ${slideNum}`;
 
-            try {
-                // Cancel any ongoing render
-                if (state.renderTask) {
-                    try {
-                        await state.renderTask.cancel();
-                    } catch (e) {
-                        // Ignore cancellation errors
-                    }
-                }
-
-                // Get page
-                const page = await state.pdfDoc.getPage(pageNum);
-
-                // Calculate scale for responsive sizing
-                const container = canvas.parentElement;
-                const containerWidth = container.offsetWidth;
-                const viewport = page.getViewport({ scale: 1 });
-                const scale = (containerWidth / viewport.width) * 0.95; // 95% to add padding
-                const scaledViewport = page.getViewport({ scale: scale });
-
-                // Set canvas dimensions with device pixel ratio for sharp rendering
-                const dpr = window.devicePixelRatio || 1;
-                canvas.width = scaledViewport.width * dpr;
-                canvas.height = scaledViewport.height * dpr;
-                canvas.style.width = scaledViewport.width + 'px';
-                canvas.style.height = scaledViewport.height + 'px';
-
-                // Scale context for high DPI
-                context.scale(dpr, dpr);
-
-                // Render page
-                const renderContext = {
-                    canvasContext: context,
-                    viewport: scaledViewport
-                };
-
-                state.renderTask = page.render(renderContext);
-                await state.renderTask.promise;
-                state.renderTask = null;
-
-                // Update UI
-                state.currentPage = pageNum;
-                const currentSlideElement = document.getElementById(`current-slide-${podcastId}`);
-                if (currentSlideElement) {
-                    currentSlideElement.textContent = pageNum;
-                }
-                updateDotIndicators(podcastId, pageNum);
-
-                console.log(`Rendered slide ${pageNum} for ${podcastId}`);
-
-            } catch (error) {
-                if (error.name !== 'RenderingCancelledException') {
-                    console.error('Error rendering slide:', error);
-                }
+            // Update state and UI
+            state.currentSlide = slideNum;
+            const currentSlideElement = document.getElementById(`current-slide-${podcastId}`);
+            if (currentSlideElement) {
+                currentSlideElement.textContent = slideNum;
             }
+            updateDotIndicators(podcastId, slideNum);
+
+            console.log(`Showing slide ${slideNum} for ${podcastId}`);
         }
 
         // Navigate slides (prev/next)
@@ -1596,22 +1502,22 @@
                 return;
             }
 
-            let newPage = state.currentPage + direction;
+            let newSlide = state.currentSlide + direction;
 
             // Wrap around
-            if (newPage < 1) newPage = state.totalPages;
-            if (newPage > state.totalPages) newPage = 1;
+            if (newSlide < 1) newSlide = state.totalSlides;
+            if (newSlide > state.totalSlides) newSlide = 1;
 
-            renderSlide(podcastId, newPage);
+            renderSlide(podcastId, newSlide);
         }
 
         // Go to specific slide
-        function goToSlide(podcastId, pageNum) {
-            renderSlide(podcastId, pageNum);
+        function goToSlide(podcastId, slideNum) {
+            renderSlide(podcastId, slideNum);
         }
 
         // Create dot indicators
-        function createDotIndicators(podcastId, totalPages) {
+        function createDotIndicators(podcastId, totalSlides) {
             const dotsContainer = document.getElementById(`carousel-dots-${podcastId}`);
             if (!dotsContainer) {
                 console.error('Dots container not found for', podcastId);
@@ -1620,8 +1526,8 @@
 
             dotsContainer.innerHTML = '';
 
-            // Create dots for all pages
-            for (let i = 1; i <= totalPages; i++) {
+            // Create dots for all slides
+            for (let i = 1; i <= totalSlides; i++) {
                 const dot = document.createElement('div');
                 dot.className = 'dot';
                 if (i === 1) dot.classList.add('active');
@@ -1630,14 +1536,14 @@
                 dotsContainer.appendChild(dot);
             }
 
-            console.log(`Created ${totalPages} dot indicators for ${podcastId}`);
+            console.log(`Created ${totalSlides} dot indicators for ${podcastId}`);
         }
 
         // Update dot indicators
-        function updateDotIndicators(podcastId, currentPage) {
+        function updateDotIndicators(podcastId, currentSlide) {
             const dots = document.querySelectorAll(`#carousel-dots-${podcastId} .dot`);
             dots.forEach((dot, index) => {
-                if (index + 1 === currentPage) {
+                if (index + 1 === currentSlide) {
                     dot.classList.add('active');
                 } else {
                     dot.classList.remove('active');

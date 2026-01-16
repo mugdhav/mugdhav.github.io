@@ -495,10 +495,11 @@ const portfolioData = {
 <li><a href="https://kanesimms.substack.com/" target="_blank" rel="noopener noreferrer">Kane Simms</a></li>
 </ul>
 </div>`,
-            banner: '/assets/podcasts/rahebailie_iaprep/LumaEventBanner_moresquare.png',
-            audioFile: '/assets/podcasts/rahebailie_iaprep/FinalCut_AudioConversationRahelBailie.mp3',
-            transcriptFile: '/assets/podcasts/rahebailie_iaprep/FinalCutAudioPodcastwithSRTRahelBailie.srt',
-            summaryDeck: '/assets/podcasts/rahebailie_iaprep/The_New_Content_Mandate.pdf',
+            banner: '../assets/podcasts/rahebailie_iaprep/LumaEventBanner_moresquare.png',
+            audioFile: '../assets/podcasts/rahebailie_iaprep/FinalCut_AudioConversationRahelBailie.mp3',
+            transcriptFile: '../assets/podcasts/rahebailie_iaprep/FinalCutAudioPodcastwithSRTRahelBailie.srt',
+            slidesPath: '../assets/podcasts/rahebailie_iaprep/slides/',
+            slideCount: 14,
             duration: '60 min',
             topics: ['Information Architecture', 'AI-Delivered Content', 'Content Strategy', 'Technical Writing']
         },
@@ -518,10 +519,11 @@ const portfolioData = {
 <li><a href="https://www.make.com/" target="_blank" rel="noopener noreferrer">Make.com</a> - No-code AI automation</li>
 </ul>
 </div>`,
-            banner: '/assets/podcasts/scottabel_docsuccmetrics/FinalPodcastBanner.png',
-            audioFile: '/assets/podcasts/scottabel_docsuccmetrics/CompletePodcast_ConversationWithScottAbel.m4a',
-            transcriptFile: '/assets/podcasts/scottabel_docsuccmetrics/CompletePodcast_ConversationWithScottAbel.srt',
-            summaryDeck: '/assets/podcasts/scottabel_docsuccmetrics/ScottAbelPodcastDocSuccessMetrics.pdf',
+            banner: '../assets/podcasts/scottabel_docsuccmetrics/FinalPodcastBanner.png',
+            audioFile: '../assets/podcasts/scottabel_docsuccmetrics/CompletePodcast_ConversationWithScottAbel.m4a',
+            transcriptFile: '../assets/podcasts/scottabel_docsuccmetrics/CompletePodcast_ConversationWithScottAbel.srt',
+            slidesPath: '../assets/podcasts/scottabel_docsuccmetrics/slides/',
+            slideCount: 14,
             duration: '45 min',
             topics: ['Technical Writing', 'Documentation Success Metrics', 'AI in Documentation', 'Future of Tech Comm']
         }
