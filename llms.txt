@@ -1,0 +1,73 @@
+# Mugdha Vairagade
+
+> Technical Writer, AI Developer, UX Designer, and Event Organizer with 15+ years of IT experience. DeepLearning.AI Ambassador specializing in AI applications, documentation, and community building.
+
+Mugdha Vairagade is a professional who bridges technical complexity and user experience. She designs content experiences that transform technical complexity into better user experience, helping companies increase product/service adoption while keeping support costs low. She develops AI applications that enhance daily productivity and optimize workflows. As a DeepLearning.AI Ambassador, she regularly organizes tech events, workshops, and meetups to foster learning and collaboration in the tech community.
+
+## Core Expertise
+
+- Technical Writing and API Documentation
+- AI and Machine Learning Development
+- CrewAI and Multi-agent Systems
+- DITA Authoring and Content Strategy
+- n8n Workflow Automation
+- Developer Relations and Community Building
+- UX Design and Information Architecture
+- React and TypeScript Development
+
+## Technical Articles
+
+- [Tutorial: Your Personal AI - Run Models Locally](https://www.vmugdha.in/pages/PreEventInstructions.html): Step-by-step tutorial for setting up open-source and small language models locally using Ollama
+- [Developer Documentation: SarvamAI Indian Language Translator](https://github.com/mugdhav/SarvamAPICodeSample.git): Implementation guide with Python code samples and Google Colab notebook
+- [From MVP to Enterprise: Why Your AI Application Needs a Data Privacy Shield](https://www.linkedin.com/pulse/from-mvp-enterprise-why-your-ai-application-needs-data-vairagade-xboue): Article on building data protection layers for AI applications
+- [Voice Agent Contact Centres Explained](https://www.vmugdha.in/assets/pdfs/UnderstandingAIEnabledContactCenterWork.pdf): Architecture and implementation of voice agent contact centers
+- [No Error Messages!](https://www.linkedin.com/pulse/error-messages-mugdha-vairagade-8bkhf): UX design principles for reducing user input errors
+
+## AI Development Projects
+
+- [MV Subtitle Generator](https://huggingface.co/spaces/mugdhav/transcript_reviewer): AI-powered SRT subtitle generation and error detection for MP3/MP4 files
+- [UnicornFinder - AI Analyst for Startups](https://ai.studio/apps/drive/1BQ4qO7IU4pwYhYBmQ9eTLy-tLE6v51OJ): Tool for venture capitalists to evaluate startups and get investment insights
+- [Image To DITA Converter](https://youtu.be/783w_xChhn0): AI tool using vision capabilities to identify workflows and generate DITA task topics
+- [Jira to Release Notes Draft Generator](https://youtu.be/RWlTJ-76QoY): AI tool generating feature release notes from Jira descriptions
+- [GitHub Repository Interview Workflow with n8n](https://youtu.be/9P01zPxpbdY): n8n workflow helping technical writers extract information from GitHub repositories
+- [SarvamAI Indian Language Translator](https://github.com/mugdhav/SarvamAPICodeSample): Python application for translating between Indian languages
+- [Hindi Chat Agent with BharatGPT](https://youtube.com/shorts/hQR19TK41DI): Chat agent interacting in Hindi using BharatGPT model
+
+## Podcasts and Thought Leadership
+
+- [Conversation with Rahel Anne Bailie](https://www.vmugdha.in/pages/Podcasts.html#conversation-rahel-bailie): Preparing Information Architecture for AI-Delivered Content (December 2025)
+- [Conversation with Scott Abel](https://www.vmugdha.in/pages/Podcasts.html#conversation-scott-abel): Documentation Success Metrics in the AI Age with The Content Wrangler (December 2025)
+
+## Community Events Organized
+
+- Pie & AI: Pune series (DeepLearning.AI community events)
+- Invent4Customers 2024 at SAP Labs India (3-month innovation program with Asian Paints, Henkel, Google)
+- Generative AI Art Competition at D-Shop Pune
+- Multiple workshops on AI, technical writing, and content generation
+
+## Blog Posts
+
+- [Find Your Perfect AI Agent: A Guide for Non-Tech Professionals](https://www.linkedin.com/pulse/find-your-perfect-ai-agent-mugdha-vairagade-tt3xf)
+- [Preparing Information Architecture for AI-Delivered Content](https://www.linkedin.com/pulse/preparing-information-architecture-aidelivered-mugdha-vairagade-deo5f)
+- [Snapshots from Pie & AI Pune: Extracting and Structuring Information](https://www.linkedin.com/pulse/snapshots-from-pie-ai-pune-extracting-structuring-mugdha-vairagade-uw7yf)
+- [Generating Content with Open Source Models](https://www.linkedin.com/pulse/generating-content-open-source-models-mugdha-vairagade-xujuf)
+- [An Experiment with Indian AI](https://www.linkedin.com/pulse/experiment-indian-ai-mugdha-vairagade-cqvef)
+
+## Professional Links
+
+- [LinkedIn Profile](https://www.linkedin.com/in/mugdhav)
+- [GitHub Repository](https://github.com/mugdhav)
+- [Twitter/X](https://x.com/vmugdha)
+- [Full Portfolio](https://www.vmugdha.in)
+
+## Contact
+
+- Email: vmugdha.web@gmail.com
+- Website: https://www.vmugdha.in
+
+## Optional
+
+- [AI Content Index JSON](https://www.vmugdha.in/ai-content-index.json): Machine-readable portfolio data for programmatic access
+- [Blog Page](https://www.vmugdha.in/blog/blog.html): All blog posts and articles
+- [Tech Events Page](https://www.vmugdha.in/pages/TechEvents.html): Community events and workshops
+- [Podcasts Page](https://www.vmugdha.in/pages/Podcasts.html): Conversations with industry experts

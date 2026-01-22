@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Main Homepage -->
+  <url>
+    <loc>https://www.vmugdha.in/</loc>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Tech Events Page -->
+  <url>
+    <loc>https://www.vmugdha.in/pages/TechEvents.html</loc>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Podcasts Page -->
+  <url>
+    <loc>https://www.vmugdha.in/pages/Podcasts.html</loc>
+    <lastmod>2026-01-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Blog Page -->
+  <url>
+    <loc>https://www.vmugdha.in/blog/blog.html</loc>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Event Explore Page -->
+  <url>
+    <loc>https://www.vmugdha.in/pages/EventExplore.html</loc>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Pre-Event Instructions / Tutorial Page -->
+  <url>
+    <loc>https://www.vmugdha.in/pages/PreEventInstructions.html</loc>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Pie & AI Event Capture Page -->
+  <url>
+    <loc>https://www.vmugdha.in/pages/pie-ai-event-capture.html</loc>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- LLMs.txt for AI Agents -->
+  <url>
+    <loc>https://www.vmugdha.in/llms.txt</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- AI Content Index JSON -->
+  <url>
+    <loc>https://www.vmugdha.in/ai-content-index.json</loc>
+    <lastmod>2025-09-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- PDF Resources -->
+  <url>
+    <loc>https://www.vmugdha.in/assets/pdfs/UnderstandingAIEnabledContactCenterWork.pdf</loc>
+    <lastmod>2025-12-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+</urlset>
