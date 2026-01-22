@@ -3,9 +3,9 @@
     "name": "Mugdha Vairagade Portfolio",
     "url": "https://www.vmugdha.in",
     "owner": "Mugdha Vairagade",
-    "profession": "Technical Writer, AI Developer, UX Designer, Event Organizer",
-    "lastUpdated": "2025-01-27",
-    "description": "Portfolio showcasing technical writing, AI development projects, and UX design work"
+    "profession": "Technical Writer, AI Developer, Developer Relations, Event Organizer",
+    "lastUpdated": "2026-01-22",
+    "description": "Portfolio showcasing technical writing, AI development projects, and Developer Relations events and outreach by Mugdha Vairagade."
   },
   "contactInfo": {
     "email": "vmugdha.web@gmail.com",
@@ -16,7 +16,7 @@
   "expertise": [
     "Technical Writing",
     "AI Development", 
-    "UX Design",
+    "Developer Relations",
     "Machine Learning",
     "API Documentation",
     "DITA Authoring",
@@ -37,13 +37,51 @@
         "description": "Main portfolio page with overview of skills and projects"
       },
       {
-        "path": "/blog/blog.html", 
+        "path": "/blog/blog.html",
         "title": "Blog",
         "type": "blog-index",
         "description": "Blog posts about technical writing, AI development, and UX design"
+      },
+      {
+        "path": "/pages/TechEvents.html",
+        "title": "Tech Events",
+        "type": "events",
+        "description": "Technology events organized by Mugdha Vairagade including Pie & AI Pune meetups and workshops"
+      },
+      {
+        "path": "/pages/Podcasts.html",
+        "title": "Podcasts",
+        "type": "media",
+        "description": "Podcast conversations with industry experts on technical writing, AI, and content strategy"
+      },
+      {
+        "path": "/pages/PreEventInstructions.html",
+        "title": "Tutorial: Run AI Models Locally",
+        "type": "tutorial",
+        "description": "Step-by-step tutorial for setting up open-source language models locally using Ollama"
+      },
+      {
+        "path": "/pages/EventExplore.html",
+        "title": "Event Exploration",
+        "type": "events",
+        "description": "Explore and search through tech events"
       }
     ],
     "articles": [
+      {
+        "title": "Tutorial: Your Personal AI - Run Models Locally",
+        "path": "/pages/PreEventInstructions.html",
+        "type": "tutorial",
+        "topics": ["AI Development", "Ollama", "Small Language Models", "Local AI", "Phi3", "Gemma3"],
+        "description": "Step-by-step tutorial for setting up and running open-source and small language models locally using Ollama"
+      },
+      {
+        "title": "Developer Documentation: SarvamAI Indian Language Translator",
+        "url": "https://github.com/mugdhav/SarvamAPICodeSample.git",
+        "type": "documentation",
+        "topics": ["API Documentation", "Indian Languages", "Translation", "Python"],
+        "description": "Implementation guide with Python code samples and Google Colab notebook for SarvamAI translation API"
+      },
       {
         "title": "From MVP to Enterprise: Why Your AI Application Needs a Data Privacy Shield",
         "url": "https://www.linkedin.com/pulse/from-mvp-enterprise-why-your-ai-application-needs-data-vairagade-xboue",
@@ -53,7 +91,7 @@
       },
       {
         "title": "Voice Agent Contact Centres Explained",
-        "path": "/LocalContent/UnderstandingAIEnabledContactCenterWork.pdf",
+        "path": "/assets/pdfs/UnderstandingAIEnabledContactCenterWork.pdf",
         "type": "pdf-article",
         "topics": ["AI Development", "Contact Centers", "Voice AI"],
         "description": "Architecture and implementation of AI-enabled contact centers"
@@ -61,12 +99,57 @@
       {
         "title": "No Error Messages!",
         "url": "https://www.linkedin.com/pulse/error-messages-mugdha-vairagade-8bkhf",
-        "type": "external-article", 
+        "type": "external-article",
         "topics": ["UX Design", "Error Prevention", "User Experience"],
         "description": "UX design principles for reducing user input errors"
       }
     ],
     "blogPosts": [
+      {
+        "title": "Find Your Perfect AI Agent: A Guide for Non-Tech Professionals",
+        "url": "https://www.linkedin.com/pulse/find-your-perfect-ai-agent-mugdha-vairagade-tt3xf",
+        "date": "2025-12-28",
+        "category": "AI Development",
+        "readTime": "3 min read",
+        "topics": ["AI Agents", "Non-Technical Guide", "AI Selection"],
+        "description": "Easy-to-follow guide helping non-technical professionals understand AI agents and find the right ones for their needs"
+      },
+      {
+        "title": "Preparing Information Architecture for AI-Delivered Content",
+        "url": "https://www.linkedin.com/pulse/preparing-information-architecture-aidelivered-mugdha-vairagade-deo5f",
+        "date": "2025-12-26",
+        "category": "Technical Writing",
+        "readTime": "2 min read",
+        "topics": ["Information Architecture", "AI Content Delivery", "Content Strategy"],
+        "description": "How information architects and technical writers can prepare content ecosystems for AI-powered delivery"
+      },
+      {
+        "title": "Snapshots from Pie & AI Pune: Extracting and Structuring Information",
+        "url": "https://www.linkedin.com/pulse/snapshots-from-pie-ai-pune-extracting-structuring-mugdha-vairagade-uw7yf",
+        "date": "2025-10-06",
+        "category": "AI Development",
+        "readTime": "3 min read",
+        "topics": ["Information Extraction", "Document AI", "LandingAI", "DocETL"],
+        "description": "Recap of Pie & AI event exploring AI-powered information extraction from documents and images"
+      },
+      {
+        "title": "Generating Content with Open Source Models",
+        "url": "https://www.linkedin.com/pulse/generating-content-open-source-models-mugdha-vairagade-xujuf",
+        "date": "2025-09-16",
+        "category": "AI Development",
+        "readTime": "2 min read",
+        "topics": ["Open Source AI", "Content Generation", "Ollama", "Local Models"],
+        "description": "Exploring content generation with lightweight open source models like phi3 and gemma3 using Ollama"
+      },
+      {
+        "title": "An Experiment with Indian AI",
+        "url": "https://www.linkedin.com/pulse/experiment-indian-ai-mugdha-vairagade-cqvef",
+        "date": "2025-09-08",
+        "category": "AI Development",
+        "readTime": "3 min read",
+        "topics": ["Indian AI", "Sarvam AI", "BharatGPT", "Native Language AI"],
+        "description": "Insights from exploring Indian AI platforms like Sarvam AI and BharatGPT for native language capabilities"
+      },
       {
         "title": "Getting Started with CrewAI",
         "path": "/blog/posts/getting-started-crewai.md",
@@ -79,7 +162,7 @@
       },
       {
         "title": "UX Design Principles for Beginners",
-        "path": "/blog/posts/ux-principles.md", 
+        "path": "/blog/posts/ux-principles.md",
         "slug": "ux-principles",
         "date": "2024-12-28",
         "category": "UX Design",
@@ -90,50 +173,130 @@
     ],
     "projects": [
       {
+        "title": "MV Subtitle Generator",
+        "type": "ai-development",
+        "demo": "https://huggingface.co/spaces/mugdhav/transcript_reviewer",
+        "technologies": ["LLMs", "Audio Processing", "SRT Generation", "Error Detection"],
+        "description": "AI-powered subtitle generation tool that creates and tidies SRT subtitles for MP3/MP4 files, detecting errors, misheard words, and out-of-context phrases",
+        "year": 2025
+      },
+      {
+        "title": "UnicornFinder - AI Analyst for Startups",
+        "type": "ai-development",
+        "demo": "https://ai.studio/apps/drive/1BQ4qO7IU4pwYhYBmQ9eTLy-tLE6v51OJ",
+        "technologies": ["AI", "Investment Analysis", "Startup Evaluation"],
+        "description": "Tool for venture capitalists to evaluate startups and get investment insights",
+        "year": 2025
+      },
+      {
         "title": "Image To DITA Converter",
         "type": "ai-development",
         "demo": "https://youtu.be/783w_xChhn0",
         "technologies": ["LLMs", "Computer Vision", "DITA", "Workflow Analysis"],
-        "description": "AI tool using LLMs with vision to identify workflows in images and generate DITA task topics"
+        "description": "AI tool using LLMs with vision to identify workflows in images and generate DITA task topics",
+        "year": 2025
       },
       {
-        "title": "Jira to Release Notes Draft Generator", 
+        "title": "Jira to Release Notes Draft Generator",
         "type": "ai-development",
         "demo": "https://youtu.be/RWlTJ-76QoY",
         "technologies": ["AI", "Jira API", "Natural Language Generation"],
-        "description": "AI tool that generates feature release notes from Jira descriptions"
+        "description": "AI tool that generates feature release notes from Jira descriptions",
+        "year": 2024
       },
       {
         "title": "GitHub Repository Interview Workflow with n8n",
-        "type": "ai-development", 
+        "type": "ai-development",
         "demo": "https://youtu.be/9P01zPxpbdY",
         "technologies": ["n8n", "GitHub API", "Workflow Automation", "Technical Writing"],
-        "description": "n8n workflow enabling technical writers to extract information from GitHub repositories"
+        "description": "n8n workflow enabling technical writers to extract information from GitHub repositories",
+        "year": 2025
       },
       {
         "title": "React Pong",
         "type": "ai-development",
         "demo": "https://ai.studio/apps/drive/19H4i0hWXQe_OPV-v18GzQnzoobRhYvvr",
         "technologies": ["React", "TypeScript", "AI", "Game Development"],
-        "description": "AI-enabled Pong game built with React and TypeScript"
+        "description": "AI-enabled Pong game built with React and TypeScript",
+        "year": 2025
       },
       {
-        "title": "Smart Watch Interface",
-        "type": "ux-design",
-        "technologies": ["Interface Design", "Mobile UX", "Calendar Integration"],
-        "description": "Design of a smart watch interface that displays calendar alerts"
+        "title": "SarvamAI Indian Language Translator",
+        "type": "ai-development",
+        "demo": "https://github.com/mugdhav/SarvamAPICodeSample",
+        "technologies": ["Python", "SarvamAI API", "Indian Languages", "Translation"],
+        "description": "Python application leveraging SarvamAI API to translate text between Indian languages including Hindi, Marathi, Tamil, Telugu, Bengali",
+        "year": 2025
       },
       {
-        "title": "Help Portal Redesign", 
-        "type": "ux-design",
-        "technologies": ["Information Architecture", "Card-based Design", "Navigation"],
-        "description": "Card-based help portal redesigned for better navigation and searchability"
+        "title": "Hindi Chat Agent with BharatGPT",
+        "type": "ai-development",
+        "demo": "https://youtube.com/shorts/hQR19TK41DI",
+        "technologies": ["BharatGPT", "Hindi NLP", "Chat Agent", "Indian AI"],
+        "description": "BharatGPT model-based chat agent that can interact in Hindi",
+        "year": 2025
+      }
+    ],
+    "podcasts": [
+      {
+        "title": "Conversation with Rahel Anne Bailie - Preparing Information Architecture for AI-Delivered Content",
+        "path": "/pages/Podcasts.html#conversation-rahel-bailie",
+        "date": "December 2025",
+        "duration": "60 min",
+        "guest": "Rahel Anne Bailie",
+        "topics": ["Information Architecture", "AI-Delivered Content", "Content Strategy", "Technical Writing"],
+        "description": "Dynamic conversation exploring challenges, key considerations, building blocks, and best practices for effective content delivery in AI-driven environments"
       },
       {
-        "title": "E-commerce Platform",
-        "type": "ux-design", 
-        "technologies": ["E-commerce UX", "Conversion Optimization", "User Research"],
-        "description": "User-centered design for online marketplace with focus on conversion optimization"
+        "title": "Conversation with Scott Abel - Documentation Success Metrics in the AI Age",
+        "path": "/pages/Podcasts.html#conversation-scott-abel",
+        "date": "December 2025",
+        "duration": "45 min",
+        "guest": "Scott Abel (The Content Wrangler)",
+        "topics": ["Technical Writing", "Documentation Success Metrics", "AI in Documentation", "Future of Tech Comm"],
+        "description": "Insightful conversation with globally recognized content strategist discussing documentation success metrics, AI for documentation, and the future of technical communication"
+      }
+    ],
+    "events": [
+      {
+        "title": "Pie & AI: Pune - Your Personal AI - Run Models Locally",
+        "date": "October 31, 2025",
+        "location": "Virtual Event",
+        "organization": "Pie & AI by DeepLearning.AI",
+        "topics": ["Open Source AI", "Small Language Models", "Local AI", "Ollama"],
+        "description": "Explore open-source and small language models that can be run locally and generate content competently"
+      },
+      {
+        "title": "Pie & AI: Pune - Content Generation with Open Source Models",
+        "date": "September 13, 2025",
+        "location": "Cafe Buddys Espresso Baner, Pune",
+        "organization": "Pie & AI by DeepLearning.AI",
+        "topics": ["Content Generation", "Open Source Models", "Text Generation", "Image Generation"],
+        "description": "Hands-on session exploring content generation using Open Source models for text, images, and code"
+      },
+      {
+        "title": "Pie & AI: Pune - Extracting and Structuring Information from Text",
+        "date": "September 28, 2025",
+        "location": "Pune, India",
+        "organization": "Pie & AI by DeepLearning.AI",
+        "topics": ["Information Extraction", "Text Mining", "Data Structuring", "Machine Learning"],
+        "description": "Interactive session on extracting and structuring information from unstructured text using AI"
+      },
+      {
+        "title": "Preparing Information Architecture for AI-Delivered Content",
+        "date": "December 22, 2025",
+        "location": "Virtual Event",
+        "organization": "Technical Writers and Information Architects Community",
+        "topics": ["Information Architecture", "AI Content", "Content Strategy"],
+        "description": "Virtual event with Rahel Anne Bailie on preparing IA for AI-delivered content"
+      },
+      {
+        "title": "Invent4Customers 2024",
+        "date": "August - November 2024",
+        "location": "SAP Labs India, Pune",
+        "organization": "SAP Labs India",
+        "topics": ["AI Innovation", "Hackathon", "Customer Innovation"],
+        "description": "3-month innovation program with AI quizzes, 24-hour hackathon, and build sessions with Asian Paints, Henkel, Google"
       }
     ]
   },
@@ -143,17 +306,18 @@
       "specialties": ["Error Message Design", "Workflow Documentation", "Technical Tutorials"]
     },
     "ai_development": {
-      "frameworks": ["CrewAI", "OpenAI APIs", "Computer Vision"],
+      "frameworks": ["Python", "n8n", "Claude Skills", "Gemini", "OpenAI APIs", "Computer Vision"],
       "specialties": ["Multi-agent Systems", "LLM Integration", "Workflow Automation"]
-    },
-    "ux_design": {
-      "tools": ["Figma", "User Research", "Wireframing", "Prototyping"],
-      "specialties": ["Interface Design", "Accessibility", "User Journey Mapping"]
-    },
+    },    
     "programming": {
       "languages": ["JavaScript", "TypeScript", "Python"],
       "frameworks": ["React", "n8n"],
       "tools": ["GitHub", "Jira Integration"]
+    },
+    "_disabled_ux_design": {
+      "note": "UX Design skills - currently disabled",
+      "tools": ["Figma", "User Research", "Wireframing", "Prototyping"],
+      "specialties": ["Interface Design", "Accessibility", "User Journey Mapping"]
     }
   },
   "keyThemes": [
