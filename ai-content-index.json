@@ -149,27 +149,7 @@
         "readTime": "3 min read",
         "topics": ["Indian AI", "Sarvam AI", "BharatGPT", "Native Language AI"],
         "description": "Insights from exploring Indian AI platforms like Sarvam AI and BharatGPT for native language capabilities"
-      },
-      {
-        "title": "Getting Started with CrewAI",
-        "path": "/blog/posts/getting-started-crewai.md",
-        "slug": "getting-started-crewai",
-        "date": "2025-01-15",
-        "category": "AI Development",
-        "readTime": "5 min read",
-        "topics": ["CrewAI", "Multi-agent Systems", "AI Framework", "Python"],
-        "description": "Comprehensive guide to setting up CrewAI for building multi-agent AI systems"
-      },
-      {
-        "title": "UX Design Principles for Beginners",
-        "path": "/blog/posts/ux-principles.md",
-        "slug": "ux-principles",
-        "date": "2024-12-28",
-        "category": "UX Design",
-        "readTime": "6 min read",
-        "topics": ["UX Design", "User Research", "Design Process", "Accessibility"],
-        "description": "Essential UX design principles every designer should know"
-      }
+      }      
     ],
     "projects": [
       {
@@ -315,7 +295,7 @@
       "tools": ["GitHub", "Jira Integration"]
     },
     "_disabled_ux_design": {
-      "note": "UX Design skills - currently disabled",
+      "note": "UX Design skills - currently hidden",
       "tools": ["Figma", "User Research", "Wireframing", "Prototyping"],
       "specialties": ["Interface Design", "Accessibility", "User Journey Mapping"]
     }
