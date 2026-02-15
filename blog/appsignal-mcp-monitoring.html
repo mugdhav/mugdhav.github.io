@@ -36,11 +36,54 @@
     <link rel="stylesheet" href="../assets/css/search-ui.css">
 
     <style>
+        /* Blog Header - Jazzy Theme */
+        .post-hero {
+            min-height: 30vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        .post-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            max-width: 900px;
+            padding: 0 2rem;
+        }
+
+        /* Calm Theme - Hide hero section */
+        [data-theme-style="calm"] .post-hero {
+            display: none;
+        }
+
+        /* Calm Theme - Show heading below header */
+        .post-page-title {
+            display: none;
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-top: 2rem;
+            color: var(--text-color);
+            font-size: 2rem;
+            font-weight: 600;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 5% 1rem 5%;
+        }
+
+        [data-theme-style="calm"] .post-page-title {
+            display: block;
+        }
+
         /* Blog Post Layout */
         .blog-container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 2rem 5%;
+            padding: 3rem 5%;
             display: grid;
             grid-template-columns: 250px 1fr;
             gap: 3rem;
@@ -122,25 +165,15 @@
             box-shadow: none;
         }
 
-        .blog-header {
-            margin-bottom: 2rem;
-            padding-bottom: 2rem;
-            border-bottom: 2px solid rgba(0,0,0,0.1);
-        }
-
-        .blog-header h1 {
-            color: var(--text-color);
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-
         .blog-meta {
             color: var(--secondary-text-color);
             font-size: 0.95rem;
             display: flex;
             gap: 1.5rem;
             flex-wrap: wrap;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid rgba(0,0,0,0.1);
         }
 
         .back-link {
@@ -332,6 +365,16 @@
         <!-- Header -->
         <div id="header-container"></div>
 
+        <!-- Hero Section (Jazzy Theme) -->
+        <section class="post-hero">
+            <div>
+                <h1>How I Added Performance Monitoring to My AI-Powered MCP Server with AppSignal</h1>
+            </div>
+        </section>
+
+        <!-- Page Title (Calm Theme) -->
+        <h1 class="post-page-title">How I Added Performance Monitoring to My AI-Powered MCP Server with AppSignal</h1>
+
         <!-- Blog Container -->
         <div class="blog-container">
             <!-- Left Navigation Pane -->
@@ -378,14 +421,11 @@
                 <a href="blog.html" class="back-link">← Back to Blog</a>
 
                 <article>
-                    <header class="blog-header">
-                        <h1>How I Added Performance Monitoring to My AI-Powered MCP Server with AppSignal</h1>
-                        <div class="blog-meta">
-                            <span>February 15, 2025</span>
-                            <span>AI Development</span>
-                            <span>10 min read</span>
-                        </div>
-                    </header>
+                    <div class="blog-meta">
+                        <span>📅 February 15, 2025</span>
+                        <span>💻 AI Development</span>
+                        <span>⏱️ 10 min read</span>
+                    </div>
 
                     <div class="article-content">
                         <p>An important step in building an enterprise-grade app is ensuring it can scale with reasonable performance to meet the demands of large user bases. This means measuring response times, tracking errors, and understanding where bottlenecks occur. These requirements make observability — and consequently application performance monitoring (APM) — essential for an application's success. Which is why I decided to implement APM in my <a href="https://mugdhav-mediasearchmcp.hf.space" target="_blank" rel="noopener noreferrer">Local Media Search MCP server</a>.</p>
