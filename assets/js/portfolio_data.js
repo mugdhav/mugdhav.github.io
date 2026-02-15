@@ -558,7 +558,7 @@ const portfolioData = {
             date: '2025-02-15',
             category: 'AI Development',
             readTime: '10 min read',
-            slug: 'final-appsignal-impl-blog',
+            url: 'https://github.com/mugdhav/mugdhav.github.io/blob/main/blog/posts/final_appsignal_impl_blog.md',
             featured: true
         },
         {
