@@ -242,7 +242,7 @@ The "Search Performance Metrics" dashboard displays four key gauges tracking sea
 
 I added an uptime monitor for the HF Space URL with checks from multiple global regions:
 
-![AppSignal Uptime Monitoring](../assets/images/blog/final-appsignal-impl-blog/UptimeMonitoring20260215_155405.png)
+![AppSignal Uptime Monitoring](../assets/images/blog/final-appsignal-impl-blog/UptimeMonitoring2026-02-15_15-54-05.png)
 
 The uptime monitor configuration includes:
 - **URL:** `https://mugdhav-mediasearchmcp.hf.space/`
@@ -312,7 +312,7 @@ The SigLIP text encoder (`indexer_search` at 32ms) is much faster and only contr
 
 ### Host Metrics
 
-![AppSignal Host Metrics - CPU and Memory](../assets/images/blog/final-appsignal-impl-blog/CPUnMemoryUsage20260215_154946.png)
+![AppSignal Host Metrics - CPU and Memory](../assets/images/blog/final-appsignal-impl-blog/CPUnMemoryUsage2026-02-15_15-49-46.png)
 
 The Host Metrics view shows what's happening at the infrastructure level:
 
