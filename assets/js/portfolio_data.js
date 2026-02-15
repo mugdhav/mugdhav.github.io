@@ -552,6 +552,16 @@ const portfolioData = {
     // Blog Posts Data
     blogs: [
         {
+            id: 'final-appsignal-impl-blog',
+            title: 'How I Added Performance Monitoring to My AI-Powered MCP Server with AppSignal',
+            excerpt: 'An important step in building an enterprise-grade app is ensuring it can scale with reasonable performance to meet the demands of large user bases. This post walks through integrating AppSignal APM with a Python MCP server to track performance, errors, and resource usage.',
+            date: '2025-02-15',
+            category: 'AI Development',
+            readTime: '10 min read',
+            slug: 'final-appsignal-impl-blog',
+            featured: true
+        },
+        {
             id: 'find-your-perfect-ai-agent',
             title: 'Find Your Perfect AI Agent: A Guide for Non-Tech Professionals',
             excerpt: 'This easy‑to‑follow guide helps professionals from non‑technical backgrounds understand what AI agents are, what those agents can do for them, and how to find the right agents for their needs.',
