@@ -82,7 +82,7 @@ function renderBlogPosts() {
     }
 
     const postsHTML = filteredPosts.map(post => {
-        const postUrl = post.url ? post.url : `post.html?slug=${post.slug}`;
+        const postUrl = post.url ? post.url : `${post.slug}.html`;
         const targetAttr = post.url ? ' target="_blank" rel="noopener noreferrer"' : '';
         return `
             <article class="blog-post" id="${post.id}">
@@ -135,7 +135,7 @@ function renderRecentPosts() {
     const recentPosts = blogPosts.slice(0, 5); // Get 5 most recent posts
 
     const recentHTML = recentPosts.map(post => {
-        const postUrl = post.url ? post.url : `post.html?slug=${post.slug}`;
+        const postUrl = post.url ? post.url : `${post.slug}.html`;
         const targetAttr = post.url ? ' target="_blank" rel="noopener noreferrer"' : '';
         return `
             <li>
