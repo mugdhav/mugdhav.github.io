@@ -318,6 +318,21 @@
             color: var(--text-color);
         }
 
+        /* SVG Icon Styles */
+        .blog-meta svg {
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 0.5rem;
+            width: 16px;
+            height: 16px;
+            color: var(--primary-color);
+        }
+
+        .blog-meta span {
+            display: inline-flex;
+            align-items: center;
+        }
+
         html {
             scroll-behavior: smooth;
         }
@@ -422,37 +437,49 @@
 
                 <article>
                     <div class="blog-meta">
-                        <span>📅 February 15, 2025</span>
-                        <span>💻 AI Development</span>
-                        <span>⏱️ 10 min read</span>
+                        <span>
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+                            </svg>
+                            February 16, 2025
+                        </span>
+                        <span>
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2zm9.5 3a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-1 0v-5a.5.5 0 0 1 .5-.5z"/>
+                            </svg>
+                            AI Development
+                        </span>
+                        <span>
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+                            </svg>
+                            12 min read
+                        </span>
                     </div>
 
                     <div class="article-content">
-                        <p>An important step in building an enterprise-grade app is ensuring it can scale with reasonable performance to meet the demands of large user bases. This means measuring response times, tracking errors, and understanding where bottlenecks occur. These requirements make observability — and consequently application performance monitoring (APM) — essential for an application's success. Which is why I decided to implement APM in my <a href="https://mugdhav-mediasearchmcp.hf.space" target="_blank" rel="noopener noreferrer">Local Media Search MCP server</a>.</p>
+                        <p>Scaling an enterprise-grade app requires more than shipping features. It depends on clear visibility into performance. For my <a href="https://mugdhav-mediasearchmcp.hf.space" target="_blank" rel="noopener noreferrer">Local Media Search MCP server</a>, that meant adding real application performance monitoring (APM) instead of relying only on container logs from the <a href="https://huggingface.co/spaces" target="_blank" rel="noopener noreferrer">Hugging Face Space</a> where the server is deployed.</p>
 
-                        <p>The Local Media Search <a href="https://modelcontextprotocol.io/" target="_blank" rel="noopener noreferrer">MCP</a> server uses <a href="https://huggingface.co/docs/transformers/model_doc/siglip" target="_blank" rel="noopener noreferrer">SigLIP</a>, a local vision-language model, to index and search photos and videos using natural language. Every search query involves encoding text into a vector with SigLIP, querying a <a href="https://github.com/facebookresearch/faiss" target="_blank" rel="noopener noreferrer">FAISS</a> index, and returning ranked results. Every indexing operation means loading images, extracting video frames, and computing embeddings for each file. These are CPU-intensive operations, especially on the free-tier <a href="https://huggingface.co/spaces" target="_blank" rel="noopener noreferrer">Hugging Face Space</a> where the server is deployed.</p>
+                        <p>The <a href="https://modelcontextprotocol.io/" target="_blank" rel="noopener noreferrer">MCP</a> server is a Python and <a href="https://www.gradio.app/" target="_blank" rel="noopener noreferrer">Gradio</a> application that uses <a href="https://huggingface.co/docs/transformers/model_doc/siglip" target="_blank" rel="noopener noreferrer">SigLIP</a> to encode text queries, search a <a href="https://github.com/facebookresearch/faiss" target="_blank" rel="noopener noreferrer">FAISS</a> index, and generate embeddings for images and video frames during indexing. These CPU-intensive steps push the limits of a free-tier Hugging Face Space. While the container logs provide detailed event-level output, monitoring the MCP server requires additional structured metrics and historical performance data.</p>
 
-                        <p>While the container logs of the Hugging Face Space provide detailed event-level output, the MCP server requires additional performance monitoring with structured metrics, historical trends, and alerting that plain logs don't offer. To meet this requirement, I integrated <a href="https://www.appsignal.com/" target="_blank" rel="noopener noreferrer">AppSignal</a> with the Local Media Search MCP server.</p>
-
-                        <p>This post walks through why I chose AppSignal, how I added instrumentation to the server, and what insights I'm now getting from the dashboard.</p>
+                        <p>To get that level of observability, I integrated <a href="https://www.appsignal.com/" target="_blank" rel="noopener noreferrer">AppSignal</a> with the MCP server. This post explains why I chose AppSignal, how I instrumented the server to send the performance data to AppSignal, and the performance insights now available through AppSignal dashboards.</p>
 
                         <h2 id="why-appsignal">Why AppSignal?</h2>
 
                         <p>When evaluating APM tools, I had specific requirements for this project:</p>
 
-                        <p><strong>Python + OpenTelemetry support</strong> - My server uses <a href="https://www.gradio.app/" target="_blank" rel="noopener noreferrer">Gradio</a> (built on <a href="https://www.starlette.io/" target="_blank" rel="noopener noreferrer">Starlette</a>/<a href="https://fastapi.tiangolo.com/" target="_blank" rel="noopener noreferrer">FastAPI</a>), and I wanted tracing that understood async Python. AppSignal's Python SDK is built on <a href="https://opentelemetry.io/" target="_blank" rel="noopener noreferrer">OpenTelemetry</a>, which meant I could use standard OpenTelemetry instrumentation libraries alongside AppSignal's helper functions.</p>
-
-                        <p><strong>Custom metrics without infrastructure overhead</strong> - AppSignal's <code>set_gauge()</code> and <code>increment_counter()</code> helpers let me track custom metrics with just a function call. No need to run a separate metrics server or additional services to deploy.</p>
-
-                        <p><strong>Error tracking with context</strong> - When SigLIP inference fails or a file becomes inaccessible, I needed the stack trace <em>plus</em> the context of what operation was running. AppSignal's <code>send_error()</code> captures both.</p>
-
-                        <p><strong>Anomaly detection and alerting</strong> - I wanted to know when search latency spikes above normal — not just see it in a graph later. AppSignal's trigger system lets me set thresholds and get notified.</p>
-
-                        <p><strong>Uptime monitoring included</strong> - Since the HF Space can go to sleep, I needed uptime checks. AppSignal includes this in the same dashboard, so I don't need yet another monitoring service.</p>
+                        <ul>
+                            <li><strong>Python + OpenTelemetry support:</strong> AppSignal's Python SDK is built on <a href="https://opentelemetry.io/" target="_blank" rel="noopener noreferrer">OpenTelemetry</a>, allowing standard OpenTelemetry instrumentation libraries to work alongside AppSignal's helper functions. These libraries and helper functions could be easily added to the MCP server's async Python logic.</li>
+                            <li><strong>Custom metrics without infrastructure overhead:</strong> AppSignal's <code>set_gauge()</code> and <code>increment_counter()</code> helpers let me track custom metrics with just a function call. No need to run a separate metrics server or additional services to deploy.</li>
+                            <li><strong>Error tracking with context:</strong> When SigLIP inference fails or a file becomes inaccessible, I needed the stack trace <em>plus</em> the context of what operation was running. AppSignal's <code>send_error()</code> captures both.</li>
+                            <li><strong>Anomaly detection and alerting:</strong> I wanted to know when search latency spikes above normal, not just see it in a graph later. AppSignal's trigger system lets me set thresholds and get notified.</li>
+                            <li><strong>Uptime monitoring included:</strong> Since the Hugging Face Space can go to sleep, I needed uptime checks. AppSignal includes this in the same dashboard, so I don't need yet another monitoring service.</li>
+                        </ul>
 
                         <h2 id="instrumentation">The Instrumentation</h2>
 
-                        <p>The MCP server requires instrumentation — that is, adding code that gathers app performance data to send to AppSignal. This touched three files: <code>requirements.txt</code>, <code>app.py</code>, and <code>ai_indexer.py</code>.</p>
+                        <p>The MCP server requires instrumentation, that is, adding code that gathers app performance data to send to AppSignal. This touched three files: <code>requirements.txt</code>, <code>app.py</code>, and <code>ai_indexer.py</code>.</p>
 
                         <h3 id="dependencies">Dependencies</h3>
 
@@ -464,7 +491,7 @@ opentelemetry-instrumentation-starlette</code></pre>
 
                         <h3 id="configuration">Configuration</h3>
 
-                        <p>I chose inline configuration over the <code>__appsignal__.py</code> file approach (<a href="#bug-config-autodiscovery">see why</a>). On Hugging Face Spaces, auto-discovery of config files was unreliable, and inline configuration made debugging easier:</p>
+                        <p>I chose inline configuration over the <code>__appsignal__.py</code> file approach (see <a href="#bug-fixes">Bug Fixes</a>). On Hugging Face Spaces, auto-discovery of config files was unreliable, and inline configuration made debugging easier:</p>
 
                         <pre><code># app.py
 from appsignal import Appsignal, set_category, send_error, set_gauge, increment_counter
@@ -484,22 +511,22 @@ appsignal_client = Appsignal(
 )
 appsignal_client.start()</code></pre>
 
-                        <p>The <code>enable_host_metrics=True</code> flag tells AppSignal to collect CPU, memory, and disk usage from the container — useful for spotting when the free-tier Space is running out of resources. Note that <code>load_dotenv()</code> must run before <code>Appsignal()</code> is initialized (<a href="#bug-init-order">see why</a>).</p>
+                        <p>The <code>enable_host_metrics=True</code> flag tells AppSignal to collect CPU, memory, and disk usage from the container. This is useful for spotting when the free-tier Space is running out of resources. Note that <code>load_dotenv()</code> must run before <code>Appsignal()</code> is initialized (see <a href="#bug-fixes">Bug Fixes</a>).</p>
 
-                        <p>After creating the Gradio app, I instrument it:</p>
+                        <p>I also instrumented Gradio's internal FastAPI app to capture HTTP requests:</p>
 
                         <pre><code># Apply Starlette instrumentation to Gradio's internal FastAPI app
 StarletteInstrumentor().instrument_app(demo.app)</code></pre>
 
                         <p>For Hugging Face Spaces, I set two secrets in the Space settings:</p>
                         <ul>
-                            <li><code>APPSIGNAL_PUSH_API_KEY</code> — the API key from AppSignal</li>
-                            <li><code>APPSIGNAL_APP_ENV</code> — set to <code>production</code></li>
+                            <li><code>APPSIGNAL_PUSH_API_KEY</code>: the API key from AppSignal</li>
+                            <li><code>APPSIGNAL_APP_ENV</code>: set to <code>production</code></li>
                         </ul>
 
-                        <h3 id="custom-spans-mcp">Custom Spans for MCP Tools</h3>
+                        <h3 id="custom-spans-mcp">Custom OpenTelemetry Spans for MCP Tools</h3>
 
-                        <p>Each MCP tool function gets its own OpenTelemetry span with relevant attributes. Here's the pattern I used for <code>semantic_search</code>:</p>
+                        <p>I instrumented every MCP tool to have its own OpenTelemetry span, a self-contained record of every operation of that tool, including relevant attributes of timing, metadata, and relationship with other operations in the same trace. Here's the pattern I used for <code>semantic_search</code>:</p>
 
                         <pre><code>tracer = trace.get_tracer(__name__)
 
@@ -537,7 +564,7 @@ async def semantic_search(query: str, media_type: str = "all", top_k: int = 5):
             send_error(e)
             raise</code></pre>
 
-                        <p>The <code>set_category()</code> call is AppSignal-specific — it groups spans in the dashboard so I can see all <code>mcp_tool.*</code> operations together.</p>
+                        <p>The <code>set_category()</code> call is AppSignal-specific. It groups spans in the dashboard so I can see all <code>mcp_tool.*</code> operations together.</p>
 
                         <p>I applied the same pattern to all four MCP tools:</p>
 
@@ -568,9 +595,9 @@ async def semantic_search(query: str, media_type: str = "all", top_k: int = 5):
                             </tbody>
                         </table>
 
-                        <h3 id="custom-spans-indexer">Custom Spans in the AI Indexer</h3>
+                        <h3 id="custom-spans-indexer">Custom OpenTelemetry Spans for the AI Indexer</h3>
 
-                        <p>The core AI operations in <code>ai_indexer.py</code> also got instrumented:</p>
+                        <p>I also instrumented the core AI operations in <code>ai_indexer.py</code> with their own OpenTelemetry spans. Here's the instrumentation for the <code>search</code> operation:</p>
 
                         <pre><code># ai_indexer.py
 from opentelemetry import trace
@@ -630,22 +657,22 @@ except Exception as e:
 
                         <p><strong>Gauges</strong> (point-in-time values):</p>
                         <ul>
-                            <li><code>semantic_search.duration_ms</code> — end-to-end search latency</li>
-                            <li><code>semantic_search.result_count</code> — results returned per search</li>
-                            <li><code>semantic_search.top_similarity</code> — highest similarity score</li>
-                            <li><code>semantic_search.avg_similarity</code> — average similarity across results</li>
-                            <li><code>reindex.duration_ms</code> — full reindex time</li>
-                            <li><code>reindex.file_count</code> — files after reindex</li>
-                            <li><code>index.total_files</code>, <code>index.images</code>, <code>index.videos</code> — current index stats</li>
+                            <li><code>semantic_search.duration_ms</code>: end-to-end search latency</li>
+                            <li><code>semantic_search.result_count</code>: results returned per search</li>
+                            <li><code>semantic_search.top_similarity</code>: highest similarity score</li>
+                            <li><code>semantic_search.avg_similarity</code>: average similarity across results</li>
+                            <li><code>reindex.duration_ms</code>: full reindex time</li>
+                            <li><code>reindex.file_count</code>: files after reindex</li>
+                            <li><code>index.total_files</code>, <code>index.images</code>, <code>index.videos</code>: current index stats</li>
                         </ul>
 
                         <p><strong>Counters</strong> (cumulative events):</p>
                         <ul>
-                            <li><code>semantic_search.calls</code> — total searches</li>
-                            <li><code>semantic_search.zero_results</code> — searches with no matches</li>
-                            <li><code>semantic_search.errors</code> — failed searches</li>
-                            <li><code>reindex.calls</code>, <code>reindex.errors</code> — reindex operations</li>
-                            <li><code>get_index_stats.calls</code> — stats queries</li>
+                            <li><code>semantic_search.calls</code>: total searches</li>
+                            <li><code>semantic_search.zero_results</code>: searches with no matches</li>
+                            <li><code>semantic_search.errors</code>: failed searches</li>
+                            <li><code>reindex.calls</code>, <code>reindex.errors</code>: reindex operations</li>
+                            <li><code>get_index_stats.calls</code>: stats queries</li>
                         </ul>
 
                         <h2 id="dashboard-config">Configuring AppSignal Dashboard</h2>
@@ -654,28 +681,28 @@ except Exception as e:
 
                         <h3 id="custom-dashboard">Custom Metrics Dashboard</h3>
 
-                        <p>To visualize the <code>semantic_search.duration_ms</code> gauge over time, I created a custom dashboard using AppSignal's Graph Builder:</p>
+                        <p>I added a custom dashboard in AppSignal, and configured in it custom metrics reported by the MCP server.</p>
 
-                        <img src="../assets/images/blog/final-appsignal-impl-blog/CustomDashboardCustomMetricSetup.png" alt="AppSignal Graph Builder - Custom Metric Setup">
+                        <img src="../assets/images/blog/final-appsignal-impl-blog/CustomDashboardSemanticSearch_updated.png" alt="AppSignal Custom Dashboard - Search Performance Metrics">
 
-                        <p>The Graph Builder lets you configure:</p>
+                        <p>For example, to visualize the <code>semantic_search.duration_ms</code> gauge over time, I configured the following custom metric:</p>
                         <ul>
                             <li><strong>Chart title:</strong> "Semantic Search Duration"</li>
                             <li><strong>Metrics:</strong> Select the <code>semantic_search.duration_ms</code> gauge</li>
                             <li><strong>Graph display:</strong> Line graph works best for time-series latency data</li>
                             <li><strong>Data format:</strong> Duration (displays values in milliseconds/seconds)</li>
-                            <li><strong>NULL values:</strong> "Draw NULL as 0" or "Repeat last known value"</li>
+                            <li><strong>NULL values:</strong> "Draw NULL as 0"</li>
                         </ul>
 
-                        <p>The chart preview on the right shows real-time data as per the configured graph. Once saved, the graph appears on the custom dashboard:</p>
+                        <img src="../assets/images/blog/final-appsignal-impl-blog/CustomDashboardCustomMetricSetup.png" alt="AppSignal Graph Builder - Custom Metric Setup">
 
-                        <img src="../assets/images/blog/final-appsignal-impl-blog/CustomDashboardSemanticSearch_updated.png" alt="AppSignal Custom Dashboard - Search Performance Metrics">
+                        <p>The chart preview on the right shows real-time data as per the configured graph.</p>
 
-                        <p>The "Search Performance Metrics" dashboard displays four key gauges tracking search performance over time: <strong>Semantic Search Duration</strong> (latency spikes up to 60ms), <strong>Semantic Search Similarity</strong> (result quality scores), <strong>Semantic Search Results</strong> (number of results returned per query), and <strong>Reindex Duration</strong> (time spent on reindex operations). The latency spikes around 17:00 correlate with cold starts after the HF Space wakes from sleep.</p>
+                        <p>The "Search Performance Metrics" dashboard displays four key gauges tracking search performance over time: <strong>Semantic Search Duration</strong> (latency spikes up to 60ms), <strong>Semantic Search Similarity</strong> (result quality scores), <strong>Semantic Search Results</strong> (number of results returned per query), and <strong>Reindex Duration</strong> (time spent on reindex operations). The latency spikes around 17:00 correlate with cold starts after the Hugging Face Space wakes from sleep.</p>
 
                         <h3 id="uptime-monitoring">Uptime Monitoring</h3>
 
-                        <p>I added an uptime monitor for the HF Space URL with checks from multiple global regions:</p>
+                        <p>I added an uptime monitor for the Hugging Face Space URL with checks from multiple global regions:</p>
 
                         <img src="../assets/images/blog/final-appsignal-impl-blog/UptimeMonitoring2026-02-15_15-54-05.png" alt="AppSignal Uptime Monitoring">
 
@@ -687,7 +714,7 @@ except Exception as e:
                             <li><strong>Notifiers:</strong> Default email notifier</li>
                         </ul>
 
-                        <p>The response time graph shows latency from each region — North America at 120ms is fastest (closest to HF's infrastructure), while Europe sees 822ms. This helps identify if performance issues are region-specific or global.</p>
+                        <p>The response time graph shows latency from each region. North America at 120ms is fastest (closest to Hugging Face's infrastructure), while Europe sees 822ms. This helps identify if performance issues are region-specific or global.</p>
 
                         <h3 id="anomaly-detection">Anomaly Detection Triggers</h3>
 
@@ -704,13 +731,13 @@ except Exception as e:
 
                         <img src="../assets/images/blog/final-appsignal-impl-blog/AnomalyIssueListPerformance.png" alt="AppSignal Anomaly Detection - Performance Alerts">
 
-                        <p>The Anomaly Detection view shows triggered alerts with their peak values. You can see several occurrences where <code>transaction_duration</code> exceeded the threshold — peak values of 56.5 seconds and 44.37 seconds correspond exactly to the <code>index_local_directory</code> and <code>reindex_media</code> operations I saw in the Actions view. The trigger configuration panel on the right shows the condition (&gt; 200ms) and notifier settings. Each occurrence is tracked with start/end times, making it easy to correlate with specific user actions or scheduled tasks.</p>
+                        <p>The Anomaly Detection view shows triggered alerts with their peak values. You can see several occurrences where <code>transaction_duration</code> exceeded the threshold. Peak values of 56.5 seconds and 44.37 seconds correspond exactly to the <code>index_local_directory</code> and <code>reindex_media</code> operations I saw in the Actions view. The trigger configuration panel on the right shows the condition (&gt; 200ms) and notifier settings. Each occurrence is tracked with start/end times, making it easy to correlate with specific user actions or scheduled tasks.</p>
 
                         <h3 id="notification-setup">Notification Setup</h3>
 
                         <p>In App settings → Notifications, I configured:</p>
                         <ul>
-                            <li><strong>Error alerts:</strong> "First after close" — notifies on new errors, not every occurrence</li>
+                            <li><strong>Error alerts:</strong> "First after close" notifies on new errors, not every occurrence</li>
                             <li><strong>Anomaly alerts:</strong> Enabled for the slow search trigger</li>
                         </ul>
 
@@ -767,7 +794,7 @@ except Exception as e:
                             </tbody>
                         </table>
 
-                        <p><strong>Key insight:</strong> <code>semantic_search</code> averages 359ms with the 90th percentile at 432ms — a 20% variance that suggests some queries hit edge cases. The metadata operations (<code>get_media_details</code>, <code>get_index_stats</code>) are lightning fast at under 2ms, which is expected since they're just dictionary lookups.</p>
+                        <p><strong>Key insight:</strong> <code>semantic_search</code> averages 359ms with the 90th percentile at 432ms, a 20% variance that suggests some queries hit edge cases. The metadata operations (<code>get_media_details</code>, <code>get_index_stats</code>) are lightning fast at under 2ms, which is expected since they're just dictionary lookups.</p>
 
                         <p>The indexing operations (<code>reindex_media</code> at 44.37 seconds, <code>index_local_directory</code> at 56.5 seconds) are the heavy hitters. Now I have baselines to track optimization efforts.</p>
 
@@ -802,20 +829,20 @@ except Exception as e:
                             </tbody>
                         </table>
 
-                        <p><strong>This is the smoking gun.</strong> <code>get_image_embedding</code> accounts for 99.47% of slow event impact. It's called 143 times (once per indexed image during reindex) at 372ms each — that's where the 56-second <code>index_local_directory</code> time comes from.</p>
+                        <p><strong>Key insight:</strong> <code>get_image_embedding</code> accounts for 99.47% of slow event impact. It's called 143 times (once per indexed image during reindex) at 372ms each. That's where the 56-second <code>index_local_directory</code> time comes from.</p>
 
                         <p>The SigLIP text encoder (<code>indexer_search</code> at 32ms) is much faster and only contributes 0.53% of the impact despite being called 9 times.</p>
 
                         <h3 id="host-metrics">Host Metrics</h3>
 
-                        <img src="../assets/images/blog/final-appsignal-impl-blog/CPUnMemoryUsage2026-02-15_15-49-46.png" alt="AppSignal Host Metrics - CPU and Memory">
+                        <img src="../assets/images/blog/final-appsignal-impl-blog/CPUnMemoryUsage20260215_154946.png" alt="AppSignal Host Metrics - CPU and Memory">
 
                         <p>The Host Metrics view shows what's happening at the infrastructure level:</p>
 
                         <ul>
                             <li><strong>Load average:</strong> Spikes up to 30+ during reindexing operations, indicating CPU contention</li>
                             <li><strong>CPU usage:</strong> Generally low (under 5%) but spikes to 60%+ during model inference</li>
-                            <li><strong>Memory usage:</strong> Stable around 14.65 GB — the SigLIP model holds ~150MB in memory, and the rest is the HF Space's base allocation</li>
+                            <li><strong>Memory usage:</strong> Stable around 14.65 GB. The SigLIP model holds ~150MB in memory, and the rest is the Hugging Face Space's base allocation</li>
                         </ul>
 
                         <p>The correlation is clear: load average spikes (13:30, 14:30) align with reindex operations. This confirms the bottleneck is CPU-bound model inference, not memory or I/O.</p>
@@ -826,7 +853,7 @@ except Exception as e:
 
                         <img src="../assets/images/blog/final-appsignal-impl-blog/ErrorSummary.png" alt="AppSignal Error Summary - FileNotFoundError Details">
 
-                        <p>The error detail view shows exactly what the blog promised — context alongside the stack trace:</p>
+                        <p>The error detail view shows exactly what the blog promised: context alongside the stack trace:</p>
                         <ul>
                             <li><strong>Error message:</strong> "File not found: WhatsApp Image 2025-09-13 at 16.01.58_833321f0.jpg"</li>
                             <li><strong>Parameters:</strong> The <code>source</code> field shows it came from <code>get_media_details</code>, and <code>file_path</code> shows which file was missing</li>
@@ -838,25 +865,35 @@ except Exception as e:
 
                         <img src="../assets/images/blog/final-appsignal-impl-blog/error_count.png" alt="AppSignal Error Charts - Error Count Over Time">
 
-                        <p>Two distinct spikes are visible — one around 16:15-16:20 and another at 17:00. This pattern suggests the errors aren't random; they correlate with specific user sessions or test runs. Without this visibility, I'd be guessing at whether file access errors were increasing or just occasional glitches.</p>
+                        <p>Two distinct spikes are visible, one around 16:15-16:20 and another at 17:00. This pattern suggests the errors aren't random; they correlate with specific user sessions or test runs. Without this visibility, I'd be guessing at whether file access errors were increasing or just occasional glitches.</p>
 
                         <h3 id="actionable-insights">Actionable Insights</h3>
 
                         <p>From this data, I can prioritize optimizations:</p>
 
                         <ol>
-                            <li><strong>Batch image embeddings.</strong> Instead of calling <code>get_image_embedding</code> 143 times individually, I should batch them. SigLIP supports batch inference, and reducing Python loop overhead could cut reindex time significantly.</li>
-                            <li><strong>Cache text embeddings.</strong> The <code>indexer_search</code> time includes encoding the search query. For repeated queries, I could cache the text embedding.</li>
-                            <li><strong>Monitor similarity score trends.</strong> The <code>semantic_search.avg_similarity</code> gauge will show if search quality degrades as the index grows.</li>
+                            <li><strong>Batch image embeddings:</strong> Instead of calling <code>get_image_embedding</code> 143 times individually, I should batch them. SigLIP supports batch inference, and reducing Python loop overhead could cut reindex time significantly.</li>
+                            <li><strong>Cache text embeddings:</strong> The <code>indexer_search</code> time includes encoding the search query. For repeated queries, I could cache the text embedding.</li>
+                            <li><strong>Monitor similarity score trends:</strong> The <code>semantic_search.avg_similarity</code> gauge will show if search quality degrades as the index grows.</li>
                         </ol>
 
                         <h2 id="bug-fixes">Bug Fixes During Instrumentation</h2>
 
-                        <p>The process wasn't entirely smooth. Two issues came up:</p>
+                        <p>Here are a few bugs I encountered during the instrumentation, and how I fixed them:</p>
+
+                        <h3>Initialization Order</h3>
+
+                        <p>A subtle bug: <code>load_dotenv()</code> must run <em>before</em> <code>Appsignal()</code> is initialized. Otherwise, environment variables from <code>.env</code> aren't available for local development. Small detail, silent failure.</p>
+
+                        <h3>Configuration Auto-Discovery</h3>
+
+                        <p>My initial setup used <code>__appsignal__.py</code> with the standard <code>appsignal.start()</code> pattern. AppSignal started but wasn't sending data. The issue: the <code>active</code> option defaults to <code>false</code>, and if auto-discovery silently fails, nothing gets reported.</p>
+
+                        <p>The fix was inline configuration with explicit <code>os.getenv()</code> reads, removing the auto-discovery dependency.</p>
 
                         <h3>BaseModelOutputWithPooling</h3>
 
-                        <p>Newer versions of the <a href="https://huggingface.co/docs/transformers" target="_blank" rel="noopener noreferrer">transformers</a> library return a <code>BaseModelOutputWithPooling</code> object from <code>get_image_features()</code> instead of a raw tensor. This broke embedding normalization:</p>
+                        <p>Newer versions of the <a href="https://huggingface.co/docs/transformers" target="_blank" rel="noopener noreferrer"><code>transformers</code></a> library return a <code>BaseModelOutputWithPooling</code> object from <code>get_image_features()</code> instead of a raw tensor. This broke embedding normalization:</p>
 
                         <pre><code># Before (broke on newer transformers)
 image_features = self.model.get_image_features(**inputs)
@@ -868,17 +905,7 @@ if not isinstance(image_features, torch.Tensor):
     image_features = image_features.pooler_output
 image_features = image_features / image_features.norm(dim=-1, keepdim=True)</code></pre>
 
-                        <p>AppSignal would have caught this error in production with a full stack trace — which is exactly why I added error tracking before deploying.</p>
-
-                        <h3 id="bug-config-autodiscovery">Configuration Auto-Discovery</h3>
-
-                        <p>My initial setup used <code>__appsignal__.py</code> with the standard <code>appsignal.start()</code> pattern. AppSignal started but wasn't sending data. The issue: the <code>active</code> option defaults to <code>false</code>, and if auto-discovery silently fails, nothing gets reported.</p>
-
-                        <p>The fix was inline configuration with explicit <code>os.getenv()</code> reads — no auto-discovery dependency.</p>
-
-                        <h3 id="bug-init-order">Initialization Order</h3>
-
-                        <p>A subtle bug: <code>load_dotenv()</code> must run <em>before</em> <code>Appsignal()</code> is initialized. Otherwise, environment variables from <code>.env</code> aren't available for local development. Small detail, silent failure.</p>
+                        <p>AppSignal would have caught this error in production with a full stack trace, which is exactly why I added error tracking before deploying.</p>
 
                         <h2 id="whats-next">What's Next</h2>
 
@@ -887,10 +914,10 @@ image_features = image_features / image_features.norm(dim=-1, keepdim=True)</cod
                         <ol>
                             <li><strong>Add a custom dashboard</strong> for search quality metrics (similarity scores over time)</li>
                             <li><strong>Set up anomaly detection</strong> on <code>index.total_files</code> to catch if the index silently loses data</li>
-                            <li><strong>Track model load time</strong> as a separate gauge to monitor cold starts on the HF Space</li>
+                            <li><strong>Track model load time</strong> as a separate gauge to monitor cold starts on the Hugging Face Space</li>
                         </ol>
 
-                        <p>The server is live at <a href="https://mugdhav-mediasearchmcp.hf.space" target="_blank" rel="noopener noreferrer">mugdhav-mediasearchmcp.hf.space</a> — and now I can actually see what's happening under the hood.</p>
+                        <p>The server is live at <a href="https://mugdhav-mediasearchmcp.hf.space" target="_blank" rel="noopener noreferrer">mugdhav-mediasearchmcp.hf.space</a>, and now I can actually see what's happening under the hood.</p>
 
                         <hr>
 
