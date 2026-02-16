@@ -1,4 +1,4 @@
-# How I Added Performance Monitoring to My AI-Powered MCP Server with AppSignal
+# How I Added Performance Monitoring to My MCP Server with AppSignal
 
 Scaling an enterprise-grade app requires more than shipping features. It depends on clear visibility into performance. For my [Local Media Search MCP server](https://mugdhav-mediasearchmcp.hf.space), that meant adding real application performance monitoring (APM) instead of relying only on container logs from the [Hugging Face Space](https://huggingface.co/spaces) where the server is deployed.
 
