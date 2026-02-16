@@ -214,7 +214,7 @@ With data flowing in, I configured the AppSignal side to make it actionable.
 
 I added a custom dashboard in AppSignal, and configured in it custom metrics reported by the MCP server.
 
-![AppSignal Custom Dashboard - Search Performance Metrics](CustomDashboardSemanticSearch_updated.png)
+![AppSignal custom dashboard titled 'Search Performance Metrics' displaying four line-graph panels arranged in a 2x2 grid: Semantic Search Duration showing latency spikes up to 60ms over time, Semantic Search Similarity tracking result quality scores, Semantic Search Results displaying the number of results returned per query, and Reindex Duration showing time spent on reindex operations. The graphs reveal latency spikes around 17:00 correlating with cold starts after the Hugging Face Space wakes from sleep.](CustomDashboardSemanticSearch_updated.png)
 
 For example, to visualize the `semantic_search.duration_ms` gauge over time, I configured the following custom metric:
 - **Chart title:** "Semantic Search Duration"
@@ -223,7 +223,7 @@ For example, to visualize the `semantic_search.duration_ms` gauge over time, I c
 - **Data format:** Duration (displays values in milliseconds/seconds)
 - **NULL values:** "Draw NULL as 0"
 
-![AppSignal Graph Builder - Custom Metric Setup](CustomDashboardCustomMetricSetup.png)
+![AppSignal Graph Builder configuration interface showing the setup panel on the left with options for chart title 'Semantic Search Duration', metrics dropdown selecting 'semantic_search.duration_ms' gauge, graph display type set to line graph for time-series data, data format as Duration in milliseconds/seconds, and NULL value handling option set to 'Draw NULL as 0'. The right side displays a real-time preview of the configured line graph with the actual metric data.](CustomDashboardCustomMetricSetup.png)
 
 The chart preview on the right shows real-time data as per the configured graph.
 
@@ -233,7 +233,7 @@ The "Search Performance Metrics" dashboard displays four key gauges tracking sea
 
 I added an uptime monitor for the Hugging Face Space URL with checks from multiple global regions:
 
-![AppSignal Uptime Monitoring](UptimeMonitoring20260215_155405.png)
+![AppSignal Uptime Monitoring dashboard showing the monitored URL 'https://mugdhav-mediasearchmcp.hf.space/' with check configuration including regions (Europe, Asia-Pacific, North America, South America), 2-minute warm-up period, and default email notifier. Below displays a response time graph with four colored lines representing each region, where North America shows the fastest latency at 120ms (closest to Hugging Face infrastructure), while Europe shows 822ms, helping identify region-specific versus global performance issues.](UptimeMonitoring20260215_155405.png)
 
 The uptime monitor configuration includes:
 - **URL:** `https://mugdhav-mediasearchmcp.hf.space/`
@@ -254,7 +254,7 @@ This catches sustained performance degradation without alert fatigue from one-of
 
 Here's what it looks like when anomalies are detected:
 
-![AppSignal Anomaly Detection - Performance Alerts](AnomalyIssueListPerformance.png)
+![AppSignal Anomaly Detection Issue List displaying triggered performance alerts with a table showing multiple occurrences where transaction_duration exceeded the threshold. Peak values of 56.5 seconds and 44.37 seconds are highlighted, corresponding to index_local_directory and reindex_media operations. The right panel shows trigger configuration with condition set to greater than 200ms and notifier settings. Each occurrence row includes start/end timestamps for correlating with specific user actions or scheduled tasks.](AnomalyIssueListPerformance.png)
 
 The Anomaly Detection view shows triggered alerts with their peak values. You can see several occurrences where `transaction_duration` exceeded the threshold. Peak values of 56.5 seconds and 44.37 seconds correspond exactly to the `index_local_directory` and `reindex_media` operations I saw in the Actions view. The trigger configuration panel on the right shows the condition (> 200ms) and notifier settings. Each occurrence is tracked with start/end times, making it easy to correlate with specific user actions or scheduled tasks.
 
@@ -270,7 +270,7 @@ Here's where it gets interesting. The AppSignal dashboard revealed performance p
 
 ### The Actions View
 
-![AppSignal Actions Dashboard](AppSignalPerformanceActions.png)
+![AppSignal Performance Actions view presenting a data table with five instrumented operations and their performance metrics. Columns show Action name, Mean response time, 90th Percentile, and Throughput. Notable entries include: get_media_details at 0ms (100µs at 90th percentile), get_index_stats at 1ms, semantic_search averaging 359ms with 90th percentile at 432ms indicating a 20% variance from edge cases, and the heavy operations index_local_directory at 56.5 seconds and reindex_media at 44.37 seconds, establishing baselines for tracking optimization efforts.](AppSignalPerformanceActions.png)
 
 The Actions view shows all my instrumented operations with mean response times and throughput:
 
@@ -288,7 +288,7 @@ The indexing operations (`reindex_media` at 44.37 seconds, `index_local_director
 
 ### The Slow Events View
 
-![AppSignal Slow Events Dashboard](AppSignalPerformanceSlowEvents.png)
+![AppSignal Slow Events view displaying a performance analysis table showing specific operations consuming the most time. The table has columns for Event name, Mean time, Throughput, and Impact percentage. The critical finding highlighted: get_image_embedding operation averaging 372ms called 143 times accounts for 99.47% of slow event impact, while indexer_search at 32ms called 9 times contributes only 0.53% impact. This identifies the SigLIP image encoding as the primary bottleneck in the 56-second index_local_directory operation.](AppSignalPerformanceSlowEvents.png)
 
 The Slow Events view surfaces the *specific operations* consuming the most time:
 
@@ -303,7 +303,7 @@ The SigLIP text encoder (`indexer_search` at 32ms) is much faster and only contr
 
 ### Host Metrics
 
-![AppSignal Host Metrics - CPU and Memory](CPUnMemoryUsage20260215_154946.png)
+![AppSignal Host Metrics dashboard showing three time-series graphs for infrastructure monitoring: Load average spiking up to 30+ during reindexing operations indicating CPU contention with notable spikes at 13:30 and 14:30 aligning with reindex operations, CPU usage generally remaining under 5% but spiking to 60%+ during model inference, and Memory usage staying stable around 14.65 GB where the SigLIP model holds approximately 150MB with the rest being Hugging Face Space base allocation. The correlation confirms the bottleneck is CPU-bound model inference rather than memory or I/O.](CPUnMemoryUsage20260215_154946.png)
 
 The Host Metrics view shows what's happening at the infrastructure level:
 
@@ -317,9 +317,9 @@ The correlation is clear: load average spikes (13:30, 14:30) align with reindex 
 
 The error tracking I implemented with `send_error()` is now catching real issues. Here's a `FileNotFoundError` that occurred when a user requested details for a file that had been moved:
 
-![AppSignal Error Summary - FileNotFoundError Details](ErrorSummary.png)
+![AppSignal Error Summary detail page for a FileNotFoundError displaying comprehensive error context alongside the stack trace. The error message reads 'File not found: WhatsApp Image 2025-09-13 at 16.01.58_833321f0.jpg'. The interface shows parameters including source field indicating the error originated from get_media_details operation and file_path showing the missing file. A trend chart on the right displays error frequency with recent spikes, and a Saved samples section tracks multiple occurrences to distinguish between one-off issues and recurring problems.](ErrorSummary.png)
 
-The error detail view shows exactly what the blog promised: context alongside the stack trace:
+The error detail view shows context alongside the stack trace:
 - **Error message:** "File not found: WhatsApp Image 2025-09-13 at 16.01.58_833321f0.jpg"
 - **Parameters:** The `source` field shows it came from `get_media_details`, and `file_path` shows which file was missing
 - **Error trends:** The chart on the right shows this error spiking recently
@@ -327,7 +327,7 @@ The error detail view shows exactly what the blog promised: context alongside th
 
 The error charts view shows the pattern over time:
 
-![AppSignal Error Charts - Error Count Over Time](error_count.png)
+![AppSignal Error Charts view showing a time-series line graph tracking error count over time. The graph reveals two distinct error spikes: one occurring around 16:15-16:20 and another at 17:00. The pattern indicates the errors are not random but correlate with specific user sessions or test runs. This visualization helps determine whether file access errors are steadily increasing or just occasional glitches, providing visibility that raw logs cannot offer.](error_count.png)
 
 Two distinct spikes are visible, one around 16:15-16:20 and another at 17:00. This pattern suggests the errors aren't random; they correlate with specific user sessions or test runs. Without this visibility, I'd be guessing at whether file access errors were increasing or just occasional glitches.
 
