@@ -1,5 +1,7 @@
 # How I Added Performance Monitoring to My MCP Server with AppSignal
 
+*This article is available as a blog post online at [https://www.vmugdha.in/blog/appsignal-mcp-monitoring.html](https://www.vmugdha.in/blog/appsignal-mcp-monitoring.html).*
+
 Scaling an enterprise-grade app requires more than shipping features. It depends on clear visibility into performance. For my [Local Media Search MCP server](https://mugdhav-mediasearchmcp.hf.space), that meant adding real application performance monitoring (APM) instead of relying only on container logs from the [Hugging Face Space](https://huggingface.co/spaces) where the server is deployed.
 
 The [MCP](https://modelcontextprotocol.io/) server is a Python and [Gradio](https://www.gradio.app/) application that uses [SigLIP](https://huggingface.co/docs/transformers/model_doc/siglip) to encode text queries, search a [FAISS](https://github.com/facebookresearch/faiss) index, and generate embeddings for images and video frames during indexing. These CPU-intensive steps push the limits of a free-tier Hugging Face Space. While the container logs provide detailed event-level output, monitoring the MCP server requires additional structured metrics and historical performance data.
