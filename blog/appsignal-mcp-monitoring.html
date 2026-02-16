@@ -5,6 +5,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>How I Added Performance Monitoring to My AI-Powered MCP Server with AppSignal - Mugdha's Portfolio</title>
 
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Learn how to implement Application Performance Monitoring (APM) in a Python MCP server using AppSignal, OpenTelemetry, and SigLIP. Complete guide covering instrumentation, custom metrics, error tracking, and dashboard configuration for AI-powered applications.">
+    <meta name="keywords" content="AppSignal, APM, Application Performance Monitoring, MCP server, Model Context Protocol, OpenTelemetry, Python, SigLIP, FAISS, Gradio, AI monitoring, performance optimization, Hugging Face Spaces, error tracking, custom metrics, observability">
+    <meta name="author" content="Mugdha Variyar">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    <link rel="canonical" href="https://mugdhav.github.io/blog/appsignal-mcp-monitoring.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mugdhav.github.io/blog/appsignal-mcp-monitoring.html">
+    <meta property="og:title" content="How I Added Performance Monitoring to My AI-Powered MCP Server with AppSignal">
+    <meta property="og:description" content="Complete guide to implementing APM in a Python MCP server using AppSignal and OpenTelemetry. Learn about custom instrumentation, metrics, error tracking, and dashboard configuration.">
+    <meta property="og:image" content="https://mugdhav.github.io/assets/images/blog/final-appsignal-impl-blog/CustomDashboardSemanticSearch_updated.png">
+    <meta property="og:site_name" content="Mugdha Variyar's Portfolio">
+    <meta property="article:published_time" content="2025-02-16T00:00:00+00:00">
+    <meta property="article:author" content="Mugdha Variyar">
+    <meta property="article:section" content="AI Development">
+    <meta property="article:tag" content="AppSignal">
+    <meta property="article:tag" content="APM">
+    <meta property="article:tag" content="Python">
+    <meta property="article:tag" content="OpenTelemetry">
+    <meta property="article:tag" content="MCP">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://mugdhav.github.io/blog/appsignal-mcp-monitoring.html">
+    <meta name="twitter:title" content="How I Added Performance Monitoring to My AI-Powered MCP Server with AppSignal">
+    <meta name="twitter:description" content="Complete guide to implementing APM in a Python MCP server using AppSignal and OpenTelemetry. Learn about custom instrumentation, metrics, and error tracking.">
+    <meta name="twitter:image" content="https://mugdhav.github.io/assets/images/blog/final-appsignal-impl-blog/CustomDashboardSemanticSearch_updated.png">
+
+    <!-- Structured Data / JSON-LD for Search Engines -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "How I Added Performance Monitoring to My AI-Powered MCP Server with AppSignal",
+      "description": "Learn how to implement Application Performance Monitoring (APM) in a Python MCP server using AppSignal, OpenTelemetry, and SigLIP. Complete guide covering instrumentation, custom metrics, error tracking, and dashboard configuration.",
+      "image": "https://mugdhav.github.io/assets/images/blog/final-appsignal-impl-blog/CustomDashboardSemanticSearch_updated.png",
+      "author": {
+        "@type": "Person",
+        "name": "Mugdha Variyar",
+        "url": "https://mugdhav.github.io"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Mugdha Variyar",
+        "url": "https://mugdhav.github.io"
+      },
+      "datePublished": "2025-02-16",
+      "dateModified": "2025-02-16",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://mugdhav.github.io/blog/appsignal-mcp-monitoring.html"
+      },
+      "articleSection": "AI Development",
+      "keywords": ["AppSignal", "APM", "Application Performance Monitoring", "MCP server", "OpenTelemetry", "Python", "SigLIP", "FAISS", "AI monitoring"],
+      "timeRequired": "PT12M",
+      "proficiencyLevel": "Intermediate",
+      "dependencies": ["Python", "AppSignal", "OpenTelemetry", "Gradio", "Starlette"],
+      "about": {
+        "@type": "Thing",
+        "name": "Application Performance Monitoring"
+      }
+    }
+    </script>
+
     <!-- Favicon -->
     <link rel="icon" type="image/vnd.microsoft.icon" href="../assets/favicon/iopm5-km6uc-002.ico">
     <link rel="shortcut icon" type="image/x-icon" href="../assets/favicon/iopm5-km6uc-002.ico">
