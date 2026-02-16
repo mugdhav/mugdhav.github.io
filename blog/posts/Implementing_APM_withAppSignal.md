@@ -382,5 +382,3 @@ With the baseline established, I'm planning to:
 The server is live at [mugdhav-mediasearchmcp.hf.space](https://mugdhav-mediasearchmcp.hf.space), and now I can actually see what's happening under the hood.
 
 ---
-
-*Built with [AppSignal for Python](https://docs.appsignal.com/python) and deployed on [Hugging Face Spaces](https://huggingface.co/spaces).*
