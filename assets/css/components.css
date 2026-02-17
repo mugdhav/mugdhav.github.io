@@ -567,6 +567,7 @@
 @media (max-width: 768px) {
     .contact-info {
         flex-direction: column;
+        align-items: center;
         gap: 1rem;
     }
 
