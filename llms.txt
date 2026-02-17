@@ -17,6 +17,7 @@ Mugdha Vairagade is a professional who bridges technical complexity and user exp
 
 ## Technical Articles
 
+- [How I Added Performance Monitoring to My MCP Server with AppSignal](https://www.vmugdha.in/blog/appsignal-mcp-monitoring.html): Complete implementation guide for adding APM to a Python MCP server using AppSignal and OpenTelemetry, covering custom instrumentation, metrics tracking, error reporting, and dashboard configuration
 - [Tutorial: Your Personal AI - Run Models Locally](https://www.vmugdha.in/pages/PreEventInstructions.html): Step-by-step tutorial for setting up open-source and small language models locally using Ollama
 - [Developer Documentation: SarvamAI Indian Language Translator](https://github.com/mugdhav/SarvamAPICodeSample.git): Implementation guide with Python code samples and Google Colab notebook
 - [From MVP to Enterprise: Why Your AI Application Needs a Data Privacy Shield](https://www.linkedin.com/pulse/from-mvp-enterprise-why-your-ai-application-needs-data-vairagade-xboue): Article on building data protection layers for AI applications
@@ -25,7 +26,9 @@ Mugdha Vairagade is a professional who bridges technical complexity and user exp
 
 ## AI Development Projects
 
-- [MV Subtitle Generator](https://huggingface.co/spaces/mugdhav/transcript_reviewer): AI-powered SRT subtitle generation and error detection for MP3/MP4 files
+- [Security Auditor](https://mugdhav-security-auditor.hf.space): Scan code and web deployments for vulnerabilities with 40+ security checks and NVD enrichment
+- [MV Subtitle Generator](https://mugdhav-transcript-reviewer.hf.space): AI-powered SRT subtitle generation and error detection for MP3/MP4 files
+- [Media Search MCP Server](https://mugdhav-mediasearchmcp.hf.space): MCP server enabling AI agents to search across media sources with MCP-compatible client integration
 - [UnicornFinder - AI Analyst for Startups](https://ai.studio/apps/drive/1BQ4qO7IU4pwYhYBmQ9eTLy-tLE6v51OJ): Tool for venture capitalists to evaluate startups and get investment insights
 - [Image To DITA Converter](https://youtu.be/783w_xChhn0): AI tool using vision capabilities to identify workflows and generate DITA task topics
 - [Jira to Release Notes Draft Generator](https://youtu.be/RWlTJ-76QoY): AI tool generating feature release notes from Jira descriptions
@@ -47,6 +50,7 @@ Mugdha Vairagade is a professional who bridges technical complexity and user exp
 
 ## Blog Posts
 
+- [How I Added Performance Monitoring to My MCP Server with AppSignal](https://www.vmugdha.in/blog/appsignal-mcp-monitoring.html)
 - [Find Your Perfect AI Agent: A Guide for Non-Tech Professionals](https://www.linkedin.com/pulse/find-your-perfect-ai-agent-mugdha-vairagade-tt3xf)
 - [Preparing Information Architecture for AI-Delivered Content](https://www.linkedin.com/pulse/preparing-information-architecture-aidelivered-mugdha-vairagade-deo5f)
 - [Snapshots from Pie & AI Pune: Extracting and Structuring Information](https://www.linkedin.com/pulse/snapshots-from-pie-ai-pune-extracting-structuring-mugdha-vairagade-uw7yf)

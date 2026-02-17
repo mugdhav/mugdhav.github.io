@@ -4,7 +4,7 @@
     "url": "https://www.vmugdha.in",
     "owner": "Mugdha Vairagade",
     "profession": "Technical Writer, AI Developer, Developer Relations, Event Organizer",
-    "lastUpdated": "2026-01-22",
+    "lastUpdated": "2026-02-18",
     "description": "Portfolio showcasing technical writing, AI development projects, and Developer Relations events and outreach by Mugdha Vairagade."
   },
   "contactInfo": {
@@ -69,6 +69,13 @@
     ],
     "articles": [
       {
+        "title": "How I Added Performance Monitoring to My MCP Server with AppSignal",
+        "path": "/blog/appsignal-mcp-monitoring.html",
+        "type": "case-study",
+        "topics": ["MCP Server", "AppSignal", "OpenTelemetry", "APM", "Python", "Performance Monitoring"],
+        "description": "Complete implementation guide for adding Application Performance Monitoring to a Python MCP server using AppSignal and OpenTelemetry, covering custom instrumentation, metrics tracking, error reporting, and dashboard configuration"
+      },
+      {
         "title": "Tutorial: Your Personal AI - Run Models Locally",
         "path": "/pages/PreEventInstructions.html",
         "type": "tutorial",
@@ -105,6 +112,15 @@
       }
     ],
     "blogPosts": [
+      {
+        "title": "How I Added Performance Monitoring to My MCP Server with AppSignal",
+        "path": "/blog/appsignal-mcp-monitoring.html",
+        "date": "2026-02-15",
+        "category": "AI Development",
+        "readTime": "10 min read",
+        "topics": ["MCP Server", "AppSignal", "OpenTelemetry", "APM", "Python", "Performance Monitoring"],
+        "description": "Walkthrough of integrating AppSignal APM with a Python MCP server to track performance, errors, and resource usage for enterprise-grade scalability"
+      },
       {
         "title": "Find Your Perfect AI Agent: A Guide for Non-Tech Professionals",
         "url": "https://www.linkedin.com/pulse/find-your-perfect-ai-agent-mugdha-vairagade-tt3xf",
@@ -153,12 +169,28 @@
     ],
     "projects": [
       {
+        "title": "Security Auditor",
+        "type": "ai-development",
+        "demo": "https://mugdhav-security-auditor.hf.space",
+        "technologies": ["Security Analysis", "NVD API", "Vulnerability Scanning", "Web Security"],
+        "description": "Security tool that scans code and web deployments for vulnerabilities with 40+ security checks and NVD enrichment",
+        "year": 2026
+      },
+      {
         "title": "MV Subtitle Generator",
         "type": "ai-development",
-        "demo": "https://huggingface.co/spaces/mugdhav/transcript_reviewer",
+        "demo": "https://mugdhav-transcript-reviewer.hf.space",
         "technologies": ["LLMs", "Audio Processing", "SRT Generation", "Error Detection"],
         "description": "AI-powered subtitle generation tool that creates and tidies SRT subtitles for MP3/MP4 files, detecting errors, misheard words, and out-of-context phrases",
         "year": 2025
+      },
+      {
+        "title": "Media Search MCP Server",
+        "type": "ai-development",
+        "demo": "https://mugdhav-mediasearchmcp.hf.space",
+        "technologies": ["MCP", "Media Search", "AI Agents", "API Integration"],
+        "description": "MCP server enabling AI agents to search across media sources with MCP-compatible client integration",
+        "year": 2026
       },
       {
         "title": "UnicornFinder - AI Analyst for Startups",
