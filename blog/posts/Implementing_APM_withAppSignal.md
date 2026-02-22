@@ -206,6 +206,35 @@ Here's the full list of custom metrics the server now reports:
 - `reindex.calls`, `reindex.errors`: reindex operations
 - `get_index_stats.calls`: stats queries
 
+## Add the MCP Server in AppSignal
+
+With instrumentation in place, the next step was registering the app in AppSignal and deploying the code so data actually flows.
+
+### Using the AppSignal Add App Wizard
+
+On the AppSignal dashboard's Applications overview page, I clicked **Add app**. The wizard first asks for the application's language — I selected **Python**.
+
+It then asks for the framework. I selected **WSGI / ASGI**. This is the correct choice because Gradio 6 is built on FastAPI, which is itself built on Starlette — an ASGI framework. Selecting WSGI/ASGI tells AppSignal which instrumentation library to reference (`opentelemetry-instrumentation-starlette`), which was already added to `requirements.txt` in the previous step.
+
+I named the app **MediaSearchMCP** and completed the wizard. At this point, the wizard surfaces the **Push API Key** for the AppSignal account. This is the org-level credential referenced by `push_api_key=os.getenv("APPSIGNAL_PUSH_API_KEY", "")` in the `Appsignal()` constructor — it authenticates the data push from the server to AppSignal.
+
+The wizard also recommends running `python -m appsignal install`, which auto-generates an `__appsignal__.py` config file. This project skips that step and uses inline configuration instead (see [Bug Fixes](#bug-fixes-during-instrumentation)).
+
+### Storing Credentials as HF Space Secrets
+
+The Push API Key and app environment are never committed to the repository. Instead, I added them as secrets in the Hugging Face Space settings:
+
+- `APPSIGNAL_PUSH_API_KEY` — the Push API Key from the wizard above
+- `APPSIGNAL_APP_ENV` — set to `production`
+
+These are read at startup via `os.getenv()`, keeping credentials out of source control entirely.
+
+### Deploying and Triggering Auto-Registration
+
+I pushed the instrumented code to the Hugging Face Space. When the Space started and `appsignal_client.start()` ran, the SDK sent its first data to AppSignal. **At this point, AppSignal auto-registered the app** — "MediaSearchMCP" appeared as an active application in the dashboard.
+
+This is an important detail: the wizard provides setup instructions and surfaces the Push API Key, but no app entry exists in AppSignal until the application actually sends data. Completing the wizard alone doesn't create the app — the first data push does.
+
 ## Configuring AppSignal Dashboard
 
 With data flowing in, I configured the AppSignal side to make it actionable.
