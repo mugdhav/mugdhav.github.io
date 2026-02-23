@@ -298,6 +298,20 @@ const portfolioData = {
     //     searchTerms: 'searchable keywords...'     // Space-separated keywords for search
     // }
     events: [
+        // SheBuilds IWD 2026 - Pune
+        {
+            id: 'shebuilds-iwd-pune-2026',
+            title: 'SheBuilds on Lovable — International Women\'s Day, Pune',
+            startDate: '2026-03-08T00:00:00+05:30',
+            endDate: '2026-03-08T23:59:59+05:30',
+            date: 'March 8, 2026',
+            location: 'Pune, India',
+            organization: 'SheBuilds by Lovable',
+            description: 'A free 3-hour in-person hackathon in Pune celebrating International Women\'s Day. Women of all skill levels — from complete beginners to experienced coders — come together to build and publish real AI-powered applications using <a href="https://lovable.dev" target="_blank" rel="noopener noreferrer">Lovable</a>\'s natural language platform. Part of a global <a href="https://shebuilds.lovable.app" target="_blank" rel="noopener noreferrer">SheBuilds</a> event across multiple cities.',
+            icon: 'fas fa-hammer',
+            linkedInLink: 'https://shebuilds.lovable.app',
+            searchTerms: 'SheBuilds Lovable International Women\'s Day IWD 2026 Pune India hackathon women AI apps vibe coding in-person March 2026 #SheBuildsIWD2026'
+        },
         // Featured October 2025 Pie & AI Event
         {
             id: 'preparing-ia-for-ai-content',
