@@ -12,9 +12,17 @@
   <!-- Tech Events Page -->
   <url>
     <loc>https://www.vmugdha.in/pages/TechEvents.html</loc>
-    <lastmod>2026-01-04</lastmod>
+    <lastmod>2026-02-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+  </url>
+
+  <!-- SheBuilds Volunteer Guide Page -->
+  <url>
+    <loc>https://www.vmugdha.in/pages/SheBuildsVolunteerGuide.html</loc>
+    <lastmod>2026-02-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 
   <!-- Podcasts Page -->

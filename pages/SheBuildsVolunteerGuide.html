@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en" data-theme-style="calm" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SheBuilds on Lovable — Volunteer Guide | IWD 2026 Pune</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/vnd.microsoft.icon" href="../assets/favicon/iopm5-km6uc-002.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/favicon/iopm5-km6uc-002.ico">
+
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" href="../assets/favicon/iopm5-km6uc-003.ico">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- External CSS Files -->
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/layout.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/animations.css">
+
+    <!-- Theme System CSS -->
+    <link rel="stylesheet" href="../assets/css/theme-jazzy.css">
+    <link rel="stylesheet" href="../assets/css/theme-calm.css">
+    <link rel="stylesheet" href="../assets/css/theme-switcher.css">
+
+    <!-- Search UI CSS -->
+    <link rel="stylesheet" href="../assets/css/search-ui.css">
+
+    <!-- Search Libraries -->
+    <script src="https://unpkg.com/lunr/lunr.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+
+    <!-- Event Components CSS -->
+    <link rel="stylesheet" href="../assets/css/event-components.css">
+
+    <!-- Portfolio Data -->
+    <script src="../assets/js/portfolio_data.js"></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9HL4T713SQ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-9HL4T713SQ');
+    </script>
+
+    <!-- Structured Data for Event -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "SheBuilds on Lovable — International Women's Day, Pune",
+        "description": "A free 3-hour in-person hackathon in Pune celebrating International Women's Day. Women of all skill levels build and publish real AI-powered applications using Lovable's natural language platform.",
+        "startDate": "2026-03-08T00:00:00+05:30",
+        "endDate": "2026-03-08T23:59:59+05:30",
+        "eventStatus": "EventScheduled",
+        "eventAttendanceMode": "OfflineEventAttendanceMode",
+        "isAccessibleForFree": true,
+        "location": {
+            "@type": "Place",
+            "name": "Pune",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Pune",
+                "addressCountry": "IN"
+            }
+        },
+        "organizer": {
+            "@type": "Organization",
+            "name": "SheBuilds by Lovable",
+            "url": "https://shebuilds.lovable.app"
+        },
+        "url": "https://shebuilds.lovable.app"
+    }
+    </script>
+
+    <!-- Meta tags -->
+    <meta name="description" content="Volunteer guide for SheBuilds on Lovable — a free 3-hour in-person hackathon in Pune on International Women's Day, March 8, 2026. Learn about volunteer roles, the event agenda, and how to sign up.">
+    <meta name="keywords" content="SheBuilds, Lovable, IWD 2026, International Women's Day, Pune, hackathon, volunteer, women in tech, AI apps, vibe coding">
+    <meta name="author" content="Mugdha Vairagade">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph meta tags -->
+    <meta property="og:title" content="SheBuilds on Lovable — Volunteer Guide | IWD 2026 Pune">
+    <meta property="og:description" content="Volunteer guide for SheBuilds on Lovable — a free in-person hackathon in Pune on International Women's Day, March 8, 2026.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.vmugdha.in/pages/SheBuildsVolunteerGuide.html">
+
+    <style>
+        /* Hero Section */
+        .hero {
+            min-height: 55vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #c2185b 0%, #7b1fa2 100%);
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 1;
+            padding: 2rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            color: var(--white);
+            margin-bottom: 0.75rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            line-height: 1.2;
+        }
+
+        .hero h2 {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.88);
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .hero-badges {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background-color: rgba(255, 255, 255, 0.18);
+            color: var(--white);
+            padding: 0.55rem 1.25rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            backdrop-filter: blur(4px);
+        }
+
+        /* Content Section */
+        .content-section {
+            padding: 4rem 5%;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Section headings */
+        .guide-section {
+            margin-bottom: 3rem;
+        }
+
+        .guide-section-title {
+            font-size: 1.9rem;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #c2185b;
+            display: inline-block;
+        }
+
+        .guide-section p {
+            color: var(--secondary-text-color);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 0.75rem;
+        }
+
+        .guide-section a {
+            color: #c2185b;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .guide-section a:hover {
+            text-decoration: underline;
+        }
+
+        /* Event details table */
+        .event-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .event-table th,
+        .event-table td {
+            padding: 0.85rem 1.25rem;
+            text-align: left;
+            font-size: 1rem;
+        }
+
+        .event-table th {
+            background-color: #c2185b;
+            color: white;
+            font-weight: 600;
+            width: 40%;
+        }
+
+        .event-table td {
+            background-color: var(--light-bg);
+            color: var(--secondary-text-color);
+        }
+
+        .event-table tr:not(:last-child) th,
+        .event-table tr:not(:last-child) td {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .table-caption {
+            font-size: 0.9rem;
+            color: var(--secondary-text-color);
+            font-style: italic;
+            margin-top: 0.5rem;
+        }
+
+        /* Volunteer opportunity cards */
+        .opportunity-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .opportunity-card {
+            background-color: var(--light-bg);
+            border-radius: 14px;
+            padding: 1.75rem;
+            box-shadow: var(--shadow);
+            border-top: 4px solid #c2185b;
+            transition: var(--transition);
+        }
+
+        .opportunity-card:nth-child(2) {
+            border-top-color: #7b1fa2;
+        }
+
+        .opportunity-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .opportunity-card h3 {
+            color: var(--text-color);
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .opportunity-card h3 i {
+            color: #c2185b;
+            font-size: 1.1rem;
+        }
+
+        .opportunity-card:nth-child(2) h3 i {
+            color: #7b1fa2;
+        }
+
+        .opportunity-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .opportunity-card ul li {
+            color: var(--secondary-text-color);
+            font-size: 0.97rem;
+            line-height: 1.7;
+            padding: 0.35rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+        }
+
+        .opportunity-card ul li:last-child {
+            border-bottom: none;
+        }
+
+        .opportunity-card ul li::before {
+            content: '→';
+            color: #c2185b;
+            font-weight: bold;
+            flex-shrink: 0;
+            margin-top: 0.1rem;
+        }
+
+        .opportunity-card:nth-child(2) ul li::before {
+            color: #7b1fa2;
+        }
+
+        /* Why volunteer list */
+        .benefits-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.25rem 0;
+        }
+
+        .benefits-list li {
+            color: var(--secondary-text-color);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .benefits-list li:last-child {
+            border-bottom: none;
+        }
+
+        .benefits-list li::before {
+            content: '✦';
+            color: #c2185b;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+            margin-top: 0.3rem;
+        }
+
+        /* Volunteer steps */
+        .steps-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+            counter-reset: step-counter;
+        }
+
+        .steps-list li {
+            counter-increment: step-counter;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            color: var(--secondary-text-color);
+            font-size: 1.05rem;
+            line-height: 1.75;
+            padding: 0.85rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+        }
+
+        .steps-list li:last-child {
+            border-bottom: none;
+        }
+
+        .steps-list li::before {
+            content: counter(step-counter);
+            background-color: #c2185b;
+            color: white;
+            border-radius: 50%;
+            min-width: 2rem;
+            height: 2rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+            margin-top: 0.1rem;
+        }
+
+        .steps-list li a {
+            color: #c2185b;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .steps-list li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Note / warning box */
+        .note-box {
+            background-color: rgba(194, 24, 91, 0.07);
+            border-left: 4px solid #c2185b;
+            border-radius: 8px;
+            padding: 1.1rem 1.35rem;
+            margin: 1.25rem 0;
+            color: var(--secondary-text-color);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .note-box strong {
+            color: var(--text-color);
+        }
+
+        /* Approval criteria list */
+        .approval-list {
+            list-style: none;
+            padding: 0;
+            margin: 0.75rem 0;
+        }
+
+        .approval-list li {
+            color: var(--secondary-text-color);
+            font-size: 1rem;
+            line-height: 1.7;
+            padding: 0.3rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+        }
+
+        .approval-list li::before {
+            content: '•';
+            color: #c2185b;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            line-height: 1.4;
+        }
+
+        /* Agenda timeline */
+        .agenda-timeline {
+            position: relative;
+            margin-top: 1.5rem;
+        }
+
+        .agenda-timeline::before {
+            content: '';
+            position: absolute;
+            left: 1.2rem;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, #c2185b, #7b1fa2);
+            border-radius: 2px;
+        }
+
+        .agenda-session {
+            position: relative;
+            padding: 0 0 2rem 3.5rem;
+        }
+
+        .agenda-session:last-child {
+            padding-bottom: 0;
+        }
+
+        .agenda-dot {
+            position: absolute;
+            left: 0.45rem;
+            top: 0.35rem;
+            width: 1.55rem;
+            height: 1.55rem;
+            background: linear-gradient(135deg, #c2185b, #7b1fa2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 700;
+            box-shadow: 0 2px 8px rgba(194, 24, 91, 0.35);
+        }
+
+        .agenda-session-header {
+            display: flex;
+            align-items: baseline;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-bottom: 0.4rem;
+        }
+
+        .agenda-session-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-color);
+        }
+
+        .agenda-duration {
+            font-size: 0.88rem;
+            color: white;
+            background-color: #c2185b;
+            padding: 0.15rem 0.65rem;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .agenda-intent {
+            font-size: 0.95rem;
+            color: var(--secondary-text-color);
+            font-style: italic;
+            margin-bottom: 0.75rem;
+        }
+
+        .agenda-intent strong {
+            color: #7b1fa2;
+            font-style: normal;
+        }
+
+        .agenda-actions {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .agenda-actions li {
+            color: var(--secondary-text-color);
+            font-size: 0.97rem;
+            line-height: 1.7;
+            padding: 0.25rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+        }
+
+        .agenda-actions li::before {
+            content: '›';
+            color: #c2185b;
+            font-size: 1.2rem;
+            font-weight: bold;
+            flex-shrink: 0;
+            line-height: 1.4;
+        }
+
+        .agenda-actions ul {
+            list-style: none;
+            padding: 0;
+            margin: 0.25rem 0 0 1rem;
+        }
+
+        .agenda-actions ul li::before {
+            content: '–';
+            color: #9c4dcc;
+        }
+
+        .agenda-goal {
+            background-color: rgba(123, 31, 162, 0.08);
+            border-left: 3px solid #7b1fa2;
+            border-radius: 6px;
+            padding: 0.6rem 0.9rem;
+            margin-bottom: 0.6rem;
+            font-size: 0.95rem;
+            color: var(--secondary-text-color);
+        }
+
+        .agenda-goal strong {
+            color: #7b1fa2;
+        }
+
+        /* CTA box */
+        .cta-box {
+            background: linear-gradient(135deg, #c2185b 0%, #7b1fa2 100%);
+            border-radius: 16px;
+            padding: 2.5rem;
+            text-align: center;
+            margin-top: 3rem;
+            color: white;
+        }
+
+        .cta-box p {
+            color: rgba(255, 255, 255, 0.92) !important;
+            font-size: 1.05rem !important;
+            margin-bottom: 1.5rem !important;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: white;
+            color: #c2185b;
+            padding: 0.85rem 2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+            color: #880e4f;
+        }
+
+        /* References */
+        .references {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .references h2 {
+            font-size: 1.3rem;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+        }
+
+        .references ol {
+            padding-left: 1.5rem;
+        }
+
+        .references li {
+            color: var(--secondary-text-color);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 0.5rem;
+        }
+
+        .references a {
+            color: #c2185b;
+            text-decoration: none;
+        }
+
+        .references a:hover {
+            text-decoration: underline;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero h2 {
+                font-size: 1.05rem;
+            }
+
+            .content-section {
+                padding: 2.5rem 4%;
+            }
+
+            .opportunity-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .event-table th,
+            .event-table td {
+                padding: 0.7rem 0.9rem;
+                font-size: 0.92rem;
+            }
+
+            .cta-box {
+                padding: 1.75rem 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <!-- Hero Section -->
+    <section class="hero" aria-labelledby="hero-heading">
+        <div class="hero-content">
+            <h1 id="hero-heading">SheBuilds on Lovable</h1>
+            <h2>Volunteer Information Guide</h2>
+            <div class="hero-badges">
+                <span class="hero-badge"><i class="fas fa-calendar-day" aria-hidden="true"></i> March 8, 2026</span>
+                <span class="hero-badge"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Pune, India</span>
+                <span class="hero-badge"><i class="fas fa-venus" aria-hidden="true"></i> International Women's Day</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main role="main">
+        <section class="content-section">
+
+            <!-- What is Lovable -->
+            <div class="guide-section">
+                <h2 class="guide-section-title">What is Lovable?</h2>
+                <p><strong><a href="https://lovable.dev" target="_blank" rel="noopener noreferrer">Lovable</a></strong> is a Swedish AI "vibe coding" platform with a unicorn valuation of $1.8 billion. It enables anyone to build full-stack applications using natural language — no coding experience required.</p>
+                <p><strong>Website:</strong> <a href="https://lovable.dev" target="_blank" rel="noopener noreferrer">https://lovable.dev</a></p>
+            </div>
+
+            <!-- What is SheBuilds -->
+            <div class="guide-section">
+                <h2 class="guide-section-title">What is SheBuilds?</h2>
+                <p><strong><a href="https://shebuilds.lovable.app" target="_blank" rel="noopener noreferrer">SheBuilds</a></strong> is Lovable's hackathon initiative designed to empower women in tech by helping them build real AI-powered applications. The program welcomes both experienced coders and complete beginners.</p>
+                <p><strong>Event Website:</strong> <a href="https://shebuilds.lovable.app" target="_blank" rel="noopener noreferrer">https://shebuilds.lovable.app</a></p>
+            </div>
+
+            <!-- Upcoming Event -->
+            <div class="guide-section">
+                <h2 class="guide-section-title">Upcoming Event</h2>
+                <table class="event-table" aria-label="SheBuilds Event Overview">
+                    <tbody>
+                        <tr>
+                            <th scope="row">Event Name</th>
+                            <td>SheBuilds on Lovable</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Date</th>
+                            <td>Sunday, March 8, 2026</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Duration</th>
+                            <td>3-hour in-person event</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Cost to Participants</th>
+                            <td>Free of charge</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Location</th>
+                            <td>Multiple cities including Pune</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Target Audience</th>
+                            <td>Women interested in building AI apps</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="table-caption">Table 1: SheBuilds Event Overview</p>
+            </div>
+
+            <!-- Volunteer Opportunities -->
+            <div class="guide-section">
+                <h2 class="guide-section-title">Volunteer Opportunities</h2>
+                <p>Volunteering for SheBuilds covers two key areas. You can choose to contribute to either or both:</p>
+                <div class="opportunity-cards">
+                    <div class="opportunity-card">
+                        <h3><i class="fas fa-calendar-check" aria-hidden="true"></i> 1. Event Organization</h3>
+                        <p style="color: var(--secondary-text-color); font-size: 0.95rem; margin-bottom: 0.75rem;">Responsibilities include:</p>
+                        <ul>
+                            <li>Arranging venue and facilities</li>
+                            <li>Coordinating food and beverages</li>
+                            <li>Getting banners and information materials printed and positioned</li>
+                            <li>Promoting event posts on social media</li>
+                            <li>Providing boots-on-ground support at the venue on event day</li>
+                        </ul>
+                    </div>
+                    <div class="opportunity-card">
+                        <h3><i class="fas fa-hands-helping" aria-hidden="true"></i> 2. Participant Support</h3>
+                        <p style="color: var(--secondary-text-color); font-size: 0.95rem; margin-bottom: 0.75rem;">Responsibilities include:</p>
+                        <ul>
+                            <li>Helping women participants set up their <a href="https://lovable.dev" target="_blank" rel="noopener noreferrer">Lovable</a> accounts</li>
+                            <li>Answering technical questions</li>
+                            <li>Troubleshooting technical issues during the event</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Why Volunteer -->
+            <div class="guide-section">
+                <h2 class="guide-section-title">Why Volunteer?</h2>
+                <ul class="benefits-list">
+                    <li>Support women entering the tech and AI space</li>
+                    <li>Gain experience in event organization and community building</li>
+                    <li>Connect with the global <a href="https://lovable.dev" target="_blank" rel="noopener noreferrer">Lovable</a> community</li>
+                    <li>Contribute to International Women's Day celebrations</li>
+                    <li>Help participants build real applications using cutting-edge AI tools</li>
+                </ul>
+            </div>
+
+            <!-- How to Become a Volunteer -->
+            <div class="guide-section">
+                <h2 class="guide-section-title">How to Become a Volunteer</h2>
+                <div class="note-box">
+                    <strong>Important:</strong> To volunteer, you must be an active <a href="https://lovable.dev" target="_blank" rel="noopener noreferrer">Lovable.dev</a> user with at least one published app, website, or content built on it.
+                </div>
+                <ol class="steps-list">
+                    <li>Visit <a href="https://lovable.dev/invite/NRFXUEI" target="_blank" rel="noopener noreferrer">https://lovable.dev/invite/NRFXUEI</a> and create your free account — this link gives you 10 Lovable credits to start building right away.</li>
+                    <li>Experiment with building a simple app or website.</li>
+                    <li>Publish your creation.</li>
+                    <li>Sign up as a volunteer at <a href="https://shebuilds-iwd-volunteer.lovable.app" target="_blank" rel="noopener noreferrer">https://shebuilds-iwd-volunteer.lovable.app</a>. Make sure to read the section "Two Ways to Contribute &rsaquo; Host a 3-Hour In-Person Event Free of Charge to Participants on Sunday, March 8, 2026" during sign-up.</li>
+                    <li>Wait for approval from the Lovable community team.</li>
+                    <li>Get ready to support women builders on March 8, 2026!</li>
+                </ol>
+
+                <p style="color: var(--secondary-text-color); font-size: 1rem; line-height: 1.7; margin-top: 1rem;">The Lovable community managers will review your application by:</p>
+                <ul class="approval-list">
+                    <li>Checking your <a href="https://lovable.dev" target="_blank" rel="noopener noreferrer">Lovable.dev</a> account for published projects</li>
+                    <li>Reviewing your social media presence for prior engagement with Lovable</li>
+                    <li>Verifying your commitment to supporting the community</li>
+                </ul>
+            </div>
+
+            <!-- Event Day Agenda -->
+            <div class="guide-section">
+                <h2 class="guide-section-title">Event Day Agenda (3-Hour Format)</h2>
+                <p>As an Event Host, you will facilitate the event according to this structured agenda. Adapt timing to fit your group while keeping the overall structure so every participant gets the full experience.</p>
+
+                <div class="agenda-timeline">
+
+                    <div class="agenda-session">
+                        <div class="agenda-dot" aria-hidden="true">1</div>
+                        <div class="agenda-session-header">
+                            <span class="agenda-session-title">Arrival &amp; Connection</span>
+                            <span class="agenda-duration">30 min</span>
+                        </div>
+                        <p class="agenda-intent"><strong>Intent:</strong> Create a welcoming, low-pressure environment where everyone feels comfortable participating and set the tone for community.</p>
+                        <ul class="agenda-actions">
+                            <li>Participants arrive, get settled, and start connecting with each other</li>
+                            <li>Pre-event survey</li>
+                        </ul>
+                    </div>
+
+                    <div class="agenda-session">
+                        <div class="agenda-dot" aria-hidden="true">2</div>
+                        <div class="agenda-session-header">
+                            <span class="agenda-session-title">Why This Day Matters</span>
+                            <span class="agenda-duration">15–20 min</span>
+                        </div>
+                        <p class="agenda-intent"><strong>Intent:</strong> Anchor the day in purpose and shared momentum.</p>
+                        <ul class="agenda-actions">
+                            <li>Host Welcome:
+                                <ul>
+                                    <li>Why you chose to host</li>
+                                    <li>Connection to <a href="https://shebuilds.lovable.app" target="_blank" rel="noopener noreferrer">SheBuilds</a> / <a href="https://lovable.dev" target="_blank" rel="noopener noreferrer">Lovable</a></li>
+                                    <li>What you hope participants walk away with</li>
+                                </ul>
+                            </li>
+                            <li>Video: Kickoff Message (5–10 minutes)</li>
+                        </ul>
+                    </div>
+
+                    <div class="agenda-session">
+                        <div class="agenda-dot" aria-hidden="true">3</div>
+                        <div class="agenda-session-header">
+                            <span class="agenda-session-title">Expanding Who Builds</span>
+                            <span class="agenda-duration">20 min</span>
+                        </div>
+                        <p class="agenda-intent"><strong>Intent:</strong> Help participants see themselves as builders and contributors, regardless of background or experience.</p>
+                        <ul class="agenda-actions">
+                            <li>Video: Women &amp; AI (5 minutes)</li>
+                            <li>Group reflection and conversation</li>
+                        </ul>
+                    </div>
+
+                    <div class="agenda-session">
+                        <div class="agenda-dot" aria-hidden="true">4</div>
+                        <div class="agenda-session-header">
+                            <span class="agenda-session-title">Get Ready to Build</span>
+                            <span class="agenda-duration">16 min</span>
+                        </div>
+                        <p class="agenda-intent"><strong>Intent:</strong> Remove friction and build confidence before people start building.</p>
+                        <ul class="agenda-actions">
+                            <li>Login or create a <a href="https://lovable.dev" target="_blank" rel="noopener noreferrer">Lovable</a> account</li>
+                            <li>Video: Intro to Lovable</li>
+                            <li>Building Mindset:
+                                <ul>
+                                    <li>Share what you're learning, tips, etc.</li>
+                                    <li>Ask for help</li>
+                                    <li>Get feedback</li>
+                                    <li>No judgment, just building</li>
+                                </ul>
+                            </li>
+                            <li>Share support resources</li>
+                        </ul>
+                    </div>
+
+                    <div class="agenda-session">
+                        <div class="agenda-dot" aria-hidden="true">5</div>
+                        <div class="agenda-session-header">
+                            <span class="agenda-session-title">Build → Publish. Together.</span>
+                            <span class="agenda-duration">90 min</span>
+                        </div>
+                        <p class="agenda-intent"><strong>Intent:</strong> Confidence through action and shared progress.</p>
+                        <div class="agenda-goal"><strong>Goal:</strong> Everyone leaves having published something (or very close).</div>
+                        <ul class="agenda-actions">
+                            <li>Participants build independently or together, and collaboratively</li>
+                            <li>Host encourages:
+                                <ul>
+                                    <li>Asking questions to the room</li>
+                                    <li>Sharing learnings and quick wins</li>
+                                    <li>Pairing up or working side-by-side if helpful</li>
+                                </ul>
+                            </li>
+                            <li>Optional: voluntary screen sharing / live build share</li>
+                        </ul>
+                    </div>
+
+                    <div class="agenda-session">
+                        <div class="agenda-dot" aria-hidden="true">6</div>
+                        <div class="agenda-session-header">
+                            <span class="agenda-session-title">Share, Celebrate, Connect, Go Forward a Builder</span>
+                            <span class="agenda-duration">30 min</span>
+                        </div>
+                        <p class="agenda-intent"><strong>Intent:</strong> Celebrate participation and strengthen community connections.</p>
+                        <ul class="agenda-actions">
+                            <li>Submit project links to <a href="https://shebuilds.lovable.app" target="_blank" rel="noopener noreferrer">SheBuilds IWD showcase page</a></li>
+                            <li>Build share (depending on group size):
+                                <ul>
+                                    <li>What you built</li>
+                                    <li>One thing you learned</li>
+                                    <li>One moment that surprised you</li>
+                                </ul>
+                            </li>
+                            <li>Social Moment:
+                                <ul>
+                                    <li>Post your build on social media</li>
+                                    <li>Tag <a href="https://lovable.dev" target="_blank" rel="noopener noreferrer">Lovable</a></li>
+                                    <li>Use <strong>#SheBuildsIWD2026</strong></li>
+                                    <li>Engage with others' posts</li>
+                                </ul>
+                            </li>
+                            <li>Post-event survey</li>
+                            <li>Video: thank you / wrap-up message</li>
+                            <li>Group photo with heart hands — submitted to <a href="https://shebuilds.lovable.app" target="_blank" rel="noopener noreferrer">shebuilds.lovable.app</a> by host</li>
+                            <li>How to stay involved:
+                                <ul>
+                                    <li>SheBuilds channel in Lovable Discord server</li>
+                                    <li>SheBuilds webinars</li>
+                                    <li>SheBuilds YouTube playlist</li>
+                                    <li>SheBuilds mailing list opt-in</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="cta-box">
+                <p>For questions or more information, visit the official SheBuilds website.</p>
+                <a href="https://shebuilds.lovable.app" target="_blank" rel="noopener noreferrer" class="cta-button">
+                    <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                    Visit SheBuilds
+                </a>
+            </div>
+
+            <!-- References -->
+            <div class="references">
+                <h2>References</h2>
+                <ol>
+                    <li>Lovable. (2026). <em>Lovable - Build Apps &amp; Websites with AI, Fast.</em> <a href="https://lovable.dev" target="_blank" rel="noopener noreferrer">https://lovable.dev</a></li>
+                    <li>Lovable. (2026). <em>SheBuilds on Lovable for International Women's Day.</em> <a href="https://shebuilds.lovable.app" target="_blank" rel="noopener noreferrer">https://shebuilds.lovable.app</a></li>
+                </ol>
+            </div>
+
+        </section>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="../assets/js/navigation.js"></script>
+    <script src="../assets/js/shared-components.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+        });
+    </script>
+
+    <!-- Enhanced Search System -->
+    <script src="../assets/js/enhanced-search.js"></script>
+    <script src="../assets/js/search-ui.js"></script>
+
+    <!-- Theme Manager Script -->
+    <script src="../assets/js/theme-manager.js"></script>
+</body>
+</html>

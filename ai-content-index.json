@@ -4,7 +4,7 @@
     "url": "https://www.vmugdha.in",
     "owner": "Mugdha Vairagade",
     "profession": "Technical Writer, AI Developer, Developer Relations, Event Organizer",
-    "lastUpdated": "2026-02-18",
+    "lastUpdated": "2026-02-23",
     "description": "Portfolio showcasing technical writing, AI development projects, and Developer Relations events and outreach by Mugdha Vairagade."
   },
   "contactInfo": {
@@ -65,6 +65,12 @@
         "title": "Event Exploration",
         "type": "events",
         "description": "Explore and search through tech events"
+      },
+      {
+        "path": "/pages/SheBuildsVolunteerGuide.html",
+        "title": "SheBuilds on Lovable — Volunteer Guide | IWD 2026 Pune",
+        "type": "event-guide",
+        "description": "Volunteer information guide for SheBuilds on Lovable — a free 3-hour in-person hackathon in Pune, India hosted by Mugdha Vairagade on International Women's Day, March 8, 2026"
       }
     ],
     "articles": [
@@ -309,6 +315,17 @@
         "organization": "SAP Labs India",
         "topics": ["AI Innovation", "Hackathon", "Customer Innovation"],
         "description": "3-month innovation program with AI quizzes, 24-hour hackathon, and build sessions with Asian Paints, Henkel, Google"
+      },
+      {
+        "title": "SheBuilds on Lovable — International Women's Day, Pune",
+        "date": "March 8, 2026",
+        "location": "Pune, India",
+        "organization": "SheBuilds by Lovable",
+        "role": "Event Host",
+        "topics": ["Women in Tech", "AI Development", "Hackathon", "Vibe Coding", "Lovable", "IWD 2026"],
+        "url": "https://shebuilds.lovable.app",
+        "guideUrl": "https://www.vmugdha.in/pages/SheBuildsVolunteerGuide.html",
+        "description": "Host for SheBuilds on Lovable — a free 3-hour in-person hackathon in Pune celebrating International Women's Day. Women of all skill levels build and publish real AI-powered applications using Lovable's natural language platform. Part of a global SheBuilds event across multiple cities."
       }
     ]
   },

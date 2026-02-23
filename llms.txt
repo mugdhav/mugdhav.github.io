@@ -43,6 +43,7 @@ Mugdha Vairagade is a professional who bridges technical complexity and user exp
 
 ## Community Events Organized
 
+- SheBuilds on Lovable — Pune (March 8, 2026): Host for the International Women's Day in-person hackathon in Pune, India, where women build and publish real AI-powered applications using Lovable's natural language platform. Part of a global SheBuilds event across multiple cities.
 - Pie & AI: Pune series (DeepLearning.AI community events)
 - Invent4Customers 2024 at SAP Labs India (3-month innovation program with Asian Paints, Henkel, Google)
 - Generative AI Art Competition at D-Shop Pune
@@ -74,4 +75,5 @@ Mugdha Vairagade is a professional who bridges technical complexity and user exp
 - [AI Content Index JSON](https://www.vmugdha.in/ai-content-index.json): Machine-readable portfolio data for programmatic access
 - [Blog Page](https://www.vmugdha.in/blog/blog.html): All blog posts and articles
 - [Tech Events Page](https://www.vmugdha.in/pages/TechEvents.html): Community events and workshops
+- [SheBuilds Volunteer Guide](https://www.vmugdha.in/pages/SheBuildsVolunteerGuide.html): Volunteer information guide for SheBuilds on Lovable — IWD 2026 Pune hackathon hosted by Mugdha Vairagade
 - [Podcasts Page](https://www.vmugdha.in/pages/Podcasts.html): Conversations with industry experts
