@@ -310,6 +310,7 @@ const portfolioData = {
             description: 'A free 3-hour in-person hackathon in Pune celebrating International Women\'s Day. Women of all skill levels — from complete beginners to experienced coders — come together to build and publish real AI-powered applications using <a href="https://lovable.dev" target="_blank" rel="noopener noreferrer">Lovable</a>\'s natural language platform. Part of a global <a href="https://shebuilds.lovable.app" target="_blank" rel="noopener noreferrer">SheBuilds</a> event across multiple cities.',
             icon: 'fas fa-hammer',
             linkedInLink: 'https://shebuilds.lovable.app',
+            lumaEventId: 'evt-ubEvzlekpVOt5Mf',
             searchTerms: 'SheBuilds Lovable International Women\'s Day IWD 2026 Pune India hackathon women AI apps vibe coding in-person March 2026 #SheBuildsIWD2026'
         },
         // Featured October 2025 Pie & AI Event

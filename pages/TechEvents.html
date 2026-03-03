@@ -701,6 +701,7 @@
 
     <script src="../assets/js/navigation.js"></script>
     <script src="../assets/js/shared-components.js"></script>
+    <script id="luma-checkout" src="https://embed.lu.ma/checkout-button.js"></script>
     <script>
         // Global variables
         let currentSlide = 0;
@@ -893,6 +894,14 @@
                 buttonsHTML += `
                     <a href="${event.videoLink}" target="_blank" rel="noopener noreferrer" class="event-link secondary">
                         <i class="fab fa-youtube" style="margin-right: 0.5rem;"></i>Watch
+                    </a>
+                `;
+            }
+
+            if (event.lumaEventId) {
+                buttonsHTML += `
+                    <a href="https://lu.ma/event/${event.lumaEventId}" class="luma-checkout--button event-link secondary" data-luma-action="checkout" data-luma-event-id="${event.lumaEventId}">
+                        <i class="fas fa-ticket-alt" style="margin-right: 0.5rem;"></i>Register for Event
                     </a>
                 `;
             }
