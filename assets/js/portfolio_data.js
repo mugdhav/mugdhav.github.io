@@ -395,17 +395,17 @@ const portfolioData = {
             searchTerms: 'Invent4Customers SAP Labs India Pune AI innovation hackathon quizzes Asian Paints Henkel Google customer innovation brain teasers volunteer'
         },
         {
-            id: 'ai-low-code-static-website-workshop-tech-writing',
-            title: 'Building Portfolio Websites with AI',
+            id: 'native-language-interfaces-ai-apps',
+            title: 'Native Language Interfaces for AI Apps',
             status: 'coming-soon',
             statusLabel: 'Coming Soon',
             date: 'Coming Soon',
             location: 'Virtual Event',
             organization: 'Tech Writers Community',
-            description: 'Learn how to leverage AI tools for to create a simple portfolio website (almost) for free.',
+            description: 'Integrate native language speech to text and text-to-speech interfaces and documentation extraction in your AI apps.',
             icon: 'fas fa-code',
             linkedInLink: 'https://www.linkedin.com/in/mugdhav/',
-            searchTerms: 'Building Portfolio Websites AI low-code static website workshop tech writing virtual event technical writers community AI tools web development HTML CSS JavaScript GitHub Pages free hosting'
+            searchTerms: 'Native Language Interfaces AI Apps workshop tech writing virtual event technical writers community AI tools web development'
         },
         {
             id: 'gen-ai-art-competition-sap',
