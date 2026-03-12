@@ -923,6 +923,7 @@
                         <div class="event-date"><i class="fas fa-calendar"></i> ${event.date}</div>
                         <div class="event-location"><i class="fas fa-map-marker-alt"></i> ${event.location}</div>
                         <div class="event-organization"><i class="fas fa-users"></i> ${event.organization}</div>
+                        ${event.audience ? `<div class="event-organization"><i class="fas fa-user-tag"></i> ${event.audience}</div>` : ''}
                         <div class="event-description">
                             ${event.description}
                         </div>

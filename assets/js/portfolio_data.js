@@ -402,6 +402,7 @@ const portfolioData = {
             date: 'Coming Soon',
             location: 'Virtual Event',
             organization: 'Tech Writers Community',
+            audience: 'AI Developers',
             description: 'Integrate native language speech to text and text-to-speech interfaces and documentation extraction in your AI apps.',
             icon: 'fas fa-code',
             linkedInLink: 'https://www.linkedin.com/in/mugdhav/',
