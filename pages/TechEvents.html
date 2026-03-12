@@ -898,7 +898,13 @@
                 `;
             }
 
-            if (event.lumaEventId) {
+            if (event.showcaseLink) {
+                buttonsHTML += `
+                    <a href="${event.showcaseLink}" target="_blank" rel="noopener noreferrer" class="event-link secondary">
+                        <i class="fas fa-gem" style="margin-right: 0.5rem;"></i>Event Showcase
+                    </a>
+                `;
+            } else if (event.lumaEventId) {
                 buttonsHTML += `
                     <a href="https://lu.ma/event/${event.lumaEventId}" class="luma-checkout--button event-link secondary" data-luma-action="checkout" data-luma-event-id="${event.lumaEventId}">
                         <i class="fas fa-ticket-alt" style="margin-right: 0.5rem;"></i>Register for Event
