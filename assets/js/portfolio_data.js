@@ -119,6 +119,16 @@ const portfolioData = {
             items: [
                 {
                     id: "ai-dev-0",
+                    image: "/assets/images/portfolio/shebuilds-showcase-thumbnail.png",
+                    title: "SheBuilds Showcase",
+                    description: "A website built with Lovable to showcase apps and websites created by women participants at the SheBuilds buildathon, Pune edition, on International Women's Day 2026.",
+                    buttonText: "Try It Out",
+                    buttonLink: "https://shebuilt-iwd-gems.lovable.app",
+                    category: "Community Showcase",
+                    year: 2026
+                },
+                {
+                    id: "ai-dev-1",
                     image: "/assets/images/portfolio/security_auditor.png",
                     title: "Security Auditor",
                     description: "Security Auditor - Scan code and web deployments for vulnerabilities with 40+ security checks and NVD enrichment.",
@@ -128,7 +138,7 @@ const portfolioData = {
                     year: 2026
                 },
                 {
-                    id: "ai-dev-1",
+                    id: "ai-dev-2",
                     image: "/assets/images/portfolio/mv-subtitle-generator-thumbnail.png",
                     title: "MV Subtitle Generator",
                     description: "Generate and tidy up SRT subtitles for MP3/MP4 files up to 25MB. AI detects subtitle errors, misheard words, and out-of-context phrases with confidence-based suggestions.",
@@ -138,7 +148,7 @@ const portfolioData = {
                     year: 2025
                 },
                 {
-                    id: "ai-dev-2",
+                    id: "ai-dev-3",
                     title: "Media Search MCP Server",
                     description: "An MCP server that enables AI agents to search across media sources. Integrates with MCP-compatible clients to provide media discovery and retrieval capabilities.",
                     buttonText: "Try It Out",
@@ -147,7 +157,7 @@ const portfolioData = {
                     year: 2026
                 },
                 {
-                    id: "ai-dev-3",
+                    id: "ai-dev-4",
                     image: "/assets/images/portfolio/UnicornFinderThumbnail2025-09-04010045.png",
                     title: "UnicornFinder - AI Analyst for Startups",
                     description: "Venture capitalists can use this tool to evaluate startups and get investment insights.",
@@ -157,7 +167,7 @@ const portfolioData = {
                     year: 2025
                 },
                 {
-                    id: "ai-dev-4",
+                    id: "ai-dev-5",
                     image: "/assets/images/portfolio/img_to_dita_convert_thumbnail.jpg",
                     title: "Image To DITA Converter",
                     description: "An AI-enabled tool that uses LLMs with vision capabilities to identify workflows in user-provided images. It then generates DITA task topics for any of the identified workflows.",
@@ -167,7 +177,7 @@ const portfolioData = {
                     year: 2025
                 },
                 {
-                    id: "ai-dev-5",
+                    id: "ai-dev-6",
                     image: "/assets/images/portfolio/Thumbnail_Oldversion_Screenshot_2025-07-30_120954.png",
                     title: "Jira to Release Notes Draft Generator",
                     description: "An AI-enabled tool that generates feature release notes drafts based on feature description in Jira.",
@@ -177,7 +187,7 @@ const portfolioData = {
                     year: 2024
                 },
                 {
-                    id: "ai-dev-6",
+                    id: "ai-dev-7",
                     image: "/assets/images/portfolio/Thumbnailn8nRunningLocally2025-08-08_233516.png",
                     title: "GitHub Repository Interview Workflow with n8n",
                     description: "An n8n workflow that helps technical writers \"interview\" GitHub repositories instead of interviewing human developers, getting relevant information directly from application code.",
@@ -187,7 +197,7 @@ const portfolioData = {
                     year: 2025
                 },
                 {
-                    id: "ai-dev-7",
+                    id: "ai-dev-8",
                     image: "/assets/images/portfolio/GameInMotion.png",
                     title: "React Pong",
                     description: "A simple Pong game against AI, built with React and Typescript.",
@@ -197,7 +207,7 @@ const portfolioData = {
                     year: 2025
                 },
                 {
-                    id: "ai-dev-8",
+                    id: "ai-dev-9",
                     image: "/assets/images/portfolio/sarvam_indiantranslate.png",
                     title: "SarvamAI Indian Language Translator",
                     description: "A Python application leveraving SarvamAI API to translate text between Indian languages, including Hindi, Marathi, Tamil, Telugu, Bengali, and more.",
@@ -207,7 +217,7 @@ const portfolioData = {
                     year: 2025
                 },
                 {
-                    id: "ai-dev-9",
+                    id: "ai-dev-10",
                     image: "/assets/images/portfolio/BharatGPTVideoThumbnail.png",
                     title: "Hindi Chat Agent with BharatGPT",
                     description: "A BharatGPT model-based chat agent that can interact in Hindi.",
@@ -434,21 +444,8 @@ const portfolioData = {
             linkedInLink: 'https://www.linkedin.com/posts/mugdhav_podcasts-mugdha-vairagade-activity-7404560180212105216-LdsB?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAD-ScYBeGEIIwA1VXFPoj__sofFCBEqfL8',
             podcastLink: 'Podcasts.html',
             searchTerms: 'Scott Abel podcast Content Wrangler technical communication documentation success metrics AI documentation tools workflows technical writers December 2025 holiday present'
-        },
-        {
-            id: 'dummy',
-            title: 'dummy',
-            startDate: '2022-03-15T10:00:00+05:30',
-            endDate: '2022-03-15T12:00:00+05:30',
-            date: 'March 15, 2022',
-            location: 'dummy',
-            organization: 'dummy',
-            description: 'dummy',
-            icon: 'fas fa-star',
-            link: 'https://www.linkedin.com/in/mugdhav',
-            searchTerms: 'dummy'
         }
-        
+
         // Other Events (Commented Out)
         /*
         {
