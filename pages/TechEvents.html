@@ -78,7 +78,7 @@
 
         /* Hero Section */
         .hero {
-            min-height: 60vh;
+            min-height: 25vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -116,7 +116,7 @@
         .hero h2 {
             font-size: 1.5rem;
             color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 1rem;
+            margin-bottom: 0;
             font-weight: 300;
         }
 
@@ -147,7 +147,8 @@
             border-radius: 2px;
         }
 
-        /* Carousel Styles */
+        /* Carousel Styles (commented out — retained for reference) */
+        /*
         .carousel-container {
             position: relative;
             max-width: 100%;
@@ -159,6 +160,7 @@
             display: flex;
             transition: transform 0.5s ease;
         }
+        */
 
         .event-card {
             background-color: var(--light-bg);
@@ -166,11 +168,11 @@
             box-shadow: var(--shadow);
             transition: var(--transition);
             position: relative;
-            min-width: 350px;
-            max-width: 400px;
-            margin: 0 1rem;
+            /* min-width: 350px; */
+            /* max-width: 400px; */
+            /* margin: 0 1rem; */
             overflow: hidden;
-            flex-shrink: 0;
+            /* flex-shrink: 0; */
         }
 
         .event-card:hover {
@@ -294,7 +296,8 @@
             background-color: #7c3aed;
         }
 
-        /* Carousel Navigation */
+        /* Carousel Navigation (commented out — retained for reference) */
+        /*
         .carousel-nav {
             display: flex;
             justify-content: center;
@@ -328,7 +331,6 @@
             transform: none;
         }
 
-        /* Carousel Indicators */
         .carousel-indicators {
             display: flex;
             justify-content: center;
@@ -348,17 +350,23 @@
         .indicator.active {
             background-color: var(--primary-color);
         }
+        */
 
         /* Search and Filter Styles */
+        /* Override components.css which treats .search-container as a modal */
         .search-container {
-            margin-top: 2rem;
+            margin: 0 auto 2rem;
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 1.5rem;
             max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
+            background: transparent;
+            box-shadow: none;
+            border-radius: 0;
+            animation: none;
+            max-height: none;
+            overflow: visible;
         }
 
         .search-box {
@@ -379,20 +387,19 @@
         .search-input {
             width: 100%;
             padding: 1rem 1rem 1rem 2.5rem;
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            border: 2px solid var(--secondary-text-color);
             border-radius: 50px;
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: transparent;
             font-size: 1rem;
             color: var(--text-color);
             transition: var(--transition);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
         .search-input:focus {
             outline: none;
             border-color: var(--primary-color);
-            background-color: white;
-            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.2);
+            background-color: transparent;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
         }
 
         .search-input::placeholder {
@@ -425,29 +432,33 @@
             justify-content: center;
         }
 
-        .filter-btn {
+        .content-section .filter-btn {
             padding: 0.75rem 1.5rem;
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            border: 2px solid var(--primary-color);
             border-radius: 25px;
-            background-color: rgba(255, 255, 255, 0.2);
-            color: white;
-            font-weight: 500;
+            background-color: transparent;
+            color: var(--text-color);
+            font-weight: 600;
+            font-size: 1rem;
             cursor: pointer;
             transition: var(--transition);
-            backdrop-filter: blur(10px);
+            box-shadow: none;
         }
 
-        .filter-btn:hover {
-            background-color: rgba(255, 255, 255, 0.3);
-            border-color: rgba(255, 255, 255, 0.5);
+        .content-section .filter-btn:hover {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
             transform: translateY(-2px);
+            box-shadow: none;
         }
 
-        .filter-btn.active {
-            background-color: white;
-            color: var(--primary-color);
-            border-color: white;
+        .content-section .filter-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
             font-weight: 600;
+            box-shadow: none;
         }
 
         /* Events Count Styles */
@@ -561,14 +572,9 @@
                 font-size: 1.3rem;
             }
 
-            .event-card {
-                min-width: 280px;
-                max-width: 320px;
-            }
+            /* .event-card { min-width: 280px; max-width: 320px; } */
 
-            .carousel-container {
-                padding: 0 1rem;
-            }
+            /* .carousel-container { padding: 0 1rem; } */
 
             .search-container {
                 padding: 0 1rem;
@@ -588,19 +594,42 @@
             }
         }
 
-        @media (min-width: 769px) and (max-width: 1199px) {
-            .event-card {
-                min-width: 300px;
-                max-width: 350px;
-            }
+        /* @media (min-width: 769px) and (max-width: 1199px) { .event-card { min-width: 300px; max-width: 350px; } } */
+
+        /* @media (min-width: 1200px) { .event-card { min-width: 350px; max-width: 380px; } } */
+
+        /* Events Grid Layout */
+        .events-grid-container {
+            margin: 2rem 0;
         }
 
-        @media (min-width: 1200px) {
-            .event-card {
-                min-width: 350px;
-                max-width: 380px;
-            }
+        .events-section {
+            margin-bottom: 3rem;
         }
+
+        .events-section-title {
+            font-size: 1.8rem;
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 1199px) and (min-width: 769px) {
+            .events-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .events-grid { grid-template-columns: 1fr; }
+        }
+
+        .events-section.hidden { display: none; }
 
         /* Loading Animation */
         .fade-in {
@@ -625,6 +654,13 @@
         <div class="hero-content">
             <h1 id="hero-heading">Events</h1>
             <h2>Here are the events I organize for my communities.</h2>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main role="main">
+        <section class="content-section">
+            <h2 class="section-title">Event Showcase</h2>
 
             <!-- Search and Filter Section -->
             <div class="search-container">
@@ -656,24 +692,14 @@
                     </button>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Main Content -->
-    <main role="main">
-        <section class="content-section">
-            <h2 class="section-title">Event Showcase</h2>
 
             <div class="events-count">
                 <h3><span id="event-count">0</span> Events</h3>
             </div>
 
+            <!-- CAROUSEL (commented out — retained for reference)
             <div class="carousel-container">
-                <div class="carousel-wrapper" id="carousel">
-                    <!-- Events will be dynamically rendered here -->
-                </div>
-
-                <!-- Carousel Navigation -->
+                <div class="carousel-wrapper" id="carousel"></div>
                 <div class="carousel-nav">
                     <button class="carousel-btn" id="prevBtn" onclick="moveCarousel(-1)">
                         <i class="fas fa-chevron-left"></i>
@@ -682,9 +708,23 @@
                         <i class="fas fa-chevron-right"></i>
                     </button>
                 </div>
-
-                <!-- Carousel Indicators -->
                 <div class="carousel-indicators" id="indicators"></div>
+            </div>
+            -->
+
+            <div class="events-grid-container" id="events-grid-container">
+                <div class="events-section" id="upcoming-section">
+                    <h3 class="events-section-title">Upcoming</h3>
+                    <div class="events-grid" id="upcoming-grid"></div>
+                </div>
+                <div class="events-section" id="ongoing-section">
+                    <h3 class="events-section-title">Ongoing</h3>
+                    <div class="events-grid" id="ongoing-grid"></div>
+                </div>
+                <div class="events-section" id="past-section">
+                    <h3 class="events-section-title">Past</h3>
+                    <div class="events-grid" id="past-grid"></div>
+                </div>
             </div>
 
             <!-- No Results Message -->
@@ -788,69 +828,31 @@
                 return;
             }
 
-            const carousel = document.getElementById('carousel');
-
             // Enrich events with dynamic status calculation
             allEvents = portfolioData.events.map(event => enrichEventWithStatus(event));
 
-            // Sort events in reverse chronological order within each status:
-            // 1. Future events (coming-soon) - furthest future dates first
-            // 2. Ongoing events (now) - most recent first
-            // 3. Past events (past) - most recent past events first
+            // Sort events reverse-chronologically within each section; alpha by title for ties
             const sortedEvents = [...allEvents].sort((a, b) => {
-                const statusOrder = { 'coming-soon': 1, 'now': 2, 'past': 3 };
-
-                // First sort by status priority
-                const statusDiff = statusOrder[a.status] - statusOrder[b.status];
-                if (statusDiff !== 0) {
-                    return statusDiff;
-                }
-
-                // Within same status, sort by date in reverse chronological order
-                // Extract date for comparison - handle different date formats
-                const getDateForSorting = (event) => {
-                    // If event has startDate (ISO format), use it
-                    if (event.startDate) {
-                        return new Date(event.startDate);
-                    }
-                    // If event has date string, try to parse it
-                    if (event.date && event.date !== 'Coming Soon' && event.date !== 'Ongoing') {
-                        // Handle various date formats
-                        let dateStr = event.date;
-                        // Remove time portion if present (e.g., "September 28, 2025, 11:00 AM - 12:00 PM IST")
-                        if (dateStr.includes(',')) {
-                            const parts = dateStr.split(',');
-                            if (parts.length >= 2) {
-                                dateStr = parts[0] + ', ' + parts[1].trim().split(' ')[0]; // "September 28, 2025"
-                            }
-                        }
-                        const parsedDate = new Date(dateStr);
-                        return isNaN(parsedDate.getTime()) ? new Date(0) : parsedDate;
-                    }
-                    // Default date for events without specific dates
-                    return new Date(0);
-                };
-
-                const dateA = getDateForSorting(a);
-                const dateB = getDateForSorting(b);
-
-                // For coming-soon events: newest dates first (furthest in future first)
-                if (a.status === 'coming-soon') {
-                    return dateB.getTime() - dateA.getTime();
-                }
-                // For past events: newest dates first (most recent past events first)
-                else if (a.status === 'past') {
-                    return dateB.getTime() - dateA.getTime();
-                }
-                // For ongoing events: keep original order or by date
-                else {
-                    return dateB.getTime() - dateA.getTime();
-                }
+                const getDate = (ev) => ev.startDate ? new Date(ev.startDate) : new Date(0);
+                const dateDiff = getDate(b).getTime() - getDate(a).getTime(); // reverse chron
+                if (dateDiff !== 0) return dateDiff;
+                return a.title.localeCompare(b.title); // alpha by title for ties
             });
 
-            // Generate HTML for all events
-            const eventsHTML = sortedEvents.map(event => createEventCardHTML(event)).join('');
-            carousel.innerHTML = eventsHTML;
+            const upcomingEvents = sortedEvents.filter(e => e.status === 'coming-soon');
+            const ongoingEvents  = sortedEvents.filter(e => e.status === 'now');
+            const pastEvents     = sortedEvents.filter(e => e.status === 'past');
+
+            document.getElementById('upcoming-grid').innerHTML = upcomingEvents.map(createEventCardHTML).join('');
+            document.getElementById('ongoing-grid').innerHTML  = ongoingEvents.map(createEventCardHTML).join('');
+            document.getElementById('past-grid').innerHTML     = pastEvents.map(createEventCardHTML).join('');
+
+            // Hide empty sections
+            ['upcoming', 'ongoing', 'past'].forEach(key => {
+                const section = document.getElementById(key + '-section');
+                const grid    = document.getElementById(key + '-grid');
+                section.classList.toggle('hidden', grid.children.length === 0);
+            });
 
             // Update initial count
             document.getElementById('event-count').textContent = sortedEvents.length;
@@ -1018,51 +1020,32 @@
 
         function filterEvents() {
             const allCards = document.querySelectorAll('.event-card');
-            const noResults = document.getElementById('no-results');
-            const carousel = document.getElementById('carousel');
             let visibleCount = 0;
 
-            filteredCards = [];
-
             allCards.forEach(card => {
-                const status = card.dataset.status;
-                const searchText = card.dataset.search.toLowerCase();
-
-                let matchesFilter = currentFilter === 'all' || status === currentFilter;
-                let matchesSearch = !currentSearch || searchText.includes(currentSearch);
-
-                if (matchesFilter && matchesSearch) {
-                    card.classList.remove('hidden');
-                    filteredCards.push(card);
-                    visibleCount++;
-                } else {
-                    card.classList.add('hidden');
-                }
+                const matchesFilter = currentFilter === 'all' || card.dataset.status === currentFilter;
+                const matchesSearch = !currentSearch || card.dataset.search.includes(currentSearch);
+                card.classList.toggle('hidden', !(matchesFilter && matchesSearch));
+                if (matchesFilter && matchesSearch) visibleCount++;
             });
 
-            // Update event count
             document.getElementById('event-count').textContent = visibleCount;
 
-            // Show/hide no results message
-            if (visibleCount === 0) {
-                noResults.classList.add('show');
-                carousel.style.display = 'none';
-                document.querySelector('.carousel-nav').style.display = 'none';
-                document.querySelector('.carousel-indicators').style.display = 'none';
-            } else {
-                noResults.classList.remove('show');
-                carousel.style.display = 'flex';
-                document.querySelector('.carousel-nav').style.display = 'flex';
-                document.querySelector('.carousel-indicators').style.display = 'flex';
+            // Show/hide sections based on visible cards within them
+            ['upcoming', 'ongoing', 'past'].forEach(key => {
+                const section = document.getElementById(key + '-section');
+                const hasVisible = section.querySelectorAll('.event-card:not(.hidden)').length > 0;
+                section.classList.toggle('hidden', !hasVisible);
+            });
 
-                // Reinitialize carousel with filtered results
-                currentSlide = 0;
-                initializeCarousel();
-            }
+            const noResults = document.getElementById('no-results');
+            const container = document.getElementById('events-grid-container');
+            noResults.classList.toggle('show', visibleCount === 0);
+            container.style.display = visibleCount === 0 ? 'none' : '';
         }
 
-        // Carousel functionality
-
+        // Carousel functionality (commented out — retained for reference)
+        /*
         function initializeCarousel() {
             const carousel = document.getElementById('carousel');
             const cards = document.querySelectorAll('.event-card:not(.hidden)');
@@ -1070,7 +1053,6 @@
 
             totalSlides = cards.length;
 
-            // Calculate slides to show based on screen width
             const screenWidth = window.innerWidth;
             if (screenWidth >= 1200) {
                 slidesToShow = 3;
@@ -1082,7 +1064,6 @@
 
             slideWidth = 100 / slidesToShow;
 
-            // Create indicators
             indicatorsContainer.innerHTML = '';
             const maxSlides = Math.ceil(totalSlides / slidesToShow);
             for (let i = 0; i < maxSlides; i++) {
@@ -1116,54 +1097,37 @@
 
         function updateCarousel() {
             const carousel = document.getElementById('carousel');
-            // Move by full container width for each slide group
             const translateX = -(currentSlide * 100);
             carousel.style.transform = `translateX(${translateX}%)`;
 
-            // Update indicators
             const indicators = document.querySelectorAll('.indicator');
             indicators.forEach((indicator, index) => {
                 indicator.classList.toggle('active', index === currentSlide);
             });
 
-            // Update navigation buttons
             const maxSlides = Math.ceil(totalSlides / slidesToShow);
             document.getElementById('prevBtn').disabled = currentSlide === 0;
             document.getElementById('nextBtn').disabled = currentSlide === maxSlides - 1;
         }
 
-        // Auto-play carousel (optional)
         function startAutoPlay() {
             setInterval(() => {
                 const maxSlides = Math.ceil(totalSlides / slidesToShow);
                 if (currentSlide < maxSlides - 1) {
                     moveCarousel(1);
                 } else {
-                    currentSlide = -1; // Will be set to 0 in moveCarousel
+                    currentSlide = -1;
                     moveCarousel(1);
                 }
-            }, 5000); // Change slide every 5 seconds
+            }, 5000);
         }
+        */
 
         // Initialize page
         document.addEventListener('DOMContentLoaded', function() {
             initializeTheme();
             renderEventCards(); // Render events from portfolio_data.js
             initializeSearchAndFilter();
-            // Ensure carousel is initialized after rendering
-            setTimeout(() => {
-                initializeCarousel();
-            }, 100);
-            // startAutoPlay(); // Uncomment to enable auto-play
-
-            // Reinitialize carousel on window resize
-            window.addEventListener('resize', () => {
-                setTimeout(() => {
-                    if (document.querySelectorAll('.event-card:not(.hidden)').length > 0) {
-                        initializeCarousel();
-                    }
-                }, 100);
-            });
 
             // Smooth scroll behavior for anchor links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
