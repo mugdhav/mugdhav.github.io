@@ -57,6 +57,22 @@
     <priority>0.7</priority>
   </url>
 
+  <!-- Ollama Local Model Tutorial Page -->
+  <url>
+    <loc>https://www.vmugdha.in/pages/OllamaLocalModelTutorial.html</loc>
+    <lastmod>2026-03-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Ollama Local Model Tutorial Workshop Page -->
+  <url>
+    <loc>https://www.vmugdha.in/pages/OllamaLocalModelTutorialWorkshop.html</loc>
+    <lastmod>2026-03-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <!-- Pie & AI Event Capture Page -->
   <url>
     <loc>https://www.vmugdha.in/pages/pie-ai-event-capture.html</loc>
