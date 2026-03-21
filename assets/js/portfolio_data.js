@@ -62,7 +62,7 @@ const portfolioData = {
                     title: "Tutorial: Your Personal AI - Run Models Locally",
                     description: "Step-by-step tutorial for setting up and running open-source and small language models (SLMs) like Phi3 and Gemma3 locally on your system using Ollama. Includes installation guide, model setup instructions, and verification steps along with test prompts.",
                     buttonText: "View Tutorial",
-                    buttonLink: "pages/PreEventInstructions.html",
+                    buttonLink: "pages/OllamaLocalModelTutorial.html",
                     category: "Tutorial",
                     year: 2025
                 },
