@@ -169,6 +169,7 @@ const portfolioData = {
                 },
                 {
                     id: "ai-dev-5",
+                    image: "/assets/images/portfolio/MediaScoutMCPServer.png",
                     title: "Media Search MCP Server",
                     description: "An MCP server that enables AI agents to search across media sources. Integrates with MCP-compatible clients to provide media discovery and retrieval capabilities.",
                     buttonText: "Try It Out",
