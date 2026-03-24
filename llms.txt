@@ -26,6 +26,7 @@ Mugdha Vairagade is a professional who bridges technical complexity and user exp
 
 ## AI Development Projects
 
+- [IP Guard - Claude Skill](https://github.com/mugdhav/claude-skill-ip-guard): A Claude Code skill that adds IP compliance guardrails to AI-assisted code generation, with three-stage license checking and automatic provenance documentation
 - [Shetkari Mitra](https://sheti-mitra-app.lovable.app): A Marathi-first job portal for seasonal farm work built by Mugdha Vairagade, connecting local farmers and labourers via mobile with English translation support
 - [SheBuilds Showcase](https://shebuilt-iwd-gems.lovable.app): Showcase of apps and websites built by women participants at the SheBuilds buildathon, Pune edition, on International Women's Day 2026, powered by Lovable
 - [Security Auditor](https://mugdhav-security-auditor.hf.space): Scan code and web deployments for vulnerabilities with 40+ security checks and NVD enrichment
