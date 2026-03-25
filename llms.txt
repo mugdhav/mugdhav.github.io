@@ -54,6 +54,7 @@ Mugdha Vairagade is a professional who bridges technical complexity and user exp
 
 ## Blog Posts
 
+- [LiteLLM: Transitive Dependencies as Attack Surface](https://www.linkedin.com/posts/mugdhav_python-litellm-vulnerability-activity-7442517252337410048-3O87): Examines how transitive dependencies in Python packages like LiteLLM can quietly introduce vulnerabilities, and how the Claude ip-guard skill and Security Auditor tool can catch these risks early
 - [How I Added Performance Monitoring to My MCP Server with AppSignal](https://www.vmugdha.in/blog/appsignal-mcp-monitoring.html)
 - [Find Your Perfect AI Agent: A Guide for Non-Tech Professionals](https://www.linkedin.com/pulse/find-your-perfect-ai-agent-mugdha-vairagade-tt3xf)
 - [Preparing Information Architecture for AI-Delivered Content](https://www.linkedin.com/pulse/preparing-information-architecture-aidelivered-mugdha-vairagade-deo5f)

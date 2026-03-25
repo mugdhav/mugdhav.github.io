@@ -606,6 +606,17 @@ const portfolioData = {
     // Blog Posts Data
     blogs: [
         {
+            id: 'litellm-transitive-dependencies-vulnerability',
+            title: 'LiteLLM: Transitive Dependencies as Attack Surface',
+            excerpt: 'This post examines the transitive dependencies in Python packages like LiteLLM that can quietly introduce vulnerabilities into your project. Also mentioned here is how the Claude ip-guard skill and the Security Auditor tool can catch these risks before they reach production.',
+            date: '2026-03-26',
+            category: 'Security',
+            readTime: '2 min read',
+            slug: 'litellm-transitive-dependencies-vulnerability',
+            url: 'https://www.linkedin.com/posts/mugdhav_python-litellm-vulnerability-activity-7442517252337410048-3O87',
+            featured: true
+        },
+        {
             id: 'final-appsignal-impl-blog',
             title: 'How I Added Performance Monitoring to My MCP Server with AppSignal',
             excerpt: 'An important step in building an enterprise-grade app is ensuring it can scale with reasonable performance to meet the demands of large user bases. This post walks through integrating AppSignal APM with a Python MCP server to track performance, errors, and resource usage.',
