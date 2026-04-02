@@ -2,3 +2,9 @@
 Unused/
 plans/
 nul
+
+# Local dev tooling - never push to remote
+generate_pdf.py
+start-server.bat
+CLAUDE.md
+.claude/

@@ -253,6 +253,24 @@
     color: var(--secondary-color);
 }
 
+/* Contact heading — centered, no underline decoration */
+.contact-heading,
+[data-theme-style="calm"] .contact-heading {
+    display: block;
+    text-align: center !important;
+}
+.contact-heading::after {
+    display: none;
+}
+
+/* HuggingFace inline SVG icon — match FA icon sizing */
+.hf-icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.125em;
+    flex-shrink: 0;
+}
+
 /* Tags/Badges */
 .tag, .badge {
     display: inline-block;
