@@ -27,17 +27,19 @@ Mugdha Vairagade is a professional who bridges technical complexity and user exp
 ## AI Development Projects
 
 - [IP Guard - Claude Skill](https://github.com/mugdhav/claude-skill-ip-guard): A Claude Code skill that adds IP compliance guardrails to AI-assisted code generation, with three-stage license checking and automatic provenance documentation
-- [Shetkari Mitra](https://sheti-mitra-app.lovable.app): A Marathi-first job portal for seasonal farm work built by Mugdha Vairagade, connecting local farmers and labourers via mobile with English translation support
-- [SheBuilds Showcase](https://shebuilt-iwd-gems.lovable.app): Showcase of apps and websites built by women participants at the SheBuilds buildathon, Pune edition, on International Women's Day 2026, powered by Lovable
-- [Security Auditor](https://mugdhav-security-auditor.hf.space): Scan code and web deployments for vulnerabilities with 40+ security checks and NVD enrichment
-- [MV Subtitle Generator](https://mugdhav-transcript-reviewer.hf.space): AI-powered SRT subtitle generation and error detection for MP3/MP4 files
+- [Open Source Model Fine-Tuning](https://github.com/mugdhav/TrainOSModels): Jupyter notebooks for fine-tuning open source vision-language models (SigLIP) on domain-specific datasets using LoRA, with a three-stage pipeline: caption generation, training, and verification
 - [Media Search MCP Server](https://mugdhav-mediasearchmcp.hf.space): MCP server enabling AI agents to search across media sources with MCP-compatible client integration
+- [MV Subtitle Generator](https://mugdhav-transcript-reviewer.hf.space): AI-powered SRT subtitle generation and error detection for MP3/MP4 files
+- [Security Auditor](https://mugdhav-security-auditor.hf.space): Scan code and web deployments for vulnerabilities with 40+ security checks and NVD enrichment
 - [UnicornFinder - AI Analyst for Startups](https://ai.studio/apps/drive/1BQ4qO7IU4pwYhYBmQ9eTLy-tLE6v51OJ): Tool for venture capitalists to evaluate startups and get investment insights
 - [Image To DITA Converter](https://youtu.be/783w_xChhn0): AI tool using vision capabilities to identify workflows and generate DITA task topics
 - [Jira to Release Notes Draft Generator](https://youtu.be/RWlTJ-76QoY): AI tool generating feature release notes from Jira descriptions
 - [GitHub Repository Interview Workflow with n8n](https://youtu.be/9P01zPxpbdY): n8n workflow helping technical writers extract information from GitHub repositories
 - [SarvamAI Indian Language Translator](https://github.com/mugdhav/SarvamAPICodeSample): Python application for translating between Indian languages
 - [Hindi Chat Agent with BharatGPT](https://youtube.com/shorts/hQR19TK41DI): Chat agent interacting in Hindi using BharatGPT model
+- [Shetkari Mitra](https://sheti-mitra-app.lovable.app): A Marathi-first job portal for seasonal farm work built by Mugdha Vairagade, connecting local farmers and labourers via mobile with English translation support
+- [SheBuilds Showcase](https://shebuilt-iwd-gems.lovable.app): Showcase of apps and websites built by women participants at the SheBuilds buildathon, Pune edition, on International Women's Day 2026, powered by Lovable
+- [React Pong](https://ai.studio/apps/drive/19H4i0hWXQe_OPV-v18GzQnzoobRhYvvr): Simple Pong game against AI, built with React and TypeScript
 
 ## Podcasts and Thought Leadership
 

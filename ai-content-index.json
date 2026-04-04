@@ -4,7 +4,7 @@
     "url": "https://www.vmugdha.in",
     "owner": "Mugdha Vairagade",
     "profession": "Technical Writer, AI Developer, Developer Relations, Event Organizer",
-    "lastUpdated": "2026-02-23",
+    "lastUpdated": "2026-04-05",
     "description": "Portfolio showcasing technical writing, AI development projects, and Developer Relations events and outreach by Mugdha Vairagade."
   },
   "contactInfo": {
@@ -175,6 +175,14 @@
     ],
     "projects": [
       {
+        "title": "Open Source Model Fine-Tuning",
+        "type": "ai-development",
+        "demo": "https://github.com/mugdhav/TrainOSModels",
+        "technologies": ["LoRA", "SigLIP", "Hugging Face", "BLIP", "Google Colab", "Python"],
+        "description": "Jupyter notebooks for fine-tuning open source vision-language models (SigLIP) on domain-specific datasets using LoRA, with a three-stage pipeline: caption generation, training, and verification",
+        "year": 2026
+      },
+      {
         "title": "Security Auditor",
         "type": "ai-development",
         "demo": "https://mugdhav-security-auditor.hf.space",
@@ -196,7 +204,7 @@
         "demo": "https://mugdhav-mediasearchmcp.hf.space",
         "technologies": ["MCP", "Media Search", "AI Agents", "API Integration"],
         "description": "MCP server enabling AI agents to search across media sources with MCP-compatible client integration",
-        "year": 2026
+        "year": 2025
       },
       {
         "title": "UnicornFinder - AI Analyst for Startups",

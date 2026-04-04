@@ -39,19 +39,39 @@ This is the portfolio website of Mugdha Vairagade, a Technical Writer, AI Develo
    - Link: https://www.linkedin.com/pulse/error-messages-mugdha-vairagade-8bkhf
 
 ### AI Development Projects
-1. **Image To DITA Converter**
+1. **IP Guard - Claude Skill**
+   - Description: Claude Code skill adding IP compliance guardrails to AI-assisted code generation
+   - Link: https://github.com/mugdhav/claude-skill-ip-guard
+
+2. **Open Source Model Fine-Tuning**
+   - Description: Jupyter notebooks for fine-tuning vision-language models (SigLIP) using LoRA with a three-stage pipeline
+   - Link: https://github.com/mugdhav/TrainOSModels
+
+3. **Media Search MCP Server**
+   - Description: MCP server enabling AI agents to search across media sources
+   - Demo: https://mugdhav-mediasearchmcp.hf.space
+
+4. **MV Subtitle Generator**
+   - Description: AI-powered SRT subtitle generation and error detection for MP3/MP4 files
+   - Demo: https://mugdhav-transcript-reviewer.hf.space
+
+5. **Security Auditor**
+   - Description: Scan code and web deployments for vulnerabilities with 40+ security checks and NVD enrichment
+   - Demo: https://mugdhav-security-auditor.hf.space
+
+6. **Image To DITA Converter**
    - Description: AI tool using LLMs with vision to identify workflows in images and generate DITA task topics
    - Demo: https://youtu.be/783w_xChhn0
 
-2. **Jira to Release Notes Draft Generator**
+7. **Jira to Release Notes Draft Generator**
    - Description: AI tool that generates feature release notes from Jira descriptions
    - Demo: https://youtu.be/RWlTJ-76QoY
 
-3. **GitHub Repository Interview Workflow with n8n**
+8. **GitHub Repository Interview Workflow with n8n**
    - Description: n8n workflow enabling technical writers to extract information from GitHub repositories
    - Demo: https://youtu.be/9P01zPxpbdY
 
-4. **React Pong**
+9. **React Pong**
    - Description: AI-enabled Pong game built with React and TypeScript
    - Link: https://ai.studio/apps/drive/19H4i0hWXQe_OPV-v18GzQnzoobRhYvvr
 

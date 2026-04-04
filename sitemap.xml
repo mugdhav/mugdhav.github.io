@@ -4,7 +4,7 @@
   <!-- Main Homepage -->
   <url>
     <loc>https://www.vmugdha.in/</loc>
-    <lastmod>2026-01-04</lastmod>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -84,7 +84,7 @@
   <!-- LLMs.txt for AI Agents -->
   <url>
     <loc>https://www.vmugdha.in/llms.txt</loc>
-    <lastmod>2026-03-16</lastmod>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -92,7 +92,7 @@
   <!-- AI Content Index JSON -->
   <url>
     <loc>https://www.vmugdha.in/ai-content-index.json</loc>
-    <lastmod>2025-09-09</lastmod>
+    <lastmod>2026-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
