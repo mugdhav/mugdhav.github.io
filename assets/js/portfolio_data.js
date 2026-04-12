@@ -616,6 +616,16 @@ const portfolioData = {
     // Blog Posts Data
     blogs: [
         {
+            id: 'token-tax-indic-languages',
+            title: 'The Token Tax on Indic Language Prompts',
+            excerpt: 'A comparative analysis of tokenization overhead across OpenAI, Anthropic, Google Gemini, and Sarvam AI — using Hindi and Marathi prompts with English as the baseline. Frontier Western AI labs impose a 30–156% token overhead on Devanagari-script prompts, while purpose-built Indic AI (Sarvam) achieves a token credit of up to 22%.',
+            date: '2026-04-12',
+            category: 'AI Development',
+            readTime: '8 min read',
+            slug: 'token-tax-report',
+            featured: true
+        },
+        {
             id: 'litellm-transitive-dependencies-vulnerability',
             title: 'LiteLLM: Transitive Dependencies as Attack Surface',
             excerpt: 'This post examines the transitive dependencies in Python packages like LiteLLM that can quietly introduce vulnerabilities into your project. Also mentioned here is how the Claude ip-guard skill and the Security Auditor tool can catch these risks before they reach production.',

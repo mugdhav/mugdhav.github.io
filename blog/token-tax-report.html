@@ -1,0 +1,1641 @@
+<!DOCTYPE html>
+<html lang="en" data-theme-style="calm" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Token Tax on Indic Language Prompts — Mugdha's Portfolio</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="A comparative analysis of tokenization overhead across OpenAI, Anthropic, Google Gemini, and Sarvam AI — using Hindi and Marathi prompts with English as baseline. Sarvam AI achieves a token credit while frontier Western labs impose 30–156% overhead on Devanagari-script prompts.">
+    <meta name="keywords" content="token tax, Indic languages, tokenization, Hindi, Marathi, Devanagari, OpenAI, Anthropic, Google Gemini, Sarvam AI, tokenizer, BPE, SentencePiece, LLM, multilingual AI, AI cost, token overhead">
+    <meta name="author" content="Mugdha Variyar">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <link rel="canonical" href="https://mugdhav.github.io/blog/token-tax-report.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mugdhav.github.io/blog/token-tax-report.html">
+    <meta property="og:title" content="The Token Tax on Indic Language Prompts — Platform Comparison Report">
+    <meta property="og:description" content="A comparative analysis of tokenization overhead across OpenAI, Anthropic, Google Gemini, and Sarvam AI using Hindi and Marathi prompts.">
+    <meta property="og:site_name" content="Mugdha Variyar's Portfolio">
+    <meta property="article:published_time" content="2026-04-12T00:00:00+00:00">
+    <meta property="article:author" content="Mugdha Variyar">
+    <meta property="article:section" content="AI Development">
+    <meta property="article:tag" content="Tokenization">
+    <meta property="article:tag" content="Indic Languages">
+    <meta property="article:tag" content="LLM">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Token Tax on Indic Language Prompts">
+    <meta name="twitter:description" content="Confirmed: Hindi and Marathi prompts cost 30–156% more tokens on frontier Western AI platforms. Sarvam AI is the exception — it shows a token credit.">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "The Token Tax on Indic Language Prompts — Platform Comparison Report",
+      "description": "A comparative analysis of tokenization overhead across OpenAI, Anthropic, Google Gemini, and Sarvam AI using Hindi and Marathi prompts with English as baseline.",
+      "author": {
+        "@type": "Person",
+        "name": "Mugdha Variyar",
+        "url": "https://mugdhav.github.io"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Mugdha Variyar",
+        "url": "https://mugdhav.github.io"
+      },
+      "datePublished": "2026-04-12",
+      "dateModified": "2026-04-12",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://mugdhav.github.io/blog/token-tax-report.html"
+      },
+      "articleSection": "AI Development",
+      "keywords": ["tokenization", "Indic languages", "Hindi", "Marathi", "OpenAI", "Anthropic", "Google Gemini", "Sarvam AI"],
+      "timeRequired": "PT8M",
+      "proficiencyLevel": "Intermediate"
+    }
+    </script>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/vnd.microsoft.icon" href="../assets/favicon/iopm5-km6uc-002.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/favicon/iopm5-km6uc-002.ico">
+    <link rel="apple-touch-icon" href="../assets/favicon/iopm5-km6uc-003.ico">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9HL4T713SQ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-9HL4T713SQ');
+    </script>
+
+    <!-- Chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+
+    <!-- Google Fonts for report -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+    <!-- Portfolio CSS -->
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/layout.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/animations.css">
+    <link rel="stylesheet" href="../assets/css/theme-jazzy.css">
+    <link rel="stylesheet" href="../assets/css/theme-calm.css">
+    <link rel="stylesheet" href="../assets/css/theme-switcher.css">
+    <link rel="stylesheet" href="../assets/css/search-ui.css">
+
+    <style>
+        /* ─── PORTFOLIO BLOG POST LAYOUT ─────────────────────── */
+        .post-hero {
+            min-height: 30vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        .post-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            max-width: 900px;
+            padding: 0 2rem;
+            font-family: system-ui, sans-serif;
+            font-weight: 700;
+        }
+
+        [data-theme-style="calm"] .post-hero {
+            display: none;
+        }
+
+        .post-page-title {
+            display: none;
+            text-align: center;
+            padding-top: 2rem;
+            color: var(--text-color);
+            font-size: 2rem;
+            font-weight: 600;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 5% 1rem 5%;
+        }
+
+        [data-theme-style="calm"] .post-page-title {
+            display: block;
+        }
+
+        .blog-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 5%;
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .nav-pane {
+            position: sticky;
+            top: calc(var(--header-height, 80px) + 2rem);
+            background-color: var(--light-bg);
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            max-height: calc(100vh - var(--header-height, 80px) - 4rem);
+            overflow-y: auto;
+        }
+
+        [data-theme-style="calm"] .nav-pane {
+            background-color: var(--white);
+            border: var(--card-border);
+            box-shadow: none;
+        }
+
+        .nav-pane h3 {
+            color: var(--text-color);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary-color);
+            font-family: system-ui, sans-serif;
+        }
+
+        .nav-pane nav ul { list-style: none; padding: 0; margin: 0; }
+        .nav-pane nav li { margin: 0.5rem 0; }
+        .nav-pane nav a {
+            color: var(--secondary-text-color);
+            text-decoration: none;
+            display: block;
+            padding: 0.25rem 0;
+            font-size: 0.88rem;
+            line-height: 1.4;
+            transition: var(--transition);
+            font-family: system-ui, sans-serif;
+        }
+        .nav-pane nav a:hover {
+            color: var(--primary-color);
+            padding-left: 0.5rem;
+        }
+
+        .blog-content {
+            background-color: var(--light-bg);
+            border-radius: 15px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+            min-width: 0;
+        }
+
+        [data-theme-style="calm"] .blog-content {
+            background-color: var(--white);
+            border: var(--card-border);
+            box-shadow: none;
+        }
+
+        .blog-meta {
+            color: var(--secondary-text-color);
+            font-size: 0.95rem;
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid rgba(0,0,0,0.1);
+            font-family: system-ui, sans-serif;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+            font-family: system-ui, sans-serif;
+        }
+        .back-link:hover { gap: 0.75rem; }
+
+        @media (max-width: 768px) {
+            .blog-container { grid-template-columns: 1fr; }
+            .nav-pane { position: static; max-height: none; }
+            .post-hero h1 { font-size: 1.8rem; }
+            .blog-content { padding: 1.5rem; }
+        }
+
+        /* ─── REPORT STYLES (scoped under .ttr) ─────────────── */
+        .ttr {
+            --bg:       #F7F5F0;
+            --surface:  #FFFFFF;
+            --surface2: #F0EDE6;
+            --border:   #E2DED6;
+            --border2:  #CCC8BF;
+            --text:     #1A1915;
+            --text2:    #5C5850;
+            --text3:    #8F8B83;
+            --accent:   #C5531F;
+            --accent-l: #F5EAE4;
+            --accent-m: #E8C4B4;
+            --green:    #1A6B47;
+            --green-l:  #E4F0EB;
+            --amber:    #8C5E0A;
+            --amber-l:  #FAF0DC;
+            --red:      #9E2B2B;
+            --red-l:    #FAEBEB;
+            --blue:     #1A4A7A;
+            --blue-l:   #E6EEF8;
+            --hindi:    #B8470E;
+            --marathi:  #6B3FA0;
+            --english:  #1A4A7A;
+
+            font-family: 'Instrument Sans', system-ui, sans-serif;
+            color: var(--text);
+            line-height: 1.65;
+            font-size: 15px;
+        }
+
+        .ttr * { box-sizing: border-box; }
+
+        .ttr .icon { display: inline-block; vertical-align: middle; flex-shrink: 0; }
+
+        .ttr .report-intro {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 28px 32px;
+            margin-bottom: 32px;
+        }
+
+        .ttr .eyebrow {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+        .ttr .eyebrow-line { width: 32px; height: 1px; background: var(--accent); }
+        .ttr .eyebrow-text {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        .ttr .report-lead {
+            font-size: 15px;
+            color: var(--text2);
+            max-width: 720px;
+            margin-bottom: 18px;
+            line-height: 1.65;
+        }
+
+        .ttr .meta-chips {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .ttr .chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 99px;
+            padding: 4px 12px;
+            font-size: 12px;
+            color: var(--text2);
+        }
+        .ttr .chip.confirmed {
+            background: var(--green-l);
+            border-color: #B2D4C4;
+            color: var(--green);
+        }
+
+        .ttr .container {
+            max-width: 100%;
+        }
+
+        .ttr section {
+            padding: 48px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .ttr section:last-child { border-bottom: none; }
+
+        .ttr .section-number {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--text3);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .ttr .section-number::after {
+            content: '';
+            flex: 1;
+            max-width: 40px;
+            height: 1px;
+            background: var(--border2);
+        }
+
+        .ttr h2 {
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-size: 30px;
+            font-weight: 400;
+            letter-spacing: -0.3px;
+            margin-bottom: 10px;
+            line-height: 1.2;
+            color: var(--text);
+        }
+
+        .ttr h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 14px;
+            color: var(--text);
+        }
+
+        .ttr h4 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+
+        .ttr .section-intro {
+            font-size: 15px;
+            color: var(--text2);
+            max-width: 720px;
+            margin-bottom: 28px;
+            line-height: 1.7;
+        }
+
+        /* Callouts */
+        .ttr .callout {
+            display: flex;
+            gap: 14px;
+            border-radius: 10px;
+            padding: 18px 20px;
+            margin-bottom: 18px;
+            border: 1px solid transparent;
+        }
+        .ttr .callout.info    { background: var(--blue-l);  border-color: #BDD0E8; }
+        .ttr .callout.success { background: var(--green-l); border-color: #B2D4C4; }
+        .ttr .callout.warning { background: var(--amber-l); border-color: #E8D49A; }
+        .ttr .callout.alert   { background: var(--red-l);   border-color: #E8BFBF; }
+        .ttr .callout.neutral { background: var(--surface2); border-color: var(--border); }
+        .ttr .callout-icon { margin-top: 1px; }
+        .ttr .callout-body { flex: 1; }
+        .ttr .callout-body p { font-size: 14px; line-height: 1.6; color: var(--text2); margin: 0; }
+        .ttr .callout-body strong { color: var(--text); }
+        .ttr .callout.info    .callout-body p { color: var(--blue); }
+        .ttr .callout.info    .callout-body strong { color: var(--blue); }
+        .ttr .callout.success .callout-body p { color: var(--green); }
+        .ttr .callout.success .callout-body strong { color: var(--green); }
+        .ttr .callout.warning .callout-body p { color: var(--amber); }
+        .ttr .callout.warning .callout-body strong { color: var(--amber); }
+        .ttr .callout.alert   .callout-body p { color: var(--red); }
+        .ttr .callout.alert   .callout-body strong { color: var(--red); }
+
+        /* Prompt cards */
+        .ttr .prompt-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin-bottom: 36px;
+        }
+        .ttr .prompt-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 22px;
+        }
+        .ttr .lang-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 3px 10px;
+            border-radius: 99px;
+            margin-bottom: 14px;
+        }
+        .ttr .lang-badge.hindi   { background: #F5E8E0; color: var(--hindi); }
+        .ttr .lang-badge.marathi { background: #EDE5F5; color: var(--marathi); }
+        .ttr .lang-badge.english { background: var(--blue-l); color: var(--blue); }
+        .ttr .prompt-text { font-size: 18px; line-height: 1.5; margin-bottom: 12px; color: var(--text); }
+        .ttr .prompt-meta { font-size: 12px; color: var(--text3); display: flex; align-items: center; gap: 5px; }
+
+        /* KPI grid */
+        .ttr .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+            margin-bottom: 40px;
+        }
+        .ttr .kpi-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+        .ttr .kpi-val { font-size: 28px; font-weight: 700; margin-bottom: 4px; }
+        .ttr .kpi-label { font-size: 12px; color: var(--text3); line-height: 1.4; }
+
+        /* Tables */
+        .ttr table { width: 100%; border-collapse: collapse; }
+        .ttr th, .ttr td { padding: 11px 14px; text-align: left; font-size: 13px; }
+        .ttr th {
+            background: var(--surface2);
+            border-bottom: 1px solid var(--border);
+            font-weight: 600;
+            color: var(--text);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+        .ttr td { border-bottom: 1px solid var(--border); color: var(--text); }
+        .ttr tr:last-child td { border-bottom: none; }
+
+        /* Status badges */
+        .ttr .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 99px;
+        }
+        .ttr .status-confirmed { background: var(--green-l); color: var(--green); border: 1px solid #B2D4C4; }
+
+        /* Platform blocks */
+        .ttr .platform-block {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        .ttr .platform-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 18px 22px;
+            border-bottom: 1px solid var(--border);
+            background: var(--surface2);
+        }
+        .ttr .platform-logo-svg {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .ttr .platform-name { font-size: 15px; font-weight: 600; color: var(--text); }
+        .ttr .platform-sub  { font-size: 12px; color: var(--text3); margin-top: 2px; }
+        .ttr .platform-name-wrap { flex: 1; }
+        .ttr .platform-body {
+            display: grid;
+            grid-template-columns: 1fr 260px;
+        }
+        .ttr .ptable-wrap { padding: 20px 22px; }
+        .ttr .ptable-note {
+            display: flex;
+            gap: 8px;
+            margin-top: 14px;
+            font-size: 12px;
+            color: var(--text3);
+            line-height: 1.5;
+        }
+        .ttr .pchart-wrap {
+            padding: 20px 22px;
+            border-left: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+        }
+        .ttr .chart-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text3); margin-bottom: 10px; }
+        .ttr .chart-container { flex: 1; min-height: 120px; position: relative; }
+
+        /* Token values & badges */
+        .ttr .tok-val { font-size: 20px; font-weight: 700; }
+        .ttr .mult-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 2px 9px;
+            border-radius: 99px;
+        }
+        .ttr .mb-base    { background: #EEF2F7; color: var(--blue); }
+        .ttr .mb-savings { background: var(--green-l); color: var(--green); }
+        .ttr .mb-low     { background: #EBF5E8; color: #2E7D32; }
+        .ttr .mb-mid     { background: var(--amber-l); color: var(--amber); }
+        .ttr .mb-high    { background: var(--accent-l); color: var(--accent); }
+
+        .ttr .bar-track { height: 6px; background: var(--border); border-radius: 99px; margin-top: 8px; overflow: hidden; }
+        .ttr .bar-fill  { height: 100%; border-radius: 99px; }
+
+        .ttr .lang-cell { display: flex; align-items: center; gap: 8px; }
+        .ttr .lang-swatch { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+
+        /* Insight strip */
+        .ttr .insight-strip {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin: 28px 0;
+        }
+        .ttr .insight-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+        .ttr .insight-val { font-size: 32px; font-weight: 700; margin-bottom: 8px; line-height: 1; }
+        .ttr .insight-label { font-size: 13px; color: var(--text2); line-height: 1.5; }
+
+        /* Consolidated table */
+        .ttr .ctable-wrap {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        .ttr .heat-base    { background: #F7F5F0; }
+        .ttr .heat-savings { background: #EAF5EF; }
+        .ttr .heat-low     { background: #F0F6E8; }
+        .ttr .heat-mid     { background: #FDF6E8; }
+        .ttr .heat-high    { background: #FBF0EC; }
+
+        /* Legend */
+        .ttr .legend-row {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+        .ttr .legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text3); }
+        .ttr .legend-swatch { width: 14px; height: 14px; border-radius: 3px; border: 1px solid var(--border); }
+
+        /* Charts grid */
+        .ttr .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+        .ttr .chart-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        /* Pull quote */
+        .ttr .pull-quote {
+            font-family: 'Instrument Serif', Georgia, serif;
+            font-size: 20px;
+            font-style: italic;
+            color: var(--text2);
+            border-left: 3px solid var(--accent);
+            padding: 12px 20px;
+            margin: 28px 0;
+            line-height: 1.5;
+        }
+
+        /* Findings grid */
+        .ttr .findings-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+            margin-bottom: 20px;
+        }
+        .ttr .finding-card {
+            display: flex;
+            gap: 14px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+        }
+        .ttr .finding-icon-wrap {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .ttr .fi-green  { background: var(--green-l); }
+        .ttr .fi-blue   { background: var(--blue-l); }
+        .ttr .fi-accent { background: var(--accent-l); }
+        .ttr .fi-amber  { background: var(--amber-l); }
+        .ttr .finding-body { flex: 1; }
+        .ttr .finding-body h4 { font-size: 14px; font-weight: 600; margin-bottom: 8px; color: var(--text); }
+        .ttr .finding-body p  { font-size: 13px; color: var(--text2); line-height: 1.6; margin: 0; }
+
+        /* Routing guide */
+        .ttr .routing-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+        .ttr .routing-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+        }
+        .ttr .routing-lang {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 3px 10px;
+            border-radius: 99px;
+            margin-bottom: 16px;
+        }
+        .ttr .rl-hindi   { background: #F5E8E0; color: var(--hindi); }
+        .ttr .rl-marathi { background: #EDE5F5; color: var(--marathi); }
+        .ttr .rc-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--border); gap: 10px; flex-wrap: wrap; }
+        .ttr .rc-row:last-child { border-bottom: none; }
+        .ttr .rc-label { font-size: 12px; color: var(--text3); white-space: nowrap; }
+        .ttr .rc-val { font-size: 13px; font-weight: 500; display: flex; align-items: center; gap: 5px; }
+        .ttr .rc-green  { color: var(--green); }
+        .ttr .rc-blue   { color: var(--blue); }
+        .ttr .rc-amber  { color: var(--amber); }
+        .ttr .rc-accent { color: var(--accent); }
+        .ttr .rc-red    { color: var(--red); }
+
+        /* Final ranking */
+        .ttr .rank-table {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+        .ttr .rank-num { font-size: 18px; font-weight: 700; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .ttr .prompt-grid,
+            .ttr .kpi-grid,
+            .ttr .findings-grid,
+            .ttr .routing-grid,
+            .ttr .charts-grid,
+            .ttr .insight-strip { grid-template-columns: 1fr; }
+            .ttr .platform-body { grid-template-columns: 1fr; }
+            .ttr .pchart-wrap { border-left: none; border-top: 1px solid var(--border); }
+            .ttr h2 { font-size: 24px; }
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- Header -->
+        <div id="header-container"></div>
+
+        <!-- Hero Section (Jazzy Theme) -->
+        <section class="post-hero">
+            <div>
+                <h1>The Token Tax on Indic Language Prompts</h1>
+            </div>
+        </section>
+
+        <!-- Page Title (Calm Theme) -->
+        <h1 class="post-page-title">The Token Tax on Indic Language Prompts</h1>
+
+        <!-- Blog Container -->
+        <div class="blog-container">
+            <!-- Left Navigation Pane -->
+            <aside class="nav-pane">
+                <h3>Contents</h3>
+                <nav>
+                    <ul>
+                        <li><a href="#executive-summary">01 — Executive Summary</a></li>
+                        <li><a href="#methodology">02 — Methodology</a></li>
+                        <li><a href="#platform-reports">03 — Platform Reports</a>
+                            <ul style="padding-left:1rem;margin-top:0.25rem;">
+                                <li><a href="#sarvam-block">Sarvam AI</a></li>
+                                <li><a href="#openai-block">OpenAI</a></li>
+                                <li><a href="#anthropic-block">Anthropic Claude</a></li>
+                                <li><a href="#gemini-block">Google Gemini</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#consolidated">04 — Consolidated Comparison</a></li>
+                        <li><a href="#analysis">05 — Analysis</a></li>
+                        <li><a href="#conclusions">06 — Conclusions &amp; Routing Guide</a></li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="blog-content">
+                <a href="blog.html" class="back-link">&#8592; Back to Blog</a>
+
+                <div class="blog-meta">
+                    <span>April 12, 2026</span>
+                    <span>8 min read</span>
+                    <span>AI Development</span>
+                </div>
+
+                <!-- Report content wrapped in .ttr for scoped styles -->
+                <div class="ttr">
+
+                    <!-- Report intro (adapted from report-header) -->
+                    <div class="report-intro">
+                        <div class="eyebrow">
+                            <div class="eyebrow-line"></div>
+                            <span class="eyebrow-text">Research Report · April 2026</span>
+                        </div>
+                        <p class="report-lead">A comparative analysis of tokenization overhead across OpenAI, Anthropic, Google Gemini, and Sarvam AI — demonstrated using Hindi and Marathi prompts, with English as the baseline. The findings apply broadly to any Devanagari-script language on these platforms.</p>
+                        <div class="meta-chips">
+                            <span class="chip confirmed">
+                                <svg class="icon" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                    <circle cx="6" cy="6" r="5" stroke="#1A6B47" stroke-width="1.2"/>
+                                    <path d="M3.5 6L5.2 7.7L8.5 4.5" stroke="#1A6B47" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                All 4 platforms confirmed
+                            </span>
+                            <span class="chip">
+                                <svg class="icon" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                    <rect x="1.5" y="2" width="9" height="8" rx="1.5" stroke="#5C5850" stroke-width="1.2"/>
+                                    <path d="M4 5.5H8M4 7.5H6.5" stroke="#5C5850" stroke-width="1.2" stroke-linecap="round"/>
+                                </svg>
+                                3 languages tested
+                            </span>
+                            <span class="chip">
+                                <svg class="icon" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                    <path d="M6 1.5L7.5 4.5L11 5L8.5 7.5L9 11L6 9.5L3 11L3.5 7.5L1 5L4.5 4.5L6 1.5Z" stroke="#5C5850" stroke-width="1.1" stroke-linejoin="round"/>
+                                </svg>
+                                Devanagari script
+                            </span>
+                            <span class="chip">
+                                <svg class="icon" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                    <circle cx="6" cy="6" r="4.5" stroke="#5C5850" stroke-width="1.2"/>
+                                    <path d="M6 3.5V6.5L8 8" stroke="#5C5850" stroke-width="1.2" stroke-linecap="round"/>
+                                </svg>
+                                English baseline = 100%
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="container">
+
+                        <!-- ═══ 01 EXECUTIVE SUMMARY ═══ -->
+                        <section id="executive-summary">
+                            <div class="section-number">01 — Executive Summary</div>
+                            <h2>Tokenizer vocabulary budget determines token cost</h2>
+                            <p class="section-intro">Across all four platforms tested, Hindi and Marathi prompts consume more tokens than their English equivalent — except on Sarvam AI, where Indic prompts cost <em>fewer</em> tokens than English. The range runs from a 22% saving to a 156% overhead.</p>
+                            <p class="section-intro" style="margin-top:-10px;">This difference is not a property of Hindi or Marathi being more complex languages. It is a consequence of <strong>tokenizer vocabulary allocation</strong>: how much of the tokenizer's vocabulary budget a platform has reserved for Devanagari script. A tokenizer trained natively on Indic languages encodes a full syllable cluster — such as "मॉड" — as a single token. A tokenizer without dedicated Indic vocabulary falls back to byte-level fragments, splitting the same syllable into three or four tokens. Same script, same characters, radically different token count — determined entirely by the tokenizer architecture, not the language.</p>
+
+                            <div class="insight-strip">
+                                <div class="insight-card">
+                                    <div class="insight-val" style="color: var(--green)">0.78×</div>
+                                    <div class="insight-label">Sarvam AI · Hindi<br>Indic prompts are <em>cheaper</em> than English</div>
+                                </div>
+                                <div class="insight-card">
+                                    <div class="insight-val" style="color: var(--amber)">1.30–1.44×</div>
+                                    <div class="insight-label">OpenAI &amp; Anthropic · Hindi<br>Mild overhead range on frontier labs</div>
+                                </div>
+                                <div class="insight-card">
+                                    <div class="insight-val" style="color: var(--red)">2.56×</div>
+                                    <div class="insight-label">Anthropic · Marathi<br>Highest confirmed overhead in dataset</div>
+                                </div>
+                            </div>
+
+                            <div class="callout success">
+                                <div class="callout-icon">
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                                        <circle cx="9" cy="9" r="7.5" stroke="#1A6B47" stroke-width="1.4"/>
+                                        <path d="M5.5 9L7.7 11.2L12.5 6.5" stroke="#1A6B47" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <div class="callout-body">
+                                    <p><strong>Headline finding:</strong> Sarvam AI produces fewer tokens for Hindi and Marathi than for English — a token credit, not a tax. On every other tested platform a tax does exist, ranging from +30% (OpenAI, Hindi) to +156% (Anthropic, Marathi). The claim holds for all frontier Western AI labs, but is disproved for purpose-built Indic AI.</p>
+                                </div>
+                            </div>
+
+                            <div class="callout info">
+                                <div class="callout-icon">
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                                        <circle cx="9" cy="9" r="7.5" stroke="#1A4A7A" stroke-width="1.4"/>
+                                        <path d="M9 8V13M9 5.5V6.5" stroke="#1A4A7A" stroke-width="1.6" stroke-linecap="round"/>
+                                    </svg>
+                                </div>
+                                <div class="callout-body">
+                                    <p><strong>Unexpected finding:</strong> OpenAI's GPT-5 series (including O1 and O3) tokenizes Marathi at 1.70×, compared to legacy tiktoken estimates of ~3.4×. The new model family ships dramatically improved multilingual vocabulary — architectural estimates from earlier tokenizer research are now significantly stale.</p>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- ═══ 02 METHODOLOGY ═══ -->
+                        <section id="methodology">
+                            <div class="section-number">02 — Methodology</div>
+                            <h2>Test design</h2>
+                            <p class="section-intro">Three semantically equivalent prompts were submitted to each platform's official tokenizer tool or chat interface. Counts recorded exactly as reported. English serves as the 100% baseline per platform.</p>
+
+                            <div class="prompt-grid">
+                                <div class="prompt-card">
+                                    <span class="lang-badge hindi">
+                                        <svg width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="#B8470E"/></svg>
+                                        Hindi
+                                    </span>
+                                    <div class="prompt-text">मल्टीमोडल मॉडल्स का क्या उपयोग है?</div>
+                                    <div class="prompt-meta">
+                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><rect x="1" y="2" width="10" height="8" rx="1.5" stroke="#8F8B83" stroke-width="1.1"/><path d="M3.5 5H8.5M3.5 7.5H6" stroke="#8F8B83" stroke-width="1.1" stroke-linecap="round"/></svg>
+                                        34 Unicode code points
+                                    </div>
+                                </div>
+                                <div class="prompt-card">
+                                    <span class="lang-badge marathi">
+                                        <svg width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="#6B3FA0"/></svg>
+                                        Marathi
+                                    </span>
+                                    <div class="prompt-text">कोणते मॉडेल्स मराठीत ट्रेन केले गेलेले आहेत?</div>
+                                    <div class="prompt-meta">
+                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><rect x="1" y="2" width="10" height="8" rx="1.5" stroke="#8F8B83" stroke-width="1.1"/><path d="M3.5 5H8.5M3.5 7.5H6" stroke="#8F8B83" stroke-width="1.1" stroke-linecap="round"/></svg>
+                                        46 Unicode code points
+                                    </div>
+                                </div>
+                                <div class="prompt-card">
+                                    <span class="lang-badge english">
+                                        <svg width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="#1A4A7A"/></svg>
+                                        English (baseline)
+                                    </span>
+                                    <div class="prompt-text">Which multimodal models are available in the market?</div>
+                                    <div class="prompt-meta">
+                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><rect x="1" y="2" width="10" height="8" rx="1.5" stroke="#8F8B83" stroke-width="1.1"/><path d="M3.5 5H8.5M3.5 7.5H6" stroke="#8F8B83" stroke-width="1.1" stroke-linecap="round"/></svg>
+                                        52 characters (ASCII)
+                                    </div>
+                                </div>
+                            </div>
+
+                            <table style="background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;">
+                                <thead>
+                                    <tr>
+                                        <th>Platform</th><th>Tokenizer</th><th>Tool used</th><th>Data status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="lang-cell">
+                                                <img src="../assets/images/blog/token-tax-report/openai.png" width="16" height="16" alt="OpenAI logo" style="display:inline-block;vertical-align:middle;border-radius:3px;">
+                                                OpenAI
+                                            </div>
+                                        </td>
+                                        <td style="color:var(--text2);font-size:13px;">GPT-5 series / O1·O3 tokenizer</td>
+                                        <td style="color:var(--text2);font-size:13px;">platform.openai.com/tokenizer</td>
+                                        <td><span class="status-badge status-confirmed"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="4" stroke="#1A6B47" stroke-width="1.2"/><path d="M3 5L4.3 6.3L7 3.5" stroke="#1A6B47" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Confirmed</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="lang-cell">
+                                                <img src="../assets/images/blog/token-tax-report/anthropic.png" width="16" height="16" alt="Anthropic logo" style="display:inline-block;vertical-align:middle;border-radius:3px;">
+                                                Anthropic Claude
+                                            </div>
+                                        </td>
+                                        <td style="color:var(--text2);font-size:13px;">Claude BPE tokenizer</td>
+                                        <td style="color:var(--text2);font-size:13px;">Uploaded token_usage_report.pdf</td>
+                                        <td><span class="status-badge status-confirmed"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="4" stroke="#1A6B47" stroke-width="1.2"/><path d="M3 5L4.3 6.3L7 3.5" stroke="#1A6B47" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Confirmed</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="lang-cell">
+                                                <img src="../assets/images/blog/token-tax-report/gemini.png" width="16" height="16" alt="Google Gemini logo" style="display:inline-block;vertical-align:middle;border-radius:3px;">
+                                                Google Gemini
+                                            </div>
+                                        </td>
+                                        <td style="color:var(--text2);font-size:13px;">SentencePiece (multilingual)</td>
+                                        <td style="color:var(--text2);font-size:13px;">gemini.google.com/app</td>
+                                        <td><span class="status-badge status-confirmed"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="4" stroke="#1A6B47" stroke-width="1.2"/><path d="M3 5L4.3 6.3L7 3.5" stroke="#1A6B47" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Confirmed</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="lang-cell">
+                                                <img src="../assets/images/blog/token-tax-report/sarvam.png" width="16" height="16" alt="Sarvam AI logo" style="display:inline-block;vertical-align:middle;border-radius:3px;">
+                                                Sarvam AI
+                                            </div>
+                                        </td>
+                                        <td style="color:var(--text2);font-size:13px;">Sarvam Indic-native tokenizer</td>
+                                        <td style="color:var(--text2);font-size:13px;">dashboard.sarvam.ai/chat</td>
+                                        <td><span class="status-badge status-confirmed"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="4" stroke="#1A6B47" stroke-width="1.2"/><path d="M3 5L4.3 6.3L7 3.5" stroke="#1A6B47" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Confirmed</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </section>
+
+                        <!-- ═══ 03 PLATFORM REPORTS ═══ -->
+                        <section id="platform-reports">
+                            <div class="section-number">03 — Platform Reports</div>
+                            <h2>Token counts by platform</h2>
+                            <p class="section-intro">Each block shows confirmed token counts, cost multiplier relative to that platform's English baseline, and a proportional bar.</p>
+
+                            <!-- SARVAM -->
+                            <div class="platform-block" id="sarvam-block">
+                                <div class="platform-header">
+                                    <div class="platform-logo-svg">
+                                        <img src="../assets/images/blog/token-tax-report/sarvam.png" width="22" height="22" alt="Sarvam AI logo" style="border-radius:3px;">
+                                    </div>
+                                    <div class="platform-name-wrap">
+                                        <div class="platform-name">Sarvam AI</div>
+                                        <div class="platform-sub">Indic-native tokenizer · 10 Indian languages in vocabulary</div>
+                                    </div>
+                                    <span class="status-badge status-confirmed">
+                                        <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="4" stroke="#1A6B47" stroke-width="1.2"/><path d="M3 5L4.3 6.3L7 3.5" stroke="#1A6B47" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                        Confirmed
+                                    </span>
+                                </div>
+                                <div class="platform-body">
+                                    <div class="ptable-wrap">
+                                        <table>
+                                            <thead><tr><th>Prompt</th><th>Chars</th><th>Tokens</th><th>vs English</th></tr></thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><div class="lang-cell"><span class="lang-swatch" style="background:var(--english)"></span>English</div></td>
+                                                    <td style="color:var(--text3);font-size:13px;">52</td>
+                                                    <td><span class="tok-val" style="color:var(--english)">9</span></td>
+                                                    <td><span class="mult-badge mb-base">1.00× baseline</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><div class="lang-cell"><span class="lang-swatch" style="background:var(--hindi)"></span>Hindi</div></td>
+                                                    <td style="color:var(--text3);font-size:13px;">34</td>
+                                                    <td><span class="tok-val" style="color:var(--green)">7</span></td>
+                                                    <td>
+                                                        <span class="mult-badge mb-savings">
+                                                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 7.5V2.5M5 7.5L2.5 5M5 7.5L7.5 5" stroke="#1A6B47" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                                            0.78× savings
+                                                        </span>
+                                                        <div class="bar-track" style="max-width:120px"><div class="bar-fill" style="width:78%;background:var(--green)"></div></div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><div class="lang-cell"><span class="lang-swatch" style="background:var(--marathi)"></span>Marathi</div></td>
+                                                    <td style="color:var(--text3);font-size:13px;">46</td>
+                                                    <td><span class="tok-val" style="color:var(--green)">8</span></td>
+                                                    <td>
+                                                        <span class="mult-badge mb-savings">
+                                                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 7.5V2.5M5 7.5L2.5 5M5 7.5L7.5 5" stroke="#1A6B47" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                                            0.89× savings
+                                                        </span>
+                                                        <div class="bar-track" style="max-width:120px"><div class="bar-fill" style="width:89%;background:var(--green)"></div></div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div class="ptable-note">
+                                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="flex-shrink:0;margin-top:1px"><circle cx="7" cy="7" r="6" stroke="#8F8B83" stroke-width="1.2"/><path d="M7 6.5V10M7 4.5V5.5" stroke="#8F8B83" stroke-width="1.3" stroke-linecap="round"/></svg>
+                                            Devanagari syllables (akshara) are first-class vocabulary entries. Hindi and Marathi prompts are more compact than English on this platform — not a lower tax, an inverted one.
+                                        </div>
+                                    </div>
+                                    <div class="pchart-wrap">
+                                        <div class="chart-label">Token count relative to English</div>
+                                        <div class="chart-container"><canvas id="chart-sarvam" role="img" aria-label="Sarvam AI token counts: English 9, Hindi 7, Marathi 8"></canvas></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- OPENAI -->
+                            <div class="platform-block" id="openai-block">
+                                <div class="platform-header">
+                                    <div class="platform-logo-svg">
+                                        <img src="../assets/images/blog/token-tax-report/openai.png" width="22" height="22" alt="OpenAI logo" style="border-radius:3px;">
+                                    </div>
+                                    <div class="platform-name-wrap">
+                                        <div class="platform-name">OpenAI</div>
+                                        <div class="platform-sub">GPT-5 series (including O1, O3) · Improved multilingual vocabulary · English baseline: 10 tokens</div>
+                                    </div>
+                                    <span class="status-badge status-confirmed">
+                                        <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="4" stroke="#1A6B47" stroke-width="1.2"/><path d="M3 5L4.3 6.3L7 3.5" stroke="#1A6B47" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                        Confirmed
+                                    </span>
+                                </div>
+                                <div class="platform-body">
+                                    <div class="ptable-wrap">
+                                        <table>
+                                            <thead><tr><th>Prompt</th><th>Chars</th><th>Tokens</th><th>vs English</th></tr></thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><div class="lang-cell"><span class="lang-swatch" style="background:var(--english)"></span>English</div></td>
+                                                    <td style="color:var(--text3);font-size:13px;">52</td>
+                                                    <td><span class="tok-val" style="color:var(--english)">10</span></td>
+                                                    <td><span class="mult-badge mb-base">1.00× baseline</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><div class="lang-cell"><span class="lang-swatch" style="background:var(--hindi)"></span>Hindi</div></td>
+                                                    <td style="color:var(--text3);font-size:13px;">34</td>
+                                                    <td><span class="tok-val" style="color:#2E7D32">13</span></td>
+                                                    <td>
+                                                        <span class="mult-badge mb-low">
+                                                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 2.5V7.5M5 2.5L2.5 5M5 2.5L7.5 5" stroke="#2E7D32" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                                            1.30× overhead
+                                                        </span>
+                                                        <div class="bar-track" style="max-width:120px"><div class="bar-fill" style="width:42%;background:#639922"></div></div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><div class="lang-cell"><span class="lang-swatch" style="background:var(--marathi)"></span>Marathi</div></td>
+                                                    <td style="color:var(--text3);font-size:13px;">46</td>
+                                                    <td><span class="tok-val" style="color:var(--amber)">17</span></td>
+                                                    <td>
+                                                        <span class="mult-badge mb-mid">
+                                                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 2.5V7.5M5 2.5L2.5 5M5 2.5L7.5 5" stroke="#8C5E0A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                                            1.70× overhead
+                                                        </span>
+                                                        <div class="bar-track" style="max-width:120px"><div class="bar-fill" style="width:55%;background:#EF9F27"></div></div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div class="ptable-note">
+                                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="flex-shrink:0;margin-top:1px"><circle cx="7" cy="7" r="6" stroke="#8F8B83" stroke-width="1.2"/><path d="M7 6.5V10M7 4.5V5.5" stroke="#8F8B83" stroke-width="1.3" stroke-linecap="round"/></svg>
+                                            English baseline is 10 tokens (vs 9 on all other platforms). Multipliers calculated against this platform's own English baseline. In absolute terms, OpenAI's Hindi count (13) matches Anthropic's, while Marathi (17) is significantly lower than Anthropic's (23).
+                                        </div>
+                                    </div>
+                                    <div class="pchart-wrap">
+                                        <div class="chart-label">Token count relative to English</div>
+                                        <div class="chart-container"><canvas id="chart-openai" role="img" aria-label="OpenAI token counts: English 10, Hindi 13, Marathi 17"></canvas></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ANTHROPIC -->
+                            <div class="platform-block" id="anthropic-block">
+                                <div class="platform-header">
+                                    <div class="platform-logo-svg">
+                                        <img src="../assets/images/blog/token-tax-report/anthropic.png" width="22" height="22" alt="Anthropic logo" style="border-radius:3px;">
+                                    </div>
+                                    <div class="platform-name-wrap">
+                                        <div class="platform-name">Anthropic Claude</div>
+                                        <div class="platform-sub">BPE tokenizer · Source: uploaded token_usage_report.pdf</div>
+                                    </div>
+                                    <span class="status-badge status-confirmed">
+                                        <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="4" stroke="#1A6B47" stroke-width="1.2"/><path d="M3 5L4.3 6.3L7 3.5" stroke="#1A6B47" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                        Confirmed
+                                    </span>
+                                </div>
+                                <div class="platform-body">
+                                    <div class="ptable-wrap">
+                                        <table>
+                                            <thead><tr><th>Prompt</th><th>Chars</th><th>Tokens</th><th>vs English</th></tr></thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><div class="lang-cell"><span class="lang-swatch" style="background:var(--english)"></span>English</div></td>
+                                                    <td style="color:var(--text3);font-size:13px;">52</td>
+                                                    <td><span class="tok-val" style="color:var(--english)">9</span></td>
+                                                    <td><span class="mult-badge mb-base">1.00× baseline</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><div class="lang-cell"><span class="lang-swatch" style="background:var(--hindi)"></span>Hindi</div></td>
+                                                    <td style="color:var(--text3);font-size:13px;">34</td>
+                                                    <td><span class="tok-val" style="color:#2E7D32">13</span></td>
+                                                    <td>
+                                                        <span class="mult-badge mb-low">
+                                                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 2.5V7.5M5 2.5L2.5 5M5 2.5L7.5 5" stroke="#2E7D32" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                                            1.44× overhead
+                                                        </span>
+                                                        <div class="bar-track" style="max-width:120px"><div class="bar-fill" style="width:56%;background:#639922"></div></div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><div class="lang-cell"><span class="lang-swatch" style="background:var(--marathi)"></span>Marathi</div></td>
+                                                    <td style="color:var(--text3);font-size:13px;">46</td>
+                                                    <td><span class="tok-val" style="color:var(--red)">23</span></td>
+                                                    <td>
+                                                        <span class="mult-badge mb-high">
+                                                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 2.5V7.5M5 2.5L2.5 5M5 2.5L7.5 5" stroke="#C5531F" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                                            2.56× overhead
+                                                        </span>
+                                                        <div class="bar-track" style="max-width:120px"><div class="bar-fill" style="width:100%;background:var(--accent)"></div></div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div class="ptable-note">
+                                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="flex-shrink:0;margin-top:1px"><circle cx="7" cy="7" r="6" stroke="#8F8B83" stroke-width="1.2"/><path d="M7 6.5V10M7 4.5V5.5" stroke="#8F8B83" stroke-width="1.3" stroke-linecap="round"/></svg>
+                                            Best among frontier labs for Hindi (+44%). Marathi overhead (+156%) is the highest confirmed value in this dataset — likely due to longer agglutinative word-forms in the Marathi prompt.
+                                        </div>
+                                    </div>
+                                    <div class="pchart-wrap">
+                                        <div class="chart-label">Token count relative to English</div>
+                                        <div class="chart-container"><canvas id="chart-anthropic" role="img" aria-label="Anthropic token counts: English 9, Hindi 13, Marathi 23"></canvas></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- GEMINI -->
+                            <div class="platform-block" id="gemini-block">
+                                <div class="platform-header">
+                                    <div class="platform-logo-svg">
+                                        <img src="../assets/images/blog/token-tax-report/gemini.png" width="22" height="22" alt="Google Gemini logo" style="border-radius:3px;">
+                                    </div>
+                                    <div class="platform-name-wrap">
+                                        <div class="platform-name">Google Gemini</div>
+                                        <div class="platform-sub">SentencePiece multilingual tokenizer · Source: gemini.google.com/app</div>
+                                    </div>
+                                    <span class="status-badge status-confirmed">
+                                        <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="4" stroke="#1A6B47" stroke-width="1.2"/><path d="M3 5L4.3 6.3L7 3.5" stroke="#1A6B47" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                        Confirmed
+                                    </span>
+                                </div>
+                                <div class="platform-body">
+                                    <div class="ptable-wrap">
+                                        <table>
+                                            <thead><tr><th>Prompt</th><th>Chars</th><th>Tokens</th><th>vs English</th></tr></thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><div class="lang-cell"><span class="lang-swatch" style="background:var(--english)"></span>English</div></td>
+                                                    <td style="color:var(--text3);font-size:13px;">52</td>
+                                                    <td><span class="tok-val" style="color:var(--english)">9</span></td>
+                                                    <td><span class="mult-badge mb-base">1.00× baseline</span></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><div class="lang-cell"><span class="lang-swatch" style="background:var(--marathi)"></span>Marathi</div></td>
+                                                    <td style="color:var(--text3);font-size:13px;">46</td>
+                                                    <td><span class="tok-val" style="color:var(--amber)">16</span></td>
+                                                    <td>
+                                                        <span class="mult-badge mb-mid">
+                                                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 2.5V7.5M5 2.5L2.5 5M5 2.5L7.5 5" stroke="#8C5E0A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                                            1.78× overhead
+                                                        </span>
+                                                        <div class="bar-track" style="max-width:120px"><div class="bar-fill" style="width:89%;background:#EF9F27"></div></div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td><div class="lang-cell"><span class="lang-swatch" style="background:var(--hindi)"></span>Hindi</div></td>
+                                                    <td style="color:var(--text3);font-size:13px;">34</td>
+                                                    <td><span class="tok-val" style="color:var(--accent)">18</span></td>
+                                                    <td>
+                                                        <span class="mult-badge mb-high">
+                                                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 2.5V7.5M5 2.5L2.5 5M5 2.5L7.5 5" stroke="#C5531F" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                                            2.00× overhead
+                                                        </span>
+                                                        <div class="bar-track" style="max-width:120px"><div class="bar-fill" style="width:100%;background:var(--accent)"></div></div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div class="ptable-note">
+                                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="flex-shrink:0;margin-top:1px"><path d="M7 2L8.5 5.5L12.5 5.8L9.5 8.5L10.5 12.5L7 10.5L3.5 12.5L4.5 8.5L1.5 5.8L5.5 5.5L7 2Z" stroke="#8F8B83" stroke-width="1.1" stroke-linejoin="round"/></svg>
+                                            Marathi (16 tokens) is cheaper than Hindi (18 tokens) on Gemini — an inversion of the expected pattern. Gemini's vocabulary has stronger coverage of the particular Marathi word-forms in this test than the Hindi ones.
+                                        </div>
+                                    </div>
+                                    <div class="pchart-wrap">
+                                        <div class="chart-label">Token count relative to English</div>
+                                        <div class="chart-container"><canvas id="chart-gemini" role="img" aria-label="Gemini token counts: English 9, Hindi 18, Marathi 16"></canvas></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- ═══ 04 CONSOLIDATED ═══ -->
+                        <section id="consolidated">
+                            <div class="section-number">04 — Consolidated Comparison</div>
+                            <h2>All platforms · all languages</h2>
+
+                            <div class="legend-row">
+                                <span style="font-size:12px;color:var(--text3);font-weight:500;">Heatmap key:</span>
+                                <div class="legend-item"><span class="legend-swatch" style="background:#EAF5EF;"></span>Token savings</div>
+                                <div class="legend-item"><span class="legend-swatch" style="background:#F0F6E8;"></span>Mild overhead (&lt;1.5×)</div>
+                                <div class="legend-item"><span class="legend-swatch" style="background:#FDF6E8;"></span>Moderate (1.5–2×)</div>
+                                <div class="legend-item"><span class="legend-swatch" style="background:#FBF0EC;"></span>High (2–3×)</div>
+                            </div>
+
+                            <div class="ctable-wrap">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Platform</th>
+                                            <th>English (baseline)</th>
+                                            <th>Hindi tokens</th>
+                                            <th>Hindi multiplier</th>
+                                            <th>Marathi tokens</th>
+                                            <th>Marathi multiplier</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><div class="lang-cell"><img src="../assets/images/blog/token-tax-report/sarvam.png" width="14" height="14" alt="Sarvam AI" style="border-radius:3px;">Sarvam AI</div></td>
+                                            <td class="heat-base" style="font-size:13px;color:var(--text3);">9</td>
+                                            <td class="heat-savings"><span class="tok-val" style="font-size:15px;color:var(--green)">7</span></td>
+                                            <td class="heat-savings"><span class="mult-badge mb-savings" style="font-size:11px;">0.78× ↓</span></td>
+                                            <td class="heat-savings"><span class="tok-val" style="font-size:15px;color:var(--green)">8</span></td>
+                                            <td class="heat-savings"><span class="mult-badge mb-savings" style="font-size:11px;">0.89× ↓</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><div class="lang-cell"><img src="../assets/images/blog/token-tax-report/openai.png" width="14" height="14" alt="OpenAI" style="border-radius:3px;">OpenAI</div></td>
+                                            <td style="font-size:13px;color:var(--text3);">10 <span style="font-size:11px;">(differs)</span></td>
+                                            <td class="heat-low"><span class="tok-val" style="font-size:15px;color:#2E7D32">13</span></td>
+                                            <td class="heat-low"><span class="mult-badge mb-low" style="font-size:11px;">1.30× ↑</span></td>
+                                            <td class="heat-mid"><span class="tok-val" style="font-size:15px;color:var(--amber)">17</span></td>
+                                            <td class="heat-mid"><span class="mult-badge mb-mid" style="font-size:11px;">1.70× ↑</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><div class="lang-cell"><img src="../assets/images/blog/token-tax-report/anthropic.png" width="14" height="14" alt="Anthropic" style="border-radius:3px;">Anthropic Claude</div></td>
+                                            <td style="font-size:13px;color:var(--text3);">9</td>
+                                            <td class="heat-low"><span class="tok-val" style="font-size:15px;color:#2E7D32">13</span></td>
+                                            <td class="heat-low"><span class="mult-badge mb-low" style="font-size:11px;">1.44× ↑</span></td>
+                                            <td class="heat-high"><span class="tok-val" style="font-size:15px;color:var(--accent)">23</span></td>
+                                            <td class="heat-high"><span class="mult-badge mb-high" style="font-size:11px;">2.56× ↑</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><div class="lang-cell"><img src="../assets/images/blog/token-tax-report/gemini.png" width="14" height="14" alt="Google Gemini" style="border-radius:3px;">Google Gemini</div></td>
+                                            <td style="font-size:13px;color:var(--text3);">9</td>
+                                            <td class="heat-high"><span class="tok-val" style="font-size:15px;color:var(--accent)">18</span></td>
+                                            <td class="heat-high"><span class="mult-badge mb-high" style="font-size:11px;">2.00× ↑</span></td>
+                                            <td class="heat-mid"><span class="tok-val" style="font-size:15px;color:var(--amber)">16</span></td>
+                                            <td class="heat-mid"><span class="mult-badge mb-mid" style="font-size:11px;">1.78× ↑</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="callout neutral">
+                                <div class="callout-icon">
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7.5" stroke="#8F8B83" stroke-width="1.3"/><path d="M9 8V13M9 5.5V6.5" stroke="#8F8B83" stroke-width="1.5" stroke-linecap="round"/></svg>
+                                </div>
+                                <div class="callout-body">
+                                    <p><strong>OpenAI baseline note:</strong> OpenAI's tokenizer returns 10 tokens for the English prompt, while all other platforms return 9. Multipliers are calculated against each platform's own English baseline to measure the overhead each platform imposes on its own users.</p>
+                                </div>
+                            </div>
+
+                            <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:24px;margin-top:24px;">
+                                <div class="chart-label" style="margin-bottom:18px;">Key findings from the consolidated data</div>
+                                <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+                                    <div style="border-left:3px solid var(--green);padding-left:14px;">
+                                        <div style="font-size:12px;font-weight:600;color:var(--green);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:5px;">Sarvam AI</div>
+                                        <div style="font-size:13px;color:var(--text2);line-height:1.55;">The only platform where Indic prompts cost <em>fewer</em> tokens than English. Hindi at 0.78× and Marathi at 0.89× represent a net token saving — a function of its Indic-native vocabulary rather than a lower overhead rate.</div>
+                                    </div>
+                                    <div style="border-left:3px solid var(--blue);padding-left:14px;">
+                                        <div style="font-size:12px;font-weight:600;color:var(--blue);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:5px;">OpenAI</div>
+                                        <div style="font-size:13px;color:var(--text2);line-height:1.55;">Best-performing frontier platform for both languages. At 1.30× Hindi and 1.70× Marathi, it keeps overhead below the moderate threshold. Its English baseline of 10 tokens (vs 9 elsewhere) does not affect relative comparisons within the platform.</div>
+                                    </div>
+                                    <div style="border-left:3px solid var(--accent);padding-left:14px;">
+                                        <div style="font-size:12px;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:5px;">Anthropic Claude</div>
+                                        <div style="font-size:13px;color:var(--text2);line-height:1.55;">Competitive for Hindi (1.44×, close to OpenAI) but the highest confirmed overhead for Marathi (2.56×). A bilingual app running on Anthropic pays over 2.5× the token cost for Marathi content compared to equivalent English — a significant context window and cost penalty.</div>
+                                    </div>
+                                    <div style="border-left:3px solid var(--amber);padding-left:14px;">
+                                        <div style="font-size:12px;font-weight:600;color:var(--amber);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:5px;">Google Gemini</div>
+                                        <div style="font-size:13px;color:var(--text2);line-height:1.55;">The only platform where Marathi (1.78×) tokenizes more efficiently than Hindi (2.00×) — an inversion of the expected pattern. Gemini is competitive for Marathi but the weakest frontier option for Hindi, costing twice the English token count.</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="chart-card" style="margin-top:20px;">
+                                <div class="chart-label">Cost multiplier vs English baseline — all platforms</div>
+                                <div class="chart-container" style="height:280px;"><canvas id="chart-all-mult" role="img" aria-label="Cost multipliers for Hindi and Marathi across all platforms"></canvas></div>
+                            </div>
+                        </section>
+
+                        <!-- ═══ 05 ANALYSIS ═══ -->
+                        <section id="analysis">
+                            <div class="section-number">05 — Analysis</div>
+                            <h2>Why the gaps exist</h2>
+
+                            <div class="pull-quote">
+                                "The token tax on Devanagari is not a property of the language — it is a compiler flag that was never turned on."
+                            </div>
+
+                            <div class="findings-grid">
+                                <div class="finding-card">
+                                    <div class="finding-icon-wrap fi-green">
+                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M4 9C4 6.24 6.24 4 9 4C11.76 4 14 6.24 14 9C14 11.76 11.76 14 9 14" stroke="#1A6B47" stroke-width="1.3" stroke-linecap="round"/><path d="M6 9L8 11L12 7" stroke="#1A6B47" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                    </div>
+                                    <div class="finding-body">
+                                        <h4>Sarvam: vocabulary-native advantage</h4>
+                                        <p>Sarvam trained its tokenizer natively on 10 Indian languages, giving Devanagari aksharas their own vocabulary slots. A full syllable like "मॉड" maps to one token, not three byte-level fragments. This is the difference between first-class language support and a retrofit.</p>
+                                    </div>
+                                </div>
+                                <div class="finding-card">
+                                    <div class="finding-icon-wrap fi-blue">
+                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="3" y="5" width="12" height="8" rx="2" stroke="#1A4A7A" stroke-width="1.3"/><path d="M6 9H12M6 11.5H9" stroke="#1A4A7A" stroke-width="1.2" stroke-linecap="round"/><path d="M7 5V3.5M11 5V3.5" stroke="#1A4A7A" stroke-width="1.2" stroke-linecap="round"/></svg>
+                                    </div>
+                                    <div class="finding-body">
+                                        <h4>OpenAI: strongest frontier performance on both languages</h4>
+                                        <p>OpenAI returns 13 tokens for Hindi and 17 for Marathi against an English baseline of 10 — a 1.30× and 1.70× multiplier respectively. This is the lowest overhead of any frontier platform tested for both languages, and places OpenAI significantly ahead of Anthropic for Marathi (1.70× vs 2.56×) and modestly ahead for Hindi (1.30× vs 1.44×).</p>
+                                    </div>
+                                </div>
+                                <div class="finding-card">
+                                    <div class="finding-icon-wrap fi-accent">
+                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 3L11.5 13H6.5L9 3Z" stroke="#C5531F" stroke-width="1.3" stroke-linejoin="round"/><path d="M7 9H11" stroke="#C5531F" stroke-width="1.2" stroke-linecap="round"/></svg>
+                                    </div>
+                                    <div class="finding-body">
+                                        <h4>Anthropic: Hindi strong, Marathi costly</h4>
+                                        <p>Claude's tokenizer handles Hindi competitively (1.44× vs OpenAI's 1.30×), but Marathi overhead climbs to 2.56×. The gap likely reflects training corpus distribution: Hindi has greater web representation in multilingual datasets than Marathi, meaning more vocabulary slots were allocated to it.</p>
+                                    </div>
+                                </div>
+                                <div class="finding-card">
+                                    <div class="finding-icon-wrap fi-amber">
+                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 3L16 14H2L9 3Z" stroke="#8C5E0A" stroke-width="1.3" stroke-linejoin="round"/><path d="M9 8V11M9 12.5V13.5" stroke="#8C5E0A" stroke-width="1.4" stroke-linecap="round"/></svg>
+                                    </div>
+                                    <div class="finding-body">
+                                        <h4>Gemini: the Hindi–Marathi inversion</h4>
+                                        <p>Gemini returns 18 tokens for Hindi but only 16 for Marathi, despite Marathi having more Unicode code points. This inversion — confirmed by test — shows tokenization efficiency is prompt-specific. The specific Marathi word-forms tested happen to be better represented in Gemini's SentencePiece vocabulary than their Hindi counterparts.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- ═══ 06 CONCLUSIONS ═══ -->
+                        <section id="conclusions">
+                            <div class="section-number">06 — Conclusions &amp; Routing Guide</div>
+                            <h2>What this means for your app</h2>
+                            <p class="section-intro">The token tax is real on every frontier Western platform — but it is not uniform, and it is not fixed. Platform choice is the single biggest variable under a developer's control.</p>
+
+                            <div class="routing-grid">
+                                <div class="routing-card">
+                                    <span class="routing-lang rl-hindi">
+                                        <svg width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="#B8470E"/></svg>
+                                        Hindi-first workloads
+                                    </span>
+                                    <div class="rc-row">
+                                        <span class="rc-label">Most economical</span>
+                                        <span class="rc-val rc-green">
+                                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#1A6B47" stroke-width="1.1"/><path d="M4 6L5.3 7.3L8 4.5" stroke="#1A6B47" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                            Sarvam AI — 0.78×
+                                        </span>
+                                    </div>
+                                    <div class="rc-row">
+                                        <span class="rc-label">Best frontier model</span>
+                                        <span class="rc-val rc-blue">OpenAI — 1.30×</span>
+                                    </div>
+                                    <div class="rc-row">
+                                        <span class="rc-label">Competitive alternative</span>
+                                        <span class="rc-val rc-amber">Anthropic — 1.44×</span>
+                                    </div>
+                                    <div class="rc-row">
+                                        <span class="rc-label">Highest overhead</span>
+                                        <span class="rc-val rc-accent">
+                                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2L10.5 10H1.5L6 2Z" stroke="#C5531F" stroke-width="1.1" stroke-linejoin="round"/><path d="M6 5.5V7.5M6 8.5V9" stroke="#C5531F" stroke-width="1.2" stroke-linecap="round"/></svg>
+                                            Gemini — 2.00×
+                                        </span>
+                                    </div>
+                                    <div class="rc-row">
+                                        <span class="rc-label">Context window impact</span>
+                                        <span class="rc-val" style="color:var(--text2);">−30% on OpenAI · −31% on Claude</span>
+                                    </div>
+                                </div>
+                                <div class="routing-card">
+                                    <span class="routing-lang rl-marathi">
+                                        <svg width="8" height="8" viewBox="0 0 8 8"><circle cx="4" cy="4" r="4" fill="#6B3FA0"/></svg>
+                                        Marathi-first workloads
+                                    </span>
+                                    <div class="rc-row">
+                                        <span class="rc-label">Most economical</span>
+                                        <span class="rc-val rc-green">
+                                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="#1A6B47" stroke-width="1.1"/><path d="M4 6L5.3 7.3L8 4.5" stroke="#1A6B47" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                            Sarvam AI — 0.89×
+                                        </span>
+                                    </div>
+                                    <div class="rc-row">
+                                        <span class="rc-label">Best frontier model</span>
+                                        <span class="rc-val rc-blue">OpenAI — 1.70×</span>
+                                    </div>
+                                    <div class="rc-row">
+                                        <span class="rc-label">Competitive alternative</span>
+                                        <span class="rc-val rc-amber">Gemini — 1.78×</span>
+                                    </div>
+                                    <div class="rc-row">
+                                        <span class="rc-label">Highest overhead</span>
+                                        <span class="rc-val rc-red">
+                                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2L10.5 10H1.5L6 2Z" stroke="#9E2B2B" stroke-width="1.1" stroke-linejoin="round"/><path d="M6 5.5V7.5M6 8.5V9" stroke="#9E2B2B" stroke-width="1.2" stroke-linecap="round"/></svg>
+                                            Anthropic — 2.56×
+                                        </span>
+                                    </div>
+                                    <div class="rc-row">
+                                        <span class="rc-label">Context window impact</span>
+                                        <span class="rc-val" style="color:var(--text2);">−41% on OpenAI · −61% on Claude</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="callout success">
+                                <div class="callout-icon">
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7.5" stroke="#1A6B47" stroke-width="1.3"/><path d="M5.5 9L7.7 11.2L12.5 6.5" stroke="#1A6B47" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                </div>
+                                <div class="callout-body">
+                                    <p><strong>Claim verdict — confirmed with data:</strong> The token tax is real on OpenAI (+30–70%), Anthropic (+44–156%), and Gemini (+78–100%). It is disproved for Sarvam AI, which shows a token credit of −11% to −22%. The tax is a function of tokenizer design, not of linguistic complexity. It can be engineered away.</p>
+                                </div>
+                            </div>
+
+                            <div class="callout warning">
+                                <div class="callout-icon">
+                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 2.5L16.5 15H1.5L9 2.5Z" stroke="#8C5E0A" stroke-width="1.3" stroke-linejoin="round"/><path d="M9 8V11.5M9 13V14" stroke="#8C5E0A" stroke-width="1.5" stroke-linecap="round"/></svg>
+                                </div>
+                                <div class="callout-body">
+                                    <p><strong>Architecture implication:</strong> For a bilingual Hindi–Marathi app, Hindi and Marathi do not share the same optimal frontier platform. OpenAI is best for both, but Gemini is a closer second for Marathi while Anthropic is closer for Hindi. A language-aware routing layer at the API gateway level can reduce Indic token spend by 20–40% on frontier models without sacrificing model quality.</p>
+                                </div>
+                            </div>
+
+                            <h3 style="margin-top:36px;">Final ranking — confirmed platforms</h3>
+                            <div class="rank-table">
+                                <table>
+                                    <thead><tr><th>Rank</th><th>Platform</th><th>Hindi</th><th>Marathi</th><th>Assessment</th></tr></thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><span class="rank-num" style="color:var(--green)">1</span></td>
+                                            <td><div class="lang-cell"><img src="../assets/images/blog/token-tax-report/sarvam.png" width="12" height="12" alt="Sarvam AI" style="border-radius:3px;">Sarvam AI</div></td>
+                                            <td><span class="mult-badge mb-savings" style="font-size:11px;">0.78×</span></td>
+                                            <td><span class="mult-badge mb-savings" style="font-size:11px;">0.89×</span></td>
+                                            <td style="font-size:13px;color:var(--green);">Token credit. Native Indic tokenizer.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="rank-num" style="color:var(--blue)">2</span></td>
+                                            <td><div class="lang-cell"><img src="../assets/images/blog/token-tax-report/openai.png" width="12" height="12" alt="OpenAI" style="border-radius:3px;">OpenAI</div></td>
+                                            <td><span class="mult-badge mb-low" style="font-size:11px;">1.30×</span></td>
+                                            <td><span class="mult-badge mb-mid" style="font-size:11px;">1.70×</span></td>
+                                            <td style="font-size:13px;color:var(--text2);">Best frontier for both languages. GPT-5 improved significantly.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="rank-num" style="color:var(--amber)">3</span></td>
+                                            <td><div class="lang-cell"><img src="../assets/images/blog/token-tax-report/anthropic.png" width="12" height="12" alt="Anthropic" style="border-radius:3px;">Anthropic Claude</div></td>
+                                            <td><span class="mult-badge mb-low" style="font-size:11px;">1.44×</span></td>
+                                            <td><span class="mult-badge mb-high" style="font-size:11px;">2.56×</span></td>
+                                            <td style="font-size:13px;color:var(--text2);">Strong for Hindi. High Marathi overhead — avoid for Marathi-heavy apps.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="rank-num" style="color:var(--accent)">4</span></td>
+                                            <td><div class="lang-cell"><img src="../assets/images/blog/token-tax-report/gemini.png" width="12" height="12" alt="Google Gemini" style="border-radius:3px;">Google Gemini</div></td>
+                                            <td><span class="mult-badge mb-high" style="font-size:11px;">2.00×</span></td>
+                                            <td><span class="mult-badge mb-mid" style="font-size:11px;">1.78×</span></td>
+                                            <td style="font-size:13px;color:var(--text2);">Highest Hindi overhead. Competitive for Marathi only.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div style="margin-top:28px;padding:18px 20px;background:var(--surface2);border:1px solid var(--border);border-radius:10px;font-size:13px;color:var(--text3);">
+                                Sources: token_usage_report.pdf · platform.openai.com/tokenizer · gemini.google.com/app · dashboard.sarvam.ai · Token Tax Report v3 · April 2026
+                            </div>
+                        </section>
+
+                    </div><!-- /.container -->
+                </div><!-- /.ttr -->
+            </main>
+        </div><!-- /.blog-container -->
+
+        <!-- Footer -->
+        <div id="footer-container"></div>
+    </div>
+
+    <!-- Portfolio Data & Scripts -->
+    <script src="../assets/js/portfolio_data.js"></script>
+    <script src="../assets/js/navigation.js"></script>
+    <script src="../assets/js/shared-components.js"></script>
+    <script src="../assets/js/enhanced-search.js"></script>
+    <script src="../assets/js/search-ui.js"></script>
+    <script src="../assets/js/scroll-to-content.js"></script>
+    <script src="../assets/js/theme-manager.js"></script>
+
+    <!-- Chart.js initialization -->
+    <script>
+    const C = {
+        hindi:   '#B8470E',
+        marathi: '#6B3FA0',
+        english: '#1A4A7A',
+        green:   '#1A6B47',
+        amber:   '#8C5E0A',
+        accent:  '#C5531F',
+        muted:   '#8F8B83',
+        border:  '#E2DED6',
+    };
+
+    const BASE = {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: { display: false },
+            tooltip: {
+                backgroundColor: '#1A1915',
+                titleColor: '#F7F5F0',
+                bodyColor: '#8F8B83',
+                borderColor: '#3A3730',
+                borderWidth: 1,
+                padding: 10,
+                titleFont: { family: 'Instrument Sans, sans-serif', size: 12 },
+                bodyFont:  { family: 'Instrument Sans, sans-serif', size: 12 },
+            }
+        },
+        scales: {
+            x: { grid: { color: '#E2DED6' }, ticks: { color: '#8F8B83', font: { family: 'Instrument Sans, sans-serif', size: 11 } } },
+            y: { grid: { color: '#E2DED6' }, ticks: { color: '#8F8B83', font: { family: 'Instrument Sans, sans-serif', size: 11 } } }
+        }
+    };
+
+    function bar(id, labels, data, colors, maxY) {
+        const el = document.getElementById(id);
+        if (!el) return;
+        new Chart(el, {
+            type: 'bar',
+            data: {
+                labels,
+                datasets: [{ data, backgroundColor: colors, borderColor: colors, borderWidth: 0, borderRadius: 5 }]
+            },
+            options: {
+                ...BASE,
+                scales: {
+                    ...BASE.scales,
+                    y: { ...BASE.scales.y, max: maxY, min: 0 }
+                }
+            }
+        });
+    }
+
+    bar('chart-sarvam',    ['English','Hindi','Marathi'], [9,7,8],    [C.english, C.green, C.green],   12);
+    bar('chart-openai',    ['English','Hindi','Marathi'], [10,13,17],  [C.english, '#2E7D32', C.amber], 20);
+    bar('chart-anthropic', ['English','Hindi','Marathi'], [9,13,23],   [C.english, '#2E7D32', C.accent],26);
+    bar('chart-gemini',    ['English','Marathi','Hindi'], [9,16,18],   [C.english, C.amber, C.accent],  22);
+
+    const allMultEl = document.getElementById('chart-all-mult');
+    if (allMultEl) {
+        new Chart(allMultEl, {
+            type: 'bar',
+            data: {
+                labels: ['Sarvam AI','OpenAI','Anthropic Claude','Google Gemini'],
+                datasets: [
+                    {
+                        label: 'Hindi multiplier',
+                        data: [0.78, 1.30, 1.44, 2.00],
+                        backgroundColor: C.hindi,
+                        borderColor: C.hindi,
+                        borderWidth: 0,
+                        borderRadius: 4,
+                    },
+                    {
+                        label: 'Marathi multiplier',
+                        data: [0.89, 1.70, 2.56, 1.78],
+                        backgroundColor: C.marathi,
+                        borderColor: C.marathi,
+                        borderWidth: 0,
+                        borderRadius: 4,
+                    }
+                ]
+            },
+            options: {
+                ...BASE,
+                plugins: {
+                    ...BASE.plugins,
+                    legend: {
+                        display: true,
+                        labels: {
+                            color: '#5C5850',
+                            font: { family: 'Instrument Sans, sans-serif', size: 12 },
+                            usePointStyle: true,
+                            pointStyle: 'rect',
+                            boxWidth: 10,
+                            boxHeight: 10,
+                            padding: 16,
+                        }
+                    },
+                    tooltip: {
+                        ...BASE.plugins.tooltip,
+                        callbacks: { label: c => ` ${c.dataset.label}: ${c.parsed.y.toFixed(2)}× vs English` }
+                    }
+                },
+                scales: {
+                    ...BASE.scales,
+                    y: {
+                        ...BASE.scales.y,
+                        min: 0,
+                        max: 3,
+                        title: { display: true, text: 'Token multiplier (1.0 = same as English)', color: '#8F8B83', font: { family: 'Instrument Sans, sans-serif', size: 11 } }
+                    }
+                }
+            }
+        });
+    }
+    </script>
+</body>
+</html>
