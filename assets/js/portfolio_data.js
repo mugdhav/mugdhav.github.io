@@ -339,6 +339,20 @@ const portfolioData = {
     //     searchTerms: 'searchable keywords...'     // Space-separated keywords for search
     // }
     events: [
+        // Nightbuild #1 - Women Build Together
+        {
+            id: 'nightbuild-1-women-build-together',
+            title: 'Nightbuild #1 — Women Build Together',
+            startDate: '2026-04-10T21:30:00+05:30',
+            endDate: '2026-04-10T23:30:00+05:30',
+            date: 'April 10, 2026, 9:30 PM – 11:30 PM IST',
+            location: 'Virtual Event',
+            organization: 'Women Build Together',
+            description: 'A late-night virtual meetup for women builders — the inaugural Nightbuild. Small-group show-and-tell covering real apps built with Lovable, then diving deep into Claude Code, Zod-enforced input validation, RLS policies, Zero-Trust architecture, Hugging Face deployments, and DevOps principles drawn from production BFSI systems. Topics ranged from debugging authentication flows and preventing app misuse, to getting vibe-coded apps out of platform ecosystems and into production infrastructure.',
+            icon: 'fas fa-moon',
+            linkedInLink: 'https://www.linkedin.com/posts/mugdhav_nightbuilds-womenbuildtogether-womenintech-activity-7448635128727265280-RkZF?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAD-ScYBeGEIIwA1VXFPoj__sofFCBEqfL8',
+            searchTerms: 'Nightbuild Women Build Together women in tech April 2026 virtual Lovable Claude Code Zod RLS Zero-Trust Hugging Face DevOps BFSI app security vibe coding'
+        },
         // SheBuilds IWD 2026 - Pune
         {
             id: 'shebuilds-iwd-pune-2026',
