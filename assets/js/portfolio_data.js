@@ -363,8 +363,8 @@ const portfolioData = {
             location: 'Virtual Event',
             organization: 'Pie & AI Community by DeepLearning.AI',
             description: 'Join us to experiment with small models that can run on your own system and respect your personal data and privacy. Also see how they can power OpenClaw. Open to everyone.',
-            icon: 'fas fa-laptop-code',
-            linkedInLink: 'https://www.linkedin.com/in/mugdhav/',
+            icon: 'fas fa-moon',
+            linkedInLink: 'https://www.linkedin.com/posts/mugdhav_vote-nightbuild-ugcPost-7449449422322737153-c9mC?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAD-ScYBeGEIIwA1VXFPoj__sofFCBEqfL8',
             searchTerms: 'Nightbuild small models local AI privacy personal data OpenClaw Pie AI DeepLearning.AI Women Build Together virtual'
         },
         // SheBuilds IWD 2026 - Pune
