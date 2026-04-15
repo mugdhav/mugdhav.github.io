@@ -5,10 +5,10 @@ const siteSearchData = [
     {
         id: 'about',
         title: 'About Mugdha Vairagade',
-        content: 'Technical Writer UX Designer AI Developer passionate about creating user-centered solutions that bridge technology and human needs',
+        content: 'Technical Writer AI Developer passionate about creating user-centered solutions that bridge technology and human needs',
         url: '#about',
         type: 'section',
-        keywords: ['technical writer', 'ux designer', 'ai developer', 'user experience', 'technology']
+        keywords: ['technical writer', 'ai developer', 'user experience', 'technology']
     },
     {
         id: 'skills-technical-writing',

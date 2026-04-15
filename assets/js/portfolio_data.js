@@ -11,7 +11,7 @@ const portfolioData = {
         website: "https://www.vmugdha.com",
         // About Section
         about: {
-            paragraph1: "I am a technical writer, AI developer, UX designer, and event organizer with over 15 years of experience in the IT industry.",
+            paragraph1: "I am a technical writer, AI developer, and event organizer with over 15 years of experience in the IT industry.",
             paragraph2: "I design content experiences that transform technical complexity into better user experience. These content experiences help companies increase their product/service adoption while keeping support costs low.",
             paragraph3: "I also develop AI applications that enhance daily productivity and optimize workflows.",
             paragraph4: "I am passionate about community building. As a DeepLearningAI Ambassador, I regularly organize tech events, workshops, and meetups to foster learning and collaboration in the tech community."
@@ -24,13 +24,9 @@ const portfolioData = {
             icon: "🖋️",
             title: "Technical Writing"
         },
-                {
+        {
             icon: "🔮",
             title: "AI Development"
-        },
-        {
-            icon: "🎨",
-            title: "UX Design"
         },
         {
             icon: "🎓",
@@ -112,7 +108,7 @@ const portfolioData = {
                 }
             ]
         },
-        
+
         // AI Development Section
         "ai-development": {
             sectionTitle: "AI Development",
