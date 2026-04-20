@@ -640,6 +640,16 @@ const portfolioData = {
     // Blog Posts Data
     blogs: [
         {
+            id: 'openclaw-amd-cloud',
+            title: 'Deploying OpenClaw on AMD Developer Cloud',
+            excerpt: 'A step-by-step tutorial for running OpenClaw on an AMD MI300X GPU Droplet, backed by Qwen3-30B-A3B served via vLLM on ROCm. Covers the full setup — from SSH key to live chat — plus what failed with Gemma 4, Llama 3.2 Vision, and Anthropic Claude.',
+            date: '2026-04-20',
+            category: 'Tutorial',
+            readTime: '15 min read',
+            slug: 'openclaw-amd-cloud',
+            featured: true
+        },
+        {
             id: 'token-tax-indic-languages',
             title: 'The Token Tax on Indic Language Prompts',
             excerpt: 'A comparative analysis of tokenization overhead across OpenAI, Anthropic, Google Gemini, and Sarvam AI — using Hindi and Marathi prompts with English as the baseline. Frontier Western AI labs impose a 30–156% token overhead on Devanagari-script prompts, while purpose-built Indic AI (Sarvam) achieves a token credit of up to 22%.',
