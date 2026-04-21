@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="en" data-theme-style="calm" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deploying OpenClaw on AMD Developer Cloud - Mugdha's Portfolio</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="A step-by-step tutorial for deploying OpenClaw with Qwen3-30B-A3B on AMD Developer Cloud MI300X, including what didn't work with Gemma 4, Llama, and Anthropic.">
+    <meta name="keywords" content="OpenClaw, AMD Developer Cloud, MI300X, vLLM, ROCm, Qwen3-30B-A3B, SearXNG, GPU Droplet, DigitalOcean, LLM deployment, self-hosted AI, open source LLM, AI agent">
+    <meta name="author" content="Mugdha Variyar">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    <link rel="canonical" href="https://vmugdha.in/blog/deploying-openclaw-amd-cloud.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://vmugdha.in/blog/deploying-openclaw-amd-cloud.html">
+    <meta property="og:title" content="Deploying OpenClaw on AMD Developer Cloud">
+    <meta property="og:description" content="A step-by-step tutorial for running OpenClaw on an AMD MI300X GPU Droplet, backed by Qwen3-30B-A3B served via vLLM on ROCm. Covers the full setup plus what failed with Gemma 4, Llama, and Anthropic.">
+    <meta property="og:site_name" content="Mugdha Variyar's Portfolio">
+    <meta property="article:published_time" content="2026-04-20T00:00:00+00:00">
+    <meta property="article:author" content="Mugdha Variyar">
+    <meta property="article:section" content="Tutorial">
+    <meta property="article:tag" content="OpenClaw">
+    <meta property="article:tag" content="AMD Developer Cloud">
+    <meta property="article:tag" content="vLLM">
+    <meta property="article:tag" content="ROCm">
+    <meta property="article:tag" content="Qwen3">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://vmugdha.in/blog/deploying-openclaw-amd-cloud.html">
+    <meta name="twitter:title" content="Deploying OpenClaw on AMD Developer Cloud">
+    <meta name="twitter:description" content="Step-by-step tutorial: OpenClaw + Qwen3-30B-A3B on AMD MI300X via vLLM on ROCm. Includes failures with Gemma 4, Llama, and Anthropic.">
+
+    <!-- Structured Data / JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Deploying OpenClaw on AMD Developer Cloud",
+      "description": "A step-by-step tutorial for deploying OpenClaw on an AMD MI300X GPU Droplet, backed by Qwen3-30B-A3B served via vLLM on ROCm.",
+      "author": {
+        "@type": "Person",
+        "name": "Mugdha Variyar",
+        "url": "https://vmugdha.in"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Mugdha Variyar",
+        "url": "https://vmugdha.in"
+      },
+      "datePublished": "2026-04-20",
+      "dateModified": "2026-04-20",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://vmugdha.in/blog/deploying-openclaw-amd-cloud.html"
+      },
+      "articleSection": "Tutorial",
+      "keywords": ["OpenClaw", "AMD Developer Cloud", "MI300X", "vLLM", "ROCm", "Qwen3-30B-A3B", "SearXNG", "LLM deployment"],
+      "timeRequired": "PT15M",
+      "proficiencyLevel": "Intermediate"
+    }
+    </script>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/vnd.microsoft.icon" href="../assets/favicon/iopm5-km6uc-002.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/favicon/iopm5-km6uc-002.ico">
+
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" href="../assets/favicon/iopm5-km6uc-003.ico">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9HL4T713SQ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-9HL4T713SQ');
+    </script>
+
+    <!-- External CSS Files -->
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/layout.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/animations.css">
+
+    <!-- Theme System CSS -->
+    <link rel="stylesheet" href="../assets/css/theme-jazzy.css">
+    <link rel="stylesheet" href="../assets/css/theme-calm.css">
+    <link rel="stylesheet" href="../assets/css/theme-switcher.css">
+
+    <!-- Search UI CSS -->
+    <link rel="stylesheet" href="../assets/css/search-ui.css">
+
+    <style>
+        /* Blog Header - Jazzy Theme */
+        .post-hero {
+            min-height: 30vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #e8622a 0%, #c04a1a 60%, #8b2500 100%);
+            color: white;
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        .post-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            max-width: 900px;
+            padding: 0 2rem;
+        }
+
+        [data-theme-style="calm"] .post-hero {
+            display: none;
+        }
+
+        .post-page-title {
+            display: none;
+            text-align: center;
+            color: var(--text-color);
+            font-size: 2rem;
+            font-weight: 600;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 5% 1rem 5%;
+        }
+
+        [data-theme-style="calm"] .post-page-title {
+            display: block;
+        }
+
+        .blog-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 5%;
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .nav-pane {
+            position: sticky;
+            top: calc(var(--header-height, 80px) + 2rem);
+            background-color: var(--light-bg);
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            max-height: calc(100vh - var(--header-height, 80px) - 4rem);
+            overflow-y: auto;
+        }
+
+        [data-theme-style="calm"] .nav-pane {
+            background-color: var(--white);
+            border: var(--card-border);
+            box-shadow: none;
+        }
+
+        .nav-pane h3 {
+            color: var(--text-color);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .nav-pane nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-pane nav li {
+            margin: 0.5rem 0;
+        }
+
+        .nav-pane nav a {
+            color: var(--secondary-text-color);
+            text-decoration: none;
+            display: block;
+            padding: 0.25rem 0;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            transition: var(--transition);
+        }
+
+        .nav-pane nav a:hover {
+            color: var(--primary-color);
+            padding-left: 0.5rem;
+        }
+
+        .blog-content {
+            background-color: var(--light-bg);
+            border-radius: 15px;
+            padding: 3rem;
+            box-shadow: var(--shadow);
+            min-width: 0;
+        }
+
+        [data-theme-style="calm"] .blog-content {
+            background-color: var(--white);
+            border: var(--card-border);
+            box-shadow: none;
+        }
+
+        .blog-meta {
+            color: var(--secondary-text-color);
+            font-size: 0.95rem;
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid rgba(0,0,0,0.1);
+        }
+
+        .blog-meta span {
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .blog-meta svg {
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 0.5rem;
+            width: 16px;
+            height: 16px;
+            color: var(--primary-color);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .back-link:hover {
+            gap: 0.75rem;
+        }
+
+        .article-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-color);
+        }
+
+        .article-content h2,
+        .article-content h3,
+        .article-content h4 {
+            color: var(--text-color);
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            line-height: 1.3;
+            scroll-margin-top: calc(var(--header-height, 80px) + 2rem);
+        }
+
+        .article-content h2 {
+            font-size: 1.8rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .article-content h3 {
+            font-size: 1.3rem;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-content a {
+            color: var(--primary-color);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: var(--transition);
+        }
+
+        .article-content a:hover {
+            border-bottom-color: var(--primary-color);
+        }
+
+        .article-content ul,
+        .article-content ol {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+        }
+
+        .article-content li {
+            margin-bottom: 0.75rem;
+            line-height: 1.7;
+        }
+
+        .article-content pre {
+            background-color: #f5f5f5;
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        [data-theme="dark"] .article-content pre {
+            background-color: #1e2335;
+        }
+
+        .article-content code {
+            font-family: 'Courier New', Consolas, Monaco, monospace;
+            font-size: 0.9em;
+            background-color: #f5f5f5;
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+        }
+
+        [data-theme="dark"] .article-content code {
+            background-color: #1e2335;
+            color: #f0a05a;
+        }
+
+        .article-content pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        .article-content strong {
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        .article-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+        }
+
+        .article-content th,
+        .article-content td {
+            padding: 0.75rem 1rem;
+            border: 1px solid rgba(0,0,0,0.1);
+            text-align: left;
+        }
+
+        [data-theme="dark"] .article-content th,
+        [data-theme="dark"] .article-content td {
+            border-color: rgba(255,255,255,0.08);
+        }
+
+        .article-content th {
+            background-color: var(--light-bg);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .article-content td:first-child {
+            font-family: 'Courier New', Consolas, Monaco, monospace;
+            font-size: 0.85em;
+            color: var(--secondary-text-color);
+        }
+
+        .article-content tr:hover td {
+            background-color: rgba(0,0,0,0.02);
+        }
+
+        [data-theme="dark"] .article-content tr:hover td {
+            background-color: rgba(255,255,255,0.03);
+        }
+
+        .stack-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 1rem 0 1.5rem;
+        }
+
+        .chip {
+            font-family: 'Courier New', Consolas, Monaco, monospace;
+            font-size: 11px;
+            color: var(--secondary-text-color);
+            background: rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.12);
+            padding: 4px 10px;
+            border-radius: 3px;
+        }
+
+        [data-theme="dark"] .chip {
+            background: rgba(255,255,255,0.05);
+            border-color: rgba(255,255,255,0.1);
+        }
+
+        .step-heading {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-color);
+            margin: 2rem 0 0.75rem;
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+        }
+
+        .step-num {
+            font-family: 'Courier New', Consolas, Monaco, monospace;
+            font-size: 11px;
+            color: #f0a05a;
+            flex-shrink: 0;
+        }
+
+        .callout {
+            padding: 14px 18px;
+            border-radius: 4px;
+            margin: 14px 0 20px;
+            font-size: 0.95rem;
+            line-height: 1.65;
+        }
+
+        .callout-label {
+            font-family: 'Courier New', Consolas, Monaco, monospace;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 6px;
+            opacity: 0.75;
+        }
+
+        .callout-expect {
+            background: rgba(61,184,122,0.08);
+            border-left: 3px solid #3db87a;
+            color: var(--text-color);
+        }
+
+        .callout-expect .callout-label { color: #3db87a; }
+
+        .callout-warn {
+            background: rgba(240,201,74,0.08);
+            border-left: 3px solid #f0c94a;
+            color: var(--text-color);
+        }
+
+        .callout-warn .callout-label { color: #c8a030; }
+
+        .callout-critical {
+            background: rgba(232,82,82,0.08);
+            border-left: 3px solid #e85252;
+            color: var(--text-color);
+        }
+
+        .callout-critical .callout-label { color: #e85252; }
+
+        .callout-info {
+            background: rgba(74,158,255,0.08);
+            border-left: 3px solid #4a9eff;
+            color: var(--text-color);
+        }
+
+        .callout-info .callout-label { color: #4a9eff; }
+
+        .failure-card {
+            background: var(--light-bg);
+            border: 1px solid rgba(0,0,0,0.1);
+            border-top: 3px solid #e85252;
+            border-radius: 0 0 8px 8px;
+            padding: 20px 24px;
+            margin-bottom: 28px;
+        }
+
+        [data-theme-style="calm"] .failure-card {
+            background: var(--white);
+            border-color: rgba(0,0,0,0.08);
+        }
+
+        [data-theme="dark"] .failure-card {
+            background: rgba(255,255,255,0.03);
+            border-color: rgba(255,255,255,0.06);
+        }
+
+        .failure-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .failure-badge {
+            font-family: 'Courier New', Consolas, Monaco, monospace;
+            font-size: 10px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #e85252;
+            background: rgba(232,82,82,0.1);
+            border: 1px solid rgba(232,82,82,0.2);
+            padding: 2px 8px;
+            border-radius: 3px;
+        }
+
+        .failure-card p {
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+
+        .code-comment {
+            color: #7a8299;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        @media (max-width: 768px) {
+            .blog-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .nav-pane {
+                position: relative;
+                top: 0;
+            }
+
+            .blog-content {
+                padding: 2rem 1.5rem;
+            }
+
+            .article-content {
+                font-size: 1rem;
+            }
+
+            .article-content h2 {
+                font-size: 1.5rem;
+            }
+
+            .article-content h3 {
+                font-size: 1.15rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- Header -->
+        <div id="header-container"></div>
+
+        <!-- Hero Section (Jazzy Theme) -->
+        <section class="post-hero">
+            <div>
+                <h1>Deploying OpenClaw on AMD Developer Cloud</h1>
+            </div>
+        </section>
+
+        <!-- Page Title (Calm Theme) -->
+        <h1 class="post-page-title">Deploying OpenClaw on AMD Developer Cloud</h1>
+
+        <!-- Blog Container -->
+        <div class="blog-container">
+            <!-- Left Navigation Pane -->
+            <aside class="nav-pane">
+                <h3>Contents</h3>
+                <nav>
+                    <ul>
+                        <li><a href="#overview">Overview and Stack</a></li>
+                        <li><a href="#local-prep">Prepare Your Local Machine</a></li>
+                        <li><a href="#droplet">Create the GPU Droplet</a></li>
+                        <li><a href="#droplet-setup">Set Up the Droplet</a></li>
+                        <li><a href="#local-access">Access OpenClaw Locally</a></li>
+                        <li><a href="#troubleshooting">Troubleshooting</a></li>
+                        <li><a href="#shutdown">Shutdown and Destroy</a></li>
+                        <li><a href="#known-issues">Known Issues and Caveats</a></li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="blog-content">
+                <a href="../index.html#portfolio" class="back-link">← Back to Technical Articles</a>
+
+                <article>
+                    <div class="blog-meta">
+                        <span>
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+                            </svg>
+                            April 20, 2026
+                        </span>
+                        <span>
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2zm9.5 3a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-1 0v-5a.5.5 0 0 1 .5-.5z"/>
+                            </svg>
+                            Tutorial
+                        </span>
+                        <span>
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+                            </svg>
+                            15 min read
+                        </span>
+                    </div>
+
+                    <div class="article-content">
+
+                        <!-- ── OVERVIEW ── -->
+                        <h2 id="overview">01 — Overview and Stack</h2>
+
+                        <p>
+                            This tutorial walks you through deploying <strong>OpenClaw</strong> (a self-hosted AI agent platform) on <a href="https://www.amd.com/en/developer/resources/rocm-hub/amd-developer-cloud.html" target="_blank" rel="noopener noreferrer">AMD Developer Cloud</a>, backed by an open-source Large Language Model (LLM) served via vLLM on AMD's Radeon Open Compute (ROCm) software stack.
+                        </p>
+                        <p>
+                            The setup enables you to run OpenClaw as a persistent cloud agent for tasks like model evaluation, file operations, and web-search-augmented research, without tying up your local hardware.
+                        </p>
+
+                        <div class="callout callout-info">
+                            <span class="callout-label">Free Credits</span>
+                            AMD Developer Cloud offers promotional credits for new accounts, giving you access to MI300X Graphics Processing Unit (GPU) Droplets at no upfront cost.
+                            Apply at <a href="https://www.amd.com/en/developer/resources/rocm-hub/amd-developer-cloud.html" target="_blank" rel="noopener noreferrer">amd.com/en/developer/resources/rocm-hub/amd-developer-cloud.html</a>.
+                        </div>
+
+                        <div class="stack-chips">
+                            <span class="chip">OpenClaw 2026.4.15</span>
+                            <span class="chip">Qwen3-30B-A3B</span>
+                            <span class="chip">vLLM on ROCm</span>
+                            <span class="chip">AMD MI300X</span>
+                            <span class="chip">DigitalOcean</span>
+                            <span class="chip">SearXNG</span>
+                        </div>
+
+                        <table>
+                            <thead>
+                                <tr><th>Component</th><th>Value</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>GPU</td><td>AMD MI300X, 192 GB Video RAM (VRAM)</td></tr>
+                                <tr><td>Platform</td><td>AMD Developer Cloud (DigitalOcean GPU Droplet)</td></tr>
+                                <tr><td>Model</td><td>Qwen/Qwen3-30B-A3B — Mixture-of-Experts (MoE), 30B total / 3B active per token, text only, served as <code>qwen3-30b</code></td></tr>
+                                <tr><td>Inference server</td><td>vLLM on ROCm, Docker image <code>vllm/vllm-openai-rocm:latest</code></td></tr>
+                                <tr><td>Tool call parser</td><td><code>hermes</code> — confirmed valid in this ROCm vLLM build</td></tr>
+                                <tr><td>Web search</td><td>SearXNG, self-hosted Docker container, no Application Programming Interface (API) key required</td></tr>
+                                <tr><td>vLLM port</td><td>8000</td></tr>
+                                <tr><td>SearXNG port</td><td>8888</td></tr>
+                                <tr><td>OpenClaw Control UI port</td><td>18789</td></tr>
+                                <tr><td>Setup method</td><td>Manual Secure Shell (SSH) from local Windows machine</td></tr>
+                            </tbody>
+                        </table>
+
+                        <hr style="margin: 2.5rem 0; border: none; border-top: 1px solid rgba(0,0,0,0.1);">
+
+                        <!-- ── LOCAL PREP ── -->
+                        <h2 id="local-prep">02 — Prepare Your Local Machine</h2>
+
+                        <p>Complete these steps on the command prompt of your local Windows machine before creating the cloud droplet.</p>
+
+                        <div class="callout callout-info">
+                            <span class="callout-label">Note</span>
+                            The commands in this section use Windows Command Prompt syntax. If you are on macOS or Linux, substitute <code>cat ~/.ssh/id_ed25519.pub</code> for the key check and run <code>ssh -V</code> directly in your terminal.
+                        </div>
+
+                        <div class="step-heading"><span class="step-num">Step 1</span> Verify Your Secure Shell (SSH) Key</div>
+
+                        <p>Verify SSH is available on your machine:</p>
+                        <pre><code>powershell.exe -NoProfile -Command "ssh -V"</code></pre>
+                        <div class="callout callout-expect">
+                            <span class="callout-label">Expected</span>
+                            <code>OpenSSH_for_Windows_9.x, LibreSSL 3.x</code> (exact version numbers may differ).
+                        </div>
+
+                        <p>Check whether an SSH key already exists:</p>
+                        <pre><code>type %USERPROFILE%\.ssh\id_ed25519.pub</code></pre>
+                        <div class="callout callout-expect">
+                            <span class="callout-label">Expected</span>
+                            A single line starting with <code>ssh-ed25519 AAAA...</code>
+                        </div>
+
+                        <p>An error message <code>The system cannot find the path specified</code> indicates no SSH key exists. Create a new SSH key with the following command:</p>
+                        <pre><code>ssh-keygen -t ed25519 -C "amd-droplet"</code></pre>
+                        <div class="callout callout-expect">
+                            <span class="callout-label">Expected</span>
+                            A prompt asking for a file location. Press Enter to accept the default. Set a passphrase or press Enter to skip.
+                        </div>
+
+                        <div class="step-heading"><span class="step-num">Step 2</span> Obtain a HuggingFace Read Token</div>
+                        <p>vLLM uses your HuggingFace (HF) token to download model weights during startup.</p>
+                        <ol>
+                            <li>Log in at <a href="https://huggingface.co" target="_blank" rel="noopener noreferrer">huggingface.co</a>.</li>
+                            <li>Go to Settings → Access Tokens.</li>
+                            <li>Click <strong>Create new token</strong> and select <strong>Read</strong> permission.</li>
+                            <li>Copy the token value. You will paste it on the droplet in Step 5.</li>
+                        </ol>
+
+                        <hr style="margin: 2.5rem 0; border: none; border-top: 1px solid rgba(0,0,0,0.1);">
+
+                        <!-- ── DROPLET ── -->
+                        <h2 id="droplet">03 — Create the GPU Droplet</h2>
+
+                        <p>
+                            A GPU Droplet is a cloud virtual machine (VM) with a dedicated Graphics Processing Unit.
+                            AMD Developer Cloud provides access to MI300X GPU Droplets via DigitalOcean.
+                        </p>
+
+                        <div class="callout callout-info">
+                            <span class="callout-label">Documentation</span>
+                            Full DigitalOcean GPU Droplet documentation:
+                            <a href="https://docs.digitalocean.com/products/droplets/how-to/gpu/" target="_blank" rel="noopener noreferrer">docs.digitalocean.com/products/droplets/how-to/gpu/</a>
+                        </div>
+
+                        <p>Log in to <a href="https://cloud.digitalocean.com" target="_blank" rel="noopener noreferrer">cloud.digitalocean.com</a> and follow these steps:</p>
+                        <ol>
+                            <li>Click <strong>Create → Droplets</strong>.</li>
+                            <li>Hardware: select the single MI300X instance (<code>gpu-mi300x1-192gb</code>).</li>
+                            <li>
+                                Image: select <strong>ROCm Software</strong>.<br>
+                                <em style="font-size:0.9em;color:var(--secondary-text-color);">Why ROCm: ROCm is AMD's open-source GPU compute platform. It includes the drivers and libraries required to run vLLM on AMD hardware. A generic Ubuntu image would require manual ROCm installation.</em>
+                            </li>
+                            <li>Authentication: click <strong>Add SSH Key</strong> and select or paste your public key from Step 1.</li>
+                            <li>Click <strong>Create Droplet</strong> and wait 30–60 seconds for provisioning to complete.</li>
+                            <li>Copy the public Internet Protocol version 4 (IPv4) address shown on the overview page — you will use it in every SSH command that follows.</li>
+                        </ol>
+
+                        <div class="callout callout-expect">
+                            <span class="callout-label">Expected</span>
+                            A public IPv4 address in the format <code>134.199.x.x</code> appears on the overview page within 60 seconds.
+                        </div>
+                        <div class="callout callout-warn">
+                            <span class="callout-label">Billing</span>
+                            AMD Developer Cloud charges approximately $2/hour for the MI300X instance. Billing continues even when the droplet is powered off. Destroy the droplet at the end of each session to stop billing.
+                        </div>
+
+                        <hr style="margin: 2.5rem 0; border: none; border-top: 1px solid rgba(0,0,0,0.1);">
+
+                        <!-- ── DROPLET SETUP ── -->
+                        <h2 id="droplet-setup">04 — Set Up the Droplet</h2>
+
+                        <p>Run all commands in this section inside the droplet via SSH, in the same terminal window unless stated otherwise.</p>
+
+                        <div class="step-heading"><span class="step-num">Step 1</span> Connect to the Droplet via SSH</div>
+                        <p>Open Command Prompt on your local machine and run:</p>
+                        <pre><code>ssh root@&lt;YOUR_DROPLET_IPV4_ADDRESS&gt;</code></pre>
+                        <div class="callout callout-expect">
+                            <span class="callout-label">Expected</span>
+                            On first connection, type <code>yes</code> when asked to confirm the host fingerprint.
+                            Your shell prompt will change to indicate you are now on the remote droplet (beginning with <code>root@</code>).
+                        </div>
+
+                        <div class="step-heading"><span class="step-num">Step 2</span> Store Credentials as Environment Variables</div>
+                        <p>Write your tokens to the droplet's shell environment. Replace the placeholder values with your actual tokens. These variables persist across reconnections because they are written to <code>.bashrc</code>.</p>
+                        <pre><code>cat >> /root/.bashrc &lt;&lt; 'EOF'
+export HF_TOKEN=&lt;your_huggingface_read_token&gt;
+export MY_API_KEY=&lt;your_chosen_secret_key&gt;
+EOF
+source /root/.bashrc</code></pre>
+                        <div class="callout callout-info">
+                            <span class="callout-label">Note</span>
+                            <strong>HF_TOKEN</strong>: your HuggingFace read token from Step 2.<br>
+                            <strong>MY_API_KEY</strong>: any secure string you choose — this protects the vLLM API endpoint from unauthorised access.
+                        </div>
+
+                        <p>Verify both variables are set:</p>
+                        <pre><code>echo $HF_TOKEN
+echo $MY_API_KEY</code></pre>
+                        <div class="callout callout-expect">
+                            <span class="callout-label">Expected</span>
+                            Both commands print their values. If either is blank, re-run the <code>cat</code> block above and <code>source ~/.bashrc</code> again.
+                        </div>
+
+                        <div class="step-heading"><span class="step-num">Step 3</span> Install Node.js and OpenClaw</div>
+                        <p>OpenClaw requires Node.js version 24 or later.</p>
+                        <pre><code>curl -fsSL https://deb.nodesource.com/setup_24.x | bash -
+apt-get install -y nodejs</code></pre>
+                        <p>Verify Node.js installed correctly:</p>
+                        <pre><code>node --version</code></pre>
+                        <div class="callout callout-expect">
+                            <span class="callout-label">Expected</span>
+                            <code>v24.x.x</code>
+                        </div>
+                        <p>Install OpenClaw globally:</p>
+                        <pre><code>npm install -g openclaw@latest</code></pre>
+                        <div class="callout callout-expect">
+                            <span class="callout-label">Expected</span>
+                            Installation completes without errors in 1–2 minutes.
+                        </div>
+
+                        <div class="step-heading"><span class="step-num">Step 4</span> Start vLLM with Qwen3-30B-A3B</div>
+                        <p>
+                            vLLM is a high-throughput inference engine. This command starts vLLM in a Docker container, downloads the Qwen3 model weights from HuggingFace (~60 GB on first run), and exposes a standard chat completions API on port 8000.
+                        </p>
+                        <div class="callout callout-critical">
+                            <span class="callout-label">Critical</span>
+                            The tool call parser must be <code>hermes</code>. Other parsers (<code>llama</code>, <code>llama3_json</code>, <code>gemma4</code>, <code>pythonic</code>) are either invalid or have bugs in the ROCm vLLM 0.19.1 build.
+                        </div>
+                        <pre><code>docker run -d \
+  --name vllm-qwen3 \
+  --ipc=host --network=host --privileged \
+  --cap-add=CAP_SYS_ADMIN --cap-add=SYS_PTRACE \
+  --device=/dev/kfd --device=/dev/dri \
+  --group-add=video \
+  --security-opt=seccomp=unconfined \
+  --shm-size 16G \
+  -v ~/.cache/huggingface:/root/.cache/huggingface \
+  -e HF_TOKEN=$HF_TOKEN \
+  vllm/vllm-openai-rocm:latest \
+  Qwen/Qwen3-30B-A3B \
+  --served-model-name qwen3-30b \
+  --api-key $MY_API_KEY \
+  --host 0.0.0.0 --port 8000 \
+  --max-model-len 32768 \
+  --gpu-memory-utilization 0.80 \
+  --enable-auto-tool-choice \
+  --tool-call-parser hermes</code></pre>
+                        <div class="callout callout-expect">
+                            <span class="callout-label">Expected</span>
+                            A container ID hash is printed immediately, e.g. <code>ffd7c08bb1d8...</code>. The model loads in the background.
+                        </div>
+
+                        <div class="step-heading"><span class="step-num">Step 5</span> Monitor vLLM Loading</div>
+                        <pre><code>docker logs -f vllm-qwen3</code></pre>
+                        <div class="callout callout-expect">
+                            <span class="callout-label">Expected sequence</span>
+                            1. Docker image layers pulling, with multiple <code>Pull complete</code> lines (first run only).<br>
+                            2. <code>Loading safetensors checkpoint shards: 100%</code><br>
+                            3. <code>Capturing CUDA graphs</code><br>
+                            4. <code>INFO: Application startup complete.</code><br>
+                            5. <code>GET /v1/models HTTP/1.1 200 OK</code><br><br>
+                            Time: 10–20 minutes on first run. Subsequent runs are faster as weights are cached at <code>~/.cache/huggingface</code>.<br>
+                            Press <strong>Ctrl+C</strong> to stop watching logs. The container keeps running.
+                        </div>
+
+                        <div class="step-heading"><span class="step-num">Step 6</span> Confirm vLLM is Serving the Model</div>
+                        <pre><code>curl http://127.0.0.1:8000/v1/models \
+  -H "Authorization: Bearer $MY_API_KEY"</code></pre>
+                        <div class="callout callout-expect">
+                            <span class="callout-label">Expected</span>
+                            <code>{"object":"list","data":[{"id":"qwen3-30b",...,"max_model_len":32768,...}]}</code><br>
+                            If connection refused: vLLM is still loading; wait and retry.<br>
+                            If Unauthorized: run <code>echo $MY_API_KEY</code> to verify the variable is set.
+                        </div>
+
+                        <div class="step-heading"><span class="step-num">Step 7</span> Test Inference End-to-End</div>
+                        <pre><code>curl -s http://127.0.0.1:8000/v1/chat/completions \
+  -H "Authorization: Bearer $MY_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"model":"qwen3-30b","messages":[{"role":"user","content":"Say hello"}],"max_tokens":50}' \
+  | python3 -m json.tool</code></pre>
+                        <div class="callout callout-expect">
+                            <span class="callout-label">Expected</span>
+                            JSON response with <code>choices[0].message.content</code> containing a greeting.<br>
+                            The first request may take 1–2 minutes due to GPU kernel warmup. Subsequent requests are fast.
+                        </div>
+
+                        <div class="step-heading"><span class="step-num">Step 8</span> Start SearXNG for Web Search</div>
+                        <p>
+                            SearXNG is a self-hosted, open-source meta-search engine that aggregates results from Google, Bing, DuckDuckGo and others, with no API key required.
+                            OpenClaw uses it to give the agent live web access.
+                        </p>
+                        <p>Start a SearXNG container on the droplet:</p>
+                        <pre><code>docker run -d -p 8888:8080 --name searxng searxng/searxng</code></pre>
+                        <div class="callout callout-expect">
+                            <span class="callout-label">Expected</span>
+                            Container ID hash printed. Verify both containers are running:<br>
+                            <code>docker ps</code><br>
+                            Both <code>vllm-qwen3</code> and <code>searxng</code> appear in the list.
+                        </div>
+                        <div class="callout callout-info">
+                            <span class="callout-label">Alternative</span>
+                            If you prefer to configure search during OpenClaw setup instead, run
+                            <code>openclaw configure --section web</code> and select SearXNG as the provider when prompted.
+                        </div>
+
+                        <div class="step-heading"><span class="step-num">Step 9</span> Generate Gateway Token and Create Config Directory</div>
+                        <p>Run in your SSH session. The token is generated randomly and stored as a shell variable for the current session. Do not close this terminal before Step 12.</p>
+                        <pre><code>GATEWAY_TOKEN=$(openssl rand -hex 24)
+echo "Gateway token: $GATEWAY_TOKEN"
+mkdir -p ~/.openclaw</code></pre>
+                        <div class="callout callout-expect">
+                            <span class="callout-label">Expected</span>
+                            A 48-character hex string is printed. You do not need to copy it — it is substituted automatically in the next step.
+                        </div>
+
+                        <div class="step-heading"><span class="step-num">Step 10</span> Write the OpenClaw Configuration File</div>
+                        <p>Run immediately after Step 9 in the same terminal. The shell substitutes <code>$GATEWAY_TOKEN</code> and <code>$MY_API_KEY</code> automatically. Do not edit the values manually.</p>
+                        <pre><code>cat > ~/.openclaw/openclaw.json &lt;&lt; CONFIGEOF
+{
+  "gateway": {
+    "mode": "local",
+    "auth": { "mode": "token", "token": "${GATEWAY_TOKEN}" },
+    "controlUi": { "allowInsecureAuth": true }
+  },
+  "models": {
+    "mode": "merge",
+    "providers": {
+      "vllm": {
+        "baseUrl": "http://127.0.0.1:8000/v1",
+        "apiKey": "${MY_API_KEY}",
+        "api": "openai-completions",
+        "models": [{
+          "id": "qwen3-30b", "name": "Qwen3 30B",
+          "reasoning": false, "input": ["text"],
+          "cost": {"input":0,"output":0,"cacheRead":0,"cacheWrite":0},
+          "contextWindow": 32768, "maxTokens": 4096
+        }]
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": { "primary": "vllm/qwen3-30b" },
+      "sandbox": { "mode": "all" }
+    }
+  },
+  "plugins": { "entries": { "vllm": { "enabled": true } } },
+  "tools": {
+    "web": {
+      "search": { "enabled": true, "provider": "searxng" },
+      "searxng": { "baseUrl": "http://127.0.0.1:8888" }
+    }
+  }
+}
+CONFIGEOF</code></pre>
+                        <p>Verify the config saved with the correct values:</p>
+                        <pre><code>cat ~/.openclaw/openclaw.json | grep -E "primary|baseUrl|id|provider"</code></pre>
+                        <div class="callout callout-expect">
+                            <span class="callout-label">Expected</span>
+                            Actual values appear, not variable names like <code>${GATEWAY_TOKEN}</code>.
+                        </div>
+
+                        <div class="step-heading"><span class="step-num">Step 11</span> Run OpenClaw Onboarding</div>
+                        <pre><code>openclaw onboard</code></pre>
+                        <p>When prompted, enter these values:</p>
+                        <pre><code>Model provider:  vLLM
+Base URL:        http://127.0.0.1:8000/v1
+API Key:         &lt;your MY_API_KEY value&gt;
+Model ID:        qwen3-30b
+Channel:         Skip for now</code></pre>
+                        <div class="callout callout-expect">
+                            <span class="callout-label">Expected</span>
+                            Onboarding completes with default model set to <code>vllm/qwen3-30b</code>. This step creates the agent bootstrap files the gateway needs to start.
+                        </div>
+
+                        <div class="step-heading"><span class="step-num">Step 12</span> Install and Start the OpenClaw Gateway</div>
+                        <pre><code>openclaw gateway install</code></pre>
+                        <div class="callout callout-expect">
+                            <span class="callout-label">Expected</span>
+                            Gateway service installed as a systemd unit; it will survive SSH disconnections.
+                        </div>
+                        <pre><code>openclaw config set gateway.mode local
+openclaw gateway start
+openclaw status</code></pre>
+                        <div class="callout callout-expect">
+                            <span class="callout-label">Expected in status output</span>
+                            <code>Gateway: local · ws://127.0.0.1:18789 · reachable Xms</code><br>
+                            <code>Agents: 1 · 1 bootstrap file present</code><br>
+                            <code>Sessions: default qwen3-30b (32k ctx)</code>
+                        </div>
+                        <div class="callout callout-warn">
+                            <span class="callout-label">If unreachable</span>
+                            Re-run <code>openclaw gateway install</code> then <code>openclaw gateway start</code>.
+                        </div>
+
+                        <div class="step-heading"><span class="step-num">Step 13</span> Get the Dashboard URL</div>
+                        <pre><code>openclaw dashboard</code></pre>
+                        <div class="callout callout-expect">
+                            <span class="callout-label">Expected</span>
+                            A tokenised URL like <code>http://127.0.0.1:18789/?token=eyJ...</code><br>
+                            Copy the full URL including the token parameter.
+                        </div>
+
+                        <hr style="margin: 2.5rem 0; border: none; border-top: 1px solid rgba(0,0,0,0.1);">
+
+                        <!-- ── LOCAL ACCESS ── -->
+                        <h2 id="local-access">05 — Access OpenClaw from Your Local Machine</h2>
+
+                        <p>The OpenClaw gateway binds only to the loopback interface (127.0.0.1) on the droplet for security. An SSH tunnel forwards the port to your local machine.</p>
+
+                        <div class="step-heading"><span class="step-num">Step 1</span> Open an SSH Tunnel</div>
+                        <p>Run this on your <strong>local Windows machine</strong>, not inside the droplet. Open a <strong>new</strong> Command Prompt window, keeping your droplet SSH session open separately.</p>
+                        <div class="callout callout-critical">
+                            <span class="callout-label">Critical</span>
+                            Do not run this command inside the droplet SSH session.
+                            If you see <code>Permission denied (publickey)</code>, you ran it on the wrong machine.
+                        </div>
+                        <pre><code>ssh -L 18789:127.0.0.1:18789 -N root@&lt;YOUR_DROPLET_IPV4_ADDRESS&gt;</code></pre>
+                        <div class="callout callout-expect">
+                            <span class="callout-label">Expected</span>
+                            The window appears to hang with no output. This is correct; the tunnel is active. Leave this window open for the entire session.<br><br>
+                            If the browser later shows <code>disconnected (1006)</code>: the tunnel dropped. Re-run this command in a new local Command Prompt window.
+                        </div>
+
+                        <div class="step-heading"><span class="step-num">Step 2</span> Open the OpenClaw Control UI</div>
+                        <p>Paste the tokenised URL from Step 13 into your browser. Do not use <code>http://127.0.0.1:18789</code> directly. Use the full tokenised URL.</p>
+                        <div class="callout callout-expect">
+                            <span class="callout-label">Expected</span>
+                            The OpenClaw Control User Interface (UI) loads, showing Overview, Chat, Agents, and Settings tabs.
+                        </div>
+
+                        <div class="step-heading"><span class="step-num">Step 3</span> Test the Chat</div>
+                        <ol>
+                            <li>Click the <strong>Chat</strong> tab.</li>
+                            <li>Select <code>vllm/qwen3-30b</code> from the model dropdown.</li>
+                            <li>Type <code>/new</code> and press Send to start a fresh session.</li>
+                            <li>Type: <em>Tell me your name</em> and press Send.</li>
+                        </ol>
+                        <div class="callout callout-expect">
+                            <span class="callout-label">Expected</span>
+                            Qwen3 responds within 10–30 seconds. Confirm in vLLM logs on the droplet:<br>
+                            <code>docker logs vllm-qwen3 --tail 5</code><br>
+                            Expected log line: <code>127.0.0.1:XXXXX - POST /v1/chat/completions HTTP/1.1 200 OK</code>
+                        </div>
+
+                        <hr style="margin: 2.5rem 0; border: none; border-top: 1px solid rgba(0,0,0,0.1);">
+
+                        <!-- ── TROUBLESHOOTING ── -->
+                        <h2 id="troubleshooting">06 — Troubleshooting</h2>
+
+                        <h3>vLLM Startup Errors</h3>
+                        <table>
+                            <thead><tr><th>Error</th><th>Fix</th></tr></thead>
+                            <tbody>
+                                <tr>
+                                    <td>KeyError: invalid tool call parser</td>
+                                    <td>Only <code>hermes</code> is valid for Qwen3 in this build. Do not use <code>llama</code>, <code>llama3_json</code>, <code>gemma4</code>, or <code>pythonic</code>.</td>
+                                </tr>
+                                <tr>
+                                    <td>Connection refused on port 8000</td>
+                                    <td>vLLM is still loading. Wait for <code>Application startup complete</code> in docker logs.</td>
+                                </tr>
+                                <tr>
+                                    <td>{"error":"Unauthorized"}</td>
+                                    <td>Wrong API key. Run: <code>echo $MY_API_KEY</code>.</td>
+                                </tr>
+                                <tr>
+                                    <td>Container exits immediately</td>
+                                    <td>Run <code>docker logs vllm-qwen3</code> to read the error before the container exits.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h3>Gateway Errors</h3>
+                        <table>
+                            <thead><tr><th>Error</th><th>Fix</th></tr></thead>
+                            <tbody>
+                                <tr>
+                                    <td>Gateway: unreachable after gateway start</td>
+                                    <td>Run <code>openclaw gateway install</code> then <code>openclaw gateway start</code>.</td>
+                                </tr>
+                                <tr>
+                                    <td>disconnected (1006) in browser</td>
+                                    <td>SSH tunnel dropped. Re-open in a new local CMD window:<br><code>ssh -L 18789:127.0.0.1:18789 -N root@&lt;YOUR_DROPLET_IP&gt;</code></td>
+                                </tr>
+                                <tr>
+                                    <td>Permission denied (publickey) on tunnel</td>
+                                    <td>Run the tunnel command on the command prompt of your local Windows machine, not on the droplet.</td>
+                                </tr>
+                                <tr>
+                                    <td>openclaw logs --follow: pairing required</td>
+                                    <td>Use: <code>tail -f /tmp/openclaw/openclaw-$(date +%Y-%m-%d).log</code></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h3>Restart vLLM</h3>
+                        <pre><code>docker stop vllm-qwen3 &amp;&amp; docker rm vllm-qwen3
+<span class="code-comment"># Then re-run the full docker run command from Step 4.</span></code></pre>
+                        <div class="callout callout-info">
+                            <span class="callout-label">Note</span>
+                            The OpenClaw gateway does not need restarting when vLLM restarts. It reconnects automatically on the next request.
+                        </div>
+
+                        <hr style="margin: 2.5rem 0; border: none; border-top: 1px solid rgba(0,0,0,0.1);">
+
+                        <!-- ── SHUTDOWN ── -->
+                        <h2 id="shutdown">07 — Shut Down and Destroy the Droplet</h2>
+
+                        <p>Always destroy the droplet at the end of each session; powering it off does not stop billing.</p>
+
+                        <h3>Stop Services on the Droplet</h3>
+                        <pre><code>openclaw gateway stop
+docker stop vllm-qwen3
+docker stop searxng</code></pre>
+
+                        <h3>Destroy on DigitalOcean</h3>
+                        <ol>
+                            <li>Go to <a href="https://cloud.digitalocean.com" target="_blank" rel="noopener noreferrer">cloud.digitalocean.com</a> and select your droplet.</li>
+                            <li>Click <strong>Destroy</strong> in the left sidebar.</li>
+                            <li>Click <strong>Destroy this Droplet</strong> and confirm.</li>
+                        </ol>
+
+                        <div class="callout callout-info">
+                            <span class="callout-label">Snapshot Option</span>
+                            Before destroying, save a snapshot to preserve the installed software and cached model weights (~60–80 GB). This avoids the 10–20 minute model download on the next session. DigitalOcean charges approximately $0.06/GB/month for snapshot storage.
+                        </div>
+                        <div class="callout callout-warn">
+                            <span class="callout-label">Warning</span>
+                            Powering off the droplet does <strong>not</strong> stop billing. Only destroying does.
+                        </div>
+
+                        <!-- ── KNOWN ISSUES ── -->
+                        <h2 id="known-issues">08 — Known Issues and Caveats</h2>
+
+                        <p>
+                            When selecting a model to use with OpenClaw on vLLM, keep these compatibility constraints in mind. The issues below are specific to OpenClaw's request format, the vLLM ROCm build, and Anthropic's authentication policy — not limitations of AMD Developer Cloud or the MI300X hardware.
+                        </p>
+
+                        <div class="failure-card">
+                            <div class="failure-title">
+                                <span class="failure-badge">Abandoned</span>
+                                Gemma 4-31B — Tool Parser Incompatibility
+                            </div>
+                            <p>The <code>gemma4</code> tool parser in the ROCm vLLM 0.19.1 image crashes on startup with a <code>TypeError</code>. Since OpenClaw always sends <code>tool_choice: auto</code>, vLLM requires a working parser and rejects all requests with <code>400 Bad Request</code>. Use <code>hermes</code> with a Hermes-format model instead.</p>
+                        </div>
+
+                        <div class="failure-card">
+                            <div class="failure-title">
+                                <span class="failure-badge">Abandoned</span>
+                                Llama 3.2-11B Vision-Instruct — Multimodal Processor Mismatch
+                            </div>
+                            <p>The transformers version in the vLLM ROCm image lacks support for <code>MllamaProcessor</code>, so the model cannot load at all. The model is also gated on HuggingFace and requires a Meta access request, adding a second barrier.</p>
+                        </div>
+
+                        <div class="failure-card">
+                            <div class="failure-title">
+                                <span class="failure-badge">Abandoned</span>
+                                Anthropic Claude — Authentication Dead End
+                            </div>
+                            <p>OpenClaw 2026.4.15 expects OAuth tokens (<code>sk-ant-oat01-</code>), which Anthropic blocks for third-party tools. Standard API keys (<code>sk-ant-api03-</code>) are rejected by OpenClaw's validator. Neither token format works; this is an OpenClaw compatibility issue with Anthropic's current authentication policy.</p>
+                        </div>
+
+                        <hr style="margin: 2.5rem 0; border: none; border-top: 1px solid rgba(0,0,0,0.1);">
+
+                    </div>
+                </article>
+            </main>
+        </div>
+
+        <!-- Footer -->
+        <div id="footer-container"></div>
+    </div>
+
+    <!-- Portfolio Data -->
+    <script src="../assets/js/portfolio_data.js"></script>
+    <script src="../assets/js/navigation.js"></script>
+    <script src="../assets/js/shared-components.js"></script>
+
+    <!-- Enhanced Search System -->
+    <script src="../assets/js/enhanced-search.js"></script>
+    <script src="../assets/js/search-ui.js"></script>
+
+    <!-- Scroll to Content Script -->
+    <script src="../assets/js/scroll-to-content.js"></script>
+
+    <!-- Theme Manager Script -->
+    <script src="../assets/js/theme-manager.js"></script>
+</body>
+</html>
