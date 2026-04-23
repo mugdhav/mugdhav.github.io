@@ -758,20 +758,23 @@
                             OpenClaw was sending <code>tool_choice: auto</code> in every request — including requests where no tools were configured. This caused vLLM to require a working tool call parser. I had initially set <code>--tool-call-parser gemma4</code> because I was running Gemma 4-31B. The container would start, then crash with a <code>TypeError</code> in the parser constructor.
                         </p>
                         <p>
-                            I pasted the Docker log output to Claude Code. It identified the issue immediately: the <code>gemma4</code> parser in the specific ROCm vLLM 0.19.1 image was broken, and it scanned the available parsers to find which ones were valid for the build. The answer was <code>hermes</code>, designed for Hermes-format function calling used by Qwen models. Switching the model to Qwen3 and the parser to <code>hermes</code> resolved it.
+                            From the Docker log output I shared, Claude Code identified the issue immediately: the <code>gemma4</code> parser in the ROCm vLLM 0.19.1 image was broken. It scanned the available parsers, confirmed that <code>hermes</code> was the only valid one for this build, and explained that a Hermes-format model would be needed to use it. That meant abandoning Gemma entirely — Llama 3.2 was the next candidate.
+                        </p>
+
+                        <h3>The Llama processor incompatibility</h3>
+                        <p>
+                            I tried Llama 3.2-11B Vision-Instruct as the replacement. The vLLM container started but crashed immediately with an <code>AttributeError</code> — the transformers library bundled in the ROCm vLLM 0.19.1 image does not include the <code>MllamaProcessor</code> class that Llama 3.2 Vision requires, so the model cannot load at all.
+                        </p>
+                        <p>
+                            Claude Code confirmed this was a hard compatibility mismatch, not a configuration error I could work around. It also surfaced a second barrier: the model is gated on HuggingFace and requires a Meta access request. With Llama ruled out, I turned to Anthropic Claude as a fallback.
                         </p>
 
                         <h3>The Anthropic authentication dead end</h3>
                         <p>
-                            I wanted to use Anthropic Claude as OpenClaw's primary model. But OpenClaw 2026.4.15 expects OAuth tokens in the format <code>sk-ant-oat01-</code>, which Anthropic blocks for third-party tools. My standard API key (format <code>sk-ant-api03-</code>) was rejected by OpenClaw's own validator before it even reached Anthropic.
+                            OpenClaw 2026.4.15 expects OAuth tokens in the format <code>sk-ant-oat01-</code>, which Anthropic blocks for third-party tools. My standard API key (format <code>sk-ant-api03-</code>) was rejected by OpenClaw's own validator before it even reached Anthropic.
                         </p>
                         <p>
-                            When I described the error to Claude Code, it found the relevant OpenClaw GitHub issue and Anthropic's February 2026 Terms of Service update explaining why this path was closed. It then suggested the open-source model route via vLLM as the correct path forward — which is exactly what I ended up using.
-                        </p>
-
-                        <h3>The SSH tunnel confusion</h3>
-                        <p>
-                            OpenClaw's gateway binds only to <code>127.0.0.1</code> on the droplet. I kept getting a <code>disconnected (1006)</code> error in the browser after the UI loaded. I had accidentally run the SSH tunnel command inside my droplet SSH session instead of on my local machine. Claude Code spotted this immediately from the error message and command history I shared, explained why <code>127.0.0.1</code> on the droplet is not the same as <code>localhost</code> on my Windows machine, and showed me the correct sequence: keep one terminal on the droplet, open a second local terminal for the tunnel.
+                            From the error I described, Claude Code found the relevant OpenClaw GitHub issue and Anthropic's February 2026 Terms of Service update explaining why this path was closed. It then pointed me back to the open-source route via vLLM with a Hermes-compatible model — which is how I landed on Qwen3-30B-A3B and the <code>hermes</code> parser.
                         </p>
 
                         <div class="callout callout-info">
