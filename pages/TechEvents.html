@@ -860,17 +860,26 @@
 
         function createEventCardHTML(event) {
             const statusClass = getStatusClass(event.status);
-            const linkedInLink = event.linkedInLink || event.link; // Fallback to old 'link' field for backwards compatibility
-            const linkIcon = linkedInLink && linkedInLink.includes('linkedin.com/events') ? 'fab fa-linkedin' : 'fab fa-linkedin';
+            const learnMoreLink = event.learnMoreLink || event.linkedInLink || event.link;
 
             // Build buttons HTML
             let buttonsHTML = '';
 
-            // Primary LinkedIn button (always shown if linkedInLink exists)
-            if (linkedInLink) {
+            // Register button — primary CTA for coming-soon events
+            if (event.registerLink) {
                 buttonsHTML += `
-                    <a href="${linkedInLink}" target="_blank" rel="noopener noreferrer" class="event-link">
-                        <i class="${linkIcon}" style="margin-right: 0.5rem;"></i>Learn More
+                    <a href="${event.registerLink}" target="_blank" rel="noopener noreferrer" class="event-link">
+                        <i class="fas fa-ticket-alt" style="margin-right: 0.5rem;"></i>Register
+                    </a>
+                `;
+            }
+
+            // Learn More — primary if no registerLink, secondary otherwise
+            if (learnMoreLink) {
+                const cls = event.registerLink ? 'event-link secondary' : 'event-link';
+                buttonsHTML += `
+                    <a href="${learnMoreLink}" target="_blank" rel="noopener noreferrer" class="${cls}">
+                        <i class="fab fa-linkedin" style="margin-right: 0.5rem;"></i>Learn More
                     </a>
                 `;
             }
@@ -904,12 +913,6 @@
                 buttonsHTML += `
                     <a href="${event.showcaseLink}" target="_blank" rel="noopener noreferrer" class="event-link secondary">
                         <i class="fas fa-gem" style="margin-right: 0.5rem;"></i>Event Showcase
-                    </a>
-                `;
-            } else if (event.lumaEventId) {
-                buttonsHTML += `
-                    <a href="https://lu.ma/event/${event.lumaEventId}" class="luma-checkout--button event-link secondary" data-luma-action="checkout" data-luma-event-id="${event.lumaEventId}">
-                        <i class="fas fa-ticket-alt" style="margin-right: 0.5rem;"></i>Register for Event
                     </a>
                 `;
             }

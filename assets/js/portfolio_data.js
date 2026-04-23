@@ -339,7 +339,9 @@ const portfolioData = {
     //     organization: 'Organizing Body',          // Who organizes/hosts the event
     //     description: 'Event description...',      // Brief description of the event
     //     icon: 'fas fa-icon-name',                 // FontAwesome icon class
-    //     linkedInLink: 'https://linkedin.com/...',  // PRIMARY LINK - LinkedIn post (REQUIRED)
+    //     learnMoreLink: 'https://linkedin.com/...',  // PRIMARY LINK - social/announcement post (coming-soon or past)
+    //     registerLink: 'https://luma.com/...',       // Coming-soon only - ticketing link (Luma, Eventbrite, etc.)
+    //     showcaseLink: 'https://...',                // Past events only - showcase URL
     //     blogLink: 'blog.html#post-id',            // Secondary: Link to blog post (optional)
     //     podcastLink: 'Podcasts.html',             // Secondary: Link to podcast episode (optional)
     //     videoLink: 'https://youtube.com/...',     // Secondary: Link to YouTube video (optional)
@@ -357,7 +359,7 @@ const portfolioData = {
             organization: 'Women Build Together',
             description: 'A late-night virtual meetup for women builders — the inaugural Nightbuild. Small-group show-and-tell covering real apps built with Lovable, then diving deep into Claude Code, Zod-enforced input validation, RLS policies, Zero-Trust architecture, Hugging Face deployments, and DevOps principles drawn from production BFSI systems. Topics ranged from debugging authentication flows and preventing app misuse, to getting vibe-coded apps out of platform ecosystems and into production infrastructure.',
             icon: 'fas fa-moon',
-            linkedInLink: 'https://www.linkedin.com/posts/mugdhav_nightbuilds-womenbuildtogether-womenintech-activity-7448635128727265280-RkZF?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAD-ScYBeGEIIwA1VXFPoj__sofFCBEqfL8',
+            learnMoreLink: 'https://www.linkedin.com/posts/mugdhav_nightbuilds-womenbuildtogether-womenintech-activity-7448635128727265280-RkZF?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAD-ScYBeGEIIwA1VXFPoj__sofFCBEqfL8',
             searchTerms: 'Nightbuild Women Build Together women in tech April 2026 virtual Lovable Claude Code Zod RLS Zero-Trust Hugging Face DevOps BFSI app security vibe coding'
         },
         // Nightbuild #2 - Small Models (Coming Soon)
@@ -366,13 +368,32 @@ const portfolioData = {
             title: 'Nightbuild #2 — Small Models',
             status: 'coming-soon',
             statusLabel: 'Coming Soon',
-            date: 'Coming Soon',
+            startDate: '2026-04-24T21:30:00+05:30',
+            endDate: '2026-04-24T23:30:00+05:30',
+            date: 'April 24, 2026, 9:30 PM – 11:30 PM IST',
             location: 'Virtual Event',
-            organization: 'Pie & AI Community by DeepLearning.AI',
-            description: 'Join us to experiment with small models that can run on your own system and respect your personal data and privacy. Also see how they can power OpenClaw. Open to everyone.',
+            organization: 'vmugdha.in',
+            description: 'A deep-dive into practical, real-world small-model workflows. Featuring live demos by a senior expert, plus a walkthrough of OpenClaw for personal AI use cases. Limited seats — approval required.',
             icon: 'fas fa-moon',
-            linkedInLink: 'https://www.linkedin.com/posts/mugdhav_vote-nightbuild-ugcPost-7449449422322737153-c9mC?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAD-ScYBeGEIIwA1VXFPoj__sofFCBEqfL8',
-            searchTerms: 'Nightbuild small models local AI privacy personal data OpenClaw Pie AI DeepLearning.AI Women Build Together virtual'
+            learnMoreLink: 'https://www.linkedin.com/posts/vmugdhain_nightbuild2-small-models-luma-activity-7451965221662941184-pBA3?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAD-ScYBeGEIIwA1VXFPoj__sofFCBEqfL8',
+            registerLink: 'https://luma.com/1optcog2',
+            searchTerms: 'Nightbuild small models personal AI OpenClaw live demo real-world workflows privacy virtual'
+        },
+        // Build and Share - AI Study Group Pune (Coming Soon)
+        {
+            id: 'build-and-share-pune-april-2026',
+            title: 'Build and Share',
+            status: 'coming-soon',
+            statusLabel: 'Coming Soon',
+            startDate: '2026-04-26T10:00:00+05:30',
+            endDate: '2026-04-26T13:00:00+05:30',
+            date: 'April 26, 2026, 10:00 AM – 1:00 PM IST',
+            location: 'Aeka\'s Coffee, Baner, Pune',
+            organization: 'AI Study Group',
+            description: 'An informal in-person build session — learn new AI tools, create agents, apps, chatbots, or whatever interests you, then share what you built in a 1-min show-and-tell. Includes an Open Source project showcase.',
+            icon: 'fas fa-hammer',
+            registerLink: 'https://luma.com/z8cx6fs9',
+            searchTerms: 'Build and Share AI Study Group Pune Baner agents apps chatbots open source collaboration April 2026'
         },
         // SheBuilds IWD 2026 - Pune
         {
@@ -385,7 +406,7 @@ const portfolioData = {
             organization: 'SheBuilds by Lovable',
             description: 'A free 3-hour in-person hackathon in Pune celebrating International Women\'s Day. Women of all skill levels — from complete beginners to experienced coders — come together to build and publish real AI-powered applications using <a href="https://lovable.dev" target="_blank" rel="noopener noreferrer">Lovable</a>\'s natural language platform. Part of a global <a href="https://shebuilds.lovable.app" target="_blank" rel="noopener noreferrer">SheBuilds</a> event across multiple cities.',
             icon: 'fas fa-hammer',
-            linkedInLink: 'https://www.linkedin.com/posts/mugdhav_shebuilds-pune-shebuilds-activity-7436363192324231168-RhDt?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAD-ScYBeGEIIwA1VXFPoj__sofFCBEqfL8',
+            learnMoreLink: 'https://www.linkedin.com/posts/mugdhav_shebuilds-pune-shebuilds-activity-7436363192324231168-RhDt?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAD-ScYBeGEIIwA1VXFPoj__sofFCBEqfL8',
             showcaseLink: 'https://shebuilt-iwd-gems.lovable.app',
             searchTerms: 'SheBuilds Lovable International Women\'s Day IWD 2026 Pune India hackathon women AI apps vibe coding in-person March 2026 #SheBuildsIWD2026'
         },
@@ -400,7 +421,7 @@ const portfolioData = {
             organization: 'Technical Writers and Information Architects Community',
             description: 'Join Mugdha Vairagade and Rahel Anne Bailie for a dynamic conversation on preparing information architecture for AI‑delivered content. Explore the challenges, key considerations, foundational building blocks, and best practices that shape effective content delivery in AI‑driven environments. Q&A session included with practical takeaways to align your content strategy with the evolving landscape of AI.',
             icon: 'fas fa-sitemap',
-            linkedInLink: 'https://www.linkedin.com/posts/mugdhav_ai-information-architect-activity-7407401500680990720-_qdK?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAD-ScYBeGEIIwA1VXFPoj__sofFCBEqfL8',
+            learnMoreLink: 'https://www.linkedin.com/posts/mugdhav_ai-information-architect-activity-7407401500680990720-_qdK?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAD-ScYBeGEIIwA1VXFPoj__sofFCBEqfL8',
             podcastLink: 'Podcasts.html#conversation-rahel-bailie',
             searchTerms: 'Preparing Information Architecture AI Delivered Content December 2025 Rahel Anne Bailie technical writers information architects AI-driven content content strategy virtual event IA best practices content delivery'
         },
@@ -414,7 +435,7 @@ const portfolioData = {
             organization: 'Pie & AI Community by DeepLearning.AI',
             description: 'Explore open-source and small language models (SLMs) that can be run locally, are available for free, and can generate content as competently as the commercially available models.',
             icon: 'fas fa-brain',
-            linkedInLink: 'https://www.linkedin.com/events/pie-aipune-yourpersonalai-runmo7389386357921538048/',
+            learnMoreLink: 'https://www.linkedin.com/events/pie-aipune-yourpersonalai-runmo7389386357921538048/',
             searchTerms: 'Pie AI Pune Personal AI Run Models Locally October 2025 DeepLearning.AI SLMs small language models open-source local models free AI virtual zoom'
         },
         // Featured September 2025 Pie & AI Events
@@ -428,7 +449,7 @@ const portfolioData = {
             organization: 'Pie & AI Community by DeepLearning.AI',
             description: 'A hands-on session exploring content generation using Open Source models, focusing on generating text, images, and code with discussion of their use cases. Bring your laptops for collaborative exploration of Open Source LLMs.',
             icon: 'fas fa-brain',
-            linkedInLink: 'https://www.linkedin.com/pulse/generating-content-open-source-models-mugdha-vairagade-xujuf',
+            learnMoreLink: 'https://www.linkedin.com/pulse/generating-content-open-source-models-mugdha-vairagade-xujuf',
             searchTerms: 'Pie AI Pune Content Generation Open Source Models DeepLearning.AI text images code LLMs collaborative exploration'
         },
         {
@@ -441,7 +462,7 @@ const portfolioData = {
             organization: 'Pie & AI Community by DeepLearning.AI',
             description: 'Hands-on session exploring Indian LLMs, APIs, and platforms with discussion of their uses. Part of the ongoing Pie & AI meetup series focusing on Indian AI technologies.',
             icon: 'fas fa-brain',
-            linkedInLink: 'https://www.linkedin.com/pulse/experiment-indian-ai-mugdha-vairagade-cqvef',
+            learnMoreLink: 'https://www.linkedin.com/pulse/experiment-indian-ai-mugdha-vairagade-cqvef',
             searchTerms: 'Pie AI Pune Exploring Indian AI September 2025 DeepLearning.AI LLMs APIs platforms Indian AI technologies meetup'
         },
         {
@@ -454,7 +475,7 @@ const portfolioData = {
             organization: 'Pie & AI Community by DeepLearning.AI',
             description: 'Join us for an interactive session on extracting and structuring information from unstructured text using AI and machine learning techniques. Learn practical approaches to text mining, information extraction, and data structuring.',
             icon: 'fas fa-brain',
-            linkedInLink: 'https://www.linkedin.com/pulse/snapshots-from-pie-ai-pune-extracting-structuring-mugdha-vairagade-uw7yf',
+            learnMoreLink: 'https://www.linkedin.com/pulse/snapshots-from-pie-ai-pune-extracting-structuring-mugdha-vairagade-uw7yf',
             searchTerms: 'Pie AI Pune Extracting Structuring Information Text DeepLearning.AI text mining information extraction data structuring machine learning AI techniques'
         },
         {
@@ -467,7 +488,7 @@ const portfolioData = {
             organization: 'SAP Labs India',
             description: 'A comprehensive 3-month innovation program featuring AI brain teasers, quizzes, 24-hour hackathon, and focused build sessions. Collaborated with Asian Paints, Henkel, Google, and SAP Customer Innovation Services to unite talents, drive innovation, and create exceptional customer experiences.',
             icon: 'fas fa-lightbulb',
-            linkedInLink: 'https://www.linkedin.com/posts/mugdhav_invent4customers-ai-lifeatsap-activity-7221871949134589952-PCmj',
+            learnMoreLink: 'https://www.linkedin.com/posts/mugdhav_invent4customers-ai-lifeatsap-activity-7221871949134589952-PCmj',
             searchTerms: 'Invent4Customers SAP Labs India Pune AI innovation hackathon quizzes Asian Paints Henkel Google customer innovation brain teasers volunteer'
         },
         {
@@ -481,7 +502,7 @@ const portfolioData = {
             audience: 'AI Developers',
             description: 'Integrate native language speech to text and text-to-speech interfaces and documentation extraction in your AI apps.',
             icon: 'fas fa-code',
-            linkedInLink: 'https://www.linkedin.com/in/mugdhav/',
+            learnMoreLink: 'https://www.linkedin.com/in/mugdhav/',
             searchTerms: 'Native Language Interfaces AI Apps workshop tech writing virtual event technical writers community AI tools web development'
         },
         {
@@ -494,7 +515,7 @@ const portfolioData = {
             organization: 'SAP Labs India',
             description: 'Organized a Generative AI Art competition for Pune colleagues to celebrate the launch of a new d-shop location. Participants created original art (images, audio, video) using generative AI, exploring themes from colorful Holi to Diwali on Mars. The competition included learning about preventing copyright violations and ethical AI content generation.',
             icon: 'fas fa-palette',
-            linkedInLink: 'https://www.linkedin.com/posts/mugdhav_generativeai-art-pune-activity-7136282664839356416-Il2_',
+            learnMoreLink: 'https://www.linkedin.com/posts/mugdhav_generativeai-art-pune-activity-7136282664839356416-Il2_',
             searchTerms: 'Generative AI Art Competition D-Shop Pune SAP Labs India AI art image generation audio video Holi Diwali copyright violations ethical AI content generation festive celebrations creative exploration'
         },
         {
@@ -507,7 +528,7 @@ const portfolioData = {
             organization: 'Independent Publication',
             description: 'An engaging podcast conversation with Scott Abel, host of The Content Wrangler and a leading voice in the technical communication community. The conversation centered on documentation success metrics, while also covering harnessing AI for documentation, showcasing documentation as a key enabler for product/service success, and innovative tools and workflows that support technical writers.',
             icon: 'fas fa-podcast',
-            linkedInLink: 'https://www.linkedin.com/posts/mugdhav_podcasts-mugdha-vairagade-activity-7404560180212105216-LdsB?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAD-ScYBeGEIIwA1VXFPoj__sofFCBEqfL8',
+            learnMoreLink: 'https://www.linkedin.com/posts/mugdhav_podcasts-mugdha-vairagade-activity-7404560180212105216-LdsB?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAD-ScYBeGEIIwA1VXFPoj__sofFCBEqfL8',
             podcastLink: 'Podcasts.html',
             searchTerms: 'Scott Abel podcast Content Wrangler technical communication documentation success metrics AI documentation tools workflows technical writers December 2025 holiday present'
         }
