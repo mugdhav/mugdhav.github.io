@@ -215,6 +215,29 @@
             font-size: 1.2rem;
         }
 
+        .rss-widget {
+            padding: 1rem 2rem;
+        }
+
+        .rss-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #ee802f;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            letter-spacing: 0.02em;
+        }
+
+        .rss-link:hover {
+            opacity: 0.75;
+        }
+
+        .rss-link .fa-rss {
+            font-size: 1rem;
+        }
+
         .category-list {
             list-style: none;
         }
@@ -333,7 +356,7 @@
         <!-- Main Content -->
         <main class="main-content">
             <!-- Page Title (visible in Calm theme only) -->
-            <h1 class="blog-page-title">Thoughts on AI, Content, and Tech</h1>
+            <h1 class="blog-page-title">Thoughts on AI, Content, and Learning</h1>
 
             <section class="blog-posts" id="blogPosts">
                 <div class="loading">Loading blog posts...</div>
@@ -341,6 +364,12 @@
 
             <!-- Sidebar -->
             <aside class="sidebar">
+                <div class="sidebar-widget rss-widget">
+                    <a href="/feed.xml" class="rss-link" title="Subscribe via RSS">
+                        <i class="fas fa-rss"></i> RSS Feed
+                    </a>
+                </div>
+
                 <div class="sidebar-widget">
                     <h4>Categories</h4>
                     <ul class="category-list" id="categories">
