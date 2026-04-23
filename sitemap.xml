@@ -81,6 +81,14 @@
     <priority>0.6</priority>
   </url>
 
+  <!-- RSS Feed -->
+  <url>
+    <loc>https://www.vmugdha.in/feed.xml</loc>
+    <lastmod>2026-04-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <!-- LLMs.txt for AI Agents -->
   <url>
     <loc>https://www.vmugdha.in/llms.txt</loc>

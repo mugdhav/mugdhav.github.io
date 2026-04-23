@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vmugdha.in — Blog</title>
+    <link>https://www.vmugdha.in/blog/blog.html</link>
+    <description>AI development, technical writing, and community building by Mugdha Vairagade</description>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 23 Apr 2026 11:53:15 GMT</lastBuildDate>
+    <atom:link href="https://www.vmugdha.in/feed.xml" rel="self" type="application/rss+xml"/>
+
+  <item>
+    <title>How I Deployed OpenClaw in the Cloud</title>
+    <link>https://www.vmugdha.in/blog/openclaw-amd-cloud.html</link>
+    <description>I wanted to experiment with OpenClaw but didn&apos;t want to install it locally. When I received AMD Developer Cloud credits with ROCm GPU access, I deployed it there — and used Claude Code to debug the tricky parts.</description>
+    <pubDate>Mon, 20 Apr 2026 00:00:00 GMT</pubDate>
+    <category>AI Development</category>
+    <guid isPermaLink="true">https://www.vmugdha.in/blog/openclaw-amd-cloud.html</guid>
+  </item>
+  <item>
+    <title>The Token Tax on Indic Language Prompts</title>
+    <link>https://www.vmugdha.in/blog/token-tax-report.html</link>
+    <description>A comparative analysis of tokenization overhead across OpenAI, Anthropic, Google Gemini, and Sarvam AI — using Hindi and Marathi prompts with English as the baseline. Frontier Western AI labs impose a 30–156% token overhead on Devanagari-script prompts, while purpose-built Indic AI (Sarvam) achieves a token credit of up to 22%.</description>
+    <pubDate>Sun, 12 Apr 2026 00:00:00 GMT</pubDate>
+    <category>AI Development</category>
+    <guid isPermaLink="true">https://www.vmugdha.in/blog/token-tax-report.html</guid>
+  </item>
+  <item>
+    <title>LiteLLM: Transitive Dependencies as Attack Surface</title>
+    <link>https://www.linkedin.com/posts/mugdhav_python-litellm-vulnerability-activity-7442517252337410048-3O87</link>
+    <description>This post examines the transitive dependencies in Python packages like LiteLLM that can quietly introduce vulnerabilities into your project. Also mentioned here is how the Claude ip-guard skill and the Security Auditor tool can catch these risks before they reach production.</description>
+    <pubDate>Thu, 26 Mar 2026 00:00:00 GMT</pubDate>
+    <category>Security</category>
+    <guid isPermaLink="true">https://www.linkedin.com/posts/mugdhav_python-litellm-vulnerability-activity-7442517252337410048-3O87</guid>
+  </item>
+  <item>
+    <title>Find Your Perfect AI Agent: A Guide for Non-Tech Professionals</title>
+    <link>https://www.linkedin.com/pulse/find-your-perfect-ai-agent-mugdha-vairagade-tt3xf</link>
+    <description>This easy‑to‑follow guide helps professionals from non‑technical backgrounds understand what AI agents are, what those agents can do for them, and how to find the right agents for their needs.</description>
+    <pubDate>Sun, 28 Dec 2025 00:00:00 GMT</pubDate>
+    <category>AI Development</category>
+    <guid isPermaLink="true">https://www.linkedin.com/pulse/find-your-perfect-ai-agent-mugdha-vairagade-tt3xf</guid>
+  </item>
+  <item>
+    <title>Preparing Information Architecture for AI-Delivered Content</title>
+    <link>https://www.linkedin.com/pulse/preparing-information-architecture-aidelivered-mugdha-vairagade-deo5f</link>
+    <description>A comprehensive exploration of how information architects and technical writers can prepare their content ecosystems for AI-powered delivery. Discusses challenges like fragmented content, missing metadata, and the shift from creating content for humans to creating it for AI systems that help humans find what they need.</description>
+    <pubDate>Fri, 26 Dec 2025 00:00:00 GMT</pubDate>
+    <category>Technical Writing</category>
+    <guid isPermaLink="true">https://www.linkedin.com/pulse/preparing-information-architecture-aidelivered-mugdha-vairagade-deo5f</guid>
+  </item>
+  <item>
+    <title>Snapshots from Pie &amp; AI Pune: Extracting and Structuring Information</title>
+    <link>https://www.linkedin.com/pulse/snapshots-from-pie-ai-pune-extracting-structuring-mugdha-vairagade-uw7yf</link>
+    <description>A recap of a Pie &amp; AI event in Pune focused on AI-powered information extraction, bringing together AI practitioners to explore technologies for extracting and structuring information from documents and images. Learn about APIs and frameworks like LandingAI ADE, Google Document AI, and DocETL; along with practical applications.</description>
+    <pubDate>Mon, 06 Oct 2025 00:00:00 GMT</pubDate>
+    <category>AI Development</category>
+    <guid isPermaLink="true">https://www.linkedin.com/pulse/snapshots-from-pie-ai-pune-extracting-structuring-mugdha-vairagade-uw7yf</guid>
+  </item>
+  <item>
+    <title>Generating Content with Open Source Models</title>
+    <link>https://www.linkedin.com/pulse/generating-content-open-source-models-mugdha-vairagade-xujuf</link>
+    <description>Hosted another Pie &amp; AI event focusing on content generation with Open Source models. Participants ranging from AI novices to experts explored lightweight models like phi3:3.8b and gemma3:4b using Ollama for local deployment. Discover how Open Source models offer data protection and cost savings.</description>
+    <pubDate>Tue, 16 Sep 2025 00:00:00 GMT</pubDate>
+    <category>AI Development</category>
+    <guid isPermaLink="true">https://www.linkedin.com/pulse/generating-content-open-source-models-mugdha-vairagade-xujuf</guid>
+  </item>
+  <item>
+    <title>An Experiment with Indian AI</title>
+    <link>https://www.linkedin.com/pulse/experiment-indian-ai-mugdha-vairagade-cqvef</link>
+    <description>Sharing insights from the DeepLearning.AI community event Pie &amp; AI: Pune - Exploring Indian AI. Participants engaged in hands-on experiments with Indian AI platforms like Sarvam AI and CoRover.AI BharatGPT, exploring their capabilities in native languages. Learn about the potential and limitations of Indian AI technologies.</description>
+    <pubDate>Mon, 08 Sep 2025 00:00:00 GMT</pubDate>
+    <category>AI Development</category>
+    <guid isPermaLink="true">https://www.linkedin.com/pulse/experiment-indian-ai-mugdha-vairagade-cqvef</guid>
+  </item>
+  <item>
+    <title>How I Added Performance Monitoring to My MCP Server with AppSignal</title>
+    <link>https://www.vmugdha.in/blog/appsignal-mcp-monitoring.html</link>
+    <description>An important step in building an enterprise-grade app is ensuring it can scale with reasonable performance to meet the demands of large user bases. This post walks through integrating AppSignal APM with a Python MCP server to track performance, errors, and resource usage.</description>
+    <pubDate>Sat, 15 Feb 2025 00:00:00 GMT</pubDate>
+    <category>AI Development</category>
+    <guid isPermaLink="true">https://www.vmugdha.in/blog/appsignal-mcp-monitoring.html</guid>
+  </item>
+  </channel>
+</rss>
