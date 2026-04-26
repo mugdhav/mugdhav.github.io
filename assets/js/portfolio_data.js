@@ -362,12 +362,12 @@ const portfolioData = {
             learnMoreLink: 'https://www.linkedin.com/posts/mugdhav_nightbuilds-womenbuildtogether-womenintech-activity-7448635128727265280-RkZF?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAD-ScYBeGEIIwA1VXFPoj__sofFCBEqfL8',
             searchTerms: 'Nightbuild Women Build Together women in tech April 2026 virtual Lovable Claude Code Zod RLS Zero-Trust Hugging Face DevOps BFSI app security vibe coding'
         },
-        // Nightbuild #2 - Small Models (Coming Soon)
+        // Nightbuild #2 - Small Models (Past)
         {
             id: 'nightbuild-2-small-models',
             title: 'Nightbuild #2 — Small Models',
-            status: 'coming-soon',
-            statusLabel: 'Coming Soon',
+            status: 'past',
+            statusLabel: 'Past',
             startDate: '2026-04-24T21:30:00+05:30',
             endDate: '2026-04-24T23:30:00+05:30',
             date: 'April 24, 2026, 9:30 PM – 11:30 PM IST',
@@ -375,8 +375,7 @@ const portfolioData = {
             organization: 'vmugdha.in',
             description: 'A deep-dive into practical, real-world small-model workflows. Featuring live demos by a senior expert, plus a walkthrough of OpenClaw for personal AI use cases. Limited seats — approval required.',
             icon: 'fas fa-moon',
-            learnMoreLink: 'https://www.linkedin.com/posts/vmugdhain_nightbuild2-small-models-luma-activity-7451965221662941184-pBA3?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAD-ScYBeGEIIwA1VXFPoj__sofFCBEqfL8',
-            registerLink: 'https://luma.com/1optcog2',
+            learnMoreLink: 'https://www.linkedin.com/posts/mugdhav_localai-smallmodels-slm-share-7453819664675201024-98zp?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAD-ScYBeGEIIwA1VXFPoj__sofFCBEqfL8',
             searchTerms: 'Nightbuild small models personal AI OpenClaw live demo real-world workflows privacy virtual'
         },
         // Build and Share - AI Study Group Pune (Coming Soon)
