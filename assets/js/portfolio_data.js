@@ -378,12 +378,12 @@ const portfolioData = {
             learnMoreLink: 'https://www.linkedin.com/posts/mugdhav_localai-smallmodels-slm-share-7453819664675201024-98zp?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAD-ScYBeGEIIwA1VXFPoj__sofFCBEqfL8',
             searchTerms: 'Nightbuild small models personal AI OpenClaw live demo real-world workflows privacy virtual'
         },
-        // Build and Share - AI Study Group Pune (Coming Soon)
+        // Build and Share - AI Study Group Pune (Past)
         {
             id: 'build-and-share-pune-april-2026',
             title: 'Build and Share',
-            status: 'coming-soon',
-            statusLabel: 'Coming Soon',
+            status: 'past',
+            statusLabel: 'Past',
             startDate: '2026-04-26T10:00:00+05:30',
             endDate: '2026-04-26T13:00:00+05:30',
             date: 'April 26, 2026, 10:00 AM – 1:00 PM IST',
@@ -391,7 +391,7 @@ const portfolioData = {
             organization: 'AI Study Group',
             description: 'An informal in-person build session — learn new AI tools, create agents, apps, chatbots, or whatever interests you, then share what you built in a 1-min show-and-tell. Includes an Open Source project showcase.',
             icon: 'fas fa-hammer',
-            registerLink: 'https://luma.com/z8cx6fs9',
+            learnMoreLink: 'https://www.linkedin.com/posts/mugdhav_another-successful-ai-study-group-meetup-share-7454511917437616128-D51a?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAD-ScYBeGEIIwA1VXFPoj__sofFCBEqfL8',
             searchTerms: 'Build and Share AI Study Group Pune Baner agents apps chatbots open source collaboration April 2026'
         },
         // SheBuilds IWD 2026 - Pune
