@@ -47,7 +47,7 @@ const portfolioData = {
                     title: "Deploying OpenClaw on AMD Developer Cloud",
                     description: "Step-by-step tutorial for running OpenClaw on an AMD MI300X GPU Droplet, backed by Qwen3-30B-A3B served via vLLM on ROCm. Covers the full setup — from SSH key to live chat — plus what failed with Gemma 4, Llama 3.2 Vision, and Anthropic Claude.",
                     buttonText: "Read Tutorial",
-                    buttonLink: "blog/deploying-openclaw-amd-cloud.html",
+                    buttonLink: "articles/deploying-openclaw-amd-cloud.html",
                     category: "Tutorial",
                     year: 2026
                 },
@@ -58,7 +58,7 @@ const portfolioData = {
                     title: "How I Added Performance Monitoring to My MCP Server with AppSignal",
                     description: "Complete implementation guide for adding Application Performance Monitoring (APM) to a Python MCP server using AppSignal and OpenTelemetry. Covers custom instrumentation, metrics tracking, error reporting, dashboard configuration, and actionable performance insights.",
                     buttonText: "Read Case Study",
-                    buttonLink: "blog/appsignal-mcp-monitoring.html",
+                    buttonLink: "articles/appsignal-mcp-monitoring.html",
                     category: "Case Study",
                     year: 2025
                 },

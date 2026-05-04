@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="en" data-theme-style="calm" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How I Added Performance Monitoring to My MCP Server with AppSignal - Mugdha's Portfolio</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Learn how to implement Application Performance Monitoring (APM) in a Python MCP server using AppSignal, OpenTelemetry, and SigLIP. Complete guide covering instrumentation, custom metrics, error tracking, and dashboard configuration for AI-powered applications.">
+    <meta name="keywords" content="AppSignal, APM, Application Performance Monitoring, MCP server, Model Context Protocol, OpenTelemetry, Python, SigLIP, FAISS, Gradio, AI monitoring, performance optimization, Hugging Face Spaces, error tracking, custom metrics, observability">
+    <meta name="author" content="Mugdha Variyar">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    <link rel="canonical" href="https://vmugdha.in/articles/appsignal-mcp-monitoring.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://vmugdha.in/articles/appsignal-mcp-monitoring.html">
+    <meta property="og:title" content="How I Added Performance Monitoring to My MCP Server with AppSignal">
+    <meta property="og:description" content="Complete guide to implementing APM in a Python MCP server using AppSignal and OpenTelemetry. Learn about custom instrumentation, metrics, error tracking, and dashboard configuration.">
+    <meta property="og:image" content="https://vmugdha.in/assets/images/blog/final-appsignal-impl-blog/CustomDashboardSemanticSearch_updated.png">
+    <meta property="og:site_name" content="Mugdha Variyar's Portfolio">
+    <meta property="article:published_time" content="2025-02-16T00:00:00+00:00">
+    <meta property="article:author" content="Mugdha Variyar">
+    <meta property="article:section" content="AI Development">
+    <meta property="article:tag" content="AppSignal">
+    <meta property="article:tag" content="APM">
+    <meta property="article:tag" content="Python">
+    <meta property="article:tag" content="OpenTelemetry">
+    <meta property="article:tag" content="MCP">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://vmugdha.in/articles/appsignal-mcp-monitoring.html">
+    <meta name="twitter:title" content="How I Added Performance Monitoring to My MCP Server with AppSignal">
+    <meta name="twitter:description" content="Complete guide to implementing APM in a Python MCP server using AppSignal and OpenTelemetry. Learn about custom instrumentation, metrics, and error tracking.">
+    <meta name="twitter:image" content="https://vmugdha.in/assets/images/blog/final-appsignal-impl-blog/CustomDashboardSemanticSearch_updated.png">
+
+    <!-- Structured Data / JSON-LD for Search Engines -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "How I Added Performance Monitoring to My MCP Server with AppSignal",
+      "description": "Learn how to implement Application Performance Monitoring (APM) in a Python MCP server using AppSignal, OpenTelemetry, and SigLIP. Complete guide covering instrumentation, custom metrics, error tracking, and dashboard configuration.",
+      "image": "https://vmugdha.in/assets/images/blog/final-appsignal-impl-blog/CustomDashboardSemanticSearch_updated.png",
+      "author": {
+        "@type": "Person",
+        "name": "Mugdha Variyar",
+        "url": "https://vmugdha.in"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Mugdha Variyar",
+        "url": "https://vmugdha.in"
+      },
+      "datePublished": "2025-02-16",
+      "dateModified": "2025-02-16",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://vmugdha.in/articles/appsignal-mcp-monitoring.html"
+      },
+      "articleSection": "AI Development",
+      "keywords": ["AppSignal", "APM", "Application Performance Monitoring", "MCP server", "OpenTelemetry", "Python", "SigLIP", "FAISS", "AI monitoring"],
+      "timeRequired": "PT12M",
+      "proficiencyLevel": "Intermediate",
+      "dependencies": ["Python", "AppSignal", "OpenTelemetry", "Gradio", "Starlette"],
+      "about": {
+        "@type": "Thing",
+        "name": "Application Performance Monitoring"
+      }
+    }
+    </script>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/vnd.microsoft.icon" href="../assets/favicon/iopm5-km6uc-002.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/favicon/iopm5-km6uc-002.ico">
+
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" href="../assets/favicon/iopm5-km6uc-003.ico">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9HL4T713SQ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-9HL4T713SQ');
+    </script>
+
+    <!-- External CSS Files -->
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/layout.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/animations.css">
+
+    <!-- Theme System CSS -->
+    <link rel="stylesheet" href="../assets/css/theme-jazzy.css">
+    <link rel="stylesheet" href="../assets/css/theme-calm.css">
+    <link rel="stylesheet" href="../assets/css/theme-switcher.css">
+
+    <!-- Search UI CSS -->
+    <link rel="stylesheet" href="../assets/css/search-ui.css">
+
+    <style>
+        /* Blog Header - Jazzy Theme */
+        .post-hero {
+            min-height: 30vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        .post-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            max-width: 900px;
+            padding: 0 2rem;
+        }
+
+        /* Calm Theme - Hide hero section */
+        [data-theme-style="calm"] .post-hero {
+            display: none;
+        }
+
+        /* Calm Theme - Show heading below header */
+        .post-page-title {
+            display: none;
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-top: 2rem;
+            color: var(--text-color);
+            font-size: 2rem;
+            font-weight: 600;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 5% 1rem 5%;
+        }
+
+        [data-theme-style="calm"] .post-page-title {
+            display: block;
+        }
+
+        /* Blog Post Layout */
+        .blog-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 5%;
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        /* Left Navigation Pane */
+        .nav-pane {
+            position: sticky;
+            top: calc(var(--header-height, 80px) + 2rem);
+            background-color: var(--light-bg);
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            max-height: calc(100vh - var(--header-height, 80px) - 4rem);
+            overflow-y: auto;
+        }
+
+        [data-theme-style="calm"] .nav-pane {
+            background-color: var(--white);
+            border: var(--card-border);
+            box-shadow: none;
+        }
+
+        .nav-pane h3 {
+            color: var(--text-color);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .nav-pane nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-pane nav li {
+            margin: 0.5rem 0;
+        }
+
+        .nav-pane nav a {
+            color: var(--secondary-text-color);
+            text-decoration: none;
+            display: block;
+            padding: 0.25rem 0;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            transition: var(--transition);
+        }
+
+        .nav-pane nav a:hover {
+            color: var(--primary-color);
+            padding-left: 0.5rem;
+        }
+
+        .nav-pane nav ul ul {
+            padding-left: 1rem;
+            margin-top: 0.25rem;
+        }
+
+        .nav-pane nav ul ul a {
+            font-size: 0.85rem;
+        }
+
+        /* Blog Content */
+        .blog-content {
+            background-color: var(--light-bg);
+            border-radius: 15px;
+            padding: 3rem;
+            box-shadow: var(--shadow);
+            min-width: 0;
+        }
+
+        [data-theme-style="calm"] .blog-content {
+            background-color: var(--white);
+            border: var(--card-border);
+            box-shadow: none;
+        }
+
+        .blog-meta {
+            color: var(--secondary-text-color);
+            font-size: 0.95rem;
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid rgba(0,0,0,0.1);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .back-link:hover {
+            gap: 0.75rem;
+        }
+
+        /* Article Content Styles */
+        .article-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-color);
+        }
+
+        .article-content h2,
+        .article-content h3,
+        .article-content h4 {
+            color: var(--text-color);
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            line-height: 1.3;
+            scroll-margin-top: calc(var(--header-height, 80px) + 2rem);
+        }
+
+        .article-content h2 {
+            font-size: 1.8rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .article-content h3 {
+            font-size: 1.4rem;
+        }
+
+        .article-content h4 {
+            font-size: 1.2rem;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-content a {
+            color: var(--primary-color);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: var(--transition);
+        }
+
+        .article-content a:hover {
+            border-bottom-color: var(--primary-color);
+        }
+
+        .article-content ul,
+        .article-content ol {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+        }
+
+        .article-content li {
+            margin-bottom: 0.75rem;
+            line-height: 1.7;
+        }
+
+        .article-content pre {
+            background-color: #f5f5f5;
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        [data-theme="dark"] .article-content pre {
+            background-color: #2d2d2d;
+        }
+
+        .article-content code {
+            font-family: 'Courier New', Consolas, Monaco, monospace;
+            font-size: 0.9em;
+            background-color: #f5f5f5;
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+        }
+
+        [data-theme="dark"] .article-content code {
+            background-color: #2d2d2d;
+        }
+
+        .article-content pre code {
+            background-color: transparent;
+            padding: 0;
+        }
+
+        .article-content blockquote {
+            border-left: 4px solid var(--primary-color);
+            padding-left: 1.5rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            color: var(--secondary-text-color);
+        }
+
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .article-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+
+        .article-content th,
+        .article-content td {
+            padding: 0.75rem;
+            border: 1px solid rgba(0,0,0,0.1);
+            text-align: left;
+        }
+
+        .article-content th {
+            background-color: var(--light-bg);
+            font-weight: 600;
+        }
+
+        .article-content strong {
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        /* SVG Icon Styles */
+        .blog-meta svg {
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 0.5rem;
+            width: 16px;
+            height: 16px;
+            color: var(--primary-color);
+        }
+
+        .blog-meta span {
+            display: inline-flex;
+            align-items: center;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .blog-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .nav-pane {
+                position: relative;
+                top: 0;
+            }
+
+            .blog-content {
+                padding: 2rem 1.5rem;
+            }
+
+            .blog-header h1 {
+                font-size: 2rem;
+            }
+
+            .article-content {
+                font-size: 1rem;
+            }
+
+            .article-content h2 {
+                font-size: 1.5rem;
+            }
+
+            .article-content h3 {
+                font-size: 1.3rem;
+            }
+
+            .article-content h4 {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- Header -->
+        <div id="header-container"></div>
+
+        <!-- Hero Section (Jazzy Theme) -->
+        <section class="post-hero">
+            <div>
+                <h1>How I Added Performance Monitoring to My MCP Server with AppSignal</h1>
+            </div>
+        </section>
+
+        <!-- Page Title (Calm Theme) -->
+        <h1 class="post-page-title">How I Added Performance Monitoring to My MCP Server with AppSignal</h1>
+
+        <!-- Blog Container -->
+        <div class="blog-container">
+            <!-- Left Navigation Pane -->
+            <aside class="nav-pane">
+                <h3>Contents</h3>
+                <nav>
+                    <ul>
+                        <li><a href="#why-appsignal">Why AppSignal?</a></li>
+                        <li><a href="#instrumentation">The Instrumentation</a>
+                            <ul>
+                                <li><a href="#dependencies">Dependencies</a></li>
+                                <li><a href="#configuration">Configuration</a></li>
+                                <li><a href="#custom-spans-mcp">Custom Spans for MCP Tools</a></li>
+                                <li><a href="#custom-spans-indexer">Custom Spans in the AI Indexer</a></li>
+                                <li><a href="#error-reporting">Error Reporting</a></li>
+                                <li><a href="#custom-metrics">Custom Metrics Summary</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#add-app-in-appsignal">Add the MCP Server in AppSignal</a>
+                            <ul>
+                                <li><a href="#add-app-wizard">Using the AppSignal Add App Wizard</a></li>
+                                <li><a href="#hf-secrets">Storing Credentials as HF Space Secrets</a></li>
+                                <li><a href="#deploy-auto-register">Deploying and Triggering Auto-Registration</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#dashboard-config">Configuring AppSignal Dashboard</a>
+                            <ul>
+                                <li><a href="#custom-dashboard">Custom Metrics Dashboard</a></li>
+                                <li><a href="#uptime-monitoring">Uptime Monitoring</a></li>
+                                <li><a href="#anomaly-detection">Anomaly Detection Triggers</a></li>
+                                <li><a href="#notification-setup">Notification Setup</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#dashboard-insights">What I'm Learning from the Dashboard</a>
+                            <ul>
+                                <li><a href="#actions-view">The Actions View</a></li>
+                                <li><a href="#slow-events">The Slow Events View</a></li>
+                                <li><a href="#host-metrics">Host Metrics</a></li>
+                                <li><a href="#error-tracking">Error Tracking in Action</a></li>
+                                <li><a href="#actionable-insights">Actionable Insights</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#bug-fixes">Bug Fixes During Instrumentation</a></li>
+                        <li><a href="#whats-next">What's Next</a></li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <!-- Main Blog Content -->
+            <main class="blog-content">
+                <a href="blog.html" class="back-link">← Back to Blogs Home</a>
+
+                <article>
+                    <div class="blog-meta">
+                        <span>
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+                            </svg>
+                            February 16, 2025
+                        </span>
+                        <span>
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2zm9.5 3a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-1 0v-5a.5.5 0 0 1 .5-.5z"/>
+                            </svg>
+                            AI Development
+                        </span>
+                        <span>
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                                <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+                                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+                            </svg>
+                            12 min read
+                        </span>
+                    </div>
+
+                    <div class="article-content">
+                        <p>Scaling an enterprise-grade app requires more than shipping features. It depends on clear visibility into performance. For my <a href="https://mugdhav-mediasearchmcp.hf.space" target="_blank" rel="noopener noreferrer">Local Media Search MCP server</a>, that meant adding real application performance monitoring (APM) instead of relying only on container logs from the <a href="https://huggingface.co/spaces" target="_blank" rel="noopener noreferrer">Hugging Face Space</a> where the server is deployed.</p>
+
+                        <p>The <a href="https://modelcontextprotocol.io/" target="_blank" rel="noopener noreferrer">MCP</a> server is a Python and <a href="https://www.gradio.app/" target="_blank" rel="noopener noreferrer">Gradio</a> application that uses <a href="https://huggingface.co/docs/transformers/model_doc/siglip" target="_blank" rel="noopener noreferrer">SigLIP</a> to encode text queries, search a <a href="https://github.com/facebookresearch/faiss" target="_blank" rel="noopener noreferrer">FAISS</a> index, and generate embeddings for images and video frames during indexing. These CPU-intensive steps push the limits of a free-tier Hugging Face Space. While the container logs provide detailed event-level output, monitoring the MCP server requires additional structured metrics and historical performance data.</p>
+
+                        <p>To get that level of observability, I integrated <a href="https://www.appsignal.com/" target="_blank" rel="noopener noreferrer">AppSignal</a> with the MCP server. This post explains why I chose AppSignal, how I instrumented the server to send the performance data to AppSignal, and the performance insights now available through AppSignal dashboards.</p>
+
+                        <h2 id="why-appsignal">Why AppSignal?</h2>
+
+                        <p>When evaluating APM tools, I had specific requirements for this project:</p>
+
+                        <ul>
+                            <li><strong>Python + OpenTelemetry support:</strong> AppSignal's Python SDK is built on <a href="https://opentelemetry.io/" target="_blank" rel="noopener noreferrer">OpenTelemetry</a>, allowing standard OpenTelemetry instrumentation libraries to work alongside AppSignal's helper functions. These libraries and helper functions could be easily added to the MCP server's async Python logic.</li>
+                            <li><strong>Custom metrics without infrastructure overhead:</strong> AppSignal's <code>set_gauge()</code> and <code>increment_counter()</code> helpers let me track custom metrics with just a function call. No need to run a separate metrics server or additional services to deploy.</li>
+                            <li><strong>Error tracking with context:</strong> When SigLIP inference fails or a file becomes inaccessible, I needed the stack trace <em>plus</em> the context of what operation was running. AppSignal's <code>send_error()</code> captures both.</li>
+                            <li><strong>Anomaly detection and alerting:</strong> I wanted to know when search latency spikes above normal, not just see it in a graph later. AppSignal's trigger system lets me set thresholds and get notified.</li>
+                            <li><strong>Uptime monitoring included:</strong> Since the Hugging Face Space can go to sleep, I needed uptime checks. AppSignal includes this in the same dashboard, so I don't need yet another monitoring service.</li>
+                        </ul>
+
+                        <h2 id="instrumentation">The Instrumentation</h2>
+
+                        <p>The MCP server requires instrumentation, that is, adding code that gathers app performance data to send to AppSignal. This touched three files: <code>requirements.txt</code>, <code>app.py</code>, and <code>ai_indexer.py</code>.</p>
+
+                        <h3 id="dependencies">Dependencies</h3>
+
+                        <pre><code># requirements.txt
+appsignal
+opentelemetry-instrumentation-starlette</code></pre>
+
+                        <p>The <code>appsignal</code> package includes all the Python helpers. The Starlette instrumentation auto-captures HTTP requests to Gradio's underlying FastAPI app.</p>
+
+                        <h3 id="configuration">Configuration</h3>
+
+                        <p>I chose inline configuration over the <code>__appsignal__.py</code> file approach (see <a href="#bug-fixes">Bug Fixes</a>). On Hugging Face Spaces, auto-discovery of config files was unreliable, and inline configuration made debugging easier:</p>
+
+                        <pre><code># app.py
+from appsignal import Appsignal, set_category, send_error, set_gauge, increment_counter
+from opentelemetry.instrumentation.starlette import StarletteInstrumentor
+from opentelemetry import trace
+from dotenv import load_dotenv
+
+# Load .env BEFORE AppSignal initialization
+load_dotenv()
+
+appsignal_client = Appsignal(
+    active=True,
+    name="MediaSearchMCP",
+    push_api_key=os.getenv("APPSIGNAL_PUSH_API_KEY", ""),
+    environment=os.getenv("APPSIGNAL_APP_ENV", "development"),
+    enable_host_metrics=True,
+)
+appsignal_client.start()</code></pre>
+
+                        <p>The <code>enable_host_metrics=True</code> flag tells AppSignal to collect CPU, memory, and disk usage from the container. This is useful for spotting when the free-tier Space is running out of resources. Note that <code>load_dotenv()</code> must run before <code>Appsignal()</code> is initialized (see <a href="#bug-fixes">Bug Fixes</a>).</p>
+
+                        <p>I also instrumented Gradio's internal FastAPI app to capture HTTP requests:</p>
+
+                        <pre><code># Apply Starlette instrumentation to Gradio's internal FastAPI app
+StarletteInstrumentor().instrument_app(demo.app)</code></pre>
+
+                        <p>For Hugging Face Spaces, I set two secrets in the Space settings:</p>
+                        <ul>
+                            <li><code>APPSIGNAL_PUSH_API_KEY</code>: the API key from AppSignal</li>
+                            <li><code>APPSIGNAL_APP_ENV</code>: set to <code>production</code></li>
+                        </ul>
+
+                        <h3 id="custom-spans-mcp">Custom OpenTelemetry Spans for MCP Tools</h3>
+
+                        <p>I instrumented every MCP tool to have its own OpenTelemetry span, a self-contained record of every operation of that tool, including relevant attributes of timing, metadata, and relationship with other operations in the same trace. Here's the pattern I used for <code>semantic_search</code>:</p>
+
+                        <pre><code>tracer = trace.get_tracer(__name__)
+
+async def semantic_search(query: str, media_type: str = "all", top_k: int = 5):
+    start_time = time.time()
+    increment_counter("semantic_search.calls", 1)
+
+    with tracer.start_as_current_span("semantic_search") as span:
+        set_category("mcp_tool.semantic_search")
+        span.set_attribute("search.query", query)
+        span.set_attribute("search.media_type", media_type)
+        span.set_attribute("search.top_k", top_k)
+
+        try:
+            results = indexer.search(query, top_k=top_k)
+
+            # Track result metrics
+            span.set_attribute("search.result_count", len(results))
+            set_gauge("semantic_search.result_count", len(results))
+
+            if results:
+                similarities = [r["similarity"] for r in results]
+                set_gauge("semantic_search.top_similarity", max(similarities))
+                set_gauge("semantic_search.avg_similarity", sum(similarities) / len(similarities))
+            else:
+                increment_counter("semantic_search.zero_results", 1)
+
+            duration_ms = (time.time() - start_time) * 1000
+            set_gauge("semantic_search.duration_ms", duration_ms)
+
+            return results
+
+        except Exception as e:
+            increment_counter("semantic_search.errors", 1)
+            send_error(e)
+            raise</code></pre>
+
+                        <p>The <code>set_category()</code> call is AppSignal-specific. It groups spans in the dashboard so I can see all <code>mcp_tool.*</code> operations together.</p>
+
+                        <p>I applied the same pattern to all four MCP tools:</p>
+
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Span Name</th>
+                                    <th>Key Attributes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>semantic_search</code></td>
+                                    <td><code>search.query</code>, <code>search.media_type</code>, <code>search.top_k</code>, <code>search.result_count</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code>get_media_details</code></td>
+                                    <td><code>media.file_path</code>, <code>media.type</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code>reindex_media</code></td>
+                                    <td><code>reindex.force</code>, <code>reindex.file_count</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code>get_index_stats</code></td>
+                                    <td><code>stats.total_files</code>, <code>stats.images</code>, <code>stats.videos</code></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h3 id="custom-spans-indexer">Custom OpenTelemetry Spans for the AI Indexer</h3>
+
+                        <p>I also instrumented the core AI operations in <code>ai_indexer.py</code> with their own OpenTelemetry spans. Here's the instrumentation for the <code>search</code> operation:</p>
+
+                        <pre><code># ai_indexer.py
+from opentelemetry import trace
+from appsignal import send_error
+
+tracer = trace.get_tracer(__name__)
+
+def search(self, query: str, top_k: int = 5):
+    with tracer.start_as_current_span("indexer_search") as span:
+        span.set_attribute("search.query", query)
+        span.set_attribute("search.top_k", top_k)
+
+        try:
+            # Get text embedding using SigLIP
+            with tracer.start_as_current_span("get_image_embedding"):
+                # High-frequency operation, kept lightweight (no attributes)
+                query_embedding = self._encode_text(query)
+
+            # FAISS search
+            results = self._search_index(query_embedding, top_k)
+            span.set_attribute("search.result_count", len(results))
+            return results
+
+        except Exception as e:
+            send_error(e)
+            raise</code></pre>
+
+                        <p>This creates nested traces. When a user performs a search, I can see the full call chain:</p>
+
+                        <pre><code>POST /api/predict (auto-instrumented by Starlette)
+  └── semantic_search (app.py)
+        └── indexer_search (ai_indexer.py)
+              └── get_image_embedding (ai_indexer.py)</code></pre>
+
+                        <h3 id="error-reporting">Error Reporting</h3>
+
+                        <p>Every <code>except</code> block now reports to AppSignal:</p>
+
+                        <pre><code>try:
+    self.model = SigLIPModel.from_pretrained(model_name)
+except Exception as e:
+    send_error(e)  # Reports to AppSignal with full stack trace
+    raise</code></pre>
+
+                        <p>I added <code>send_error()</code> calls to:</p>
+                        <ul>
+                            <li>Model loading failures</li>
+                            <li>Video frame extraction errors</li>
+                            <li>FAISS index save/load failures</li>
+                            <li>File access errors in media processing</li>
+                            <li>All MCP tool exception handlers</li>
+                        </ul>
+
+                        <h3 id="custom-metrics">Custom Metrics Summary</h3>
+
+                        <p>Here's the full list of custom metrics the server now reports:</p>
+
+                        <p><strong>Gauges</strong> (point-in-time values):</p>
+                        <ul>
+                            <li><code>semantic_search.duration_ms</code>: end-to-end search latency</li>
+                            <li><code>semantic_search.result_count</code>: results returned per search</li>
+                            <li><code>semantic_search.top_similarity</code>: highest similarity score</li>
+                            <li><code>semantic_search.avg_similarity</code>: average similarity across results</li>
+                            <li><code>reindex.duration_ms</code>: full reindex time</li>
+                            <li><code>reindex.file_count</code>: files after reindex</li>
+                            <li><code>index.total_files</code>, <code>index.images</code>, <code>index.videos</code>: current index stats</li>
+                        </ul>
+
+                        <p><strong>Counters</strong> (cumulative events):</p>
+                        <ul>
+                            <li><code>semantic_search.calls</code>: total searches</li>
+                            <li><code>semantic_search.zero_results</code>: searches with no matches</li>
+                            <li><code>semantic_search.errors</code>: failed searches</li>
+                            <li><code>reindex.calls</code>, <code>reindex.errors</code>: reindex operations</li>
+                            <li><code>get_index_stats.calls</code>: stats queries</li>
+                        </ul>
+
+                        <h2 id="add-app-in-appsignal">Add the MCP Server in AppSignal</h2>
+
+                        <p>With instrumentation in place, the next step was registering the app in AppSignal and deploying the code so data actually flows.</p>
+
+                        <h3 id="add-app-wizard">Using the AppSignal Add App Wizard</h3>
+
+                        <p>On the AppSignal dashboard's Applications overview page, I clicked <strong>Add app</strong>. The wizard first asks for the application's language. Here, I selected <strong>Python</strong>.</p>
+
+                        <p>It then asks for the framework. I selected <strong>WSGI / ASGI</strong>. This is the correct choice because Gradio 6 is built on FastAPI, which is itself built on Starlette, an ASGI framework. Selecting WSGI/ASGI tells AppSignal which instrumentation library to reference (<code>opentelemetry-instrumentation-starlette</code>), which was already added to <code>requirements.txt</code> in the previous step.</p>
+
+                        <p>I named the app <strong>MediaSearchMCP</strong> and completed the wizard. At this point, the wizard surfaces the <strong>Push API Key</strong> for the AppSignal account. This is the org-level credential referenced by <code>push_api_key=os.getenv("APPSIGNAL_PUSH_API_KEY", "")</code> in the <code>Appsignal()</code> constructor. The Push API Key authenticates the data push from the MCP server to AppSignal.</p>
+
+                        <p>The wizard also recommends running <code>python -m appsignal install</code>, which auto-generates an <code>__appsignal__.py</code> config file. This project skips that step and uses inline configuration instead (see <a href="#bug-fixes">Bug Fixes</a>).</p>
+
+                        <h3 id="hf-secrets">Storing Credentials as HF Space Secrets</h3>
+
+                        <p>The Push API Key and app environment are never committed to the repository. Instead, I added them as secrets in the Hugging Face Space settings of <a href="https://mugdhav-mediasearchmcp.hf.space" target="_blank" rel="noopener noreferrer">Local Media Search MCP server</a>:</p>
+
+                        <ul>
+                            <li><code>APPSIGNAL_PUSH_API_KEY</code>: The Push API Key from the wizard above</li>
+                            <li><code>APPSIGNAL_APP_ENV</code> : Set to <code>production</code></li>
+                        </ul>
+
+                        <p>These are read at startup via <code>os.getenv()</code>, keeping credentials out of source control entirely.</p>
+
+                        <h3 id="deploy-auto-register">Deploying and Triggering Auto-Registration</h3>
+
+                        <p>I pushed the instrumented code to the Hugging Face Space. When the Space started and <code>appsignal_client.start()</code> ran, the SDK sent its first data to AppSignal. <strong>At this point, AppSignal auto-registered the app</strong> and "MediaSearchMCP" appeared as an active application in the dashboard.</p>
+
+                        <p>This is an important detail: the wizard provides setup instructions and surfaces the Push API Key, but no app entry exists in AppSignal until the application actually sends data. Completing the wizard alone doesn't create the app, the first data push does.</p>
+
+                        <h2 id="dashboard-config">Configuring AppSignal Dashboard</h2>
+
+                        <p>With data flowing in, I configured the AppSignal side to make it actionable.</p>
+
+                        <h3 id="custom-dashboard">Custom Metrics Dashboard</h3>
+
+                        <p>I added a custom dashboard in AppSignal, and configured in it custom metrics reported by the MCP server.</p>
+
+                        <img src="../assets/images/blog/final-appsignal-impl-blog/CustomDashboardSemanticSearch_updated.png" alt="AppSignal custom dashboard titled 'Search Performance Metrics' displaying four line-graph panels arranged in a 2x2 grid: Semantic Search Duration showing latency spikes up to 60ms over time, Semantic Search Similarity tracking result quality scores, Semantic Search Results displaying the number of results returned per query, and Reindex Duration showing time spent on reindex operations. The graphs reveal latency spikes around 17:00 correlating with cold starts after the Hugging Face Space wakes from sleep.">
+
+                        <p>For example, to visualize the <code>semantic_search.duration_ms</code> gauge over time, I configured the following custom metric:</p>
+                        <ul>
+                            <li><strong>Chart title:</strong> "Semantic Search Duration"</li>
+                            <li><strong>Metrics:</strong> Select the <code>semantic_search.duration_ms</code> gauge</li>
+                            <li><strong>Graph display:</strong> Line graph works best for time-series latency data</li>
+                            <li><strong>Data format:</strong> Duration (displays values in milliseconds/seconds)</li>
+                            <li><strong>NULL values:</strong> "Draw NULL as 0"</li>
+                        </ul>
+
+                        <img src="../assets/images/blog/final-appsignal-impl-blog/CustomDashboardCustomMetricSetup.png" alt="AppSignal Graph Builder configuration interface showing the setup panel on the left with options for chart title 'Semantic Search Duration', metrics dropdown selecting 'semantic_search.duration_ms' gauge, graph display type set to line graph for time-series data, data format as Duration in milliseconds/seconds, and NULL value handling option set to 'Draw NULL as 0'. The right side displays a real-time preview of the configured line graph with the actual metric data.">
+
+                        <p>The chart preview on the right shows real-time data as per the configured graph.</p>
+
+                        <p>The "Search Performance Metrics" dashboard displays four key gauges tracking search performance over time: <strong>Semantic Search Duration</strong> (latency spikes up to 60ms), <strong>Semantic Search Similarity</strong> (result quality scores), <strong>Semantic Search Results</strong> (number of results returned per query), and <strong>Reindex Duration</strong> (time spent on reindex operations). The latency spikes around 17:00 correlate with cold starts after the Hugging Face Space wakes from sleep.</p>
+
+                        <h3 id="uptime-monitoring">Uptime Monitoring</h3>
+
+                        <p>I added an uptime monitor for the Hugging Face Space URL with checks from multiple global regions:</p>
+
+                        <img src="../assets/images/blog/final-appsignal-impl-blog/UptimeMonitoring2026-02-15_15-54-05.png" alt="AppSignal Uptime Monitoring dashboard showing the monitored URL 'https://mugdhav-mediasearchmcp.hf.space/' with check configuration including regions (Europe, Asia-Pacific, North America, South America), 2-minute warm-up period, and default email notifier. Below displays a response time graph with four colored lines representing each region, where North America shows the fastest latency at 120ms (closest to Hugging Face infrastructure), while Europe shows 822ms, helping identify region-specific versus global performance issues.">
+
+                        <p>The uptime monitor configuration includes:</p>
+                        <ul>
+                            <li><strong>URL:</strong> <code>https://mugdhav-mediasearchmcp.hf.space/</code></li>
+                            <li><strong>Monitored from:</strong> Europe, Asia-Pacific, North America, South America</li>
+                            <li><strong>Warm-up:</strong> 2 minutes (to avoid alerting on single failed checks)</li>
+                            <li><strong>Notifiers:</strong> Default email notifier</li>
+                        </ul>
+
+                        <p>The response time graph shows latency from each region. North America at 120ms is fastest (closest to Hugging Face's infrastructure), while Europe sees 822ms. This helps identify if performance issues are region-specific or global.</p>
+
+                        <h3 id="anomaly-detection">Anomaly Detection Triggers</h3>
+
+                        <p>I set up a trigger for slow searches:</p>
+                        <ul>
+                            <li><strong>Metric:</strong> <code>semantic_search.duration_ms</code></li>
+                            <li><strong>Condition:</strong> Goes above 5000</li>
+                            <li><strong>Warm-up:</strong> 2 minutes (to avoid alerting on single slow requests)</li>
+                        </ul>
+
+                        <p>This catches sustained performance degradation without alert fatigue from one-off spikes.</p>
+
+                        <p>Here's what it looks like when anomalies are detected:</p>
+
+                        <img src="../assets/images/blog/final-appsignal-impl-blog/AnomalyIssueListPerformance.png" alt="AppSignal Anomaly Detection Issue List displaying triggered performance alerts with a table showing multiple occurrences where transaction_duration exceeded the threshold. Peak values of 56.5 seconds and 44.37 seconds are highlighted, corresponding to index_local_directory and reindex_media operations. The right panel shows trigger configuration with condition set to greater than 200ms and notifier settings. Each occurrence row includes start/end timestamps for correlating with specific user actions or scheduled tasks.">
+
+                        <p>The Anomaly Detection view shows triggered alerts with their peak values. You can see several occurrences where <code>transaction_duration</code> exceeded the threshold. Peak values of 56.5 seconds and 44.37 seconds correspond exactly to the <code>index_local_directory</code> and <code>reindex_media</code> operations I saw in the Actions view. The trigger configuration panel on the right shows the condition (&gt; 200ms) and notifier settings. Each occurrence is tracked with start/end times, making it easy to correlate with specific user actions or scheduled tasks.</p>
+
+                        <h3 id="notification-setup">Notification Setup</h3>
+
+                        <p>In App settings → Notifications, I configured:</p>
+                        <ul>
+                            <li><strong>Error alerts:</strong> "First after close" notifies on new errors, not every occurrence</li>
+                            <li><strong>Anomaly alerts:</strong> Enabled for the slow search trigger</li>
+                        </ul>
+
+                        <h2 id="dashboard-insights">What I'm Learning from the Dashboard</h2>
+
+                        <p>Here's where it gets interesting. The AppSignal dashboard revealed performance patterns I hadn't anticipated.</p>
+
+                        <h3 id="actions-view">The Actions View</h3>
+
+                        <img src="../assets/images/blog/final-appsignal-impl-blog/AppSignalPerformanceActions.png" alt="AppSignal Performance Actions view presenting a data table with five instrumented operations and their performance metrics. Columns show Action name, Mean response time, 90th Percentile, and Throughput. Notable entries include: get_media_details at 0ms (100µs at 90th percentile), get_index_stats at 1ms, semantic_search averaging 359ms with 90th percentile at 432ms indicating a 20% variance from edge cases, and the heavy operations index_local_directory at 56.5 seconds and reindex_media at 44.37 seconds, establishing baselines for tracking optimization efforts.">
+
+                        <p>The Actions view shows all my instrumented operations with mean response times and throughput:</p>
+
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Action</th>
+                                    <th>Mean</th>
+                                    <th>90th Percentile</th>
+                                    <th>Throughput</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>get_media_details</code></td>
+                                    <td>0 ms</td>
+                                    <td>100 µs</td>
+                                    <td>12</td>
+                                </tr>
+                                <tr>
+                                    <td><code>get_index_stats</code></td>
+                                    <td>1 ms</td>
+                                    <td>2 ms</td>
+                                    <td>2</td>
+                                </tr>
+                                <tr>
+                                    <td><code>semantic_search</code></td>
+                                    <td>359 ms</td>
+                                    <td>432 ms</td>
+                                    <td>16</td>
+                                </tr>
+                                <tr>
+                                    <td><code>index_local_directory</code></td>
+                                    <td>56.5 sec</td>
+                                    <td>56.5 sec</td>
+                                    <td>1</td>
+                                </tr>
+                                <tr>
+                                    <td><code>reindex_media</code></td>
+                                    <td>44.37 sec</td>
+                                    <td>44.37 sec</td>
+                                    <td>1</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <p><strong>Key insight:</strong> <code>semantic_search</code> averages 359ms with the 90th percentile at 432ms, a 20% variance that suggests some queries hit edge cases. The metadata operations (<code>get_media_details</code>, <code>get_index_stats</code>) are lightning fast at under 2ms, which is expected since they're just dictionary lookups.</p>
+
+                        <p>The indexing operations (<code>reindex_media</code> at 44.37 seconds, <code>index_local_directory</code> at 56.5 seconds) are the heavy hitters. Now I have baselines to track optimization efforts.</p>
+
+                        <h3 id="slow-events">The Slow Events View</h3>
+
+                        <img src="../assets/images/blog/final-appsignal-impl-blog/AppSignalPerformanceSlowEvents.png" alt="AppSignal Slow Events view displaying a performance analysis table showing specific operations consuming the most time. The table has columns for Event name, Mean time, Throughput, and Impact percentage. The critical finding highlighted: get_image_embedding operation averaging 372ms called 143 times accounts for 99.47% of slow event impact, while indexer_search at 32ms called 9 times contributes only 0.53% impact. This identifies the SigLIP image encoding as the primary bottleneck in the 56-second index_local_directory operation.">
+
+                        <p>The Slow Events view surfaces the <em>specific operations</em> consuming the most time:</p>
+
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Event</th>
+                                    <th>Mean</th>
+                                    <th>Throughput</th>
+                                    <th>Impact</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>get_image_embedding</code></td>
+                                    <td>372 ms</td>
+                                    <td>143</td>
+                                    <td>99.47%</td>
+                                </tr>
+                                <tr>
+                                    <td><code>indexer_search</code></td>
+                                    <td>32 ms</td>
+                                    <td>9</td>
+                                    <td>0.53%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <p><strong>Key insight:</strong> <code>get_image_embedding</code> accounts for 99.47% of slow event impact. It's called 143 times (once per indexed image during reindex) at 372ms each. That's where the 56-second <code>index_local_directory</code> time comes from.</p>
+
+                        <p>The SigLIP text encoder (<code>indexer_search</code> at 32ms) is much faster and only contributes 0.53% of the impact despite being called 9 times.</p>
+
+                        <h3 id="host-metrics">Host Metrics</h3>
+
+                        <img src="../assets/images/blog/final-appsignal-impl-blog/CPUnMemoryUsage20260215_154946.png" alt="AppSignal Host Metrics dashboard showing three time-series graphs for infrastructure monitoring: Load average spiking up to 30+ during reindexing operations indicating CPU contention with notable spikes at 13:30 and 14:30 aligning with reindex operations, CPU usage generally remaining under 5% but spiking to 60%+ during model inference, and Memory usage staying stable around 14.65 GB where the SigLIP model holds approximately 150MB with the rest being Hugging Face Space base allocation. The correlation confirms the bottleneck is CPU-bound model inference rather than memory or I/O.">
+
+                        <p>The Host Metrics view shows what's happening at the infrastructure level:</p>
+
+                        <ul>
+                            <li><strong>Load average:</strong> Spikes up to 30+ during reindexing operations, indicating CPU contention</li>
+                            <li><strong>CPU usage:</strong> Generally low (under 5%) but spikes to 60%+ during model inference</li>
+                            <li><strong>Memory usage:</strong> Stable around 14.65 GB. The SigLIP model holds ~150MB in memory, and the rest is the Hugging Face Space's base allocation</li>
+                        </ul>
+
+                        <p>The correlation is clear: load average spikes (13:30, 14:30) align with reindex operations. This confirms the bottleneck is CPU-bound model inference, not memory or I/O.</p>
+
+                        <h3 id="error-tracking">Error Tracking in Action</h3>
+
+                        <p>The error tracking I implemented with <code>send_error()</code> is now catching real issues. Here's a <code>FileNotFoundError</code> that occurred when a user requested details for a file that had been moved:</p>
+
+                        <img src="../assets/images/blog/final-appsignal-impl-blog/ErrorSummary.png" alt="AppSignal Error Summary detail page for a FileNotFoundError displaying comprehensive error context alongside the stack trace. The error message reads 'File not found: WhatsApp Image 2025-09-13 at 16.01.58_833321f0.jpg'. The interface shows parameters including source field indicating the error originated from get_media_details operation and file_path showing the missing file. A trend chart on the right displays error frequency with recent spikes, and a Saved samples section tracks multiple occurrences to distinguish between one-off issues and recurring problems.">
+
+                        <p>The error detail view shows context alongside the stack trace:</p>
+                        <ul>
+                            <li><strong>Error message:</strong> "File not found: WhatsApp Image 2025-09-13 at 16.01.58_833321f0.jpg"</li>
+                            <li><strong>Parameters:</strong> The <code>source</code> field shows it came from <code>get_media_details</code>, and <code>file_path</code> shows which file was missing</li>
+                            <li><strong>Error trends:</strong> The chart on the right shows this error spiking recently</li>
+                            <li><strong>Saved samples:</strong> Multiple occurrences are tracked, making it easy to see if this is a one-off or recurring issue</li>
+                        </ul>
+
+                        <p>The error charts view shows the pattern over time:</p>
+
+                        <img src="../assets/images/blog/final-appsignal-impl-blog/error_count.png" alt="AppSignal Error Charts view showing a time-series line graph tracking error count over time. The graph reveals two distinct error spikes: one occurring around 16:15-16:20 and another at 17:00. The pattern indicates the errors are not random but correlate with specific user sessions or test runs. This visualization helps determine whether file access errors are steadily increasing or just occasional glitches, providing visibility that raw logs cannot offer.">
+
+                        <p>Two distinct spikes are visible, one around 16:15-16:20 and another at 17:00. This pattern suggests the errors aren't random; they correlate with specific user sessions or test runs. Without this visibility, I'd be guessing at whether file access errors were increasing or just occasional glitches.</p>
+
+                        <h3 id="actionable-insights">Actionable Insights</h3>
+
+                        <p>From this data, I can prioritize optimizations:</p>
+
+                        <ol>
+                            <li><strong>Batch image embeddings:</strong> Instead of calling <code>get_image_embedding</code> 143 times individually, I should batch them. SigLIP supports batch inference, and reducing Python loop overhead could cut reindex time significantly.</li>
+                            <li><strong>Cache text embeddings:</strong> The <code>indexer_search</code> time includes encoding the search query. For repeated queries, I could cache the text embedding.</li>
+                            <li><strong>Monitor similarity score trends:</strong> The <code>semantic_search.avg_similarity</code> gauge will show if search quality degrades as the index grows.</li>
+                        </ol>
+
+                        <h2 id="bug-fixes">Bug Fixes During Instrumentation</h2>
+
+                        <p>Here are a few bugs I encountered during the instrumentation, and how I fixed them:</p>
+
+                        <h3>Initialization Order</h3>
+
+                        <p>A subtle bug: <code>load_dotenv()</code> must run <em>before</em> <code>Appsignal()</code> is initialized. Otherwise, environment variables from <code>.env</code> aren't available for local development. Small detail, silent failure.</p>
+
+                        <h3>Configuration Auto-Discovery</h3>
+
+                        <p>My initial setup used <code>__appsignal__.py</code> with the standard <code>appsignal.start()</code> pattern. AppSignal started but wasn't sending data. The issue: the <code>active</code> option defaults to <code>false</code>, and if auto-discovery silently fails, nothing gets reported.</p>
+
+                        <p>The fix was inline configuration with explicit <code>os.getenv()</code> reads, removing the auto-discovery dependency.</p>
+
+                        <h3>BaseModelOutputWithPooling</h3>
+
+                        <p>Newer versions of the <a href="https://huggingface.co/docs/transformers" target="_blank" rel="noopener noreferrer"><code>transformers</code></a> library return a <code>BaseModelOutputWithPooling</code> object from <code>get_image_features()</code> instead of a raw tensor. This broke embedding normalization:</p>
+
+                        <pre><code># Before (broke on newer transformers)
+image_features = self.model.get_image_features(**inputs)
+image_features = image_features / image_features.norm(dim=-1, keepdim=True)
+
+# After (works with both old and new)
+image_features = self.model.get_image_features(**inputs)
+if not isinstance(image_features, torch.Tensor):
+    image_features = image_features.pooler_output
+image_features = image_features / image_features.norm(dim=-1, keepdim=True)</code></pre>
+
+                        <p>AppSignal would have caught this error in production with a full stack trace, which is exactly why I added error tracking before deploying.</p>
+
+                        <h2 id="whats-next">What's Next</h2>
+
+                        <p>With the baseline established, I'm planning to:</p>
+
+                        <ol>
+                            <li><strong>Add a custom dashboard</strong> for search quality metrics (similarity scores over time)</li>
+                            <li><strong>Set up anomaly detection</strong> on <code>index.total_files</code> to catch if the index silently loses data</li>
+                            <li><strong>Track model load time</strong> as a separate gauge to monitor cold starts on the Hugging Face Space</li>
+                        </ol>
+
+                        <p>The server is live at <a href="https://mugdhav-mediasearchmcp.hf.space" target="_blank" rel="noopener noreferrer">mugdhav-mediasearchmcp.hf.space</a>, and now I can actually see what's happening under the hood.</p>
+
+                        <hr>
+                    </div>
+                </article>
+            </main>
+        </div>
+
+        <!-- Footer -->
+        <div id="footer-container"></div>
+    </div>
+
+    <!-- Portfolio Data -->
+    <script src="../assets/js/portfolio_data.js"></script>
+    <script src="../assets/js/navigation.js"></script>
+    <script src="../assets/js/shared-components.js"></script>
+
+    <!-- Enhanced Search System -->
+    <script src="../assets/js/enhanced-search.js"></script>
+    <script src="../assets/js/search-ui.js"></script>
+
+    <!-- Scroll to Content Script -->
+    <script src="../assets/js/scroll-to-content.js"></script>
+
+    <!-- Theme Manager Script -->
+    <script src="../assets/js/theme-manager.js"></script>
+</body>
+</html>
