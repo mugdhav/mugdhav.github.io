@@ -26,6 +26,7 @@ Mugdha Vairagade is a professional who bridges technical complexity and user exp
 
 ## AI Development Projects
 
+- [Closed Fist](https://suscriptrack.replit.app): A web app to track, optimize, and manage all your AI subscriptions in one place
 - [IP Guard - Claude Skill](https://github.com/mugdhav/claude-skill-ip-guard): A Claude Code skill that adds IP compliance guardrails to AI-assisted code generation, with three-stage license checking and automatic provenance documentation
 - [Open Source Model Fine-Tuning](https://github.com/mugdhav/TrainOSModels): Jupyter notebooks for fine-tuning open source vision-language models (SigLIP) on domain-specific datasets using LoRA, with a three-stage pipeline: caption generation, training, and verification
 - [Media Search MCP Server](https://mugdhav-mediasearchmcp.hf.space): MCP server enabling AI agents to search across media sources with MCP-compatible client integration

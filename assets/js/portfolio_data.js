@@ -126,6 +126,16 @@ const portfolioData = {
             items: [
                 {
                     id: "ai-dev-0",
+                    image: "/assets/images/portfolio/closed-fist-thumbnail.png",
+                    title: "Closed Fist",
+                    description: "A web app to track, optimize, and manage all your AI subscriptions in one place.",
+                    buttonText: "Try It",
+                    buttonLink: "https://suscriptrack.replit.app",
+                    category: "AI Productivity",
+                    year: 2026
+                },
+                {
+                    id: "ai-dev-1",
                     image: "/assets/images/portfolio/ip-guard-thumbnail.png",
                     title: "IP Guard - Claude Skill",
                     description: "A Claude Code skill that adds intellectual property compliance guardrails to AI-assisted code generation, with three-stage license checking and automatic provenance documentation.",
@@ -135,7 +145,7 @@ const portfolioData = {
                     year: 2026
                 },
                 {
-                    id: "ai-dev-1",
+                    id: "ai-dev-2",
                     image: "/assets/images/portfolio/os_model_finetune_thumbnail.png",
                     title: "Open Source Model Fine-Tuning",
                     description: "Jupyter notebooks for fine-tuning open source vision-language models (SigLIP) on domain-specific datasets using LoRA, with a three-stage pipeline: caption generation, training, and verification.",
@@ -145,44 +155,34 @@ const portfolioData = {
                     year: 2026
                 },
                 {
-                    id: "ai-dev-2",
+                    id: "ai-dev-3",
                     image: "/assets/images/portfolio/MediaScoutMCPServer.png",
                     title: "Media Search MCP Server",
                     description: "An MCP server that enables AI agents to search across media sources. Integrates with MCP-compatible clients to provide media discovery and retrieval capabilities.",
-                    buttonText: "Try It Out",
+                    buttonText: "Try It",
                     buttonLink: "https://mugdhav-mediasearchmcp.hf.space",
                     category: "MCP Server",
                     year: 2025
                 },
                 {
-                    id: "ai-dev-3",
+                    id: "ai-dev-4",
                     image: "/assets/images/portfolio/mv-subtitle-generator-thumbnail.png",
                     title: "MV Subtitle Generator",
                     description: "Generate and tidy up SRT subtitles for MP3/MP4 files up to 25MB. AI detects subtitle errors, misheard words, and out-of-context phrases with confidence-based suggestions.",
-                    buttonText: "Try It Out",
+                    buttonText: "Try It",
                     buttonLink: "https://mugdhav-transcript-reviewer.hf.space",
                     category: "AI Application",
                     year: 2025
                 },
                 {
-                    id: "ai-dev-4",
+                    id: "ai-dev-5",
                     image: "/assets/images/portfolio/security_auditor.png",
                     title: "Security Auditor",
                     description: "Security Auditor - Scan code and web deployments for vulnerabilities with 40+ security checks and NVD enrichment.",
-                    buttonText: "Try It Out",
+                    buttonText: "Try It",
                     buttonLink: "https://mugdhav-security-auditor.hf.space",
                     category: "AI Security Tool",
                     year: 2026
-                },
-                {
-                    id: "ai-dev-5",
-                    image: "/assets/images/portfolio/UnicornFinderThumbnail2025-09-04010045.png",
-                    title: "UnicornFinder - AI Analyst for Startups",
-                    description: "Venture capitalists can use this tool to evaluate startups and get investment insights.",
-                    buttonText: "Try It Out",
-                    buttonLink: "https://ai.studio/apps/drive/1BQ4qO7IU4pwYhYBmQ9eTLy-tLE6v51OJ",
-                    category: "AI Application",
-                    year: 2025
                 },
                 {
                     id: "ai-dev-6",
@@ -219,7 +219,7 @@ const portfolioData = {
                     image: "/assets/images/portfolio/sarvam_indiantranslate.png",
                     title: "SarvamAI Indian Language Translator",
                     description: "A Python application leveraving SarvamAI API to translate text between Indian languages, including Hindi, Marathi, Tamil, Telugu, Bengali, and more.",
-                    buttonText: "Try It Out",
+                    buttonText: "Try It",
                     buttonLink: "https://github.com/mugdhav/SarvamAPICodeSample",
                     category: "AI Translation App",
                     year: 2025
@@ -239,7 +239,7 @@ const portfolioData = {
                     image: "/assets/images/portfolio/shetkari_mitra_thumbnail.png",
                     title: "Shetkari Mitra",
                     description: "A Marathi-first job portal for seasonal farm work, connecting local farmers and labourers via mobile with English translation support.",
-                    buttonText: "Try It Out",
+                    buttonText: "Try It",
                     buttonLink: "https://sheti-mitra-app.lovable.app",
                     category: "Native Language App",
                     year: 2026
@@ -249,21 +249,31 @@ const portfolioData = {
                     image: "/assets/images/portfolio/shebuilds-showcase-thumbnail.png",
                     title: "SheBuilds Showcase",
                     description: "A website built with Lovable to showcase apps and websites created by women participants at the SheBuilds buildathon, Pune edition, on International Women's Day 2026.",
-                    buttonText: "Try It Out",
+                    buttonText: "Try It",
                     buttonLink: "https://shebuilt-iwd-gems.lovable.app",
                     category: "Community Showcase",
                     year: 2026
                 },
                 {
                     id: "ai-dev-13",
+                    image: "/assets/images/portfolio/UnicornFinderThumbnail2025-09-04010045.png",
+                    title: "UnicornFinder - AI Analyst for Startups",
+                    description: "Venture capitalists can use this tool to evaluate startups and get investment insights.",
+                    buttonText: "Try It",
+                    buttonLink: "https://ai.studio/apps/drive/1BQ4qO7IU4pwYhYBmQ9eTLy-tLE6v51OJ",
+                    category: "AI Application",
+                    year: 2025
+                }
+                /* {
+                    id: "ai-dev-14",
                     image: "/assets/images/portfolio/GameInMotion.png",
                     title: "React Pong",
                     description: "A simple Pong game against AI, built with React and Typescript.",
-                    buttonText: "Try It Out",
+                    buttonText: "Try It",
                     buttonLink: "https://ai.studio/apps/drive/19H4i0hWXQe_OPV-v18GzQnzoobRhYvvr",
                     category: "Game Development",
                     year: 2025
-                }
+                } */
             ]
         }
 
