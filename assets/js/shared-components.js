@@ -13,7 +13,7 @@ function adjustNavPath(href) {
     const isRootLevel = path.endsWith('index.html') ||
                         path.endsWith('/') ||
                         path === '/' ||
-                        (!path.includes('/pages/') && !path.includes('/blog/'));
+                        (!path.includes('/pages/') && !path.includes('/blog/') && !path.includes('/articles/'));
 
     // Handle anchors (links to sections on index.html)
     if (href.startsWith('#')) {
@@ -38,7 +38,7 @@ function renderHeader(options = {}) {
     const isRootLevel = path.endsWith('index.html') ||
                         path.endsWith('/') ||
                         path === '/' ||
-                        (!path.includes('/pages/') && !path.includes('/blog/'));
+                        (!path.includes('/pages/') && !path.includes('/blog/') && !path.includes('/articles/'));
 
     const logoHref = isRootLevel ? '#home' : '../index.html';
 
