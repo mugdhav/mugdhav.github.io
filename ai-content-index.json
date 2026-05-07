@@ -4,7 +4,7 @@
     "url": "https://www.vmugdha.in",
     "owner": "Mugdha Vairagade",
     "profession": "Technical Writer, AI Developer, Developer Relations, Event Organizer",
-    "lastUpdated": "2026-04-05",
+    "lastUpdated": "2026-05-07",
     "description": "Portfolio showcasing technical writing, AI development projects, and Developer Relations events and outreach by Mugdha Vairagade."
   },
   "contactInfo": {
@@ -75,8 +75,15 @@
     ],
     "articles": [
       {
+        "title": "Deploying OpenClaw on AMD Developer Cloud",
+        "path": "/articles/deploying-openclaw-amd-cloud.html",
+        "type": "tutorial",
+        "topics": ["OpenClaw", "AMD Developer Cloud", "MI300X", "vLLM", "ROCm", "Qwen3", "LLM deployment", "AI agent"],
+        "description": "Step-by-step tutorial for deploying OpenClaw on an AMD MI300X GPU Droplet, backed by Qwen3-30B-A3B served via vLLM on ROCm. Covers the full setup plus what failed with Gemma 4, Llama, and Anthropic."
+      },
+      {
         "title": "How I Added Performance Monitoring to My MCP Server with AppSignal",
-        "path": "/blog/appsignal-mcp-monitoring.html",
+        "path": "/articles/appsignal-mcp-monitoring.html",
         "type": "case-study",
         "topics": ["MCP Server", "AppSignal", "OpenTelemetry", "APM", "Python", "Performance Monitoring"],
         "description": "Complete implementation guide for adding Application Performance Monitoring to a Python MCP server using AppSignal and OpenTelemetry, covering custom instrumentation, metrics tracking, error reporting, and dashboard configuration"
@@ -120,7 +127,7 @@
     "blogPosts": [
       {
         "title": "How I Added Performance Monitoring to My MCP Server with AppSignal",
-        "path": "/blog/appsignal-mcp-monitoring.html",
+        "path": "/articles/appsignal-mcp-monitoring.html",
         "date": "2026-02-15",
         "category": "AI Development",
         "readTime": "10 min read",
