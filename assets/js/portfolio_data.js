@@ -314,6 +314,7 @@ const portfolioData = {
         { text: "Blog", href: "blog/blog.html" },
         { text: "Tech Events", href: "pages/TechEvents.html" },
         { text: "Podcasts", href: "pages/Podcasts.html" },
+        { text: "Videos", href: "pages/Videos.html" },
         { text: "Contact", href: "#contact" }
     ],
 
@@ -775,6 +776,48 @@ const portfolioData = {
             slug: 'experiment-indian-ai',
             url: 'https://www.linkedin.com/pulse/experiment-indian-ai-mugdha-vairagade-cqvef',
             featured: true
+        }
+    ],
+
+    // Videos Data
+    // videoId: YouTube video ID (used for thumbnail and link)
+    // category: Demo | Tutorial | Talk | Short
+    videos: [
+        {
+            id: 'nightbuild-2-small-models',
+            videoId: 'G_NIngBt4ok',
+            title: 'NightBuild #2 — Small Models',
+            description: 'Live virtual deep-dive into practical small-model workflows, featuring demos and an OpenClaw walkthrough for personal AI use cases.',
+            date: 'April 2026',
+            category: 'Demo',
+            searchTerms: 'nightbuild small models localai slm openclaw demo'
+        },
+        {
+            id: 'lovable-settings',
+            videoId: 'QKA7oCVwfEw',
+            title: 'Lovable Settings',
+            description: 'Walkthrough of key Lovable settings and configuration for building and publishing AI-powered apps.',
+            date: '2026',
+            category: 'Tutorial',
+            searchTerms: 'lovable settings tutorial configuration app builder'
+        },
+        {
+            id: 'small-models-short',
+            videoId: '99E35RlOJ1U',
+            title: 'Small Models',
+            description: 'Quick take on small language models and where they shine for local AI use cases.',
+            date: 'April 2026',
+            category: 'Short',
+            searchTerms: 'small models slm localai short'
+        },
+        {
+            id: 'ollama-tutorial',
+            videoId: 'tqf3MyCnLzY',
+            title: 'Ollama Tutorial',
+            description: 'Step-by-step tutorial for running open-source language models locally using Ollama.',
+            date: '2026',
+            category: 'Tutorial',
+            searchTerms: 'ollama tutorial local models llm open source setup'
         }
     ]
 };

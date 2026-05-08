@@ -89,3 +89,4 @@ Mugdha Vairagade is a professional who bridges technical complexity and user exp
 - [Tech Events Page](https://www.vmugdha.in/pages/TechEvents.html): Community events and workshops
 - [SheBuilds Volunteer Guide](https://www.vmugdha.in/pages/SheBuildsVolunteerGuide.html): Volunteer information guide for SheBuilds on Lovable — IWD 2026 Pune hackathon hosted by Mugdha Vairagade
 - [Podcasts Page](https://www.vmugdha.in/pages/Podcasts.html): Conversations with industry experts
+- [Videos Page](https://www.vmugdha.in/pages/Videos.html): YouTube demos, tutorials, and talks on AI development and technical writing

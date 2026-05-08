@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en" data-theme-style="calm" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videos - Mugdha Vairagade</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/vnd.microsoft.icon" href="../assets/favicon/iopm5-km6uc-002.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/favicon/iopm5-km6uc-002.ico">
+    <link rel="apple-touch-icon" href="../assets/favicon/iopm5-km6uc-003.ico">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- External CSS Files -->
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/layout.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/animations.css">
+
+    <!-- Theme System CSS -->
+    <link rel="stylesheet" href="../assets/css/theme-jazzy.css">
+    <link rel="stylesheet" href="../assets/css/theme-calm.css">
+    <link rel="stylesheet" href="../assets/css/theme-switcher.css">
+
+    <!-- Portfolio Data -->
+    <script src="../assets/js/portfolio_data.js"></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9HL4T713SQ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-9HL4T713SQ');
+    </script>
+
+    <!-- Meta tags -->
+    <meta name="description" content="Videos by Mugdha Vairagade — demos, tutorials, and talks on AI development, technical writing, and productivity tools.">
+    <meta name="keywords" content="Mugdha Vairagade, videos, YouTube, AI demos, tutorials, technical writing">
+    <meta name="author" content="Mugdha Vairagade">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Videos - Mugdha Vairagade">
+    <meta property="og:description" content="Watch demos, tutorials, and talks on AI development, technical writing, and productivity tools.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.vmugdha.in/pages/Videos.html">
+
+    <style>
+        /* Hero Section */
+        .hero {
+            min-height: 25vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 1;
+            padding: 2rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero h2 {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 0;
+            font-weight: 300;
+        }
+
+        /* Content Section */
+        .content-section {
+            padding: 4rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Filter bar */
+        .search-container {
+            margin: 0 auto 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            max-width: 800px;
+            background: transparent;
+            box-shadow: none;
+            border-radius: 0;
+            animation: none;
+            max-height: none;
+            overflow: visible;
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .content-section .filter-btn {
+            padding: 0.75rem 1.5rem;
+            border: 2px solid var(--primary-color);
+            border-radius: 25px;
+            background-color: transparent;
+            color: var(--text-color);
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: none;
+        }
+
+        .content-section .filter-btn:hover {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: none;
+        }
+
+        .content-section .filter-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+            box-shadow: none;
+        }
+
+        /* Videos count */
+        .videos-count {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .videos-count h3 {
+            color: var(--text-color);
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .videos-count span {
+            color: var(--primary-color);
+        }
+
+        /* Videos Grid */
+        .videos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        /* Video Card */
+        .video-card-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .video-card-link.hidden {
+            display: none;
+        }
+
+        .video-card {
+            background-color: var(--light-bg);
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .video-thumbnail {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+            background-color: #111;
+        }
+
+        .video-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .video-card:hover .video-thumbnail img {
+            transform: scale(1.05);
+        }
+
+        .play-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.35);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .video-card:hover .play-overlay {
+            opacity: 1;
+        }
+
+        .play-icon {
+            width: 64px;
+            height: 64px;
+            background: rgba(220, 0, 0, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.6rem;
+        }
+
+        .video-info {
+            padding: 1.25rem;
+        }
+
+        .video-category {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.2rem 0.65rem;
+            border-radius: 12px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            margin-bottom: 0.5rem;
+        }
+
+        .video-title {
+            font-size: 1.1rem;
+            color: var(--text-color);
+            margin: 0.4rem 0 0.3rem;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .video-date {
+            color: var(--secondary-text-color);
+            font-size: 0.85rem;
+            margin: 0 0 0.5rem;
+        }
+
+        .video-description {
+            color: var(--secondary-text-color);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* No results */
+        .no-results {
+            text-align: center;
+            padding: 3rem 2rem;
+            color: var(--secondary-text-color);
+            display: none;
+        }
+
+        .no-results.show {
+            display: block;
+        }
+
+        .no-results i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero h2 { font-size: 1.3rem; }
+            .content-section .filter-btn { padding: 0.5rem 1rem; font-size: 0.9rem; }
+            .filter-buttons { gap: 0.25rem; }
+        }
+    </style>
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <section class="hero" aria-labelledby="hero-heading">
+        <div class="hero-content">
+            <h1 id="hero-heading">Videos</h1>
+            <h2>Demos, tutorials, and talks from my YouTube channel.</h2>
+        </div>
+    </section>
+
+    <main role="main">
+        <section class="content-section">
+
+            <div class="search-container">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="Demo">Demo</button>
+                    <button class="filter-btn" data-filter="Tutorial">Tutorial</button>
+                    <button class="filter-btn" data-filter="Short">Short</button>
+                </div>
+            </div>
+
+            <div class="videos-count">
+                <h3><span id="video-count">0</span> Videos</h3>
+            </div>
+
+            <div class="videos-grid" id="videos-grid"></div>
+
+            <div class="no-results" id="no-results">
+                <i class="fas fa-video-slash"></i>
+                <h3>No Videos Found</h3>
+                <p>Try a different filter.</p>
+            </div>
+
+        </section>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="../assets/js/navigation.js"></script>
+    <script src="../assets/js/shared-components.js"></script>
+    <script>
+        let currentFilter = 'all';
+
+        function renderVideos() {
+            const grid = document.getElementById('videos-grid');
+            const videos = portfolioData.videos || [];
+            grid.innerHTML = videos.map(createVideoCardHTML).join('');
+            updateCount();
+        }
+
+        function createVideoCardHTML(video) {
+            const thumbUrl = `https://img.youtube.com/vi/${video.videoId}/hqdefault.jpg`;
+            const ytUrl = `https://youtu.be/${video.videoId}`;
+            return `
+                <a href="${ytUrl}" target="_blank" rel="noopener noreferrer"
+                   class="video-card-link" data-category="${video.category}">
+                    <div class="video-card">
+                        <div class="video-thumbnail">
+                            <img src="${thumbUrl}" alt="${video.title}" loading="lazy">
+                            <div class="play-overlay">
+                                <div class="play-icon"><i class="fab fa-youtube"></i></div>
+                            </div>
+                        </div>
+                        <div class="video-info">
+                            <span class="video-category">${video.category}</span>
+                            <h3 class="video-title">${video.title}</h3>
+                            <p class="video-date"><i class="fas fa-calendar"></i> ${video.date}</p>
+                            <p class="video-description">${video.description}</p>
+                        </div>
+                    </div>
+                </a>`;
+        }
+
+        function filterVideos() {
+            document.querySelectorAll('.video-card-link').forEach(card => {
+                const match = currentFilter === 'all' || card.dataset.category === currentFilter;
+                card.classList.toggle('hidden', !match);
+            });
+            updateCount();
+        }
+
+        function updateCount() {
+            const visible = document.querySelectorAll('.video-card-link:not(.hidden)').length;
+            document.getElementById('video-count').textContent = visible;
+            document.getElementById('no-results').classList.toggle('show', visible === 0);
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            initializeTheme();
+            renderVideos();
+
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', function () {
+                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    currentFilter = this.dataset.filter;
+                    filterVideos();
+                });
+            });
+        });
+    </script>
+
+    <script src="../assets/js/theme-manager.js"></script>
+</body>
+</html>
