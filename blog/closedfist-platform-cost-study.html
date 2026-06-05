@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<html lang="en" data-theme-style="calm" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibe Coding Platform Cost Study 2026 — Lovable vs Replit vs Independent Stack — Mugdha's Portfolio</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="A comparative study of Lovable, Replit, and an independent stack for Indian indie developers — evaluated on native capabilities, monthly running cost (USD + INR), maintenance effort, and free-plan viability. Reference app: Closed Fist, an AI subscription tracker.">
+    <meta name="keywords" content="Lovable, Replit, Supabase, Cloudflare Pages, vibe coding, platform cost, Indian developer, INR, IGST, forex, indie developer, SaaS cost, Posthog, Cursor, independent stack">
+    <meta name="author" content="Mugdha Variyar">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <link rel="canonical" href="https://mugdhav.github.io/blog/closedfist-platform-cost-study.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://mugdhav.github.io/blog/closedfist-platform-cost-study.html">
+    <meta property="og:title" content="Vibe Coding Platform Cost Study 2026 — Lovable vs Replit vs Independent Stack">
+    <meta property="og:description" content="Full cost breakdown for Indian indie developers keeping a production web app live: Lovable Pro ($25/mo) vs Replit Core ($55–100/mo realistic) vs Independent Stack ($45/mo). Includes INR forex, IGST, maintenance effort, and free-plan running cost analysis.">
+    <meta property="og:site_name" content="Mugdha Variyar's Portfolio">
+    <meta property="article:published_time" content="2026-06-05T00:00:00+00:00">
+    <meta property="article:author" content="Mugdha Variyar">
+    <meta property="article:section" content="AI Development">
+    <meta property="article:tag" content="Vibe Coding">
+    <meta property="article:tag" content="Platform Cost">
+    <meta property="article:tag" content="Lovable">
+    <meta property="article:tag" content="Replit">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Vibe Coding Platform Cost Study 2026 — Lovable vs Replit vs Independent Stack">
+    <meta name="twitter:description" content="Lovable Pro at ₹2,800/mo beats Replit Core's realistic ₹7,850/mo. Full cost study with INR forex, IGST, and maintenance effort for Indian indie developers.">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Vibe Coding Platform Cost Study 2026 — Lovable vs Replit vs Independent Stack",
+      "description": "A comparative study of Lovable, Replit, and an independent stack for Indian indie developers — evaluated on native capabilities, monthly running cost, maintenance effort, and free-plan viability.",
+      "author": {
+        "@type": "Person",
+        "name": "Mugdha Variyar",
+        "url": "https://mugdhav.github.io"
+      },
+      "publisher": {
+        "@type": "Person",
+        "name": "Mugdha Variyar",
+        "url": "https://mugdhav.github.io"
+      },
+      "datePublished": "2026-06-05",
+      "dateModified": "2026-06-05",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://mugdhav.github.io/blog/closedfist-platform-cost-study.html"
+      },
+      "articleSection": "AI Development",
+      "keywords": ["Lovable", "Replit", "Supabase", "vibe coding", "platform cost", "Indian developer", "indie developer"],
+      "timeRequired": "PT20M",
+      "proficiencyLevel": "Intermediate"
+    }
+    </script>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/vnd.microsoft.icon" href="../assets/favicon/iopm5-km6uc-002.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/favicon/iopm5-km6uc-002.ico">
+    <link rel="apple-touch-icon" href="../assets/favicon/iopm5-km6uc-003.ico">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9HL4T713SQ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-9HL4T713SQ');
+    </script>
+
+    <!-- Google Fonts for report -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+    <!-- Portfolio CSS -->
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/layout.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/animations.css">
+    <link rel="stylesheet" href="../assets/css/theme-jazzy.css">
+    <link rel="stylesheet" href="../assets/css/theme-calm.css">
+    <link rel="stylesheet" href="../assets/css/theme-switcher.css">
+    <link rel="stylesheet" href="../assets/css/search-ui.css">
+
+    <style>
+        /* ── PORTFOLIO BLOG POST LAYOUT ── */
+        .post-hero {
+            min-height: 30vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #d97757 0%, #5a7fa5 100%);
+            color: white;
+            text-align: center;
+            padding-top: 80px;
+        }
+        .post-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            max-width: 900px;
+            padding: 0 2rem;
+            font-family: system-ui, sans-serif;
+            font-weight: 700;
+        }
+        [data-theme-style="calm"] .post-hero { display: none; }
+
+        .post-page-title {
+            display: none;
+            text-align: center;
+            color: var(--text-color);
+            font-size: 2rem;
+            font-weight: 600;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 5% 1rem 5%;
+        }
+        [data-theme-style="calm"] .post-page-title { display: block; }
+
+        .blog-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 5%;
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .nav-pane {
+            position: sticky;
+            top: calc(var(--header-height, 80px) + 2rem);
+            background-color: var(--light-bg);
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            max-height: calc(100vh - var(--header-height, 80px) - 4rem);
+            overflow-y: auto;
+        }
+        [data-theme-style="calm"] .nav-pane {
+            background-color: var(--white);
+            border: var(--card-border);
+            box-shadow: none;
+        }
+        .nav-pane h3 {
+            color: var(--text-color);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary-color);
+            font-family: system-ui, sans-serif;
+        }
+        .nav-pane nav ul { list-style: none; padding: 0; margin: 0; }
+        .nav-pane nav li { margin: 0.5rem 0; }
+        .nav-pane nav a {
+            color: var(--secondary-text-color);
+            text-decoration: none;
+            display: block;
+            padding: 0.25rem 0;
+            font-size: 0.88rem;
+            line-height: 1.4;
+            transition: var(--transition);
+            font-family: system-ui, sans-serif;
+        }
+        .nav-pane nav a:hover { color: var(--primary-color); padding-left: 0.5rem; }
+
+        .blog-content {
+            background-color: var(--light-bg);
+            border-radius: 15px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+            min-width: 0;
+        }
+        [data-theme-style="calm"] .blog-content {
+            background-color: var(--white);
+            border: var(--card-border);
+            box-shadow: none;
+        }
+
+        .blog-meta {
+            color: var(--secondary-text-color);
+            font-size: 0.95rem;
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid rgba(0,0,0,0.1);
+            font-family: system-ui, sans-serif;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+            font-family: system-ui, sans-serif;
+        }
+        .back-link:hover { gap: 0.75rem; }
+
+        @media (max-width: 900px) {
+            .blog-container { grid-template-columns: 1fr; }
+            .nav-pane { position: static; max-height: none; }
+        }
+
+        /* ── REPORT STYLES (scoped under .pccs) ── */
+
+        .pccs {
+            /* Colour palette */
+            --bg:           #faf9f5;
+            --surface:      #ffffff;
+            --surface-warm: #f0ede4;
+            --border:       #e8e6dc;
+            --border-mid:   #b0aea5;
+            --text-primary: #141413;
+            --text-body:    #3a3835;
+            --text-dim:     #9c9a93;
+
+            --orange:       #d97757;
+            --orange-light: #f0c4b0;
+            --orange-bg:    #fdf0eb;
+            --blue:         #6a9bcc;
+            --blue-light:   #c2d9ef;
+            --blue-bg:      #eef4fb;
+            --green:        #788c5d;
+            --green-light:  #c5d0ae;
+            --green-bg:     #f0f3eb;
+
+            --ok-bg:    #f0f3eb; --ok-text:   #3d4f27;
+            --warn-bg:  #fdf0eb; --warn-text: #7a3110;
+            --bad-bg:   #fdecea; --bad-text:  #7a2020;
+            --na-bg:    #f0ede4; --na-text:   #6b6860;
+
+            font-family: 'Lora', Georgia, serif;
+            line-height: 1.7;
+            font-size: 14px;
+            color: var(--text-primary);
+        }
+
+        .pccs * { box-sizing: border-box; }
+
+        /* Report header bar */
+        .pccs .report-bar {
+            background: var(--surface-warm);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--orange);
+            padding: 12px 18px;
+            margin-bottom: 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .pccs .report-bar .brand {
+            font-family: 'Poppins', Arial, sans-serif;
+            font-weight: 800;
+            font-size: 12px;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--orange);
+        }
+        .pccs .report-bar .datestamp {
+            font-family: 'Poppins', Arial, sans-serif;
+            font-size: 11px;
+            color: var(--text-dim);
+            letter-spacing: .06em;
+        }
+
+        /* Intro section */
+        .pccs .study-intro {
+            padding: 32px 0 36px;
+            border-bottom: 1.5px solid var(--border);
+        }
+        .pccs .intro-eyebrow {
+            display: inline-block;
+            font-family: 'Poppins', Arial, sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--orange);
+            background: var(--orange-bg);
+            border: 1px solid var(--orange-light);
+            padding: 4px 10px;
+            border-radius: 3px;
+            margin-bottom: 18px;
+        }
+        .pccs .intro-lead {
+            font-family: 'Lora', Georgia, serif;
+            font-size: 15px;
+            line-height: 1.9;
+            color: var(--text-body);
+            max-width: 820px;
+            margin-bottom: 20px;
+        }
+        .pccs .intro-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 4px;
+        }
+        .pccs .intro-chip {
+            font-family: 'Poppins', Arial, sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-dim);
+            background: var(--surface-warm);
+            border: 1px solid var(--border);
+            padding: 4px 10px;
+            border-radius: 3px;
+        }
+
+        /* Sections */
+        .pccs section {
+            padding: 48px 0;
+            border-bottom: 1.5px solid var(--border);
+        }
+        .pccs .sec-label {
+            font-family: 'Poppins', Arial, sans-serif;
+            font-size: 10px;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: var(--text-dim);
+            margin-bottom: 4px;
+        }
+        .pccs h2.sec-title {
+            font-family: 'Poppins', Arial, sans-serif;
+            font-weight: 700;
+            font-size: 20px;
+            margin-bottom: 6px;
+            color: var(--text-primary);
+        }
+        .pccs .sec-intro {
+            font-size: 13px;
+            font-style: italic;
+            color: var(--text-body);
+            max-width: 760px;
+            margin-bottom: 6px;
+        }
+
+        /* Forex bar */
+        .pccs .forex-bar {
+            background: var(--orange-bg);
+            border: 1px solid var(--orange-light);
+            border-left: 4px solid var(--orange);
+            padding: 14px 20px;
+            font-family: 'Poppins', Arial, sans-serif;
+            font-size: 12px;
+            color: var(--text-body);
+            margin: 24px 0;
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .pccs .fval { font-weight: 700; font-size: 19px; color: var(--orange); }
+        .pccs .flabel { font-size: 10px; text-transform: uppercase; letter-spacing: .1em; color: var(--text-dim); margin-top: 2px; }
+        .pccs .fnote { flex: 1; min-width: 200px; font-style: normal; font-size: 12px; color: var(--text-body); font-family: 'Lora', Georgia, serif; }
+
+        /* Capability matrix */
+        .pccs .cap-matrix { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 28px; }
+        .pccs .cap-matrix th {
+            font-family: 'Poppins', Arial, sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .12em;
+            color: var(--text-dim);
+            padding: 11px 14px;
+            text-align: left;
+            border-bottom: 2px solid var(--border);
+            background: var(--surface-warm);
+        }
+        .pccs .cap-matrix td {
+            padding: 13px 14px;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+            line-height: 1.55;
+            background: var(--surface);
+        }
+        .pccs .cap-matrix tr:hover td { background: var(--bg); }
+        .pccs .cap-matrix th:first-child, .pccs .cap-matrix td:first-child { width: 140px; }
+        .pccs .cap-matrix th:nth-child(2), .pccs .cap-matrix td:nth-child(2) { width: 25%; }
+        .pccs .cap-matrix th:nth-child(3), .pccs .cap-matrix td:nth-child(3) { width: 25%; }
+
+        .pccs .cap-cat { font-family: 'Poppins', Arial, sans-serif; font-weight: 700; font-size: 12px; color: var(--text-primary); margin-bottom: 2px; }
+        .pccs .cap-sub { font-family: 'Poppins', Arial, sans-serif; font-size: 10px; color: var(--text-dim); }
+        .pccs .cap-detail { font-size: 12px; color: var(--text-body); font-family: 'Lora', Georgia, serif; margin-top: 5px; line-height: 1.6; }
+        .pccs .cap-detail strong { font-family: 'Poppins', Arial, sans-serif; font-weight: 600; color: var(--text-primary); font-size: 11px; }
+        .pccs .plat-head { font-family: 'Poppins', Arial, sans-serif; font-weight: 800; font-size: 14px; }
+        .pccs .plat-head.lov { color: #6a9bcc; }
+        .pccs .plat-head.rep { color: #788c5d; }
+        .pccs .plat-head.ind { color: #d97757; }
+
+        /* Pills */
+        .pccs .pill {
+            display: inline-block;
+            font-family: 'Poppins', Arial, sans-serif;
+            font-size: 9px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            padding: 2px 7px;
+            border-radius: 3px;
+            vertical-align: middle;
+            white-space: nowrap;
+        }
+        .pccs .pill-native  { background: var(--green-bg);    color: var(--green);    border: 1px solid var(--green-light); }
+        .pccs .pill-bundled { background: var(--blue-bg);     color: var(--blue);     border: 1px solid var(--blue-light); }
+        .pccs .pill-ext     { background: var(--surface-warm);color: var(--text-dim); border: 1px solid var(--border); }
+        .pccs .pill-none    { background: var(--bad-bg);      color: var(--bad-text); border: 1px solid #f5c5c5; }
+        .pccs .pill-partial { background: var(--warn-bg);     color: var(--warn-text);border: 1px solid var(--orange-light); }
+
+        /* Cost cards */
+        .pccs .cost-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: var(--border);
+            border: 1px solid var(--border);
+            margin-top: 28px;
+        }
+        @media (max-width: 760px) { .pccs .cost-grid { grid-template-columns: 1fr; } }
+
+        .pccs .cost-card { background: var(--surface); padding: 28px; position: relative; overflow: hidden; }
+        .pccs .cost-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; }
+        .pccs .cost-card.lov::before { background: #6a9bcc; }
+        .pccs .cost-card.rep::before { background: #788c5d; }
+        .pccs .cost-card.ind::before { background: #d97757; }
+
+        .pccs .card-plat { font-family: 'Poppins', Arial, sans-serif; font-weight: 800; font-size: 16px; margin-bottom: 2px; }
+        .pccs .card-plat.lov { color: #6a9bcc; }
+        .pccs .card-plat.rep { color: #788c5d; }
+        .pccs .card-plat.ind { color: #d97757; }
+        .pccs .card-sub { font-family: 'Poppins', Arial, sans-serif; font-size: 10px; text-transform: uppercase; letter-spacing: .12em; color: var(--text-dim); margin-bottom: 18px; }
+
+        .pccs .cost-total { border-top: 1.5px solid var(--border); padding-top: 14px; margin-top: 14px; }
+        .pccs .cost-total-usd { font-family: 'Poppins', Arial, sans-serif; font-weight: 800; font-size: 28px; color: var(--text-primary); }
+        .pccs .cost-total-inr { font-family: 'Poppins', Arial, sans-serif; font-size: 13px; color: var(--orange); font-weight: 600; margin-top: 2px; }
+        .pccs .cost-total-eff { font-family: 'Poppins', Arial, sans-serif; font-size: 11px; color: var(--text-dim); margin-top: 2px; }
+
+        .pccs .line-items { list-style: none; padding: 0; font-size: 11px; margin-bottom: 16px; display: flex; flex-direction: column; gap: 6px; }
+        .pccs .line-items li { display: flex; justify-content: space-between; align-items: baseline; }
+        .pccs .line-items .li-label { font-family: 'Poppins', Arial, sans-serif; color: var(--text-body); }
+        .pccs .line-items .li-val   { font-family: 'Poppins', Arial, sans-serif; font-weight: 600; color: var(--text-primary); white-space: nowrap; margin-left: 8px; }
+        .pccs .line-items .li-note  { font-size: 10px; color: var(--text-dim); }
+
+        .pccs .verdict-pill {
+            display: inline-block;
+            font-family: 'Poppins', Arial, sans-serif;
+            font-size: 9px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            padding: 4px 10px;
+            border-radius: 3px;
+            margin-top: 14px;
+        }
+        .pccs .vp-ok   { background: var(--ok-bg);   color: var(--ok-text); }
+        .pccs .vp-warn { background: var(--warn-bg); color: var(--warn-text); }
+        .pccs .vp-bad  { background: var(--bad-bg);  color: var(--bad-text); }
+        .pccs .vp-best { background: #141413; color: #faf9f5; }
+
+        .pccs .card-note { margin-top: 14px; font-size: 12px; color: var(--text-body); font-family: 'Lora', Georgia, serif; line-height: 1.65; }
+
+        /* Risk grid */
+        .pccs .risk-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 1px;
+            background: var(--border);
+            border: 1px solid var(--border);
+            margin-top: 24px;
+        }
+        .pccs .risk-card { background: var(--surface); padding: 20px; }
+        .pccs .risk-icon { font-size: 20px; margin-bottom: 8px; }
+        .pccs .risk-title { font-family: 'Poppins', Arial, sans-serif; font-weight: 700; font-size: 12px; margin-bottom: 6px; color: var(--text-primary); }
+        .pccs .risk-desc  { font-size: 12px; color: var(--text-body); line-height: 1.65; }
+
+        /* Maintenance table */
+        .pccs .maint-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 24px; }
+        .pccs .maint-table th {
+            font-family: 'Poppins', Arial, sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            color: var(--text-dim);
+            padding: 11px 14px;
+            background: var(--surface-warm);
+            border-bottom: 2px solid var(--border);
+            text-align: left;
+        }
+        .pccs .maint-table td {
+            padding: 13px 14px;
+            border-bottom: 1px solid var(--border);
+            font-family: 'Lora', Georgia, serif;
+            vertical-align: top;
+            line-height: 1.5;
+            background: var(--surface);
+        }
+        .pccs .maint-table tr:hover td { background: var(--bg); }
+
+        .pccs .effort {
+            font-family: 'Poppins', Arial, sans-serif;
+            font-weight: 700;
+            font-size: 11px;
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 3px;
+        }
+        .pccs .e-low  { background: var(--ok-bg);   color: var(--ok-text); }
+        .pccs .e-med  { background: var(--warn-bg); color: var(--warn-text); }
+        .pccs .e-high { background: var(--bad-bg);  color: var(--bad-text); }
+
+        /* Score table */
+        .pccs .score-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 28px; }
+        .pccs .score-table th {
+            font-family: 'Poppins', Arial, sans-serif;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            color: var(--text-dim);
+            padding: 11px 14px;
+            background: var(--surface-warm);
+            border-bottom: 2px solid var(--border);
+            text-align: left;
+        }
+        .pccs .score-table td {
+            padding: 14px;
+            border-bottom: 1px solid var(--border);
+            vertical-align: middle;
+            font-family: 'Poppins', Arial, sans-serif;
+            font-size: 12px;
+            background: var(--surface);
+        }
+        .pccs .score-table tr:hover td { background: var(--bg); }
+
+        .pccs .grade { font-family: 'Poppins', Arial, sans-serif; font-weight: 800; font-size: 22px; }
+        .pccs .grade-a { color: var(--green); }
+        .pccs .grade-b { color: var(--orange); }
+        .pccs .grade-c { color: #b07a3d; }
+        .pccs .grade-d { color: #b03a3a; }
+
+        /* Callouts */
+        .pccs .callout-blue {
+            background: var(--blue-bg);
+            border-left: 4px solid var(--blue);
+            padding: 14px 18px;
+            margin: 18px 0;
+            font-size: 12px;
+            color: var(--text-body);
+            line-height: 1.75;
+            font-family: 'Lora', Georgia, serif;
+        }
+        .pccs .callout-blue strong { font-family: 'Poppins', Arial, sans-serif; color: var(--text-primary); }
+        .pccs .callout-orange {
+            background: var(--orange-bg);
+            border-left: 4px solid var(--orange);
+            padding: 14px 18px;
+            margin: 18px 0;
+            font-size: 12px;
+            color: var(--text-body);
+            line-height: 1.75;
+            font-family: 'Lora', Georgia, serif;
+        }
+        .pccs .callout-orange strong { font-family: 'Poppins', Arial, sans-serif; color: var(--text-primary); }
+
+        /* Feature list (Section 07) */
+        .pccs .feature-list { list-style: disc; padding-left: 20px; font-size: 12px; font-family: 'Lora', Georgia, serif; color: var(--text-body); line-height: 1.7; }
+        .pccs .feature-list li { margin-bottom: 8px; }
+        .pccs .feature-list strong { font-family: 'Poppins', Arial, sans-serif; color: var(--text-primary); font-size: 11px; }
+        .pccs code { font-family: monospace; background: var(--surface-warm); padding: 1px 5px; border-radius: 3px; font-size: 11px; }
+
+        /* Footnote */
+        .pccs .footnote {
+            padding: 28px 0 40px;
+            font-size: 11px;
+            color: var(--text-dim);
+            line-height: 1.9;
+            font-family: 'Lora', Georgia, serif;
+            font-style: italic;
+            border-top: 1px solid var(--border);
+            margin-top: 4px;
+        }
+        .pccs .footnote strong { font-family: 'Poppins', Arial, sans-serif; font-style: normal; color: var(--text-body); }
+        .pccs .footnote a { color: var(--blue); }
+
+        /* Inline section grids */
+        .pccs .inner-grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1px;
+            background: var(--border);
+            border: 1px solid var(--border);
+        }
+        @media (max-width: 760px) { .pccs .inner-grid-2 { grid-template-columns: 1fr; } }
+        .pccs .inner-cell { background: var(--surface); padding: 28px; }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- Header -->
+        <div id="header-container"></div>
+
+        <!-- Hero Section (Jazzy Theme) -->
+        <section class="post-hero">
+            <div>
+                <h1>Vibe Coding Platform Cost Study 2026</h1>
+            </div>
+        </section>
+
+        <!-- Page Title (Calm Theme) -->
+        <h1 class="post-page-title">Vibe Coding Platform Cost Study 2026</h1>
+
+        <!-- Blog Container -->
+        <div class="blog-container">
+            <!-- Left Navigation Pane -->
+            <aside class="nav-pane">
+                <h3>Contents</h3>
+                <nav>
+                    <ul>
+                        <li><a href="#pccs-intro">Introduction</a></li>
+                        <li><a href="#pccs-section-01">01 — Native Capability Matrix</a></li>
+                        <li><a href="#pccs-section-02">02 — Monthly Running Cost</a></li>
+                        <li><a href="#pccs-section-03">03 — Maintenance Effort</a></li>
+                        <li><a href="#pccs-section-04">04 — Forex &amp; Tax Impact</a></li>
+                        <li><a href="#pccs-section-05">05 — Platform Verdict</a></li>
+                        <li><a href="#pccs-section-06">06 — Annual Plan Savings</a></li>
+                        <li><a href="#pccs-section-07">07 — Free vs Paid Running Costs</a></li>
+                        <li><a href="#pccs-footnotes">Data Sources</a></li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="blog-content">
+                <a href="blog.html" class="back-link">&#8592; Back to Blog</a>
+
+                <div class="blog-meta">
+                    <span>June 5, 2026</span>
+                    <span>20 min read</span>
+                    <span>AI Development</span>
+                </div>
+
+                <!-- Report content scoped under .pccs -->
+                <div class="pccs">
+
+                    <!-- Report branding bar -->
+                    <div class="report-bar">
+                        <div class="brand">Vibe Coding Platform Cost Study &middot; 2026</div>
+                        <div class="datestamp">Lovable &middot; Replit &middot; Independent Stack &middot; USD/INR &#8377;95 mid-market &middot; June 2026</div>
+                    </div>
+
+                    <!-- INTRODUCTION -->
+                    <section class="study-intro" id="pccs-intro">
+                        <div class="intro-eyebrow">Indian Developer Perspective &middot; Native Capabilities Focus</div>
+                        <p class="intro-lead">A comparative study of Lovable, Replit, and an independent stack &mdash; evaluated on their <em>native, in-built</em> capabilities for database, auth, security, and analytics. Costs are modelled from the perspective of an Indian indie developer keeping a production web app live after the build phase. <em>Closed Fist</em> (closedfist.site), an AI subscription tracker, is used throughout as a representative example app: a React/Vite SPA with auth, a PostgreSQL backend, and financial data.</p>
+                        <div class="intro-chips">
+                            <span class="intro-chip">3 platforms compared</span>
+                            <span class="intro-chip">7 sections</span>
+                            <span class="intro-chip">USD + INR &#8377;95 mid-market</span>
+                            <span class="intro-chip">Active dev + maintenance scenarios</span>
+                            <span class="intro-chip">June 2026</span>
+                        </div>
+                    </section>
+
+                    <!-- SECTION 1: CAPABILITY MATRIX -->
+                    <section id="pccs-section-01">
+                        <div class="sec-label">Section 01</div>
+                        <h2 class="sec-title">Native Capability Matrix</h2>
+                        <p class="sec-intro">What each platform supplies from its own infrastructure &mdash; without the developer connecting an external service. &ldquo;Bundled&rdquo; means the external service is wired in by default at no extra platform cost. &ldquo;External&rdquo; means you configure and pay separately.</p>
+
+                        <table class="cap-matrix">
+                            <thead>
+                                <tr>
+                                    <th>Capability</th>
+                                    <th><span class="plat-head lov">Lovable</span><br><span style="font-family:'Poppins',sans-serif;font-size:9px;color:var(--text-dim);font-weight:400;">Pro &middot; $25/mo</span></th>
+                                    <th><span class="plat-head rep">Replit</span><br><span style="font-family:'Poppins',sans-serif;font-size:9px;color:var(--text-dim);font-weight:400;">Core &middot; $20/mo</span></th>
+                                    <th><span class="plat-head ind">Independent Stack</span><br><span style="font-family:'Poppins',sans-serif;font-size:9px;color:var(--text-dim);font-weight:400;">CF Pages + Supabase + Posthog</span></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <!-- HOSTING -->
+                                <tr>
+                                    <td><div class="cap-cat">Hosting</div><div class="cap-sub">CDN &middot; SSL &middot; Custom domain</div></td>
+                                    <td>
+                                        <span class="pill pill-native">Native</span>
+                                        <div class="cap-detail"><strong>Lovable Cloud</strong> &mdash; static React/Vite SPA deployed to Lovable&rsquo;s CDN. Custom domain and SSL on Pro. No SSR. Lovable controls the hosting layer; no direct infrastructure access. Suits any SPA-architecture app without modification.</div>
+                                    </td>
+                                    <td>
+                                        <span class="pill pill-native">Native</span>
+                                        <div class="cap-detail"><strong>Replit Deployments</strong> &mdash; Static, Autoscale, or Reserved VM options. Custom domain on all paid plans. Static is credit-light; Autoscale costs credits per request. Production apps need Reserved VM or Autoscale for always-on behavior, which draws from the shared credit pool.</div>
+                                    </td>
+                                    <td>
+                                        <span class="pill pill-ext">Self-configured</span>
+                                        <div class="cap-detail"><strong>Cloudflare Pages</strong> &mdash; unlimited bandwidth, 500 builds/mo free. Global CDN. Custom domain + SSL included. Connect via GitHub Actions CI/CD. Full control over cache headers, WAF rules, and bot policies including AI Crawl Control configuration.</div>
+                                    </td>
+                                </tr>
+
+                                <!-- DATABASE -->
+                                <tr>
+                                    <td><div class="cap-cat">Database</div><div class="cap-sub">Schema &middot; Migrations &middot; RLS</div></td>
+                                    <td>
+                                        <span class="pill pill-bundled">Bundled (Supabase)</span>
+                                        <div class="cap-detail"><strong>Supabase is Lovable&rsquo;s native backend.</strong> Every Lovable Cloud project ships with a Supabase PostgreSQL instance. Lovable&rsquo;s AI auto-generates the schema, RLS policies, and migrations from plain-English prompts. You cannot swap this for another DB within the Lovable editor. The Supabase instance is managed for you &mdash; no Supabase subscription needed on the base Pro plan when using Lovable Cloud&rsquo;s managed instance.</div>
+                                    </td>
+                                    <td>
+                                        <span class="pill pill-native">Native (Neon PG)</span>
+                                        <div class="cap-detail"><strong>Replit&rsquo;s built-in PostgreSQL</strong> runs on Neon. Spins up in seconds, managed through the Replit UI. No external subscription needed. However, Neon&rsquo;s Replit-managed instance lacks Supabase Auth&rsquo;s Row Level Security integration &mdash; auth and DB policies must be wired manually. Replit also offers a key-value store for simpler use cases. All DB compute draws from the shared credit pool.</div>
+                                    </td>
+                                    <td>
+                                        <span class="pill pill-ext">Supabase Pro &middot; $25/mo</span>
+                                        <div class="cap-detail"><strong>Full Supabase Pro:</strong> 8 GB DB, 100 K MAU, 100 GB storage, 500 realtime connections, 2M edge function invocations. You control the project, region, backups, and compute tier. Migrate or export at any time. The $10/mo compute credit offsets one Micro instance.</div>
+                                    </td>
+                                </tr>
+
+                                <!-- AUTH -->
+                                <tr>
+                                    <td><div class="cap-cat">Authentication</div><div class="cap-sub">Email &middot; OAuth &middot; Session mgmt</div></td>
+                                    <td>
+                                        <span class="pill pill-bundled">Bundled (Supabase Auth)</span>
+                                        <div class="cap-detail"><strong>Supabase Auth is generated automatically</strong> when you prompt Lovable to add login. Supports email/password, Google, GitHub, Apple, Facebook OAuth. RLS policies tie directly to auth.uid() &mdash; database rows are protected at the query level with no extra code. 50 K MAU included in the managed Supabase instance. No separate Clerk subscription required.</div>
+                                    </td>
+                                    <td>
+                                        <span class="pill pill-partial">Partial (Replit Auth)</span>
+                                        <div class="cap-detail"><strong>Replit Auth</strong> identifies the current Replit-logged-in user &mdash; well suited to internal tools and developer-facing apps, but limited for multi-tenant SaaS where your users are not Replit users. For OAuth, JWT session management, and DB-level Row Level Security, most developers connect external Supabase Auth or Clerk. Replit Auth and the Neon DB have no native RLS integration.</div>
+                                    </td>
+                                    <td>
+                                        <span class="pill pill-ext">Supabase Auth &middot; $0 add-on</span>
+                                        <div class="cap-detail"><strong>Supabase Auth is included in the $25 Pro plan</strong> at no extra cost &mdash; 50 K MAU free, $0.00325/MAU beyond. Email/password + OAuth. RLS integrates natively with the database. Alternatively, Clerk Free covers 10 K MAU with a better developer UI, at $0 until scale. Supabase Auth wins on cost at scale; Clerk wins on DX at small scale.</div>
+                                    </td>
+                                </tr>
+
+                                <!-- SECURITY -->
+                                <tr>
+                                    <td><div class="cap-cat">Security</div><div class="cap-sub">WAF &middot; SAST/SCA &middot; Compliance</div></td>
+                                    <td>
+                                        <span class="pill pill-native">Native (Security Center)</span>
+                                        <div class="cap-detail"><strong>Lovable Security Checker 2.0</strong> &mdash; four automated scanners run continuously: RLS policy auditor, database schema checker, application code SAST, and dependency SCA. Scans trigger on every publish. Platform-level WAF, network isolation, and adaptive rate limiting on Lovable Cloud. SOC 2 Type II and ISO 27001:2022 certified (certified Aug 2025, recertification scheduled Q3 2026). GDPR DPA and EU AI Act Low Risk classification available. Enterprise plan adds SSO/SAML, SCIM, RBAC, audit logs.</div>
+                                    </td>
+                                    <td>
+                                        <span class="pill pill-partial">Partial (platform-level only)</span>
+                                        <div class="cap-detail"><strong>Replit&rsquo;s infrastructure</strong> is SOC 2 Type 2 attested and runs on Google Cloud Premium Tier with platform-level WAF and DDoS protection. However, <em>per-deployment</em> WAF rules and per-endpoint rate limiting are not available &mdash; an exposed login endpoint has no native brute-force guard. There is no built-in SAST/SCA for generated code. AI Agent scaffolding frequently introduces secrets-in-env leaks and permissive CORS headers. Free-plan repls are public by default, exposing source code. RBAC and SSO are available on Pro only.</div>
+                                    </td>
+                                    <td>
+                                        <span class="pill pill-ext">Composable &middot; $0&ndash;$25/mo</span>
+                                        <div class="cap-detail"><strong>Cloudflare Free WAF</strong> + bot protection included. Snyk Free (500 scans/mo) or Semgrep OSS run in GitHub Actions CI/CD &mdash; Closed Fist&rsquo;s existing ip-guard skill fits here. Full control over security headers, CORS policy, rate limiting rules. No out-of-the-box SAST scanner unless configured. Supabase Pro adds RLS + encrypted backups. This path requires configuration effort; the payoff is the highest customisability for a financial data app.</div>
+                                    </td>
+                                </tr>
+
+                                <!-- ANALYTICS -->
+                                <tr>
+                                    <td><div class="cap-cat">Analytics</div><div class="cap-sub">Events &middot; Sessions &middot; Funnels</div></td>
+                                    <td>
+                                        <span class="pill pill-none">None native</span>
+                                        <div class="cap-detail">Lovable has no built-in product analytics. Posthog, Plausible, or Umami must be added manually &mdash; either via a Lovable prompt (&ldquo;add Posthog tracking&rdquo;) or by editing the exported code. Posthog&rsquo;s free tier (1M events/mo, 5K session recordings) is sufficient for Closed Fist at MVP scale and integrates in one prompt.</div>
+                                    </td>
+                                    <td>
+                                        <span class="pill pill-none">None native</span>
+                                        <div class="cap-detail">Replit has no built-in product analytics. Same external options apply: Posthog, Plausible, Umami. Posthog&rsquo;s React SDK drops in easily. The Replit Agent can scaffold the integration, though this consumes credits.</div>
+                                    </td>
+                                    <td>
+                                        <span class="pill pill-ext">Posthog Free &middot; $0</span>
+                                        <div class="cap-detail"><strong>Posthog Cloud free tier:</strong> 1M events/mo, 5K session recordings, 1M feature flag calls, error tracking, A/B testing &mdash; all resetting monthly. Paid tier starts at $0.00005/event beyond free limit. For Closed Fist (MVP traffic), the free tier is a permanent fit unless the user base scales past 50K active monthly users generating dense event streams.</div>
+                                    </td>
+                                </tr>
+
+                                <!-- CI/CD -->
+                                <tr>
+                                    <td><div class="cap-cat">CI/CD &amp; Version Control</div><div class="cap-sub">GitHub sync &middot; Deploy pipeline</div></td>
+                                    <td>
+                                        <span class="pill pill-bundled">GitHub sync (Pro)</span>
+                                        <div class="cap-detail">Two-way GitHub sync on Pro plan. Lovable commits generated code to your repo on every build. You can open pull requests against the repo and edit code locally in VS Code / Cursor, then re-sync. No native CI/CD pipeline &mdash; deploys trigger through the Lovable editor, not from git push.</div>
+                                    </td>
+                                    <td>
+                                        <span class="pill pill-native">Native + GitHub sync</span>
+                                        <div class="cap-detail">Replit has a full cloud IDE with version history, branching, and GitHub sync. Deployments trigger from within Replit. No native GitHub Actions-style CI/CD. Code lives primarily in Replit&rsquo;s environment; GitHub is a sync target, not the source of truth. 30&ndash;60 second push delays reported.</div>
+                                    </td>
+                                    <td>
+                                        <span class="pill pill-ext">GitHub Actions &middot; $0</span>
+                                        <div class="cap-detail"><strong>GitHub is the source of truth.</strong> Cloudflare Pages deploys on every git push via GitHub Actions. Full CI/CD pipeline: lint &rarr; test &rarr; Snyk scan &rarr; deploy. Zero vendor lock-in on the CI layer. Deploy previews per pull request. This is the most mature pipeline of the three options.</div>
+                                    </td>
+                                </tr>
+
+                                <!-- PORTABILITY -->
+                                <tr>
+                                    <td><div class="cap-cat">Portability</div><div class="cap-sub">Code export &middot; Vendor lock-in</div></td>
+                                    <td>
+                                        <span class="pill pill-partial">Medium lock-in</span>
+                                        <div class="cap-detail">Lovable generates standard React + Vite code that you can export. Supabase calls are spread throughout the codebase &mdash; migrating to a different backend requires a significant refactor. Framework is locked to React/Vite (no Next.js, SSR, or alternative frameworks as of March 2026). Hosting lock-in is moderate: you can export and self-host, but the AI-assisted workflow only works inside Lovable.</div>
+                                    </td>
+                                    <td>
+                                        <span class="pill pill-partial">Medium-high lock-in</span>
+                                        <div class="cap-detail">Replit projects can be exported via GitHub sync, but the runtime (Replit DB, Replit Auth, Replit Secrets) is tightly coupled to the Replit environment. Migrating a production app off Replit requires rebuilding the deployment pipeline, replacing Replit DB with an external Postgres, and re-wiring auth. Replit has restructured pricing three times since 2025 &mdash; operational risk for budget planning.</div>
+                                    </td>
+                                    <td>
+                                        <span class="pill pill-native">Minimal lock-in</span>
+                                        <div class="cap-detail">Each service is independently replaceable. Cloudflare Pages &rarr; swap to Vercel or Netlify. Supabase &rarr; export Postgres dump, migrate to Neon or PlanetScale. Posthog &rarr; export event data. Every layer has a documented migration path. Code lives in GitHub, not inside a platform&rsquo;s proprietary environment.</div>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </section>
+
+                    <!-- SECTION 2: COST SCENARIOS -->
+                    <section id="pccs-section-02">
+                        <div class="sec-label">Section 02</div>
+                        <h2 class="sec-title">Total Monthly Running Cost &mdash; Active Development Scenario</h2>
+                        <p class="sec-intro">Costs modelled using each platform&rsquo;s native and bundled capabilities. External services added only where the native capability is absent. Example app: a React/Vite SPA with PostgreSQL backend, auth, and user data (represented by Closed Fist). Scenario: solo developer, &lt;10K MAU, one production environment, active build phase.</p>
+
+                        <div class="forex-bar">
+                            <div><div class="fval">&#8377;95</div><div class="flabel">1 USD &middot; mid-market June 2026</div></div>
+                            <div><div class="fval">&#8377;97&ndash;100</div><div class="flabel">effective after card markup (2&ndash;5%)</div></div>
+                            <div class="fnote">All USD amounts in this study carry a &#8377;2&ndash;5/dollar surcharge on Indian cards. Add 18% IGST on OIDAR-classified services if you are not GST-registered. GST-registered businesses recover IGST as Input Tax Credit (ITC). INR figures below use &#8377;95 mid-market unless noted.</div>
+                        </div>
+
+                        <div class="cost-grid">
+
+                            <!-- LOVABLE -->
+                            <div class="cost-card lov">
+                                <div class="card-plat lov">Lovable</div>
+                                <div class="card-sub">Pro &middot; Managed Supabase &middot; Native Security</div>
+                                <ul class="line-items">
+                                    <li><span class="li-label">Lovable Pro (platform + AI + hosting)</span><span class="li-val">$25</span></li>
+                                    <li><span class="li-label">DB (Supabase &mdash; managed, included)</span><span class="li-val li-note">$0 &larr; bundled</span></li>
+                                    <li><span class="li-label">Auth (Supabase Auth &mdash; bundled)</span><span class="li-val li-note">$0 &larr; bundled</span></li>
+                                    <li><span class="li-label">Security Checker 2.0 (native SAST/SCA)</span><span class="li-val li-note">$0 &larr; native</span></li>
+                                    <li><span class="li-label">WAF (Lovable Cloud, included)</span><span class="li-val li-note">$0 &larr; native</span></li>
+                                    <li><span class="li-label">Analytics &mdash; Posthog Free</span><span class="li-val li-note">$0 &larr; external free</span></li>
+                                    <li><span class="li-label">Custom domain SSL (included Pro)</span><span class="li-val li-note">$0 &larr; included</span></li>
+                                    <li><span class="li-label">Cloudflare proxy (free tier)</span><span class="li-val li-note">$0 &larr; free tier</span></li>
+                                </ul>
+                                <div class="cost-total">
+                                    <div class="cost-total-usd">$25<span style="font-size:14px;font-weight:400;">/mo</span></div>
+                                    <div class="cost-total-inr">&asymp; &#8377;2,375/mo</div>
+                                    <div class="cost-total-eff">Effective with card markup: &asymp; &#8377;2,450&ndash;2,500</div>
+                                    <div class="cost-total-eff" style="margin-top:3px;">With IGST (if not GST registered): &asymp; &#8377;2,850</div>
+                                </div>
+                                <div class="verdict-pill vp-best">&#9733; Lowest total cost</div>
+                                <div class="card-note">
+                                    <strong style="font-family:'Poppins',Arial,sans-serif;">What you give up:</strong> No SSR (React/Vite SPA only). The Lovable-managed Supabase instance is opaque &mdash; you cannot adjust compute tiers or backup retention without connecting a self-managed project (which adds $25/mo and changes the cost model). Security Checker 2.0 provides SAST + dependency scanning, but coverage depends on Lovable&rsquo;s scan rules rather than a pipeline you control. Credit budget: 100/mo on Pro; heavy UI iteration can exceed this.
+                                </div>
+                            </div>
+
+                            <!-- REPLIT -->
+                            <div class="cost-card rep">
+                                <div class="card-plat rep">Replit</div>
+                                <div class="card-sub">Core &middot; Native PG &middot; External Auth Required</div>
+                                <ul class="line-items">
+                                    <li><span class="li-label">Replit Core (IDE + hosting credits)</span><span class="li-val">$20</span></li>
+                                    <li><span class="li-label">Always-on deployment (Reserved VM credits)</span><span class="li-val">~$15&ndash;20</span></li>
+                                    <li><span class="li-label">DB (Neon PG &mdash; built-in, from credits)</span><span class="li-val li-note">~$5 (credit draw)</span></li>
+                                    <li><span class="li-label">Auth &mdash; must use Supabase Auth or Clerk</span><span class="li-val">$0&ndash;20</span></li>
+                                    <li><span class="li-label">Security scanning &mdash; none native; external Rafter/Snyk</span><span class="li-val li-note">$0 (free tiers)</span></li>
+                                    <li><span class="li-label">Analytics &mdash; Posthog Free</span><span class="li-val li-note">$0 &larr; external free</span></li>
+                                    <li><span class="li-label">AI Agent overage (typical active dev)</span><span class="li-val">$15&ndash;40</span></li>
+                                </ul>
+                                <div class="cost-total">
+                                    <div class="cost-total-usd">$55&ndash;100<span style="font-size:12px;font-weight:400;">/mo</span></div>
+                                    <div class="cost-total-inr">&asymp; &#8377;5,225&ndash;9,500/mo</div>
+                                    <div class="cost-total-eff">Effective with card markup: &asymp; &#8377;5,400&ndash;9,800</div>
+                                    <div class="cost-total-eff" style="color:var(--bad-text);margin-top:3px;">Ceiling is soft &mdash; surprise bills of &#8377;20,000+ reported</div>
+                                </div>
+                                <div class="verdict-pill vp-warn">&#9888; Review auth requirements before committing</div>
+                                <div class="card-note">
+                                    <strong style="font-family:'Poppins',Arial,sans-serif;">Key considerations:</strong> Replit Auth works well for internal tools and developer-facing apps, but requires an external auth service (Supabase Auth or Clerk) for apps where end users are not Replit users. The Neon PG instance and Replit Auth have no native RLS integration, so database-level access control requires manual wiring. The shared credit pool &mdash; covering AI Agent calls, deployment, DB compute, and data transfer &mdash; means development activity and production uptime compete for the same budget, making monthly cost harder to predict.
+                                </div>
+                            </div>
+
+                            <!-- INDEPENDENT STACK -->
+                            <div class="cost-card ind">
+                                <div class="card-plat ind">Independent Stack</div>
+                                <div class="card-sub">CF Pages + Supabase Pro + Posthog Free</div>
+                                <ul class="line-items">
+                                    <li><span class="li-label">Cloudflare Pages (hosting + CDN + WAF)</span><span class="li-val li-note">$0 &larr; free</span></li>
+                                    <li><span class="li-label">Supabase Pro (DB + Auth + Storage + Edge Fn)</span><span class="li-val">$25</span></li>
+                                    <li><span class="li-label">Supabase Auth (included in Pro)</span><span class="li-val li-note">$0 &larr; included</span></li>
+                                    <li><span class="li-label">Security &mdash; Snyk Free + CF WAF + ip-guard in CI</span><span class="li-val li-note">$0 &larr; free tiers</span></li>
+                                    <li><span class="li-label">Analytics &mdash; Posthog Free</span><span class="li-val li-note">$0 &larr; free tier</span></li>
+                                    <li><span class="li-label">CI/CD &mdash; GitHub Actions (free for public/private)</span><span class="li-val li-note">$0 &larr; included</span></li>
+                                    <li><span class="li-label">AI coding tool &mdash; Cursor Pro or Windsurf Pro</span><span class="li-val">$20</span></li>
+                                </ul>
+                                <div class="cost-total">
+                                    <div class="cost-total-usd">$45<span style="font-size:14px;font-weight:400;">/mo</span></div>
+                                    <div class="cost-total-inr">&asymp; &#8377;4,275/mo</div>
+                                    <div class="cost-total-eff">Effective with card markup: &asymp; &#8377;4,400&ndash;4,500</div>
+                                    <div class="cost-total-eff" style="margin-top:3px;">With IGST (unregistered): &asymp; &#8377;5,100</div>
+                                </div>
+                                <div class="verdict-pill vp-warn">Best control &middot; highest setup effort</div>
+                                <div class="card-note">
+                                    <strong style="font-family:'Poppins',Arial,sans-serif;">What you gain:</strong> Full pipeline ownership &mdash; every service has a documented migration path. Snyk Free in GitHub Actions gives structural dependency scanning. Cloudflare WAF handles network-layer threats. No credit-pool risk. <strong style="font-family:'Poppins',Arial,sans-serif;">What it costs:</strong> 4&ndash;8 hours of initial setup (CF Pages config, GitHub Actions workflow, Supabase project, env vars). Ongoing maintenance is ~1&ndash;2 hrs/month. Not a zero-ops path.
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="callout-orange" style="margin-top:4px;">
+                            <strong>Without an AI coding tool ($20):</strong> Once active vibe-coding drops to minimal patches, the Independent Stack becomes <strong>$25/mo (&asymp; &#8377;2,375)</strong> &mdash; cost-equivalent to Lovable Pro but with full infrastructure control and no platform lock-in. This is the correct end-state once an app is feature-stable.
+                        </div>
+                    </section>
+
+                    <!-- SECTION 3: MAINTENANCE EFFORT -->
+                    <section id="pccs-section-03">
+                        <div class="sec-label">Section 03</div>
+                        <h2 class="sec-title">Maintenance Effort Comparison</h2>
+                        <p class="sec-intro">Monthly operational overhead per stack, assuming a solo founder with a technical background. Excludes feature development time.</p>
+
+                        <table class="maint-table">
+                            <thead>
+                                <tr>
+                                    <th>Task</th>
+                                    <th>Lovable</th>
+                                    <th>Replit</th>
+                                    <th>Independent Stack</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="font-family:'Poppins',Arial,sans-serif;font-weight:600;">Dependency updates</td>
+                                    <td><span class="effort e-low">Low</span><br>Lovable Security Checker 2.0 flags SCA issues. Remediation is a prompt (&ldquo;update this dep&rdquo;). No manual npm audit needed.</td>
+                                    <td><span class="effort e-high">High</span><br>No native SCA. Developer must run npm audit or connect Snyk externally. AI Agent fixes consume credits.</td>
+                                    <td><span class="effort e-med">Medium</span><br>Snyk Free in GitHub Actions surfaces dep alerts on every push. Remediation is a PR. Adding a pre-generation IP/license check to the CI pipeline covers SCA before code is committed.</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-family:'Poppins',Arial,sans-serif;font-weight:600;">Database migrations</td>
+                                    <td><span class="effort e-low">Low</span><br>Lovable generates and deploys Supabase migrations via prompt. Schema changes are managed through the editor UI.</td>
+                                    <td><span class="effort e-med">Medium</span><br>Replit Agent can generate migration SQL, but deployment to Neon PG requires manual execution or an additional credit spend on the Agent.</td>
+                                    <td><span class="effort e-med">Medium</span><br>Supabase CLI handles migrations. Supabase Studio provides visual diff of schema changes. Initial learning curve; then mostly automated.</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-family:'Poppins',Arial,sans-serif;font-weight:600;">Security patching</td>
+                                    <td><span class="effort e-low">Low</span><br>Four automated scanners run on every publish. WAF rules managed by Lovable. Developer reviews the Security Center dashboard; remediates critical findings via prompt.</td>
+                                    <td><span class="effort e-high">High</span><br>No automated scanning. Secrets leaking into public repls is a persistent risk. Developer must manually run Rafter or Snyk and apply fixes. Each Agent fix pass costs credits.</td>
+                                    <td><span class="effort e-med">Medium</span><br>GitHub Actions CI/CD runs Snyk + Semgrep on every push. Cloudflare WAF handles most network-layer attacks. Developer reviews alerts; patches via standard PR flow.</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-family:'Poppins',Arial,sans-serif;font-weight:600;">Deployment &amp; rollback</td>
+                                    <td><span class="effort e-low">Low</span><br>One-click publish. Rollback via Lovable version history. No CLI or pipeline config needed.</td>
+                                    <td><span class="effort e-med">Medium</span><br>One-click deploy in Replit UI. Rollback via Replit version checkpoints. No GitHub Actions integration; limited CI/CD flexibility.</td>
+                                    <td><span class="effort e-low">Low</span><br>Git push triggers Cloudflare Pages deploy. Instant rollback to any prior commit. Preview deployments per PR are automatic.</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-family:'Poppins',Arial,sans-serif;font-weight:600;">Cost monitoring</td>
+                                    <td><span class="effort e-low">Low</span><br>Flat $25/mo. Credit rollover tracked in dashboard. No surprise billing unless you exceed 100 credits/mo and buy add-ons.</td>
+                                    <td><span class="effort e-high">High</span><br>Shared credit pool requires active monitoring. Users report exhausting Core credits mid-month without notification. Requires setting manual spend alerts.</td>
+                                    <td><span class="effort e-low">Low</span><br>Flat $25/mo Supabase. Posthog free tier. Cloudflare free tier. Cursor $20/mo. No shared credit pool. Each service has independent billing with hard limits.</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-family:'Poppins',Arial,sans-serif;font-weight:600;">Estimated monthly ops time</td>
+                                    <td><span class="effort e-low">~1&ndash;2 hrs/mo</span></td>
+                                    <td><span class="effort e-high">~4&ndash;6 hrs/mo</span><br><span style="font-size:11px;color:var(--text-dim);">(+ unplanned time on surprise billing incidents)</span></td>
+                                    <td><span class="effort e-med">~2&ndash;3 hrs/mo</span><br><span style="font-size:11px;color:var(--text-dim);">(higher in first month during setup: ~6&ndash;8 hrs)</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+
+                    <!-- SECTION 4: FOREX -->
+                    <section id="pccs-section-04">
+                        <div class="sec-label">Section 04</div>
+                        <h2 class="sec-title">Forex &amp; Tax Impact &mdash; Indian Developer</h2>
+
+                        <div class="risk-grid">
+                            <div class="risk-card">
+                                <div class="risk-icon">&#8377;</div>
+                                <div class="risk-title">Card Markup (2&ndash;3.5%)</div>
+                                <div class="risk-desc">On a $25/mo Lovable plan, the invisible forex fee is &#8377;48&ndash;88/mo &mdash; &#8377;576&ndash;1,056/year. On the independent $45/mo stack it is &#8377;86&ndash;159/mo. Small individually; significant when the rupee is also depreciating.</div>
+                            </div>
+                            <div class="risk-card">
+                                <div class="risk-icon">&#8593;</div>
+                                <div class="risk-title">Rupee Depreciation</div>
+                                <div class="risk-desc">USD/INR moved from &#8377;89.86 (Jan 2026) to &#8377;95&ndash;96 (May 2026) &mdash; a 6&ndash;7% weakening in five months. The same $25 plan now costs &#8377;2,375 vs &#8377;2,250 in January. Forecasts project &#8377;103 by end-2026, adding another &#8377;200/mo to a $25 plan with no price increase from the vendor.</div>
+                            </div>
+                            <div class="risk-card">
+                                <div class="risk-icon">&#128438;</div>
+                                <div class="risk-title">18% IGST on OIDAR Services</div>
+                                <div class="risk-desc">Supabase, Cloudflare (Pro), Posthog Cloud, and Lovable are all OIDAR-classified foreign digital services. Unregistered individuals owe 18% IGST on each invoice. GST-registered businesses recover this as ITC. On a $25/mo service: &#8377;2,375 + &#8377;428 IGST = &#8377;2,803 actual.</div>
+                            </div>
+                            <div class="risk-card">
+                                <div class="risk-icon">&#9889;</div>
+                                <div class="risk-title">Platform Price Volatility</div>
+                                <div class="risk-desc">Windsurf raised Pro from $15 &rarr; $20 (May 2026). Replit restructured pricing twice since 2025. Netlify moved to credit-based billing (Sep 2025). Budget with a 20% buffer on any platform-dependent line item. Lovable&rsquo;s flat $25 Pro and Supabase&rsquo;s flat $25 Pro are the most stable pricing signals in this stack.</div>
+                            </div>
+                        </div>
+
+                        <div class="callout-blue" style="margin-top:4px;">
+                            <strong>Practical effective cost summary (GST unregistered, card markup 3%):</strong>
+                            Lovable Pro $25 &rarr; &#8377;2,803/mo &middot; Independent Stack $45 &rarr; &#8377;5,044/mo &middot; Replit Core realistic $70 &rarr; &#8377;7,850/mo.
+                            GST registration converts the IGST from a cost to an ITC asset &mdash; effectively making all three stacks 18% cheaper for legitimate business use.
+                        </div>
+                    </section>
+
+                    <!-- SECTION 5: VERDICT -->
+                    <section id="pccs-section-05">
+                        <div class="sec-label">Section 05</div>
+                        <h2 class="sec-title">Platform Verdict &mdash; Which Stack for Which Stage</h2>
+
+                        <table class="score-table">
+                            <thead>
+                                <tr>
+                                    <th>Platform</th>
+                                    <th>Effective Monthly (INR, GST unregistered)</th>
+                                    <th>DB + Auth</th>
+                                    <th>Security</th>
+                                    <th>Analytics</th>
+                                    <th>Lock-in</th>
+                                    <th>Ops Effort</th>
+                                    <th>Grade</th>
+                                    <th>When to use</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="font-weight:700;color:#6a9bcc;">Lovable Pro</td>
+                                    <td>&asymp; &#8377;2,800/mo<br><span style="font-size:10px;color:var(--text-dim);">(card+IGST on $25)</span></td>
+                                    <td><span class="pill pill-bundled">Bundled Supabase</span></td>
+                                    <td><span class="pill pill-native">Native SAST+WAF</span></td>
+                                    <td><span class="pill pill-none">External (free)</span></td>
+                                    <td><span style="color:var(--orange);font-size:11px;">Medium</span></td>
+                                    <td><span class="effort e-low">~1&ndash;2 hrs/mo</span></td>
+                                    <td><span class="grade grade-a">A</span></td>
+                                    <td style="font-size:11px;color:var(--text-body);">MVP build and active iteration phase. Lowest all-in cost, adequate security for apps handling user data. Best for solo developers who want zero infra configuration.</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight:700;color:#788c5d;">Replit Core</td>
+                                    <td>&asymp; &#8377;7,850/mo realistic<br><span style="font-size:10px;color:var(--bad-text);">(overage risk: &#8377;15,000+)</span></td>
+                                    <td><span class="pill pill-partial">Native PG, partial Auth</span></td>
+                                    <td><span class="pill pill-partial">Platform only, no SAST</span></td>
+                                    <td><span class="pill pill-none">External (free)</span></td>
+                                    <td><span style="color:#b03a3a;font-size:11px;">Medium-High</span></td>
+                                    <td><span class="effort e-high">~4&ndash;6 hrs/mo</span></td>
+                                    <td><span class="grade grade-d">D</span></td>
+                                    <td style="font-size:11px;color:var(--text-body);">Prototyping, internal tools, and developer-facing apps. For end-user SaaS with multi-tenant auth, plan for an external auth service. Evaluate the shared credit pool structure against your expected dev and deployment cadence before committing.</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight:700;color:#d97757;">Independent Stack<br><span style="font-weight:400;font-size:11px;">CF Pages + Supabase + Posthog</span></td>
+                                    <td>&asymp; &#8377;5,044/mo<br><span style="font-size:10px;color:var(--text-dim);">(card+IGST on $45 incl. Cursor)</span></td>
+                                    <td><span class="pill pill-ext">Supabase Pro ($25)</span></td>
+                                    <td><span class="pill pill-ext">Composable (Snyk+CF WAF)</span></td>
+                                    <td><span class="pill pill-none">Posthog Free</span></td>
+                                    <td><span style="color:var(--green);font-size:11px;">Minimal</span></td>
+                                    <td><span class="effort e-med">~2&ndash;3 hrs/mo</span></td>
+                                    <td><span class="grade grade-b">B+</span></td>
+                                    <td style="font-size:11px;color:var(--text-body);">Post-MVP maintenance phase once active vibe-coding ends. Drop the AI coding tool subscription ($20) once stable &mdash; cost matches Lovable at &#8377;2,800/mo with full portability and pipeline control.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="callout-blue" style="margin-top:4px;">
+                            <strong>Recommended trajectory for a backend SaaS app (e.g. Closed Fist):</strong> Build and iterate on <strong>Lovable Pro ($25/mo)</strong> &mdash; bundled Supabase, native security scanning, and WAF give adequate coverage during active development at the lowest available cost. Once the feature set stabilises and vibe-coding drops below ~10 prompts/week, migrate to the <strong>Independent Stack without an AI coding tool ($25/mo)</strong> &mdash; same cost, full ownership of every infrastructure layer.
+                        </div>
+                    </section>
+
+                    <!-- SECTION 6: ANNUAL PLAN SAVINGS -->
+                    <section id="pccs-section-06">
+                        <div class="sec-label">Section 06</div>
+                        <h2 class="sec-title">Annual Plan Savings &mdash; Verified from Official Pricing Pages</h2>
+                        <p class="sec-intro">Figures sourced directly from <a href="https://lovable.dev/pricing" style="color:var(--blue);">lovable.dev/pricing</a> and <a href="https://replit.com/pricing" style="color:var(--blue);">replit.com/pricing</a> (fetched June 2026). The Independent Stack has no annual toggle &mdash; each service bills monthly with no discount tier, so monthly = annual rate.</p>
+
+                        <div class="inner-grid-2" style="margin-top:28px;">
+
+                            <!-- LOVABLE ANNUAL -->
+                            <div class="inner-cell">
+                                <div style="font-family:'Poppins',Arial,sans-serif;font-weight:800;font-size:15px;color:#6a9bcc;margin-bottom:4px;">Lovable &mdash; Annual Billing</div>
+                                <div style="font-family:'Poppins',Arial,sans-serif;font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--text-dim);margin-bottom:18px;">Source: lovable.dev/pricing &middot; Annual price not published on page; $250/yr figure from CheckThat.ai citing pricing page directly</div>
+
+                                <table class="maint-table" style="margin-top:0;">
+                                    <thead>
+                                        <tr>
+                                            <th>Plan</th>
+                                            <th>Monthly billing</th>
+                                            <th>Annual billing (per mo)</th>
+                                            <th>Annual total</th>
+                                            <th>Annual saving</th>
+                                            <th>Discount</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td style="font-family:'Poppins',Arial,sans-serif;font-weight:600;">Pro</td>
+                                            <td style="font-family:'Poppins',Arial,sans-serif;">$25/mo<br><span style="font-size:10px;color:var(--text-dim);">&asymp; &#8377;2,375/mo</span></td>
+                                            <td style="font-family:'Poppins',Arial,sans-serif;font-weight:700;color:var(--green);">$20.83/mo<br><span style="font-size:10px;color:var(--text-dim);">&asymp; &#8377;1,979/mo</span></td>
+                                            <td style="font-family:'Poppins',Arial,sans-serif;font-weight:700;">$250/yr<br><span style="font-size:10px;color:var(--text-dim);">&asymp; &#8377;23,750</span></td>
+                                            <td style="font-family:'Poppins',Arial,sans-serif;font-weight:700;color:var(--green);">$50/yr<br><span style="font-size:10px;color:var(--text-dim);">&asymp; &#8377;4,750 saved</span></td>
+                                            <td><span class="effort e-low">16% off</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-family:'Poppins',Arial,sans-serif;font-weight:600;">Business</td>
+                                            <td style="font-family:'Poppins',Arial,sans-serif;">$50/mo<br><span style="font-size:10px;color:var(--text-dim);">&asymp; &#8377;4,750/mo</span></td>
+                                            <td style="font-family:'Poppins',Arial,sans-serif;font-weight:700;color:var(--green);">~$41.67/mo<br><span style="font-size:10px;color:var(--text-dim);">&asymp; &#8377;3,958/mo (est.)</span></td>
+                                            <td style="font-family:'Poppins',Arial,sans-serif;font-weight:700;">~$500/yr<br><span style="font-size:10px;color:var(--text-dim);">&asymp; &#8377;47,500 (est.)</span></td>
+                                            <td style="font-family:'Poppins',Arial,sans-serif;font-weight:700;color:var(--green);">~$100/yr<br><span style="font-size:10px;color:var(--text-dim);">&asymp; &#8377;9,500 saved (est.)</span></td>
+                                            <td><span class="effort e-low">~16% off</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <div class="callout-orange" style="margin-top:16px;margin-bottom:0;">
+                                    <strong>Note on Lovable annual pricing:</strong> The official pricing page shows &ldquo;Annual &mdash; Contact admin&rdquo; for the per-month figure, without publishing it inline. The $250/year Pro rate is cited by CheckThat.ai from the pricing page. The Business annual rate is estimated at the same 16% discount; confirm via the admin contact flow before committing. Lovable does not currently offer annual billing via self-serve checkout for Pro &mdash; it routes through an admin contact.
+                                </div>
+                            </div>
+
+                            <!-- REPLIT ANNUAL -->
+                            <div class="inner-cell">
+                                <div style="font-family:'Poppins',Arial,sans-serif;font-weight:800;font-size:15px;color:#788c5d;margin-bottom:4px;">Replit &mdash; Annual Billing</div>
+                                <div style="font-family:'Poppins',Arial,sans-serif;font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--text-dim);margin-bottom:18px;">Source: replit.com/pricing &middot; Exact figures from live pricing page, June 2026</div>
+
+                                <table class="maint-table" style="margin-top:0;">
+                                    <thead>
+                                        <tr>
+                                            <th>Plan</th>
+                                            <th>Monthly billing</th>
+                                            <th>Annual billing (per mo)</th>
+                                            <th>Annual total</th>
+                                            <th>Annual saving</th>
+                                            <th>Discount</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td style="font-family:'Poppins',Arial,sans-serif;font-weight:600;">Core</td>
+                                            <td style="font-family:'Poppins',Arial,sans-serif;">$20/mo<br><span style="font-size:10px;color:var(--text-dim);">&asymp; &#8377;1,900/mo</span></td>
+                                            <td style="font-family:'Poppins',Arial,sans-serif;font-weight:700;color:var(--green);">$16/mo<br><span style="font-size:10px;color:var(--text-dim);">&asymp; &#8377;1,520/mo</span></td>
+                                            <td style="font-family:'Poppins',Arial,sans-serif;font-weight:700;">$192/yr<br><span style="font-size:10px;color:var(--text-dim);">&asymp; &#8377;18,240</span></td>
+                                            <td style="font-family:'Poppins',Arial,sans-serif;font-weight:700;color:var(--green);">$48/yr<br><span style="font-size:10px;color:var(--text-dim);">&asymp; &#8377;4,560 saved</span></td>
+                                            <td><span class="effort e-low">20% off</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td style="font-family:'Poppins',Arial,sans-serif;font-weight:600;">Pro</td>
+                                            <td style="font-family:'Poppins',Arial,sans-serif;">$100/mo<br><span style="font-size:10px;color:var(--text-dim);">&asymp; &#8377;9,500/mo</span></td>
+                                            <td style="font-family:'Poppins',Arial,sans-serif;font-weight:700;color:var(--green);">$95/mo<br><span style="font-size:10px;color:var(--text-dim);">&asymp; &#8377;9,025/mo</span></td>
+                                            <td style="font-family:'Poppins',Arial,sans-serif;font-weight:700;">$1,140/yr<br><span style="font-size:10px;color:var(--text-dim);">&asymp; &#8377;1,08,300</span></td>
+                                            <td style="font-family:'Poppins',Arial,sans-serif;font-weight:700;color:var(--green);">$60/yr<br><span style="font-size:10px;color:var(--text-dim);">&asymp; &#8377;5,700 saved</span></td>
+                                            <td><span class="effort e-low">5% off</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <div class="callout-orange" style="margin-top:16px;margin-bottom:0;">
+                                    <strong>Replit annual discount asymmetry:</strong> Core gets the better deal &mdash; 20% off vs only 5% off for Pro. At $1,140/year, Replit Pro annual saves just $60 and still carries unpredictable overage risk from the shared credit pool. The annual commitment locks you into a plan whose real monthly cost routinely exceeds the base fee. The savings do not offset that structural billing risk for Closed Fist.
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- FULL ANNUAL COMPARISON TABLE -->
+                        <h3 style="font-family:'Poppins',Arial,sans-serif;font-weight:700;font-size:16px;margin-top:32px;margin-bottom:16px;color:var(--text-primary);">Annual vs Monthly &mdash; Side-by-Side for Closed Fist Scenario</h3>
+                        <p class="sec-intro" style="margin-bottom:20px;">Platform subscription cost only. Excludes Supabase, Posthog, Cloudflare (all fixed or free regardless of billing cycle). INR at &#8377;95 mid-market, no forex markup applied &mdash; add 3% card fee and 18% IGST for true effective cost.</p>
+
+                        <table class="score-table">
+                            <thead>
+                                <tr>
+                                    <th>Stack</th>
+                                    <th>Plan used</th>
+                                    <th>Monthly billing (USD)</th>
+                                    <th>Annual billing (USD/mo)</th>
+                                    <th>Annual total (USD)</th>
+                                    <th>Annual total (INR &asymp;)</th>
+                                    <th>Monthly vs Annual saving/yr</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="font-weight:700;color:#6a9bcc;font-family:'Poppins',Arial,sans-serif;">Lovable</td>
+                                    <td>Pro</td>
+                                    <td>$25/mo &rarr; $300/yr</td>
+                                    <td style="color:var(--green);font-weight:600;">$20.83/mo</td>
+                                    <td style="font-weight:700;">$250/yr</td>
+                                    <td style="font-weight:700;">&asymp; &#8377;23,750</td>
+                                    <td style="color:var(--green);font-weight:700;">$50 saved &middot; &asymp; &#8377;4,750</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight:700;color:#788c5d;font-family:'Poppins',Arial,sans-serif;">Replit</td>
+                                    <td>Core (base only, no overages)</td>
+                                    <td>$20/mo &rarr; $240/yr</td>
+                                    <td style="color:var(--green);font-weight:600;">$16/mo</td>
+                                    <td style="font-weight:700;">$192/yr</td>
+                                    <td style="font-weight:700;">&asymp; &#8377;18,240</td>
+                                    <td style="color:var(--green);font-weight:700;">$48 saved &middot; &asymp; &#8377;4,560</td>
+                                </tr>
+                                <tr style="background:var(--bad-bg);">
+                                    <td style="font-weight:700;color:#788c5d;font-family:'Poppins',Arial,sans-serif;">Replit</td>
+                                    <td>Core (realistic incl. overages)</td>
+                                    <td>$55&ndash;100/mo &rarr; $660&ndash;1,200/yr</td>
+                                    <td style="color:var(--bad-text);font-weight:600;font-size:11px;">Annual locks base only; overages still billed monthly on top</td>
+                                    <td style="font-weight:700;color:var(--bad-text);">$192 + overages</td>
+                                    <td style="font-weight:700;color:var(--bad-text);">&asymp; &#8377;18,240 + unknown</td>
+                                    <td style="color:var(--bad-text);font-weight:700;font-size:11px;">Annual plan does not cap overage spend</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight:700;color:#d97757;font-family:'Poppins',Arial,sans-serif;">Independent Stack</td>
+                                    <td>CF Pages free + Supabase Pro + Cursor Pro</td>
+                                    <td>$45/mo &rarr; $540/yr</td>
+                                    <td style="color:var(--text-dim);font-size:11px;">No annual discount on any component</td>
+                                    <td style="font-weight:700;">$540/yr</td>
+                                    <td style="font-weight:700;">&asymp; &#8377;51,300</td>
+                                    <td style="color:var(--text-dim);font-size:11px;">$0 &mdash; no annual tier available</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight:700;color:#d97757;font-family:'Poppins',Arial,sans-serif;">Independent Stack</td>
+                                    <td>CF Pages free + Supabase Pro (no Cursor)</td>
+                                    <td>$25/mo &rarr; $300/yr</td>
+                                    <td style="color:var(--text-dim);font-size:11px;">No annual discount</td>
+                                    <td style="font-weight:700;">$300/yr</td>
+                                    <td style="font-weight:700;">&asymp; &#8377;28,500</td>
+                                    <td style="color:var(--text-dim);font-size:11px;">$0 &mdash; no annual tier available</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="callout-blue" style="margin-top:20px;">
+                            <strong>Annual billing verdict:</strong> Lovable Pro annual at $250/year (&asymp; &#8377;23,750) is the lowest committed cost for an active build phase &mdash; $50/year cheaper than monthly. Commit to annual only after the MVP is validated and you are confident in 12 months of continued Lovable usage. Replit Core annual at $192/year saves $48 on the base subscription but does not cap overage billing &mdash; the annual discount is a headline saving, not a cost ceiling.
+                        </div>
+                    </section>
+
+                    <!-- SECTION 7: FREE VS PAID RUNNING COSTS -->
+                    <section id="pccs-section-07">
+                        <div class="sec-label">Section 07</div>
+                        <h2 class="sec-title">Free Plan vs Cheapest Paid Plan &mdash; Running Cost Only</h2>
+                        <p class="sec-intro">This section separates <em>running cost</em> (keeping a deployed app live and serving users) from <em>building cost</em> (AI credits consumed during development). The question: what is the minimum you can pay to keep an existing backend app online?</p>
+
+                        <!-- LOVABLE -->
+                        <div style="margin-top:28px;">
+                            <div style="background:var(--surface);border:1px solid var(--border);">
+                                <div style="padding:28px;">
+                                    <div style="font-family:'Poppins',Arial,sans-serif;font-weight:800;font-size:17px;color:#6a9bcc;margin-bottom:4px;">Lovable</div>
+                                    <div style="font-family:'Poppins',Arial,sans-serif;font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--text-dim);margin-bottom:20px;">Sources: lovable.dev/faq/credits/management/downgrade-site-credits &middot; lovable.dev/faq/billing/change-plan &middot; lovable.dev/terms &middot; lovable.dev/faq/domains/troubleshooting/custom-domain-paid-plan &middot; lovable.dev/supabase-integration</div>
+
+                                    <div class="inner-grid-2">
+                                        <div style="background:var(--ok-bg);padding:20px;">
+                                            <div style="font-family:'Poppins',Arial,sans-serif;font-weight:700;font-size:13px;color:var(--ok-text);margin-bottom:12px;">Free Plan &mdash; Running Cost: $0/mo</div>
+                                            <ul class="feature-list">
+                                                <li><strong>App stays live:</strong> Deployed apps on <code>*.lovable.app</code> subdomains remain live indefinitely after downgrade. No 30-day expiry.</li>
+                                                <li><strong>Backend continues:</strong> The Lovable-managed Supabase instance keeps running &mdash; DB and auth remain active for existing users.</li>
+                                                <li><strong>Building still possible:</strong> 5 daily credits (30/month cap) allow minor edits and re-publishes.</li>
+                                                <li><strong>Custom domain lost:</strong> Custom domains require a paid plan. The app remains accessible only on its <code>*.lovable.app</code> subdomain.</li>
+                                                <li><strong>Projects become public:</strong> Private projects revert to public visibility &mdash; a meaningful concern for apps handling user data.</li>
+                                                <li><strong>Subdomain not guaranteed:</strong> Lovable&rsquo;s terms explicitly state no ongoing rights to any subdomain; Lovable can reclaim it without notice for policy or security reasons. Their guidance: use custom domains for any app that matters.</li>
+                                                <li><strong>Supabase ownership opaque:</strong> The Lovable-managed Supabase instance does not appear in your own Supabase dashboard. Lovable controls it. If Lovable changes its free tier backend policy, you have no direct access to migrate the data.</li>
+                                            </ul>
+                                        </div>
+
+                                        <div style="background:var(--surface);padding:20px;">
+                                            <div style="font-family:'Poppins',Arial,sans-serif;font-weight:700;font-size:13px;color:var(--text-primary);margin-bottom:12px;">Cheapest Paid Plan (Pro) &mdash; Running Cost: $25/mo</div>
+                                            <ul class="feature-list">
+                                                <li><strong>Custom domain stays live:</strong> <code>yourdomain.com</code> continues to resolve. SSL managed by Lovable.</li>
+                                                <li><strong>Projects stay private:</strong> Source code and data not publicly visible.</li>
+                                                <li><strong>Security Checker:</strong> SAST, SCA, and RLS scans run on every publish.</li>
+                                                <li><strong>100 credits/month</strong> for AI-assisted changes. Visual edits (colour, layout, text) consume zero credits.</li>
+                                                <li><strong>Managed Supabase remains included</strong> &mdash; no separate Supabase subscription needed for apps within free tier limits (500 MB DB, 50K MAU).</li>
+                                                <li><strong>No deployment separate from subscription:</strong> $25/mo is the flat all-in cost. No credit-pool surprises for running costs.</li>
+                                            </ul>
+                                            <div style="margin-top:14px;font-family:'Poppins',Arial,sans-serif;font-weight:700;font-size:16px;color:var(--orange);">$25/mo &middot; &asymp; &#8377;2,800 effective (card + IGST)</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="callout-orange" style="margin-top:0;margin-bottom:0;">
+                                        <strong>Key insight:</strong> Lovable&rsquo;s free plan is viable for keeping a low-traffic app alive on a subdomain &mdash; but the subdomain is not contractually guaranteed, projects become public, and the backend is a black box you don&rsquo;t own. For any app with real users, the $25/mo Pro plan is the minimum responsible running cost on Lovable.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- REPLIT -->
+                        <div style="margin-top:1px;">
+                            <div style="background:var(--surface);border:1px solid var(--border);">
+                                <div style="padding:28px;">
+                                    <div style="font-family:'Poppins',Arial,sans-serif;font-weight:800;font-size:17px;color:#788c5d;margin-bottom:4px;">Replit</div>
+                                    <div style="font-family:'Poppins',Arial,sans-serif;font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--text-dim);margin-bottom:20px;">Sources: docs.replit.com/billing/plans/starter-plan &middot; docs.replit.com/billing/deployment-pricing &middot; docs.replit.com/billing/about-usage-based-billing &middot; replit.discourse.group (payment failure incident, Feb 2025)</div>
+
+                                    <div class="inner-grid-2">
+                                        <div style="background:var(--bad-bg);padding:20px;">
+                                            <div style="font-family:'Poppins',Arial,sans-serif;font-weight:700;font-size:13px;color:var(--bad-text);margin-bottom:12px;">Free (Starter) Plan &mdash; Backend Apps Cannot Run</div>
+                                            <ul class="feature-list">
+                                                <li><strong>Static sites only:</strong> The Starter plan supports one published static site with a 1 GiB outbound data transfer limit. Autoscale, Reserved VM, and Scheduled Deployments all require Core or above.</li>
+                                                <li><strong>30-day expiry:</strong> The one free published app goes offline automatically after 30 days. It can be manually re-published, but this is not a persistent deployment.</li>
+                                                <li><strong>Backend apps cannot run:</strong> Any app with a database, API routes, or server-side logic requires Core. A backend app on Starter is non-functional for users.</li>
+                                                <li><strong>No custom domain:</strong> Custom domains require Core.</li>
+                                                <li><strong>No always-on guarantee:</strong> Even static sites on Starter are subject to the 30-day expiry and 1 GiB transfer cap.</li>
+                                            </ul>
+                                            <div class="callout-orange" style="margin-top:14px;margin-bottom:0;font-size:11px;">
+                                                The Starter plan cannot keep a backend web app running. For any app beyond a static HTML page, the free plan is not a viable running option.
+                                            </div>
+                                        </div>
+
+                                        <div style="background:var(--surface);padding:20px;">
+                                            <div style="font-family:'Poppins',Arial,sans-serif;font-weight:700;font-size:13px;color:var(--text-primary);margin-bottom:12px;">Cheapest Paid Plan (Core) &mdash; Running Cost: $20/mo + deployment</div>
+                                            <ul class="feature-list">
+                                                <li><strong>Subscription:</strong> $20/mo (or $16/mo billed annually). Includes $25 of monthly credits shared across AI Agent, deployment, DB compute, and data transfer.</li>
+                                                <li><strong>Autoscale deployment</strong> (pay-per-request, scales to zero when idle): near-zero cost for light traffic, but cold starts of 20&ndash;40 seconds after idle periods &mdash; the app appears broken to first-time users hitting it after inactivity.</li>
+                                                <li><strong>Reserved VM</strong> (always-on): cheapest tier starts at ~$6/mo drawn from the credit pool. No cold starts. Reliable for production. But this is on top of the $20 subscription.</li>
+                                                <li><strong>Deployment cost is separate from subscription:</strong> The $20 Core fee is not the total running cost. Deployment, DB compute, and data transfer all draw from the same $25 credit pool.</li>
+                                                <li><strong>Credit exhaustion takes the app offline:</strong> When the shared credit pool runs dry mid-month, running deployments can stop. One documented case: a declined card took a deployment offline for several hours and resulted in data loss.</li>
+                                                <li><strong>No SAST, no per-endpoint WAF:</strong> Platform-level DDoS protection exists, but no code-level security scanning and no per-route rate limiting on Core.</li>
+                                            </ul>
+                                            <div style="margin-top:14px;">
+                                                <div style="font-family:'Poppins',Arial,sans-serif;font-weight:700;font-size:16px;color:var(--orange);">$20/mo subscription + $6&ndash;20/mo deployment</div>
+                                                <div style="font-family:'Poppins',Arial,sans-serif;font-size:11px;color:var(--text-dim);margin-top:4px;">Realistic minimum: $26&ndash;30/mo for a low-traffic backend app on Reserved VM</div>
+                                                <div style="font-family:'Poppins',Arial,sans-serif;font-size:11px;color:var(--text-dim);">&asymp; &#8377;2,900&ndash;3,350 at mid-market &middot; effective with card + IGST: &asymp; &#8377;3,500&ndash;4,050</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="callout-orange" style="margin-top:0;margin-bottom:0;">
+                                        <strong>Key insight:</strong> The headline $20/mo Core figure is misleading as a running cost. A backend app on Replit Core realistically costs $26&ndash;30/mo at minimum (Reserved VM for reliability), and the shared credit pool means the subscription fee and deployment cost compete for the same budget. Autoscale is cheaper on paper but introduces cold-start latency that degrades user experience on low-traffic apps.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- COMPARISON TABLE -->
+                        <h3 style="font-family:'Poppins',Arial,sans-serif;font-weight:700;font-size:16px;margin-top:32px;margin-bottom:16px;">Running Cost Summary</h3>
+
+                        <table class="score-table" style="margin-top:0;">
+                            <thead>
+                                <tr>
+                                    <th>Platform</th>
+                                    <th>Free plan &mdash; can app run?</th>
+                                    <th>Free plan &mdash; backend works?</th>
+                                    <th>Free plan &mdash; custom domain?</th>
+                                    <th>Free plan risks</th>
+                                    <th>Cheapest paid running cost (USD)</th>
+                                    <th>Effective INR (card + IGST)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="font-weight:700;color:#6a9bcc;font-family:'Poppins',Arial,sans-serif;">Lovable Free</td>
+                                    <td style="color:var(--ok-text);font-weight:600;">Yes &mdash; subdomain stays live</td>
+                                    <td style="color:var(--ok-text);font-weight:600;">Yes &mdash; Lovable-managed Supabase continues</td>
+                                    <td style="color:var(--bad-text);font-weight:600;">No &mdash; paid plan required</td>
+                                    <td style="font-size:11px;color:var(--text-body);">Projects become public. Subdomain not contractually guaranteed. Backend ownership opaque.</td>
+                                    <td style="font-weight:700;">$25/mo flat</td>
+                                    <td style="font-weight:700;">&asymp; &#8377;2,800/mo</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight:700;color:#788c5d;font-family:'Poppins',Arial,sans-serif;">Replit Starter</td>
+                                    <td style="color:var(--bad-text);font-weight:600;">Static only &mdash; expires in 30 days</td>
+                                    <td style="color:var(--bad-text);font-weight:600;">No &mdash; requires Core plan</td>
+                                    <td style="color:var(--bad-text);font-weight:600;">No &mdash; requires Core plan</td>
+                                    <td style="font-size:11px;color:var(--text-body);">30-day expiry. Credit exhaustion takes app offline. Payment failure = immediate downtime.</td>
+                                    <td style="font-weight:700;">$20/mo + $6&ndash;20 deployment</td>
+                                    <td style="font-weight:700;">&asymp; &#8377;3,500&ndash;4,050/mo</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight:700;color:#d97757;font-family:'Poppins',Arial,sans-serif;">Independent Stack</td>
+                                    <td style="color:var(--ok-text);font-weight:600;">Yes &mdash; CF Pages free tier</td>
+                                    <td style="color:var(--ok-text);font-weight:600;">Yes &mdash; Supabase free tier (500MB, 50K MAU)</td>
+                                    <td style="color:var(--ok-text);font-weight:600;">Yes &mdash; CF Pages includes custom domain</td>
+                                    <td style="font-size:11px;color:var(--text-body);">Supabase free projects pause after 7 days of inactivity. Requires manual pipeline setup.</td>
+                                    <td style="font-weight:700;">$0 (free tiers only) or $25/mo Supabase Pro</td>
+                                    <td style="font-weight:700;">$0 or &asymp; &#8377;2,800/mo</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="callout-blue" style="margin-top:20px;">
+                            <strong>The independent stack is the only option where a backend app can run at zero cost</strong> &mdash; Cloudflare Pages free tier + Supabase free tier (500 MB DB, 50K MAU) covers a low-traffic app with no monthly fee. The constraint is Supabase&rsquo;s 7-day inactivity pause on free projects: a project with no database activity for 7 days gets paused and requires a manual wake-up ping. For any app with regular users this is not a practical concern, but for early-stage apps with sporadic traffic it is a real availability risk.
+                        </div>
+                    </section>
+
+                    <!-- FOOTNOTES -->
+                    <div class="footnote" id="pccs-footnotes">
+                        <strong>Data sources</strong> &mdash; primary sources listed first, followed by secondary sources that cite them.<br><br>
+
+                        <strong>Lovable</strong><br>
+                        <a href="https://lovable.dev/security">lovable.dev/security</a> &mdash; WAF, network isolation, Security Checker 2.0, SOC 2 Type II and ISO 27001:2022 certifications (primary) &middot;
+                        <a href="https://docs.lovable.dev/integrations/supabase">docs.lovable.dev/integrations/supabase</a> &mdash; Supabase as native managed backend (primary) &middot;
+                        <a href="https://lovable.dev/blog/a-founders-guide-to-lovable-security">lovable.dev/blog/a-founders-guide-to-lovable-security</a> &mdash; SOC 2, ISO 27001, GDPR DPA, audit-ready report detail (primary) &middot;
+                        <a href="https://alternativeto.net/news/2025/8/lovable-launches-security-checker-2-0-with-real-time-ai-risk-detection">alternativeto.net &mdash; Security Checker 2.0 launch, SOC 2 Type II Aug 2025</a> (secondary)<br><br>
+
+                        <strong>Replit</strong><br>
+                        <a href="https://www.baytechconsulting.com/blog/replit-an-analysis-of-the-ai-powered-cloud-development-platform">baytechconsulting.com &mdash; Replit platform security analysis: WAF, SOC 2, RBAC, SSO</a> (primary analysis) &middot;
+                        <a href="https://alternativeto.net/news/2026/2/replit-restructures-plans-with-lower-core-pricing-and-launches-pro-for-advanced-teams">alternativeto.net &mdash; Replit Core/Pro pricing restructuring, Feb 2026</a> (primary announcement) &middot;
+                        <a href="https://vibe-eval.com/safety/replit/">vibe-eval.com &mdash; Replit deployment security: HTTPS, DDoS, no per-endpoint WAF</a> (primary audit)<br><br>
+
+                        <strong>Supabase</strong><br>
+                        <a href="https://www.metacto.com/blogs/the-true-cost-of-supabase-a-comprehensive-guide-to-pricing-integration-and-maintenance">metacto.com &mdash; Supabase pricing deep-dive: Pro plan, compute tiers, egress, verified May 2026</a> (secondary citing official docs) &middot;
+                        <a href="https://toolradar.com/blog/supabase-pricing-2026">toolradar.com &mdash; Supabase vs Firebase vs Neon: cost at scale analysis</a> (secondary)<br><br>
+
+                        <strong>Posthog</strong><br>
+                        <a href="https://www.usercall.co/post/posthog-pricing">usercall.co &mdash; Posthog free tier limits verified May 2026: 1M events, 5K recordings, feature flags</a> (secondary citing posthog.com/pricing)<br><br>
+
+                        <strong>Downgrade Behaviour and Free Plan Running Costs</strong><br>
+                        <a href="https://lovable.dev/faq/credits/management/downgrade-site-credits">lovable.dev/faq/credits/management/downgrade-site-credits</a> &mdash; published sites stay active on free plan (primary) &middot;
+                        <a href="https://lovable.dev/terms">lovable.dev/terms</a> &mdash; no ongoing rights to subdomains; custom domains advised for mission-critical apps (primary) &middot;
+                        <a href="https://docs.replit.com/billing/plans/starter-plan">docs.replit.com/billing/plans/starter-plan</a> &mdash; one free published app, expires after 30 days; Autoscale and Reserved VM require Core (primary) &middot;
+                        <a href="https://docs.replit.com/billing/deployment-pricing">docs.replit.com/billing/deployment-pricing</a> &mdash; all publishing costs deducted from monthly credits (primary) &middot;
+                        <a href="https://replit.discourse.group/t/data-is-gone-replit-deployment-to-go-offline/3785">replit.discourse.group &mdash; payment failure caused deployment to go offline; data lost</a> (primary community report, Feb 2025)<br><br>
+
+                        <strong>Annual Plan Pricing</strong><br>
+                        <a href="https://replit.com/pricing">replit.com/pricing</a> &mdash; Core $16/mo annual ($192/yr, 20% off); Pro $95/mo annual ($1,140/yr, 5% off) &mdash; exact figures from live pricing page, June 2026 (primary) &middot;
+                        <a href="https://lovable.dev/pricing">lovable.dev/pricing</a> &mdash; Pro $25/mo monthly; annual rate shows &ldquo;Contact admin&rdquo; inline; $250/yr ($20.83/mo, 16% off) cited by CheckThat.ai (primary) &middot;
+                        <a href="https://checkthat.ai/brands/lovable/pricing">checkthat.ai/brands/lovable/pricing</a> &mdash; $250/year Pro plan, 16% annual discount, verified March 2026 (secondary)<br><br>
+
+                        <strong>USD/INR Forex</strong><br>
+                        <a href="https://www.mtfxgroup.com/tools/historical-currency-exchange-rates/usd-to-inr-rate/">mtfxgroup.com &mdash; USD/INR daily rates May 20&ndash;29 2026: &#8377;94.95&ndash;96.57</a> (primary data) &middot;
+                        <a href="https://tradingeconomics.com/india/currency">tradingeconomics.com &mdash; USD/INR spot rate and RBI commentary, May&ndash;June 2026</a> (primary data)<br><br>
+
+                        All INR conversions at &#8377;95 mid-market. Card markup assumed 3%; IGST 18% on all OIDAR-classified services. GST-registered businesses recover IGST as Input Tax Credit (ITC). Platform prices subject to change &mdash; factor a 20% buffer into annual planning.
+                    </div>
+
+                </div><!-- /.pccs -->
+            </main>
+        </div><!-- /.blog-container -->
+
+        <!-- Footer -->
+        <div id="footer-container"></div>
+    </div>
+
+    <!-- Portfolio Data & Scripts -->
+    <script src="../assets/js/portfolio_data.js"></script>
+    <script src="../assets/js/navigation.js"></script>
+    <script src="../assets/js/shared-components.js"></script>
+    <script src="../assets/js/enhanced-search.js"></script>
+    <script src="../assets/js/search-ui.js"></script>
+    <script src="../assets/js/scroll-to-content.js"></script>
+    <script src="../assets/js/theme-manager.js"></script>
+</body>
+</html>

@@ -684,6 +684,16 @@ const portfolioData = {
     // Blog Posts Data
     blogs: [
         {
+            id: 'closedfist-platform-cost-study',
+            title: 'Vibe Coding Platform Cost Study 2026 — Lovable vs Replit vs Independent Stack',
+            excerpt: 'A comparative study of Lovable, Replit, and an independent stack for Indian indie developers — evaluated on native capabilities for database, auth, security, and analytics. Includes full cost modelling with INR forex, IGST impact, maintenance effort, and free-plan running cost analysis using Closed Fist (an AI subscription tracker) as the reference app.',
+            date: '2026-06-05',
+            category: 'AI Development',
+            readTime: '20 min read',
+            slug: 'closedfist-platform-cost-study',
+            featured: true
+        },
+        {
             id: 'openclaw-amd-cloud',
             title: 'How I Deployed OpenClaw in the Cloud',
             excerpt: 'I wanted to experiment with OpenClaw but didn\'t want to install it locally. When I received AMD Developer Cloud credits with ROCm GPU access, I deployed it there — and used Claude Code to debug the tricky parts.',
