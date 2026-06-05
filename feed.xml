@@ -5,9 +5,17 @@
     <link>https://www.vmugdha.in/blog/blog.html</link>
     <description>AI development, technical writing, and community building by Mugdha Vairagade</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 23 Apr 2026 11:53:15 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 05 Jun 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://www.vmugdha.in/feed.xml" rel="self" type="application/rss+xml"/>
 
+  <item>
+    <title>What It Costs to Keep Apps Running in Vibe Coding Platforms</title>
+    <link>https://www.vmugdha.in/blog/closedfist-platform-cost-study.html</link>
+    <description>A comparative study of Lovable, Replit, and an independent stack (Cloudflare Pages + Supabase + Posthog) for Indian indie developers — evaluating native capabilities for database, auth, security, and analytics, with full cost modelling in USD and INR including IGST impact, maintenance effort comparison, and free-plan viability analysis. Reference app: Closed Fist, an AI subscription tracker.</description>
+    <pubDate>Fri, 05 Jun 2026 00:00:00 GMT</pubDate>
+    <category>AI Development</category>
+    <guid isPermaLink="true">https://www.vmugdha.in/blog/closedfist-platform-cost-study.html</guid>
+  </item>
   <item>
     <title>How I Deployed OpenClaw in the Cloud</title>
     <link>https://www.vmugdha.in/blog/openclaw-amd-cloud.html</link>

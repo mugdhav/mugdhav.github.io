@@ -4,7 +4,7 @@
     "url": "https://www.vmugdha.in",
     "owner": "Mugdha Vairagade",
     "profession": "Technical Writer, AI Developer, Developer Relations, Event Organizer",
-    "lastUpdated": "2026-05-07",
+    "lastUpdated": "2026-06-05",
     "description": "Portfolio showcasing technical writing, AI development projects, and Developer Relations events and outreach by Mugdha Vairagade."
   },
   "contactInfo": {
@@ -125,6 +125,15 @@
       }
     ],
     "blogPosts": [
+      {
+        "title": "What It Costs to Keep Apps Running in Vibe Coding Platforms",
+        "path": "/blog/closedfist-platform-cost-study.html",
+        "date": "2026-06-05",
+        "category": "AI Development",
+        "readTime": "20 min read",
+        "topics": ["Lovable", "Replit", "Supabase", "Cloudflare Pages", "vibe coding", "platform cost", "Indian developer", "INR", "IGST", "forex", "indie developer", "SaaS cost", "Posthog", "Closed Fist"],
+        "description": "Comparative study of Lovable, Replit, and an independent stack for Indian indie developers — evaluating native capabilities (database, auth, security, analytics), monthly running cost in USD and INR with IGST and forex impact, maintenance effort, annual plan savings, and free-plan viability. Reference app: Closed Fist, an AI subscription tracker."
+      },
       {
         "title": "How I Added Performance Monitoring to My MCP Server with AppSignal",
         "path": "/articles/appsignal-mcp-monitoring.html",
