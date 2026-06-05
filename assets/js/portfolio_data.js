@@ -685,7 +685,7 @@ const portfolioData = {
     blogs: [
         {
             id: 'closedfist-platform-cost-study',
-            title: 'What It Costs to Keep Apps Running in Vibe Coding Platforms',
+            title: 'What It Costs to Keep Apps Running on Vibe Coding Platforms',
             excerpt: 'A comparative study of <a href="https://lovable.dev" target="_blank" rel="noopener">Lovable</a>, <a href="https://replit.com" target="_blank" rel="noopener">Replit</a>, and an independent stack for Indian indie developers — evaluated on native capabilities for database, auth, security, and analytics. Includes full cost modelling with INR forex, IGST impact, maintenance effort, and free-plan running cost analysis using Closed Fist (an AI subscription tracker) as the reference app.',
             date: '2026-06-05',
             category: 'AI Development',
