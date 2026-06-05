@@ -87,6 +87,56 @@
             font-weight: 300;
         }
 
+        /* Channel credit */
+        .channel-credit {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .channel-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+            vertical-align: middle;
+        }
+
+        .channel-more {
+            text-align: center;
+            margin-top: 2.5rem;
+            font-size: 1rem;
+            color: var(--secondary-text-color);
+        }
+
+        .channel-more a {
+            color: var(--primary-color);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .channel-more a:hover {
+            text-decoration: underline;
+        }
+
+        .channel-credit a {
+            color: var(--primary-color);
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .channel-credit a:hover {
+            text-decoration: underline;
+        }
+
         /* Content Section */
         .content-section {
             padding: 4rem 5%;
@@ -252,7 +302,7 @@
             border-radius: 12px;
             font-size: 0.72rem;
             font-weight: 700;
-            text-transform: uppercase;
+            text-transform: none;
             letter-spacing: 0.04em;
             margin-bottom: 0.5rem;
         }
@@ -319,12 +369,16 @@
     <main role="main">
         <section class="content-section">
 
+            <p class="channel-credit">Featured Videos from YouTube Channel <img src="../assets/favicon/vmugdha_logo13kx13k64x64.ico" alt="Mugdha Simplifies Tech channel icon" class="channel-icon"> <a href="https://www.youtube.com/channel/UC1dVWkaZfWdsXqLb79-kKYQ" target="_blank" rel="noopener noreferrer">Mugdha Simplifies Tech</a></p>
+
             <div class="search-container">
                 <div class="filter-buttons">
                     <button class="filter-btn active" data-filter="all">All</button>
                     <button class="filter-btn" data-filter="Demo">Demo</button>
                     <button class="filter-btn" data-filter="Tutorial">Tutorial</button>
+                    <button class="filter-btn" data-filter="How-To">How-To</button>
                     <button class="filter-btn" data-filter="Short">Short</button>
+                    <button class="filter-btn" data-filter="Tech Event">Tech Event</button>
                 </div>
             </div>
 
@@ -339,6 +393,8 @@
                 <h3>No Videos Found</h3>
                 <p>Try a different filter.</p>
             </div>
+
+            <p class="channel-more">For more videos on AI and other Tech topics, visit YouTube Channel <img src="../assets/favicon/vmugdha_logo13kx13k64x64.ico" alt="Mugdha Simplifies Tech channel icon" class="channel-icon"> <a href="https://www.youtube.com/channel/UC1dVWkaZfWdsXqLb79-kKYQ" target="_blank" rel="noopener noreferrer">Mugdha Simplifies Tech &rsaquo;</a></p>
 
         </section>
     </main>

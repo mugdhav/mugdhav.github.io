@@ -371,6 +371,7 @@ const portfolioData = {
             description: 'A late-night virtual meetup for women builders — the inaugural Nightbuild. Small-group show-and-tell covering real apps built with Lovable, then diving deep into Claude Code, Zod-enforced input validation, RLS policies, Zero-Trust architecture, Hugging Face deployments, and DevOps principles drawn from production BFSI systems. Topics ranged from debugging authentication flows and preventing app misuse, to getting vibe-coded apps out of platform ecosystems and into production infrastructure.',
             icon: 'fas fa-moon',
             learnMoreLink: 'https://www.linkedin.com/posts/mugdhav_nightbuilds-womenbuildtogether-womenintech-activity-7448635128727265280-RkZF?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAD-ScYBeGEIIwA1VXFPoj__sofFCBEqfL8',
+            videoLink: 'https://youtu.be/7Dzcf37EaSo',
             searchTerms: 'Nightbuild Women Build Together women in tech April 2026 virtual Lovable Claude Code Zod RLS Zero-Trust Hugging Face DevOps BFSI app security vibe coding'
         },
         // Nightbuild #2 - Small Models (Past)
@@ -387,6 +388,7 @@ const portfolioData = {
             description: 'A deep-dive into practical, real-world small-model workflows. Featuring live demos by a senior expert, plus a walkthrough of OpenClaw for personal AI use cases. Limited seats — approval required.',
             icon: 'fas fa-moon',
             learnMoreLink: 'https://www.linkedin.com/posts/mugdhav_localai-smallmodels-slm-share-7453819664675201024-98zp?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAD-ScYBeGEIIwA1VXFPoj__sofFCBEqfL8',
+            videoLink: 'https://youtu.be/G_NIngBt4ok',
             searchTerms: 'Nightbuild small models personal AI OpenClaw live demo real-world workflows privacy virtual'
         },
         // Build and Share - AI Study Group Pune (Past)
@@ -784,12 +786,30 @@ const portfolioData = {
     // category: Demo | Tutorial | Talk | Short
     videos: [
         {
+            id: 'alekh-pdf-editor-demo',
+            videoId: 'ztOwWJNvc98',
+            title: 'Alekh PDF Editor Demo',
+            description: 'Demo of Alekh, a PDF editor tool — walkthrough of its key features and use cases.',
+            date: '2026',
+            category: 'Demo',
+            searchTerms: 'alekh pdf editor demo tool'
+        },
+        {
+            id: 'closed-fist-onboarding',
+            videoId: 'dEHwefODXio',
+            title: 'Closed Fist Onboarding - Create Account, Add AI Subscriptions',
+            description: 'Step-by-step onboarding walkthrough for Closed Fist — creating an account and adding AI subscriptions.',
+            date: '2026',
+            category: 'Demo',
+            searchTerms: 'closed fist onboarding account ai subscriptions demo'
+        },
+        {
             id: 'nightbuild-2-small-models',
             videoId: 'G_NIngBt4ok',
             title: 'NightBuild #2 — Small Models',
             description: 'Live virtual deep-dive into practical small-model workflows, featuring demos and an OpenClaw walkthrough for personal AI use cases.',
             date: 'April 2026',
-            category: 'Demo',
+            category: 'Tech Event',
             searchTerms: 'nightbuild small models localai slm openclaw demo'
         },
         {
@@ -798,7 +818,7 @@ const portfolioData = {
             title: 'Lovable Settings',
             description: 'Walkthrough of key Lovable settings and configuration for building and publishing AI-powered apps.',
             date: '2026',
-            category: 'Tutorial',
+            category: 'How-To',
             searchTerms: 'lovable settings tutorial configuration app builder'
         },
         {
