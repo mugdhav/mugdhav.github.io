@@ -359,6 +359,22 @@ const portfolioData = {
     //     searchTerms: 'searchable keywords...'     // Space-separated keywords for search
     // }
     events: [
+        // Pie & AI Pune: NightBuild#3 - Harness and Loop Engineering
+        {
+            id: 'pie-ai-pune-nightbuild-3-harness-loop',
+            title: 'Pie & AI Pune: NightBuild#3 — Harness and Loop Engineering',
+            status: 'coming-soon',
+            statusLabel: 'Upcoming',
+            startDate: '2026-07-03T21:30:00+05:30',
+            endDate: '2026-07-03T23:30:00+05:30',
+            date: 'July 3, 2026, 9:30 PM – 11:30 PM IST',
+            location: 'Virtual Event',
+            organization: 'Pie & AI Community by DeepLearning.AI',
+            description: 'Virtual exploration of Harness and Loop Engineering for seasoned AI practitioners. Explore what Harness and Loop Engineering are, where they are useful, and how to use them in your work. Build your own harness and loop and share live. Open discussion: ask questions, swap ideas, and connect with fellow practitioners.',
+            icon: 'fas fa-moon',
+            registerLink: 'https://luma.com/acnls6bc',
+            searchTerms: 'Pie AI Pune NightBuild harness loop engineering AI practitioners virtual July 2026 DeepLearning.AI Claude Code'
+        },
         // Nightbuild #1 - Women Build Together
         {
             id: 'nightbuild-1-women-build-together',
