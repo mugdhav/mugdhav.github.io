@@ -51,8 +51,8 @@ function renderHeader(options = {}) {
         return `<li><a href="${adjustedHref}">${item.text}</a></li>`;
     }).join('');
 
-    // Theme style switcher (Jazzy vs Calm)
-    const themeStyleToggle = `
+    // Theme style switcher (Jazzy vs Calm) — hidden; Calm is the only active theme
+    /* const themeStyleToggle = `
         <div class="theme-style-toggle" role="group" aria-label="Theme style selection">
             <button class="theme-option jazzy-option"
                     onclick="switchThemeStyle('jazzy')"
@@ -67,7 +67,8 @@ function renderHeader(options = {}) {
                 <img src="${assetPath}images/icons/CalmIcon.png" alt="Calm" class="theme-icon-img"> Calm
             </button>
         </div>
-    `;
+    `; */
+    const themeStyleToggle = '';
 
     // Search input field (visible on all pages by default)
     const searchField = showSearch ? `

@@ -271,8 +271,8 @@ footer {
         gap: 0.5rem;
     }
 
-    /* Hide theme toggle and search on mobile */
-    .theme-style-toggle,
+    /* Hide search on mobile; theme toggle already removed from DOM */
+    /* .theme-style-toggle, */
     .header-search-container {
         display: none;
     }

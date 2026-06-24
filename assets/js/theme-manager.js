@@ -17,8 +17,8 @@
         // Set dynamic footer year
         updateFooterYear();
 
-        // Load saved theme style (default: calm)
-        const savedThemeStyle = localStorage.getItem('themeStyle') || 'calm';
+        // Jazzy theme hidden — always apply calm regardless of any saved preference
+        const savedThemeStyle = 'calm';
         applyThemeStyle(savedThemeStyle);
 
         // Wait for DOM to load before updating buttons
@@ -93,11 +93,12 @@
     /**
      * Toggle between themes
      */
-    window.toggleThemeStyle = function() {
+    // toggleThemeStyle disabled — Jazzy theme hidden; toggle has no alternate theme to switch to
+    /* window.toggleThemeStyle = function() {
         const currentTheme = getCurrentThemeStyle();
         const newTheme = currentTheme === 'jazzy' ? 'calm' : 'jazzy';
         switchThemeStyle(newTheme);
-    };
+    }; */
 
     // ============================================
     // FOOTER YEAR
@@ -142,11 +143,11 @@
      * @param {KeyboardEvent} e - Keyboard event
      */
     function handleKeyboardShortcuts(e) {
-        // Ctrl+J or Cmd+J: Switch to Jazzy theme
-        if ((e.ctrlKey || e.metaKey) && e.key === 'j') {
+        // Ctrl+J or Cmd+J: Switch to Jazzy theme — disabled (Jazzy theme hidden)
+        /* if ((e.ctrlKey || e.metaKey) && e.key === 'j') {
             e.preventDefault();
             switchThemeStyle('jazzy');
-        }
+        } */
 
         // Ctrl+K or Cmd+K: Switch to Calm theme
         if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
@@ -154,11 +155,11 @@
             switchThemeStyle('calm');
         }
 
-        // Ctrl+Shift+T or Cmd+Shift+T: Toggle theme
-        if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'T') {
+        // Ctrl+Shift+T or Cmd+Shift+T: Toggle theme — disabled (Jazzy theme hidden)
+        /* if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'T') {
             e.preventDefault();
             toggleThemeStyle();
-        }
+        } */
     }
 
     /**
@@ -166,9 +167,8 @@
      */
     function handleHashChange() {
         const hash = window.location.hash.substring(1);
-        if (hash === 'theme-jazzy') {
-            switchThemeStyle('jazzy');
-        } else if (hash === 'theme-calm') {
+        // if (hash === 'theme-jazzy') { switchThemeStyle('jazzy'); } // disabled — Jazzy theme hidden
+        if (hash === 'theme-calm') {
             switchThemeStyle('calm');
         }
     }
@@ -204,12 +204,13 @@
     /**
      * Sync theme across tabs/windows
      */
-    window.addEventListener('storage', function(e) {
+    // Cross-tab theme sync disabled — Jazzy theme hidden; calm is always applied
+    /* window.addEventListener('storage', function(e) {
         if (e.key === 'themeStyle' && e.newValue) {
             applyThemeStyle(e.newValue);
             updateThemeButtons(e.newValue);
         }
-    });
+    }); */
 
     // ============================================
     // DEBUGGING HELPERS
@@ -235,10 +236,8 @@
 
     // Log initialization in development
     if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-        console.log('Theme Manager initialized. Keyboard shortcuts:');
-        console.log('  Ctrl+J (Cmd+J): Switch to Jazzy theme');
+        console.log('Theme Manager initialized. Calm-only mode.');
         console.log('  Ctrl+K (Cmd+K): Switch to Calm theme');
-        console.log('  Ctrl+Shift+T (Cmd+Shift+T): Toggle theme');
         console.log('Current theme:', getCurrentThemeStyle());
     }
 
