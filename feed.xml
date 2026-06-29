@@ -5,13 +5,21 @@
     <link>https://www.vmugdha.in/blog/blog.html</link>
     <description>AI development, technical writing, and community building by Mugdha Vairagade</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 05 Jun 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 29 Jun 2026 20:58:22 GMT</lastBuildDate>
     <atom:link href="https://www.vmugdha.in/feed.xml" rel="self" type="application/rss+xml"/>
 
   <item>
+    <title>NightBuild #3 — Exploring Harness &amp; Loop Engineering</title>
+    <link>https://www.vmugdha.in/blog/nightbuild-harness-loops.html</link>
+    <description>Getting useful work from a model has meant continuous interaction: prompt, read, judge, prompt again. Harness and loop engineering help you make the model work autonomously, with minimum interaction. A tutorial covering what harnesses and loops are, how they work together, and how to engineer them across AI platforms.</description>
+    <pubDate>Fri, 03 Jul 2026 00:00:00 GMT</pubDate>
+    <category>AI Development</category>
+    <guid isPermaLink="true">https://www.vmugdha.in/blog/nightbuild-harness-loops.html</guid>
+  </item>
+  <item>
     <title>What It Costs to Keep Apps Running on Vibe Coding Platforms</title>
     <link>https://www.vmugdha.in/blog/closedfist-platform-cost-study.html</link>
-    <description>A comparative study of Lovable, Replit, and an independent stack (Cloudflare Pages + Supabase + Posthog) for Indian indie developers — evaluating native capabilities for database, auth, security, and analytics, with full cost modelling in USD and INR including IGST impact, maintenance effort comparison, and free-plan viability analysis. Reference app: Closed Fist, an AI subscription tracker.</description>
+    <description>A comparative study of &lt;a href=&quot;https://lovable.dev&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Lovable&lt;/a&gt;, &lt;a href=&quot;https://replit.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Replit&lt;/a&gt;, and an independent stack for Indian indie developers — evaluated on native capabilities for database, auth, security, and analytics. Includes full cost modelling with INR forex, IGST impact, maintenance effort, and free-plan running cost analysis using Closed Fist (an AI subscription tracker) as the reference app.</description>
     <pubDate>Fri, 05 Jun 2026 00:00:00 GMT</pubDate>
     <category>AI Development</category>
     <guid isPermaLink="true">https://www.vmugdha.in/blog/closedfist-platform-cost-study.html</guid>

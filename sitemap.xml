@@ -44,12 +44,18 @@
   <!-- Blog Page -->
   <url>
     <loc>https://www.vmugdha.in/blog/blog.html</loc>
-    <lastmod>2026-06-05</lastmod>
+    <lastmod>2026-06-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <!-- Blog Posts -->
+  <url>
+    <loc>https://www.vmugdha.in/blog/nightbuild-harness-loops.html</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
   <url>
     <loc>https://www.vmugdha.in/blog/closedfist-platform-cost-study.html</loc>
     <lastmod>2026-06-05</lastmod>

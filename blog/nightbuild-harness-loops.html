@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en" data-theme-style="calm" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NightBuild #3 — Exploring Harness &amp; Loop Engineering · Mugdha's Portfolio</title>
+
+<!-- SEO Meta Tags -->
+<meta name="description" content="Getting useful work from a model has meant continuous interaction: prompt, read, judge, prompt again. Harness and loop engineering help you make the model work autonomously, with minimum interaction. A tutorial covering harnesses, loops, and how to engineer them across AI platforms.">
+<meta name="keywords" content="harness engineering, loop engineering, agentic AI, Claude Code, CLAUDE.md, AGENTS.md, AI agents, autonomous agents, MCP, sub-agents, worktrees, NightBuild, Pie & AI, AI tutorial">
+<meta name="author" content="Mugdha Vairagade">
+<meta name="robots" content="index, follow">
+<meta name="language" content="English">
+<link rel="canonical" href="https://www.vmugdha.in/blog/nightbuild-harness-loops.html">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.vmugdha.in/blog/nightbuild-harness-loops.html">
+<meta property="og:title" content="NightBuild #3 — Exploring Harness & Loop Engineering">
+<meta property="og:description" content="Getting useful work from a model has meant continuous interaction: prompt, read, judge, prompt again. Harness and loop engineering help you make the model work autonomously, with minimum interaction.">
+<meta property="og:site_name" content="Mugdha Vairagade's Portfolio">
+<meta property="article:published_time" content="2026-07-03T00:00:00+05:30">
+<meta property="article:author" content="Mugdha Vairagade">
+<meta property="article:section" content="AI Development">
+<meta property="article:tag" content="Harness Engineering">
+<meta property="article:tag" content="Loop Engineering">
+<meta property="article:tag" content="Agentic AI">
+<meta property="article:tag" content="Claude Code">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="NightBuild #3 — Exploring Harness & Loop Engineering">
+<meta name="twitter:description" content="A tutorial on harness and loop engineering: what they are, how they work together, and how to engineer them across AI platforms (Claude Code, Codex, Antigravity).">
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "NightBuild #3 — Exploring Harness & Loop Engineering",
+  "description": "Getting useful work from a model has meant continuous interaction: prompt, read, judge, prompt again. Harness and loop engineering help you make the model work autonomously, with minimum interaction.",
+  "author": {
+    "@type": "Person",
+    "name": "Mugdha Vairagade",
+    "url": "https://www.vmugdha.in"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Mugdha Vairagade",
+    "url": "https://www.vmugdha.in"
+  },
+  "datePublished": "2026-07-03",
+  "dateModified": "2026-07-03",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.vmugdha.in/blog/nightbuild-harness-loops.html"
+  },
+  "articleSection": "AI Development",
+  "keywords": ["harness engineering", "loop engineering", "agentic AI", "Claude Code", "MCP", "sub-agents", "autonomous agents"],
+  "timeRequired": "PT12M",
+  "proficiencyLevel": "Intermediate"
+}
+</script>
+
+<!-- Favicon -->
+<link rel="icon" type="image/vnd.microsoft.icon" href="../assets/favicon/iopm5-km6uc-002.ico">
+<link rel="shortcut icon" type="image/x-icon" href="../assets/favicon/iopm5-km6uc-002.ico">
+<link rel="apple-touch-icon" href="../assets/favicon/iopm5-km6uc-003.ico">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9HL4T713SQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-9HL4T713SQ');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Spline+Sans+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f4f1ea;
+    --paper-2:#ece7dc;
+    --ink:#1c1a17;
+    --ink-soft:#454039;
+    --ink-faint:#736c61;
+    --rule:#d6cfc0;
+    --signal:#2f7d4f;      /* signal green */
+    --signal-soft:#e2efe6;
+    --wire:#c4601f;        /* wire orange */
+    --wire-soft:#f5e6da;
+    --display:'Space Grotesk',system-ui,sans-serif;
+    --body:'Inter',system-ui,sans-serif;
+    --mono:'Spline Sans Mono',ui-monospace,monospace;
+    --maxw:760px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font-family:var(--body);font-size:17px;line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+  /* header */
+  header.top{border-bottom:1px solid var(--rule);background:var(--paper)}
+  .top .wrap{display:flex;align-items:baseline;justify-content:space-between;padding:18px 24px}
+  .brand{font-family:var(--mono);font-weight:600;font-size:14px;letter-spacing:.06em;color:var(--ink)}
+  .brand .n{color:var(--wire)}
+  .issue{font-family:var(--mono);font-size:12px;color:var(--ink-faint);letter-spacing:.08em}
+
+  /* hero */
+  .hero{padding:64px 0 40px;border-bottom:1px solid var(--rule)}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--signal);margin:0 0 18px}
+  h1{font-family:var(--display);font-weight:700;font-size:clamp(34px,6vw,52px);line-height:1.04;letter-spacing:-.02em;margin:0 0 20px}
+  h1 .alt{color:var(--wire)}
+  .lede{font-size:19px;color:var(--ink-soft);max-width:620px;margin:0}
+
+  /* sections */
+  section{padding:48px 0;border-bottom:1px solid var(--rule)}
+  .sec-no{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--ink-faint);margin:0 0 10px}
+  h2{font-family:var(--display);font-weight:600;font-size:clamp(26px,4.4vw,34px);line-height:1.12;letter-spacing:-.015em;margin:0 0 22px}
+  h3{font-family:var(--display);font-weight:600;font-size:21px;letter-spacing:-.01em;margin:34px 0 12px}
+  p{margin:0 0 18px}
+  a{color:var(--signal);text-decoration:none;border-bottom:1px solid var(--signal-soft)}
+  a:hover{border-color:var(--signal)}
+  strong{font-weight:600;color:var(--ink)}
+  .mono{font-family:var(--mono);font-size:.92em;background:var(--paper-2);padding:1px 6px;border-radius:3px;border:1px solid var(--rule)}
+
+  /* definition box */
+  .def{background:#fff;border:1px solid var(--rule);border-left:3px solid var(--signal);
+       border-radius:6px;padding:20px 22px;margin:24px 0}
+  .def .tag{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--signal);display:block;margin-bottom:8px}
+  .def p:last-child{margin-bottom:0}
+  .def.wire{border-left-color:var(--wire)}
+  .def.wire .tag{color:var(--wire)}
+
+  /* analogy callout */
+  .analogy{display:flex;gap:14px;background:var(--wire-soft);border-radius:6px;padding:16px 18px;margin:22px 0;font-size:15.5px;color:var(--ink-soft)}
+  .analogy .ic{font-family:var(--mono);font-weight:600;color:var(--wire);font-size:12px;letter-spacing:.1em;white-space:nowrap;padding-top:2px}
+  .analogy p{margin:0}
+
+  /* note */
+  .note{font-size:15px;color:var(--ink-faint);border-top:1px dashed var(--rule);padding-top:14px;margin-top:22px}
+  .note b{color:var(--ink-soft)}
+
+  /* code block */
+  pre{background:var(--ink);color:#e8e4da;font-family:var(--mono);font-size:13.5px;line-height:1.6;
+      border-radius:8px;padding:18px 20px;overflow-x:auto;margin:22px 0}
+  pre .c{color:#8a8576}            /* comment */
+  pre .k{color:#e0a96d}            /* keyword / field */
+  pre .s{color:#7fc99a}            /* string / value */
+  pre .d{color:#cdb7e8}            /* directive */
+  pre .label{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);margin:22px 0 -10px}
+
+  /* lists */
+  ul.clean{list-style:none;padding:0;margin:18px 0}
+  ul.clean li{padding:9px 0 9px 26px;border-bottom:1px solid var(--rule);position:relative;font-size:16px}
+  ul.clean li:last-child{border-bottom:none}
+  ul.clean li::before{content:"";position:absolute;left:4px;top:18px;width:8px;height:8px;background:var(--signal);border-radius:2px}
+  ul.clean li b{color:var(--ink)}
+
+  ol.steps{counter-reset:s;list-style:none;padding:0;margin:18px 0}
+  ol.steps li{counter-increment:s;padding:0 0 14px 42px;position:relative;margin-bottom:6px}
+  ol.steps li::before{content:counter(s);position:absolute;left:0;top:-2px;font-family:var(--mono);font-weight:600;font-size:13px;color:#fff;background:var(--wire);width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+
+  /* table */
+  .tablewrap{overflow-x:auto;margin:24px 0}
+  table{border-collapse:collapse;width:100%;font-size:15px;background:#fff;border:1px solid var(--rule);border-radius:6px;overflow:hidden}
+  th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--rule);vertical-align:top}
+  th{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);background:var(--paper-2)}
+  tr:last-child td{border-bottom:none}
+  td.pri{font-family:var(--display);font-weight:600;color:var(--ink)}
+
+  /* svg diagram frame */
+  .figure{margin:28px 0}
+  .figure svg{width:100%;height:auto;display:block;background:#fff;border:1px solid var(--rule);border-radius:8px}
+  .figcap{font-family:var(--mono);font-size:12px;color:var(--ink-faint);margin-top:8px;letter-spacing:.02em}
+
+  /* pull quote */
+  blockquote{margin:24px 0;padding:4px 0 4px 22px;border-left:3px solid var(--wire);font-family:var(--display);font-size:20px;font-weight:500;line-height:1.4;color:var(--ink)}
+  blockquote cite{display:block;font-family:var(--body);font-size:14px;font-weight:400;font-style:normal;color:var(--ink-faint);margin-top:10px}
+
+  footer{padding:40px 0 60px}
+  footer p{font-size:14px;color:var(--ink-faint);margin:0}
+
+  @media (max-width:560px){
+    body{font-size:16px}
+    .hero{padding:44px 0 32px}
+    section{padding:38px 0}
+  }
+  @media (prefers-reduced-motion:no-preference){
+    .hero h1,.hero .lede,.hero .eyebrow{animation:rise .6s cubic-bezier(.2,.7,.3,1) both}
+    .hero .lede{animation-delay:.08s}
+    .hero h1{animation-delay:.04s}
+    @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <span class="brand">Night<span class="n">Build</span></span>
+    <span class="issue">#3 · HARNESS &amp; LOOP ENGINEERING</span>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Tutorial · for AI practitioners</p>
+    <h1>Exploring <span class="alt">harness</span> &amp; <span class="alt">loop</span> engineering</h1>
+    <p class="lede">Getting useful work from a model has meant continuous interaction with it: prompt, read, judge, prompt again. Harness and loop engineering help you make the model work autonomously, with minimum interaction.</p>
+  </div>
+</div>
+
+<main class="wrap">
+
+<!-- ───────────────────────── 01 ───────────────────────── -->
+<section id="why">
+  <p class="sec-no">01 — THE MOTIVATION</p>
+  <h2>Why do you need harnesses and loops?</h2>
+  <p>Making a model do a task has been hands-on. You prompt it, read its response, judge the response, and prompt again. It couldn't work without you.</p>
+  <p>What if you could write the task down once, set the constraints, then let the model run on its own and come back only to check the result?</p>
+  <p>To achieve this, you need two things:</p>
+  <ol class="steps">
+    <li><b>Harness.</b> A framework the model works within. It enforces the constraints, gives the model tools, and remembers state between runs.</li>
+    <li><b>Loop.</b> A driver that keeps prompting the model toward the goal, so you don't have to.</li>
+  </ol>
+  <p>Let's define each one clearly, with examples.</p>
+</section>
+
+<!-- ───────────────────────── 02 ───────────────────────── -->
+<section id="harness">
+  <p class="sec-no">02 — THE FIRST PRIMITIVE</p>
+  <h2>What is a harness?</h2>
+  <p>A harness is nothing new, and you're already using one. Claude Code, OpenAI Codex, Google Antigravity, any agentic IDE or app that decides how a model works, these are all harnesses. The harness controls and directs different behaviour from the same model underneath.</p>
+
+  <div class="def">
+    <span class="tag">Definition · Harness</span>
+    <p>A harness is everything wrapped around the model that isn't the model: prompts, tools, context policies, infrastructure, hooks, observability. It gives the model durable state, executable tools, feedback signals, and enforceable constraints. It governs how the model's actions are <strong>validated, authorized, executed, and logged</strong>, and it controls the context the model works against.</p>
+  </div>
+
+  <p>Let's take an example of building an app across many sessions. Here, you can have a harness enforce this rule: read a <span class="mono">STATUS.md</span> file at the start of each session to learn where the last one stopped, then write the new status back at the end.</p>
+  <p>The harness makes the model follow this rule in every session, without you having to tell the model each time.</p>
+
+  <h3>Building blocks of a harness</h3>
+  <p>A harness is made of:</p>
+  <ul class="clean">
+    <li><b>Instructions.</b> System prompts, <span class="mono">CLAUDE.md</span> or <span class="mono">AGENTS.md</span> rule files, skill files, and the prompts you give to sub-agents.</li>
+    <li><b>Capabilities.</b> Tools, skills, and Model Context Protocol (MCP) servers, along with the descriptions that tell the model when to reach for each one.</li>
+    <li><b>Environment.</b> The bundled infrastructure the model acts inside: a filesystem, a sandbox, a browser.</li>
+    <li><b>Orchestration.</b> The control logic that spawns sub-agents, hands work between them, and routes different steps to different models.</li>
+    <li><b>Enforcement.</b> Hooks and middleware that fire at fixed points for deterministic behaviour: context compaction, session continuation, lint and test checks.</li>
+    <li><b>Observability.</b> The logs, traces, and cost and latency metering that let you see what actually happened.</li>
+  </ul>
+
+  <div class="figure">
+    <svg viewBox="0 0 720 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram of a harness: building blocks wrapped around a model, with memory persisting across sessions">
+      <defs>
+        <style>
+          .hlbl{font-family:'Spline Sans Mono',monospace;font-size:11.5px;letter-spacing:.04em}
+          .httl{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px}
+          .hsm{font-family:'Inter',sans-serif;font-size:11px}
+        </style>
+      </defs>
+      <!-- harness boundary -->
+      <rect x="20" y="20" width="680" height="200" rx="12" fill="#e2efe6" stroke="#2f7d4f" stroke-width="1.5"/>
+      <text x="40" y="44" class="hlbl" fill="#2f7d4f">HARNESS — validates · authorizes · executes · logs</text>
+      <!-- building blocks around model -->
+      <g class="hsm" fill="#454039">
+        <rect x="44" y="64" width="148" height="40" rx="6" fill="#fff" stroke="#2f7d4f" stroke-opacity=".4"/><text x="54" y="82">Instructions</text><text x="54" y="97" fill="#736c61">CLAUDE.md · AGENTS.md</text>
+        <rect x="44" y="118" width="148" height="40" rx="6" fill="#fff" stroke="#2f7d4f" stroke-opacity=".4"/><text x="54" y="136">Capabilities</text><text x="54" y="151" fill="#736c61">tools · skills · MCP</text>
+        <rect x="528" y="64" width="148" height="40" rx="6" fill="#fff" stroke="#2f7d4f" stroke-opacity=".4"/><text x="538" y="82">Enforcement</text><text x="538" y="97" fill="#736c61">hooks · gates</text>
+        <rect x="528" y="118" width="148" height="40" rx="6" fill="#fff" stroke="#2f7d4f" stroke-opacity=".4"/><text x="538" y="136">Observability</text><text x="538" y="151" fill="#736c61">logs · traces · cost</text>
+      </g>
+      <!-- model core -->
+      <rect x="270" y="80" width="180" height="78" rx="10" fill="#1c1a17"/>
+      <text x="360" y="116" class="httl" fill="#f4f1ea" text-anchor="middle">MODEL</text>
+      <text x="360" y="137" class="hsm" fill="#a8a298" text-anchor="middle">predicts text</text>
+      <!-- environment row -->
+      <rect x="44" y="172" width="632" height="32" rx="6" fill="#fff" stroke="#2f7d4f" stroke-opacity=".4"/>
+      <text x="360" y="192" class="hsm" fill="#454039" text-anchor="middle">Environment — filesystem · sandbox · browser</text>
+      <!-- memory bar outside -->
+      <rect x="20" y="236" width="680" height="44" rx="8" fill="#fff" stroke="#736c61" stroke-dasharray="4 4"/>
+      <text x="360" y="263" class="hsm" fill="#454039" text-anchor="middle">MEMORY — STATUS.md / PROGRESS.md · read at session start, written at session end</text>
+    </svg>
+    <div class="figcap">A harness: building blocks wrap the model, and memory on disk carries state across sessions.</div>
+  </div>
+
+
+  <div class="def wire">
+    <span class="tag">The defining equation</span>
+    <p>Model plus harness equals agent. A raw model only predicts text. Add a harness, with state, tools, feedback, and constraints, and you get something that can finish a task.</p>
+  </div>
+
+  <h3>Failures become rules</h3>
+  <p>To prevent your harness from turning into huge configuration, add a constraint only after you've seen a real failure. Remove it only when a better model makes it redundant. Every line in a good rules file should trace to a specific thing that went wrong.</p>
+  <p>For example: the agent merges a pull request with a commented-out test? Add a hook that greps the diff for skipped tests and blocks it. The agent runs a destructive command? Add a hook that refuses it.</p>
+  <p>Each rule becomes permanent, so the agent never repeats that mistake. You encode rules in your harness based on your failure history, the same way you would create a guardrail from an incident postmortem.</p>
+
+  <h3>What is harness engineering?</h3>
+  <p>Harness engineering involves assembling these building blocks (instructions, tools, environment, enforcement) into a framework that makes the model behave reliably, then tightening that framework each time the model slips. See <a href="#build">How do you engineer harnesses and loops?</a> for how to do this in practice.</p>
+</section>
+
+<!-- ───────────────────────── 03 ───────────────────────── -->
+<section id="loop">
+  <p class="sec-no">03 — THE SECOND PRIMITIVE</p>
+  <h2>What is a loop?</h2>
+  <p>At its simplest, a loop is repetitive execution of tasks, either indefinitely at intervals or until a goal is met.</p>
+
+  <div class="def">
+    <span class="tag">Definition · Loop</span>
+    <p>In agentic work, a loop repeatedly prompts an agent toward a goal without you driving each turn. It comes in two forms:</p>
+  </div>
+  <ol class="steps">
+    <li><b>Cadence loop.</b> Re-runs a task on a timer (every five minutes, every morning). It has no natural stopping point; it's a heartbeat.</li>
+    <li><b>Goal loop.</b> Runs until a verifiable condition is true (all tests pass, lint is clean), with a separate check after each turn deciding whether it's done. It has a gate; it exits when the gate is satisfied.</li>
+  </ol>
+  <p>Let's take an example of fixing failing tests across a codebase. Here, you can run a goal loop: re-run the test suite, send each failure to the agent to fix, and repeat until every test passes. The loop keeps prompting the agent until the goal is met, without you checking in between runs.</p>
+  <p>In Claude Code these are <span class="mono">/loop</span> (re-run on an interval) and <span class="mono">/goal</span> (run until a condition holds). Codex and Antigravity expose the same pair of behaviours.</p>
+
+  <h3>Building blocks of a loop</h3>
+  <p>A loop is made of capabilities and memory.</p>
+  <ol class="steps">
+    <li><b>Automations — the heartbeat.</b> A scheduled trigger that does discovery and triage on its own. This is what makes a loop a loop, not one run you did once.</li>
+    <li><b>Worktrees — parallel without collisions.</b> Each agent gets its own git working directory on its own branch, so two agents editing at once can't clobber each other. Same fix as engineers branching instead of sharing lines.</li>
+    <li><b>Skills — project knowledge written down.</b> A <span class="mono">SKILL.md</span> folder holding conventions, build steps, and hard-won lessons, so the agent stops re-deriving your project every cycle.</li>
+    <li><b>Connectors — reach into your real tools.</b> Built on MCP, they let the loop read your issue tracker, query a database, open a pull request, or post to a channel, not just see the filesystem.</li>
+    <li><b>Sub-agents — keep the maker away from the checker.</b> One agent drafts; a different one (often a different model) reviews it against the spec and the tests.</li>
+    <li><b>Memory on disk.</b> A markdown file or tracker board that lives outside any single conversation and records what's done and what's next. The model forgets everything between runs, so state lives in the repo, not the context window.</li>
+  </ol>
+  <p>Claude Code, Codex, and Antigravity all ship the first five building blocks, making loop design portable between them.</p>
+
+  <div class="figure">
+    <svg viewBox="0 0 720 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram of a loop: trigger, agent acts inside the harness, gate check, fail re-prompts, pass exits, with state on disk">
+      <defs>
+        <style>
+          .llbl{font-family:'Spline Sans Mono',monospace;font-size:11.5px;letter-spacing:.04em}
+          .lsm{font-family:'Inter',sans-serif;font-size:11.5px}
+          .lnode{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:13px}
+        </style>
+        <marker id="arrowO" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+          <path d="M0,0 L7,3 L0,6 Z" fill="#c4601f"/>
+        </marker>
+        <marker id="arrowG" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+          <path d="M0,0 L7,3 L0,6 Z" fill="#2f7d4f"/>
+        </marker>
+      </defs>
+      <!-- loop boundary -->
+      <rect x="20" y="20" width="680" height="220" rx="12" fill="#f5e6da" stroke="#c4601f" stroke-width="1.5"/>
+      <text x="40" y="44" class="llbl" fill="#c4601f">LOOP — drives on a cadence · stops when the goal is met</text>
+
+      <!-- nodes -->
+      <rect x="48" y="92" width="120" height="56" rx="8" fill="#fff" stroke="#c4601f" stroke-opacity=".5"/>
+      <text x="108" y="118" class="lnode" fill="#1c1a17" text-anchor="middle">Trigger</text>
+      <text x="108" y="135" class="lsm" fill="#736c61" text-anchor="middle">schedule</text>
+
+      <rect x="232" y="84" width="160" height="72" rx="8" fill="#e2efe6" stroke="#2f7d4f" stroke-width="1.3"/>
+      <text x="312" y="110" class="lnode" fill="#1c1a17" text-anchor="middle">Agent acts</text>
+      <text x="312" y="128" class="lsm" fill="#454039" text-anchor="middle">maker drafts</text>
+      <text x="312" y="143" class="lsm" fill="#736c61" text-anchor="middle">inside the harness</text>
+
+      <!-- diamond gate -->
+      <polygon points="500,120 548,92 596,120 548,148" fill="#fff" stroke="#c4601f" stroke-width="1.3"/>
+      <text x="548" y="116" class="lsm" fill="#1c1a17" text-anchor="middle">checker:</text>
+      <text x="548" y="130" class="lsm" fill="#1c1a17" text-anchor="middle">goal met?</text>
+
+      <!-- exit -->
+      <rect x="612" y="92" width="74" height="56" rx="8" fill="#1c1a17"/>
+      <text x="649" y="118" class="lnode" fill="#f4f1ea" text-anchor="middle">Exit</text>
+      <text x="649" y="135" class="lsm" fill="#a8a298" text-anchor="middle">done</text>
+
+      <!-- arrows -->
+      <line x1="168" y1="120" x2="226" y2="120" stroke="#c4601f" stroke-width="1.5" marker-end="url(#arrowO)"/>
+      <line x1="392" y1="120" x2="494" y2="120" stroke="#2f7d4f" stroke-width="1.5" marker-end="url(#arrowG)"/>
+      <line x1="596" y1="120" x2="610" y2="120" stroke="#2f7d4f" stroke-width="1.5" marker-end="url(#arrowG)"/>
+      <text x="603" y="86" class="lsm" fill="#2f7d4f" text-anchor="middle">pass</text>
+
+      <!-- fail loop-back -->
+      <path d="M548 148 L548 196 L312 196 L312 158" fill="none" stroke="#c4601f" stroke-width="1.5" marker-end="url(#arrowO)"/>
+      <text x="430" y="190" class="lsm" fill="#c4601f" text-anchor="middle">fail → re-prompt with the error</text>
+
+      <!-- state on disk -->
+      <rect x="20" y="256" width="680" height="44" rx="8" fill="#fff" stroke="#736c61" stroke-dasharray="4 4"/>
+      <text x="360" y="283" class="lsm" fill="#454039" text-anchor="middle">STATE ON DISK — PROGRESS.md records what's tried, passed, and still open between runs</text>
+    </svg>
+    <div class="figcap">A loop: a trigger starts the agent, a checker tests the result, failures re-prompt, and a passing goal exits. State persists on disk.</div>
+  </div>
+
+
+  <h3>What is loop engineering?</h3>
+  <p>Loop engineering involves designing a system from these building blocks that prompts the agent through the tasks toward a goal, so you don't have to. See <a href="#build">How do you engineer harnesses and loops?</a> for how to do this in practice.</p>
+</section>
+
+<!-- ───────────────────────── 04 ───────────────────────── -->
+<section id="together">
+  <p class="sec-no">04 — HOW THEY FIT</p>
+  <h2>How do harnesses and loops work together?</h2>
+  <p>The relationship is layered. The harness is the environment a single agent runs inside. The loop sits one floor above: it runs the harness on a timer, spawns helpers, checks their work, and feeds itself the next task.</p>
+  <p>The harness defines what an agent <em>can</em> do and what it's <em>not allowed</em> to do. The loop decides <em>when</em>, <em>how often</em>, and <em>when to stop</em>.</p>
+
+  <div class="figure">
+    <svg viewBox="0 0 720 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Layered diagram showing model inside harness inside loop">
+      <defs>
+        <style>
+          .lbl{font-family:'Spline Sans Mono',monospace;font-size:12px;letter-spacing:.06em}
+          .ttl{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px}
+          .sm{font-family:'Inter',sans-serif;font-size:11.5px}
+        </style>
+      </defs>
+      <!-- loop ring -->
+      <rect x="20" y="20" width="680" height="320" rx="14" fill="#f5e6da" stroke="#c4601f" stroke-width="1.5"/>
+      <text x="40" y="46" class="lbl" fill="#c4601f">LOOP — drives &amp; schedules · decides when to stop</text>
+      <!-- cadence arrow -->
+      <path d="M 360 60 A 150 30 0 1 1 359 60" fill="none" stroke="#c4601f" stroke-width="1.5" stroke-dasharray="5 5" opacity="0.5"/>
+      <!-- harness box -->
+      <rect x="70" y="78" width="580" height="232" rx="12" fill="#e2efe6" stroke="#2f7d4f" stroke-width="1.5"/>
+      <text x="90" y="104" class="lbl" fill="#2f7d4f">HARNESS — validates · authorizes · executes · logs</text>
+      <!-- harness inner parts -->
+      <g class="sm" fill="#454039">
+        <rect x="92" y="118" width="160" height="34" rx="6" fill="#fff" stroke="#2f7d4f" stroke-opacity=".4"/><text x="102" y="139">tools · skills · MCP</text>
+        <rect x="92" y="160" width="160" height="34" rx="6" fill="#fff" stroke="#2f7d4f" stroke-opacity=".4"/><text x="102" y="181">filesystem · sandbox</text>
+        <rect x="468" y="118" width="160" height="34" rx="6" fill="#fff" stroke="#2f7d4f" stroke-opacity=".4"/><text x="478" y="139">hooks · gates</text>
+        <rect x="468" y="160" width="160" height="34" rx="6" fill="#fff" stroke="#2f7d4f" stroke-opacity=".4"/><text x="478" y="181">logs · traces · cost</text>
+      </g>
+      <!-- model core -->
+      <rect x="280" y="128" width="160" height="100" rx="10" fill="#1c1a17"/>
+      <text x="360" y="172" class="ttl" fill="#f4f1ea" text-anchor="middle">MODEL</text>
+      <text x="360" y="194" class="sm" fill="#a8a298" text-anchor="middle">predicts text</text>
+      <!-- memory on disk -->
+      <rect x="92" y="250" width="536" height="44" rx="8" fill="#fff" stroke="#736c61" stroke-dasharray="4 4"/>
+      <text x="360" y="277" class="sm" fill="#454039" text-anchor="middle">MEMORY ON DISK — STATUS.md / PROGRESS.md / tracker · survives every reset</text>
+    </svg>
+    <div class="figcap">Model + harness = agent. Loop + agent = autonomous, scheduled work. State lives on disk, not in context.</div>
+  </div>
+
+  <p>Trace one cycle. The loop fires on schedule. It reads the memory file to learn where things stand. It picks the next task and hands it to an agent inside the harness. The harness runs the tools, hits the test and security gates, and refuses anything the rules forbid. A checker sub-agent verifies the result. The loop writes the outcome back to the memory file, then picks up the next task, or exits if the goal is met. You designed that once. You prompted none of it.</p>
+</section>
+
+<!-- ───────────────────────── 05 ───────────────────────── -->
+<section id="build">
+  <p class="sec-no">05 — DOING IT</p>
+  <h2>How do you engineer harnesses and loops? Does it require coding?</h2>
+  <p>Mostly, you don't code the orchestration runtime yourself anymore. You write the harness and loop specs in plain text as Markdown files, hand them to your coding agent (Claude Code, Codex, or Antigravity), and ask it to wire them to the primitives that agent already understands.</p>
+  <p>One caveat: the spec is plain text, but the loop still <em>runs</em> on real configuration. Skill files, worktrees, connectors, and scheduled tasks are concrete artifacts on disk. You write intent in markdown and the agent assembles the plumbing. It's configuration, not zero engineering.</p>
+
+  <p><strong>Example:</strong> A harness for feature-delivery builds, specified as a <span class="mono">HARNESS.md</span> file. It defines what a model or agent should remember, what tools it can use, alongside rules and gates (conditions to pass).</p>
+  <pre><span class="label">HARNESS.md — a portable harness spec</span><span class="c"># Harness: feature-delivery</span>
+
+<span class="k">memory:</span>
+  <span class="k">on_start:</span> <span class="s">read PROGRESS.md; do not trust chat history</span>
+  <span class="k">on_end:</span>   <span class="s">write done / next / blockers to PROGRESS.md, then commit</span>
+
+<span class="k">tools:</span>
+  <span class="s">- filesystem (read/write within repo)</span>
+  <span class="s">- bash (test + lint only)</span>
+  <span class="s">- git</span>
+
+<span class="k">gates:</span>            <span class="c"># nothing is "done" until all pass</span>
+  <span class="s">- run: npm test         expect: exit 0</span>
+  <span class="s">- run: npm run typecheck expect: exit 0</span>
+  <span class="s">- run: npm audit         expect: 0 high/critical</span>
+
+<span class="k">rules:</span>
+  <span class="s">- never comment out a failing test; fix it or delete it</span>
+  <span class="s">- never hardcode secrets; read from env only</span>
+  <span class="s">- block: rm -rf, git push --force</span></pre>
+
+  <p><strong>Example:</strong> A loop that triages issues in feature-delivery builds every night and fixes them. This loop drives an agent inside the harness in the example above. It names the goal condition, splits maker from checker, and keeps state on disk.</p>
+  <pre><span class="label">LOOP.md — a portable loop spec</span><span class="c"># Loop: nightly-triage-and-fix</span>
+
+<span class="k">cadence:</span> <span class="s">every morning, 06:00</span>
+<span class="k">memory:</span>  <span class="s">PROGRESS.md  (what's tried / passed / open)</span>
+
+<span class="k">run:</span>
+  <span class="s">1. triage skill: read CI failures, open issues, recent commits</span>
+  <span class="s">2. for each finding worth doing:</span>
+       <span class="s">- open an isolated worktree</span>
+       <span class="s">- maker sub-agent: draft the fix under harness rules</span>
+       <span class="s">- checker sub-agent: review against spec + tests</span>
+  <span class="s">3. connector: open PR, link ticket, post to channel</span>
+
+<span class="k">goal:</span>  <span class="s">all tests in src/ pass AND lint clean</span>
+<span class="k">stop:</span>  <span class="s">goal satisfied  OR  3 findings failed → park in triage inbox</span></pre>
+
+  <ol class="steps">
+    <li><b>Write the harness spec.</b> Capture the memory protocol, allowed tools, hard gates, and rules learned from real failures. Start with rules you can justify; ratchet in more as the agent slips.</li>
+    <li><b>Write the loop spec.</b> Pick cadence or goal (or both), name the verifiable stop condition, assign the maker and checker roles.</li>
+    <li><b>Hand both to your coding agent.</b> Ask it to translate the specs into the primitives it supports: hooks, <span class="mono">/loop</span> or <span class="mono">/goal</span>, sub-agent config, scheduled tasks.</li>
+    <li><b>Run once, supervised.</b> Watch a full cycle. Confirm the gates block and the checker catches things.</li>
+    <li><b>Calibrate, then step away.</b> Tune the cadence and per-run task budget against real token use before running it unattended.</li>
+  </ol>
+</section>
+
+<!-- ───────────────────────── 06 ───────────────────────── -->
+<section id="portability">
+  <p class="sec-no">06 — ACROSS PLATFORMS</p>
+  <h2>Are harnesses and loops engineered differently for different AI platforms?</h2>
+  <p>Conceptually, you need not engineer harnesses and loops differently for each AI platform.</p>
+  <p><strong>Caveat:</strong> the harness and loop designs are platform-agnostic, but they are not directly portable. The concepts (memory protocol, gated verification, maker/checker split, scheduled cadence) are identical across all three. What differs is a thin adapter layer that maps your neutral spec onto each platform's command names and config locations.</p>
+  <p>Once you've written a harness and loop spec, you can largely port them. Hand the same markdown to a different platform's agent and ask it to map the fields onto that platform's primitives. What you invest in (the conventions, the gates, the stop conditions, the failure history encoded as rules) carries over. Only the last-mile binding changes.</p>
+  <p class="note"><b>One caveat on the spec itself.</b> Keep abstraction levels consistent. A field like <span class="mono">run: npm test</span> is platform-neutral. A field that bakes in a platform-specific command or flag is not, and it quietly couples your spec to one platform. When that creeps in, it belongs in the adapter, not the spec.</p>
+  <p>Claude, Codex, and Antigravity ship the same loop primitives: scheduled automations, parallel worktrees, markdown skill files, MCP connectors, and sub-agents. They share file conventions too, Codex and Antigravity both read an <span class="mono">AGENTS.md</span> rules file and <span class="mono">SKILL.md</span> skill folders, and MCP connectors written for one platform generally work in the others because MCP is an open standard.</p>
+  <div class="tablewrap">
+    <table>
+      <thead>
+        <tr><th>Concept (your spec)</th><th>Claude Code</th><th>Codex</th><th>Antigravity</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="pri">Cadence loop</td><td><span class="mono">/loop</span> · cron · hooks</td><td>Automations</td><td>hooks · CLI in CI</td></tr>
+        <tr><td class="pri">Goal loop</td><td><span class="mono">/goal</span></td><td><span class="mono">/goal</span></td><td>agent goal run</td></tr>
+        <tr><td class="pri">Parallel isolation</td><td><span class="mono">git worktree</span></td><td>built-in worktrees</td><td>parallel sub-agents</td></tr>
+        <tr><td class="pri">Project knowledge</td><td><span class="mono">SKILL.md</span></td><td><span class="mono">SKILL.md</span></td><td><span class="mono">SKILL.md</span></td></tr>
+        <tr><td class="pri">Real-tool access</td><td>MCP</td><td>MCP</td><td>MCP</td></tr>
+        <tr><td class="pri">Maker / checker</td><td><span class="mono">.claude/agents/</span></td><td><span class="mono">.codex/agents/</span></td><td>sub-agents</td></tr>
+        <tr><td class="pri">Rules file</td><td><span class="mono">CLAUDE.md</span></td><td><span class="mono">AGENTS.md</span></td><td><span class="mono">AGENTS.md</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ───────────────────────── 07 ───────────────────────── -->
+<section id="cost">
+  <p class="sec-no">07 — THE REAL CONSTRAINTS</p>
+  <h2>What do loops cost?</h2>
+  <p>Every iteration spends tokens. Sub-agents multiply that, since each maker and checker runs its own model and tools. Set the interval too tight and you hit rate limits quickly.</p>
+  <p>Two levers keep it sane. First, cap by <strong>task count per checkpoint</strong>, not token estimate. Token use per task is unpredictable; task count isn't. Three tasks per checkpoint is a reasonable default to calibrate from.</p>
+  <p>Second, <strong>tier the model by phase</strong>. Frontier model for planning and security review, where mistakes compound. Cheaper model for mechanical execution against a good plan. Escalate back to frontier only when the test-fix loop gets stuck. Cheaper open-weight models now land within a fraction of frontier cost per unit of capability, so tiering is a real lever, not a rounding error.</p>
+</section>
+
+<section id="human">
+  <p class="sec-no">08 — STAYING IN CONTROL</p>
+  <h2>Why do the loops still need you?</h2>
+  <p>Three things stay your responsibility as the loop improves. Verification stays on you: a loop running unattended is also a loop making mistakes unattended, and "done" is a claim, not a proof, even with a checker. Your understanding rots faster if you stop reading what the loop ships. And taking whatever the loop hands back without an opinion is the dangerous posture.</p>
+  <p>You step in at three points, each on a different clock:</p>
+  <ul class="clean">
+    <li><b>Every few minutes (coding loop).</b> The agent builds and tests on its own. You don't intervene here; you let the gates and the checker do the work.</li>
+    <li><b>Every few hours (feedback loop).</b> You review what the loop shipped and steer it: change the spec, adjust priorities, decide which features matter.</li>
+    <li><b>Every few days (external loop).</b> You take the product to real users, gather feedback, and feed what you learn back into the spec the loop runs from.</li>
+  </ul>
+  <p>You stay involved because you hold a context advantage: you know things about the users and the situation that the model doesn't, and that knowledge only enters the system through you.</p>
+</section>
+
+<footer>
+  <div>
+    <p>NightBuild #3 · Harness &amp; Loop Engineering. Concepts drawn from Viv Trivedy, Addy Osmani, Boris Cherny, Peter Steinberger, Anthropic's harness-design work, and Andrew Ng's <em>The Batch</em>. Examples are illustrative and agnostic across AI platforms (Claude Code, Codex, Antigravity) by design.</p>
+  </div>
+</footer>
+
+</main>
+</body>
+</html>
