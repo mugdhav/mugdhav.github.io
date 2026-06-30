@@ -449,7 +449,7 @@
 
 <!-- ───────────────────────── 04 ───────────────────────── -->
 <section id="together">
-  <p class="sec-no">04 — HOW THEY FIT</p>
+  <p class="sec-no">04 — HOW THEY FIT TOGETHER</p>
   <h2>How do harnesses and loops work together?</h2>
   <p>The relationship is layered. The harness is the environment a single agent runs inside. The loop sits one floor above: it runs the harness on a timer, spawns helpers, checks their work, and feeds itself the next task.</p>
   <p>The harness defines what an agent <em>can</em> do and what it's <em>not allowed</em> to do. The loop decides <em>when</em>, <em>how often</em>, and <em>when to stop</em>.</p>
@@ -494,7 +494,7 @@
 
 <!-- ───────────────────────── 05 ───────────────────────── -->
 <section id="build">
-  <p class="sec-no">05 — DOING IT</p>
+  <p class="sec-no">05 — HOW TO ENGINEER THEM</p>
   <h2>How do you engineer harnesses and loops? Does it require coding?</h2>
   <p>Mostly, you don't code the orchestration runtime yourself anymore. You write the harness and loop specs in plain text as Markdown files, hand them to your coding agent (Claude Code, Codex, or Antigravity), and ask it to wire them to the primitives that agent already understands.</p>
   <p>One caveat: the spec is plain text, but the loop still <em>runs</em> on real configuration. Skill files, worktrees, connectors, and scheduled tasks are concrete artifacts on disk. You write intent in markdown and the agent assembles the plumbing. It's configuration, not zero engineering.</p>
@@ -584,7 +584,7 @@
 </section>
 
 <section id="human">
-  <p class="sec-no">08 — STAYING IN CONTROL</p>
+  <p class="sec-no">08 — WHY LOOPS STILL NEED YOU</p>
   <h2>Why do the loops still need you?</h2>
   <p>Three things stay your responsibility as the loop improves. Verification stays on you: a loop running unattended is also a loop making mistakes unattended, and "done" is a claim, not a proof, even with a checker. Your understanding rots faster if you stop reading what the loop ships. And taking whatever the loop hands back without an opinion is the dangerous posture.</p>
   <p>You step in at three points, each on a different clock:</p>
