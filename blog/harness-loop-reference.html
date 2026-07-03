@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harness &amp; Loop Reference — NightBuild #3</title>
+
+<!-- SEO Meta Tags -->
+<meta name="description" content="Reference sheet for NightBuild #3: three harness specs and three loop specs, each written as a portable Markdown file you can copy into CLAUDE.md, AGENTS.md, or any equivalent session-management file.">
+<meta name="keywords" content="harness engineering, loop engineering, CLAUDE.md, AGENTS.md, agentic AI, coding agent, research agent, ops agent, Claude Code, autonomous agents, NightBuild">
+<meta name="author" content="Mugdha Vairagade">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.vmugdha.in/blog/harness-loop-reference.html">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.vmugdha.in/blog/harness-loop-reference.html">
+<meta property="og:title" content="Harness & Loop Reference — NightBuild #3">
+<meta property="og:description" content="Three harness specs and three loop specs, each written as a portable Markdown file you can copy into CLAUDE.md, AGENTS.md, or any equivalent session-management file.">
+<meta property="og:site_name" content="Mugdha Vairagade's Portfolio">
+
+<!-- Favicon -->
+<link rel="icon" type="image/vnd.microsoft.icon" href="../assets/favicon/iopm5-km6uc-002.ico">
+<link rel="shortcut icon" type="image/x-icon" href="../assets/favicon/iopm5-km6uc-002.ico">
+<link rel="apple-touch-icon" href="../assets/favicon/iopm5-km6uc-003.ico">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9HL4T713SQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-9HL4T713SQ');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Spline+Sans+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F3F1EA;
+    --paper-2: #EAE7DC;
+    --ink: #1E1D1A;
+    --ink-soft: #55534B;
+    --ink-faint: #8A877C;
+    --line: #D8D4C6;
+    --signal-green: #2F6E4F;
+    --signal-green-bg: #E3EEE5;
+    --wire-orange: #C4622D;
+    --wire-orange-bg: #F5E5D9;
+    --code-bg: #E9E6DA;
+    --radius: 8px;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+  }
+
+  .wrap {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 6rem;
+  }
+
+  .back-nav {
+    padding: 1rem 1.5rem 0;
+    max-width: 880px;
+    margin: 0 auto;
+  }
+
+  .back-nav a {
+    font-family: 'Spline Sans Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    color: var(--ink-faint);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
+  .back-nav a:hover {
+    color: var(--signal-green);
+  }
+
+  header {
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .eyebrow {
+    font-family: 'Spline Sans Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--wire-orange);
+    margin: 0 0 0.75rem;
+  }
+
+  h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 2.1rem;
+    margin: 0 0 0.75rem;
+    letter-spacing: -0.01em;
+  }
+
+  header p {
+    color: var(--ink-soft);
+    max-width: 60ch;
+    margin: 0;
+    font-size: 0.98rem;
+  }
+
+  .group-label {
+    font-family: 'Spline Sans Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin: 2.5rem 0 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .group-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  .card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    margin-bottom: 0.9rem;
+    overflow: hidden;
+  }
+
+  .card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.1rem 1.25rem;
+  }
+
+  .card-tag {
+    font-family: 'Spline Sans Mono', monospace;
+    font-size: 0.68rem;
+    font-weight: 500;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    white-space: nowrap;
+    margin-top: 0.15rem;
+  }
+
+  .tag-harness { background: var(--wire-orange-bg); color: var(--wire-orange); }
+  .tag-loop { background: var(--signal-green-bg); color: var(--signal-green); }
+
+  .card-title-block { flex: 1; min-width: 0; }
+
+  .card-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 500;
+    font-size: 1.1rem;
+    margin: 0 0 0.3rem;
+  }
+
+  .card-desc {
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  details summary {
+    list-style: none;
+    cursor: pointer;
+  }
+  details summary::-webkit-details-marker { display: none; }
+
+  .toggle-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.7rem 1.25rem;
+    border-top: 1px solid var(--line);
+    background: var(--paper-2);
+    font-family: 'Spline Sans Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--ink-soft);
+  }
+
+  .toggle-row .chevron {
+    transition: transform 0.15s ease;
+    font-size: 0.9rem;
+  }
+
+  details[open] .toggle-row .chevron { transform: rotate(180deg); }
+
+  .card-body {
+    border-top: 1px solid var(--line);
+    padding: 1rem 1.25rem 1.25rem;
+  }
+
+  pre {
+    background: var(--code-bg);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 1rem;
+    overflow-x: auto;
+    margin: 0;
+  }
+
+  code {
+    font-family: 'Spline Sans Mono', monospace;
+    font-size: 0.82rem;
+    line-height: 1.55;
+    color: var(--ink);
+    white-space: pre;
+  }
+
+  footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line);
+    font-size: 0.85rem;
+    color: var(--ink-faint);
+    font-family: 'Spline Sans Mono', monospace;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  footer a {
+    color: var(--ink-faint);
+    text-decoration: none;
+  }
+
+  footer a:hover {
+    color: var(--signal-green);
+  }
+</style>
+</head>
+<body>
+
+<div class="back-nav">
+  <a href="./nightbuild-harness-loops.html">&#8592; Back to NightBuild #3</a>
+</div>
+
+<div class="wrap">
+
+  <header>
+    <p class="eyebrow">NightBuild #3 — reference sheet</p>
+    <h1>Harness &amp; loop designs</h1>
+    <p>Three harnesses and three loops, each written as a portable Markdown spec. Every entry expands to show the full specification, which you can copy into any platform's session-management files (<code>CLAUDE.md</code>, <code>AGENTS.md</code>, or equivalent).</p>
+  </header>
+
+  <p class="group-label">Harnesses</p>
+
+  <div class="card">
+    <div class="card-header">
+      <span class="card-tag tag-harness">Harness</span>
+      <div class="card-title-block">
+        <p class="card-title">Coding agent harness</p>
+        <p class="card-desc">Frontier model designs tasks and security gates; cheaper model executes against <code>PROGRESS.md</code>, halting rather than self-patching a failed gate.</p>
+      </div>
+    </div>
+    <details>
+      <summary>
+        <div class="toggle-row">
+          <span>View full specification</span>
+          <span class="chevron">&#9662;</span>
+        </div>
+      </summary>
+      <div class="card-body"><pre><code id="md-harness-coding"></code></pre></div>
+    </details>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <span class="card-tag tag-harness">Harness</span>
+      <div class="card-title-block">
+        <p class="card-title">Research agent harness</p>
+        <p class="card-desc">Frontier model scopes sub-questions and source gates; cheaper model searches and logs claims to <code>FINDINGS.md</code>, escalating contradictions instead of resolving them.</p>
+      </div>
+    </div>
+    <details>
+      <summary>
+        <div class="toggle-row">
+          <span>View full specification</span>
+          <span class="chevron">&#9662;</span>
+        </div>
+      </summary>
+      <div class="card-body"><pre><code id="md-harness-research"></code></pre></div>
+    </details>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <span class="card-tag tag-harness">Harness</span>
+      <div class="card-title-block">
+        <p class="card-title">Ops / deployment agent harness</p>
+        <p class="card-desc">Frontier model sets promotion gates and rollback triggers; cheaper model runs staged rollout against <code>STATE.md</code>, with production always halting for human approval.</p>
+      </div>
+    </div>
+    <details>
+      <summary>
+        <div class="toggle-row">
+          <span>View full specification</span>
+          <span class="chevron">&#9662;</span>
+        </div>
+      </summary>
+      <div class="card-body"><pre><code id="md-harness-ops"></code></pre></div>
+    </details>
+  </div>
+
+  <p class="group-label">Loops</p>
+
+  <div class="card">
+    <div class="card-header">
+      <span class="card-tag tag-loop">Loop</span>
+      <div class="card-title-block">
+        <p class="card-title">Test-driven fix loop</p>
+        <p class="card-desc">Companion to the coding harness. Writes the failing test first, iterates fixes against the full suite, and halts on stalled progress instead of burning retries.</p>
+      </div>
+    </div>
+    <details>
+      <summary>
+        <div class="toggle-row">
+          <span>View full specification</span>
+          <span class="chevron">&#9662;</span>
+        </div>
+      </summary>
+      <div class="card-body"><pre><code id="md-loop-coding"></code></pre></div>
+    </details>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <span class="card-tag tag-loop">Loop</span>
+      <div class="card-title-block">
+        <p class="card-title">Source triangulation loop</p>
+        <p class="card-desc">Companion to the research harness. Varies search angle per iteration, dedupes by publisher, and routes agreement checks to a cheaper model but contradictions to the frontier model.</p>
+      </div>
+    </div>
+    <details>
+      <summary>
+        <div class="toggle-row">
+          <span>View full specification</span>
+          <span class="chevron">&#9662;</span>
+        </div>
+      </summary>
+      <div class="card-body"><pre><code id="md-loop-research"></code></pre></div>
+    </details>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <span class="card-tag tag-loop">Loop</span>
+      <div class="card-title-block">
+        <p class="card-title">Canary rollout loop</p>
+        <p class="card-desc">Companion to the ops harness. Ramps traffic multiplicatively with fixed observation windows; automatic promotion is allowed, automatic rollback is not.</p>
+      </div>
+    </div>
+    <details>
+      <summary>
+        <div class="toggle-row">
+          <span>View full specification</span>
+          <span class="chevron">&#9662;</span>
+        </div>
+      </summary>
+      <div class="card-body"><pre><code id="md-loop-ops"></code></pre></div>
+    </details>
+  </div>
+
+  <footer>
+    <span>NightBuild #3 &mdash; Harness &amp; Loop Engineering reference artifacts.</span>
+    <a href="./nightbuild-harness-loops.html">&#8592; Back to the post</a>
+  </footer>
+
+</div>
+
+<script id="content-data" type="application/json">
+{"md-harness-coding": "# Coding Agent Harness\n\n**Pattern:** Cherny loop/harness. Frontier model designs, cheaper model executes.\n**Portable to:** Claude Code, Cursor, any CLI-driven coding agent.\n\n## Files\n\n- `CLAUDE.md` — operating contract (scope, conventions, forbidden actions)\n- `PROGRESS.md` — cross-session state (last commit, open tasks, blockers)\n- `LOOP.md` — this file's pseudocode, re-read at start of every session\n\n## 1. Design Phase (frontier model, human-reviewed)\n\n1. Read `PROGRESS.md` and current diff/branch state.\n2. Break the next milestone into atomic tasks (< 1 file or < 1 function each).\n3. Write task list to `PROGRESS.md` under `## Next Up`, ordered by dependency.\n4. For each task, define a **security gate**: what check must pass before merge.\n   - `npm audit` / `pip-audit` for dependency changes.\n   - `ip-guard` license check for new packages or code snippets.\n   - Data-ingestion review for any code touching external input (prompt injection surface).\n5. Commit design decisions as comments in `PROGRESS.md`, not in code.\n\n## 2. Execution Phase (cheaper model, loop)\n\n```\nwhile tasks_remain(PROGRESS.md):\n    task = next_task()\n    write_code(task.scope)\n    run(task.tests)\n    if task.touches_dependencies:\n        run(npm_audit or pip_audit)\n    if task.touches_external_input:\n        run(ip_guard, ingestion_review)\n    if all_gates_pass():\n        commit(task)\n        update(PROGRESS.md, mark_done=task)\n    else:\n        log_failure(PROGRESS.md)\n        halt_loop()  # escalate to design phase, do not self-patch security gates\n```\n\n## 3. Handoff Rules\n\n- Never let the execution model edit its own security gate definitions.\n- Every session starts by reading `PROGRESS.md` top to bottom before writing code.\n- If `PROGRESS.md` and actual repo state disagree (e.g. uncommitted changes), halt and surface to human before proceeding.\n\n## 4. Known Limitations\n\n- Loop has no memory of *why* a gate was added, only that it exists. Rationale belongs in `CLAUDE.md`, not `PROGRESS.md`.\n- Cheaper-model execution degrades on tasks requiring cross-file architectural judgment; keep atomic tasks genuinely atomic.\n- No built-in rollback; rely on version control (git) as the actual state authority, `PROGRESS.md` is a pointer, not source of truth.\n", "md-harness-research": "# Research Agent Harness\n\n**Pattern:** Cherny loop/harness. Frontier model designs the research plan, cheaper model executes searches and synthesis passes.\n**Portable to:** any agent with web/document search tools (Claude, LangChain agents, custom CLI).\n\n## Files\n\n- `BRIEF.md` — operating contract (research question, scope boundaries, source constraints)\n- `FINDINGS.md` — cross-session state (claims, sources, confidence, contradictions)\n- `LOOP.md` — this file's pseudocode\n\n## 1. Design Phase (frontier model, human-reviewed)\n\n1. Decompose the research question into sub-questions with clear boundaries (avoid overlapping scope between sub-questions).\n2. Define a **source gate** per sub-question:\n   - Minimum source count for a claim to be marked \"supported.\"\n   - Excluded source types (e.g. no unreviewed forums for factual claims).\n   - Recency requirement, if the question is time-sensitive.\n3. Write sub-questions to `FINDINGS.md` under `## Open` with empty claim slots.\n4. Define a **contradiction protocol**: if two sources disagree, both get logged, neither gets marked \"supported\" until a tie-breaker source is found or the contradiction is surfaced to human.\n\n## 2. Execution Phase (cheaper model, loop)\n\n```\nwhile open_subquestions(FINDINGS.md):\n    q = next_subquestion()\n    sources = search(q, exclude=q.excluded_types)\n    claims = extract_claims(sources)\n    if count(sources_per_claim) >= q.min_sources and no_contradiction(claims):\n        mark_supported(FINDINGS.md, q, claims, sources)\n    elif contradiction_found(claims):\n        log_contradiction(FINDINGS.md, q, claims, sources)\n        halt_subquestion()  # escalate, do not auto-resolve\n    else:\n        mark_insufficient(FINDINGS.md, q)\n    move_to_closed(FINDINGS.md, q)\n```\n\n## 3. Handoff Rules\n\n- Cheaper model never resolves contradictions or lowers the source-count gate to force a \"supported\" status.\n- Every session starts by reading `FINDINGS.md`'s `## Contradictions` and `## Insufficient` sections before opening new sub-questions.\n- Final synthesis (frontier model only) reads `FINDINGS.md` in full and writes the report; execution-phase model never drafts final prose, only structured claim entries.\n\n## 4. Known Limitations\n\n- Source gate quality depends entirely on how the sub-question was scoped in design phase; garbage scoping produces confidently-labeled garbage claims.\n- No mechanism to detect a *systemically* biased source set (all sources sharing one outlet's syndication, for example); spot-check manually.\n- `FINDINGS.md` grows unbounded on long research tasks; archive closed sub-questions to a dated file once the report ships, to keep the loop's working context small.\n", "md-harness-ops": "# Ops / Deployment Agent Harness\n\n**Pattern:** Cherny loop/harness. Frontier model designs the rollout plan, cheaper model executes deploy steps.\n**Portable to:** any CI/CD-adjacent agent (Cloudflare Workers, Replit, GitHub Actions runners, generic SSH-driven deploy scripts).\n\n## Files\n\n- `RUNBOOK.md` — operating contract (environments, rollback procedure, forbidden actions)\n- `STATE.md` — cross-session state (current deployed version per environment, last health check, open incidents)\n- `LOOP.md` — this file's pseudocode\n\n## 1. Design Phase (frontier model, human-reviewed)\n\n1. Read `STATE.md` for current deployed versions and last known-good state per environment.\n2. Break the rollout into ordered stages (e.g. staging → canary → production).\n3. Define a **promotion gate** per stage:\n   - Health check endpoint(s) and expected response.\n   - Error-rate or latency threshold that blocks promotion.\n   - Required manual approval step, if any (e.g. production always requires human sign-off).\n4. Define the **rollback trigger**: exact condition that auto-reverts, and to which known-good version.\n5. Write the staged plan to `STATE.md` under `## Rollout Plan`.\n\n## 2. Execution Phase (cheaper model, loop)\n\n```\nwhile stages_remain(STATE.md):\n    stage = next_stage()\n    deploy(stage.environment, stage.version)\n    wait(stage.health_check_delay)\n    result = run(stage.health_checks)\n    if result.passes(stage.thresholds):\n        if stage.requires_approval:\n            halt_for_human_approval()\n        else:\n            promote(STATE.md, stage)\n    else:\n        rollback(stage.environment, to=STATE.md.last_known_good)\n        log_incident(STATE.md, stage, result)\n        halt_loop()  # escalate, do not retry-and-hide\n```\n\n## 3. Handoff Rules\n\n- Cheaper model never modifies rollback triggers or promotion thresholds mid-loop.\n- Production promotion always halts for explicit human approval, regardless of what the design phase specified, unless the human has pre-authorized unattended production deploys in `RUNBOOK.md` in writing.\n- Every session starts by reading `STATE.md`'s `## Open Incidents` before starting a new rollout.\n\n## 4. Known Limitations\n\n- Health checks only catch what they're written to catch; a passing check is not proof of correctness, only absence of the specific failure mode tested.\n- Rollback to \"last known good\" assumes `STATE.md` was updated correctly on the prior deploy; treat `STATE.md` as a cache of the deploy platform's actual state, not the source of truth, verify against the platform after any halt.\n- No cost gate by default; add one if the environment has autoscaling, since a bad canary can silently scale spend before a human sees it.\n", "md-loop-coding": "# Loop Design: Test-Driven Fix Loop\n\n**Use case:** Coding agent bug-fix or feature cycles.\n**Companion to:** `harness-coding-agent.md` (uses the same `PROGRESS.md` state file).\n**Cost note:** run the loop body on a cheaper model (for example Claude Haiku); reserve the frontier model for writing the failing test and for final review. This keeps per-iteration cost near the cheaper model's rate, with one frontier-model call per task instead of per iteration.\n\n## Trigger\n\nA task in `PROGRESS.md` has a defined but unmet acceptance criterion.\n\n## Loop Body\n\n```\nwrite_failing_test(task)          # frontier model, once per task\niteration = 0\nwhile iteration < max_iterations:\n    run_test_suite()\n    if target_test.passes() and no_regressions():\n        commit(task)\n        break\n    diff = analyze_failure(test_output)\n    apply_fix(diff.suggested_scope)\n    iteration += 1\nif iteration == max_iterations and not target_test.passes():\n    halt_loop()\n    escalate_to_frontier_model(task, test_output_history)\n```\n\n## Steps\n\n1. Write the failing test first, scoped to the acceptance criterion. Do this before any fix code exists.\n2. Run the full test suite, not just the target test. This catches regressions the fix introduces elsewhere.\n3. Compare the failure output against the previous iteration's failure output. If the diff between iterations shows no forward progress after two consecutive attempts, halt instead of continuing to burn iterations.\n4. Cap `max_iterations` at a small number, for example 5. A fix that needs more than 5 attempts usually indicates a scoping problem, not an iteration-count problem.\n5. On halt, hand the full failure history back to the frontier model for re-scoping, not to a fresh execution-model attempt with no memory of what already failed.\n\n## Known Limitations\n\n- The loop cannot distinguish a flaky test from a real regression. Add a flake-detection pass (rerun failing tests N times) before trusting a \"no regressions\" result on a suite with known-flaky tests.\n- Test-first scoping only catches what the test checks. A logically wrong test produces a confidently \"passing\" wrong fix.\n", "md-loop-research": "# Loop Design: Source Triangulation Loop\n\n**Use case:** Research agent claim verification.\n**Companion to:** `harness-research-agent.md` (uses the same `FINDINGS.md` state file).\n**Cost note:** run search and extraction on a cheaper model; reserve the frontier model for the contradiction-resolution step. Most sub-questions resolve without ever invoking the frontier model, which keeps average cost close to the cheaper model's rate.\n\n## Trigger\n\nA claim in `FINDINGS.md` has fewer supporting sources than the sub-question's minimum source gate.\n\n## Loop Body\n\n```\nsources_seen = 0\nangles_tried = []\nwhile sources_seen < subquestion.min_sources:\n    angle = next_unused_angle(angles_tried)   # e.g. rephrase, alternate terminology, adjacent date range\n    results = search(subquestion, angle)\n    angles_tried.append(angle)\n    new_sources = filter(results, exclude=subquestion.excluded_types, dedupe=True)\n    sources_seen += len(new_sources)\n    if len(angles_tried) > max_angles and sources_seen < subquestion.min_sources:\n        mark_insufficient(FINDINGS.md, subquestion)\n        break\nif sources_seen >= subquestion.min_sources:\n    if agree(new_sources):\n        mark_supported(FINDINGS.md, subquestion, new_sources)\n    else:\n        escalate_to_frontier_model(subquestion, new_sources)  # contradiction resolution\n```\n\n## Steps\n\n1. Vary the search angle on each iteration rather than repeating the same query. A rephrase, a synonym, or an adjacent date range surfaces sources a repeated identical query will not.\n2. Deduplicate sources by underlying publisher, not by URL. Multiple URLs syndicating the same wire copy count as one source, not several.\n3. Cap `max_angles`, for example 4. Repeated failure to find independent sources after 4 angles is itself a finding, mark it insufficient rather than looping indefinitely.\n4. Route agreement checks to the cheaper model. Route disagreement (contradiction) to the frontier model, since resolving a contradiction requires judgment the loop should not automate.\n5. Log every angle tried in `FINDINGS.md`, even failed ones. This prevents a future session from re-trying the same failed angle.\n\n## Known Limitations\n\n- Source-agreement is a proxy for correctness, not proof of it. Multiple sources can share a single upstream error (for example, all citing the same flawed press release).\n- Angle variation can accidentally shift the sub-question's scope. Check that each angle still answers the original sub-question, not a nearby one.\n", "md-loop-ops": "# Loop Design: Canary Rollout Loop\n\n**Use case:** Ops/deployment agent incremental traffic shift.\n**Companion to:** `harness-ops-deployment-agent.md` (uses the same `STATE.md` state file).\n**Cost note:** run health-check polling and traffic-percentage increments on a cheaper model; reserve the frontier model for the rollback-decision step. On platforms with autoscaling (for example Cloudflare Workers or Replit-hosted services), add a spend ceiling to the loop, since a bad canary can scale cost before a human notices.\n\n## Trigger\n\n`STATE.md` has a rollout plan with a canary stage defined but not yet promoted to full traffic.\n\n## Loop Body\n\n```\ntraffic_pct = stage.starting_pct   # e.g. 5\nwhile traffic_pct < 100:\n    set_traffic(stage.environment, traffic_pct)\n    wait(stage.observation_window)\n    metrics = collect(stage.health_checks)\n    if metrics.exceed(stage.rollback_thresholds):\n        escalate_to_frontier_model(metrics, traffic_pct)  # rollback decision\n        rollback(stage.environment, to=STATE.md.last_known_good)\n        halt_loop()\n        break\n    traffic_pct = min(traffic_pct * stage.increment_factor, 100)\n    update(STATE.md, traffic_pct)\nif traffic_pct >= 100:\n    mark_promoted(STATE.md, stage)\n```\n\n## Steps\n\n1. Start the canary at a small traffic percentage, for example 5%. This limits blast radius if the deployed version has a defect the pre-deploy tests missed.\n2. Hold each traffic level for a fixed observation window before increasing it. A window too short misses delayed failure modes, for example memory leaks or slow-building error rates.\n3. Increase traffic by a multiplicative factor, for example 2x, rather than a fixed increment. This reaches full traffic faster once early stages prove stable, while still capping how much traffic and hence spend a bad version reaches at any one stage.\n4. Route the rollback decision to the frontier model, not the loop itself. Automatic promotion is safe to automate; automatic rollback judgment is not, since threshold breaches can have causes unrelated to the deployed version, for example an unrelated upstream outage.\n5. Update `STATE.md` after every traffic change, not just at stage completion. A crash mid-loop should not lose the last known traffic level.\n\n## Known Limitations\n\n- The loop assumes health checks catch the failure modes that matter. A defect outside the checked metrics reaches 100% traffic undetected.\n- Multiplicative traffic increase can overshoot on platforms with coarse traffic-splitting granularity; check the platform's minimum increment before setting `increment_factor`.\n"}
+</script>
+<script>
+(function() {
+  var data = JSON.parse(document.getElementById('content-data').textContent);
+  Object.keys(data).forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el) { el.textContent = data[id]; }
+  });
+})();
+</script>
+</body>
+</html>
