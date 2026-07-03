@@ -26,10 +26,10 @@
       "feature_flags": [
         "function_calling",
         "streaming",
-        "fine_tuning"
+        "vision"
       ]
     }
   ],
-  "_state": 0,
-  "_updated_at": "2026-07-03T17:29:04.466Z"
+  "_state": 1,
+  "_updated_at": "2026-07-03T17:32:10.011Z"
 }
