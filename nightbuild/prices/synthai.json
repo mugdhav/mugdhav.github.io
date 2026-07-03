@@ -3,7 +3,7 @@
   "plans": [
     {
       "plan_name": "Developer",
-      "price_amount": 25,
+      "price_amount": 20,
       "price_currency": "USD",
       "price_cadence": "monthly",
       "included_units": {
@@ -18,7 +18,7 @@
     },
     {
       "plan_name": "Team",
-      "price_amount": 75,
+      "price_amount": 60,
       "price_currency": "USD",
       "price_cadence": "monthly",
       "included_units": {
@@ -31,26 +31,8 @@
         "batch_api",
         "priority_queue"
       ]
-    },
-    {
-      "plan_name": "Enterprise",
-      "price_amount": 299,
-      "price_currency": "USD",
-      "price_cadence": "monthly",
-      "included_units": {
-        "api_calls": "unlimited",
-        "context_window_k": 1000
-      },
-      "feature_flags": [
-        "function_calling",
-        "streaming",
-        "batch_api",
-        "priority_queue",
-        "dedicated_infra",
-        "sla_99_9"
-      ]
     }
   ],
-  "_state": 2,
-  "_updated_at": "2026-07-03T17:45:51.646Z"
+  "_state": 0,
+  "_updated_at": "2026-07-03T17:47:08.588Z"
 }
