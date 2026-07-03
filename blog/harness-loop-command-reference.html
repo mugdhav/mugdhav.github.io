@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harness &amp; Loop CLI Command Reference — Claude Code · Codex · Antigravity</title>
+
+<!-- SEO Meta Tags -->
+<meta name="description" content="CLI and in-session commands for harness setup and loop execution across Claude Code, Codex, and Antigravity CLI. Covers /loop, /goal, /batch, /schedule, codex exec, agy -p, and context files.">
+<meta name="keywords" content="harness engineering, loop engineering, Claude Code commands, Codex CLI, Antigravity CLI, /loop, /goal, /batch, /schedule, CLAUDE.md, AGENTS.md, agentic AI, NightBuild">
+<meta name="author" content="Mugdha Vairagade">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.vmugdha.in/blog/harness-loop-command-reference.html">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://www.vmugdha.in/blog/harness-loop-command-reference.html">
+<meta property="og:title" content="Harness &amp; Loop CLI Command Reference — Claude Code · Codex · Antigravity">
+<meta property="og:description" content="CLI and in-session commands for harness setup and loop execution across Claude Code, Codex, and Antigravity CLI. Covers /loop, /goal, /batch, /schedule, codex exec, agy -p, and context files.">
+<meta property="og:site_name" content="Mugdha Vairagade's Portfolio">
+
+<!-- Favicon -->
+<link rel="icon" type="image/vnd.microsoft.icon" href="../assets/favicon/iopm5-km6uc-002.ico">
+<link rel="shortcut icon" type="image/x-icon" href="../assets/favicon/iopm5-km6uc-002.ico">
+<link rel="apple-touch-icon" href="../assets/favicon/iopm5-km6uc-003.ico">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9HL4T713SQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-9HL4T713SQ');
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Spline+Sans+Mono:wght@300;400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F5F2EC;
+    --paper-2: #EDE9E1;
+    --ink: #1A1916;
+    --ink-mid: #4A4742;
+    --ink-light: #8A8580;
+    --signal-green: #2D7D4F;
+    --signal-green-bg: #EAF4EE;
+    --wire-orange: #C4510A;
+    --wire-orange-bg: #FDF0E8;
+    --rule: #D4CFC7;
+    --cc-accent: #2D7D4F;
+    --codex-accent: #1A6B9A;
+    --codex-bg: #EAF2F8;
+    --agy-accent: #7A3A9A;
+    --agy-bg: #F3EDF9;
+    --tag-bg: #E8E4DC;
+    --code-bg: #2A2825;
+    --code-fg: #E8E4DC;
+    --mono: 'Spline Sans Mono', monospace;
+    --sans: 'Space Grotesk', sans-serif;
+    --body: 'Inter', sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--body);
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* ── HEADER ──────────────────────────────────────── */
+  .site-header {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 14px 40px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 2px solid var(--wire-orange);
+  }
+
+  .site-header .series-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--wire-orange);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .site-header .sep {
+    color: #555;
+    font-size: 18px;
+  }
+
+  .site-header .page-title {
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 500;
+    color: #C8C4BC;
+  }
+
+  .header-pills {
+    margin-left: auto;
+    display: flex;
+    gap: 8px;
+  }
+
+  .header-pill {
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+  }
+  .pill-cc { background: rgba(45,125,79,0.25); color: #6FD4A0; }
+  .pill-cx { background: rgba(26,107,154,0.25); color: #7EC8EA; }
+  .pill-ag { background: rgba(122,58,154,0.25); color: #C99FE6; }
+
+  .back-link {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: #C8C4BC;
+    text-decoration: none;
+    margin-left: 16px;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+  }
+  .back-link:hover { color: #fff; text-decoration: none; }
+
+  /* ── HERO ────────────────────────────────────────── */
+  .hero {
+    padding: 52px 40px 40px;
+    max-width: 980px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .hero-eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--wire-orange);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  .hero h1 {
+    font-family: var(--sans);
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--ink);
+    max-width: 700px;
+    margin-bottom: 16px;
+  }
+
+  .hero-sub {
+    color: var(--ink-mid);
+    font-size: 15px;
+    max-width: 640px;
+    line-height: 1.65;
+  }
+
+  .hero-meta {
+    margin-top: 20px;
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-light);
+  }
+
+  .hero-meta span { display: flex; align-items: center; gap: 6px; }
+  .hero-meta .dot { width: 6px; height: 6px; border-radius: 50%; }
+  .dot-cc { background: var(--cc-accent); }
+  .dot-cx { background: var(--codex-accent); }
+  .dot-ag { background: var(--agy-accent); }
+
+  /* ── LAYOUT ──────────────────────────────────────── */
+  .layout {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    max-width: 1120px;
+    min-height: calc(100vh - 160px);
+  }
+
+  /* ── SIDEBAR NAV ─────────────────────────────────── */
+  .sidebar {
+    padding: 32px 24px 40px;
+    border-right: 1px solid var(--rule);
+    position: sticky;
+    top: 53px;
+    height: calc(100vh - 53px);
+    overflow-y: auto;
+  }
+
+  .sidebar-section {
+    margin-bottom: 28px;
+  }
+
+  .sidebar-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 8px;
+  }
+
+  .sidebar nav a {
+    display: block;
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink-mid);
+    text-decoration: none;
+    padding: 5px 0;
+    border-left: 2px solid transparent;
+    padding-left: 10px;
+    transition: color 0.15s, border-color 0.15s;
+  }
+
+  .sidebar nav a:hover { color: var(--ink); border-color: var(--rule); }
+  .sidebar nav a.cc { border-color: transparent; }
+  .sidebar nav a.cc:hover { border-color: var(--cc-accent); color: var(--cc-accent); }
+  .sidebar nav a.cx:hover { border-color: var(--codex-accent); color: var(--codex-accent); }
+  .sidebar nav a.ag:hover { border-color: var(--agy-accent); color: var(--agy-accent); }
+
+  .sidebar-platform-header {
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    margin-bottom: 4px;
+    padding-left: 10px;
+  }
+  .sidebar-platform-header.cc { color: var(--cc-accent); }
+  .sidebar-platform-header.cx { color: var(--codex-accent); }
+  .sidebar-platform-header.ag { color: var(--agy-accent); }
+
+  /* ── MAIN CONTENT ────────────────────────────────── */
+  .main {
+    padding: 40px 48px 80px;
+  }
+
+  /* ── PLATFORM SECTIONS ───────────────────────────── */
+  .platform-section {
+    margin-bottom: 72px;
+  }
+
+  .platform-header {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    padding-bottom: 14px;
+    border-bottom: 2px solid var(--rule);
+    margin-bottom: 32px;
+  }
+
+  .platform-name {
+    font-family: var(--sans);
+    font-size: 22px;
+    font-weight: 700;
+  }
+  .platform-name.cc { color: var(--cc-accent); }
+  .platform-name.cx { color: var(--codex-accent); }
+  .platform-name.ag { color: var(--agy-accent); }
+
+  .platform-cli {
+    font-family: var(--mono);
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--ink-light);
+  }
+
+  .platform-version {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-light);
+    margin-left: auto;
+  }
+
+  /* ── COMMAND BLOCK ───────────────────────────────── */
+  .command-block {
+    margin-bottom: 40px;
+    scroll-margin-top: 70px;
+  }
+
+  .command-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+
+  .command-name {
+    font-family: var(--mono);
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  .cmd-tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 3px;
+    margin-top: 4px;
+  }
+  .tag-loop { background: var(--signal-green-bg); color: var(--signal-green); }
+  .tag-harness { background: var(--wire-orange-bg); color: var(--wire-orange); }
+  .tag-both { background: var(--tag-bg); color: var(--ink-mid); }
+  .tag-skill { background: #EDF0FA; color: #2A4F9A; }
+  .tag-feature { background: #F4EDF9; color: #6A3089; }
+
+  .command-desc {
+    color: var(--ink-mid);
+    font-size: 14px;
+    margin-bottom: 12px;
+    max-width: 680px;
+    line-height: 1.6;
+  }
+
+  /* Syntax */
+  .syntax-block {
+    background: var(--code-bg);
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin-bottom: 12px;
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--code-fg);
+    overflow-x: auto;
+  }
+
+  .syntax-block .kw { color: var(--wire-orange); }
+  .syntax-block .arg { color: #7EC8EA; }
+  .syntax-block .opt { color: #A8D8A0; }
+  .syntax-block .comment { color: #7A7570; }
+
+  /* Param table */
+  .param-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 12px;
+    font-size: 13px;
+  }
+
+  .param-table th {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    text-align: left;
+    padding: 6px 12px;
+    background: var(--paper-2);
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .param-table td {
+    padding: 7px 12px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+
+  .param-table td:first-child {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--ink);
+    white-space: nowrap;
+  }
+
+  .param-table td:nth-child(2) {
+    color: var(--ink-mid);
+    font-size: 13px;
+  }
+
+  .req { color: var(--wire-orange); font-size: 10px; margin-left: 3px; }
+  .opt-marker { color: var(--ink-light); font-size: 10px; margin-left: 3px; }
+
+  /* Example */
+  .example-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 5px;
+  }
+
+  .example-block {
+    background: var(--paper-2);
+    border-left: 3px solid var(--rule);
+    border-radius: 0 4px 4px 0;
+    padding: 12px 16px;
+    font-family: var(--mono);
+    font-size: 12.5px;
+    color: var(--ink);
+    overflow-x: auto;
+    margin-bottom: 8px;
+  }
+
+  .example-note {
+    font-size: 12px;
+    color: var(--ink-light);
+    font-style: italic;
+    margin-top: 4px;
+  }
+
+  /* Gotchas / notes */
+  .note-block {
+    background: var(--wire-orange-bg);
+    border-left: 3px solid var(--wire-orange);
+    border-radius: 0 4px 4px 0;
+    padding: 10px 14px;
+    font-size: 13px;
+    color: var(--ink-mid);
+    margin-top: 8px;
+  }
+
+  .note-block strong {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--wire-orange);
+    margin-right: 6px;
+  }
+
+  /* Info/further reading */
+  .info-block {
+    background: var(--signal-green-bg);
+    border-left: 3px solid var(--signal-green);
+    border-radius: 0 4px 4px 0;
+    padding: 10px 14px;
+    font-size: 13px;
+    color: var(--ink-mid);
+    margin-top: 8px;
+  }
+
+  .info-block strong {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--signal-green);
+    margin-right: 6px;
+  }
+
+  .info-block a { color: var(--signal-green); font-weight: 500; }
+
+  /* Context files section */
+  .context-section {
+    margin-bottom: 40px;
+  }
+
+  .context-heading {
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .file-row {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 12px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--rule);
+    font-size: 13px;
+  }
+
+  .file-row:last-child { border-bottom: none; }
+
+  .file-name {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  .file-desc { color: var(--ink-mid); }
+
+  /* Section divider */
+  .section-divider {
+    border: none;
+    border-top: 1px solid var(--rule);
+    margin: 40px 0;
+  }
+
+  /* Sub-heading */
+  .sub-heading {
+    font-family: var(--sans);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 16px;
+    margin-top: 32px;
+    scroll-margin-top: 70px;
+  }
+
+  /* Cross-platform comparison */
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin-bottom: 32px;
+  }
+
+  .compare-table th {
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 10px 14px;
+    text-align: left;
+    border-bottom: 2px solid var(--rule);
+  }
+
+  .compare-table th.cc { color: var(--cc-accent); }
+  .compare-table th.cx { color: var(--codex-accent); }
+  .compare-table th.ag { color: var(--agy-accent); }
+
+  .compare-table td {
+    padding: 8px 14px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+    color: var(--ink-mid);
+  }
+
+  .compare-table td:first-child {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--ink);
+    white-space: nowrap;
+  }
+
+  .compare-table tr:nth-child(even) td { background: rgba(0,0,0,0.018); }
+
+  code {
+    font-family: var(--mono);
+    font-size: 12px;
+    background: var(--tag-bg);
+    padding: 1px 5px;
+    border-radius: 3px;
+    color: var(--ink);
+  }
+
+  a { color: var(--codex-accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* ── FOOTER ──────────────────────────────────────── */
+  .page-footer {
+    background: var(--paper-2);
+    border-top: 1px solid var(--rule);
+    padding: 28px 40px;
+    font-size: 12px;
+    color: var(--ink-light);
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    max-width: 1120px;
+  }
+
+  .page-footer a { color: var(--ink-light); }
+  .page-footer a:hover { color: var(--ink); }
+
+  .footer-col { min-width: 160px; }
+  .footer-col strong {
+    display: block;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-mid);
+    margin-bottom: 6px;
+  }
+
+  .footer-col a { display: block; padding: 2px 0; }
+
+  /* ── RESPONSIVE ──────────────────────────────────── */
+  @media (max-width: 780px) {
+    .layout { grid-template-columns: 1fr; }
+    .sidebar { display: none; }
+    .main { padding: 24px 20px 60px; }
+    .hero { padding: 32px 20px 28px; }
+    .site-header { padding: 12px 20px; }
+    .header-pills { display: none; }
+    .back-link { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <span class="series-label">NightBuild</span>
+  <span class="sep">·</span>
+  <span class="page-title">Harness &amp; Loop CLI Command Reference</span>
+  <div class="header-pills">
+    <span class="header-pill pill-cc">Claude Code</span>
+    <span class="header-pill pill-cx">Codex</span>
+    <span class="header-pill pill-ag">Antigravity</span>
+  </div>
+  <a href="./nightbuild-harness-loops.html" class="back-link">&#8592; Back to NightBuild #3</a>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">Command Reference · July 2026</div>
+  <h1>Specifying and Running Harnesses and Loops in Claude Code, Codex, and Antigravity CLI</h1>
+  <p class="hero-sub">
+    CLI and in-session commands for harness setup and loop execution across the three major AI coding agents.
+    Scope is limited to terminal primitives: slash commands, CLI flags, and context files.
+    For API-level constructs, follow the per-platform links in each section.
+  </p>
+  <div class="hero-meta">
+    <span><span class="dot dot-cc"></span>Claude Code v2.1.199+</span>
+    <span><span class="dot dot-cx"></span>Codex 0.142+</span>
+    <span><span class="dot dot-ag"></span>Antigravity CLI v1.0.10+</span>
+  </div>
+</div>
+
+<!-- LAYOUT -->
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-label">Jump to</div>
+      <nav>
+        <a href="#cross-platform">Cross-platform comparison</a>
+      </nav>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-platform-header cc">Claude Code</div>
+      <nav>
+        <a href="#cc-context" class="cc">Context files</a>
+        <a href="#cc-loop" class="cc">/loop</a>
+        <a href="#cc-goal" class="cc">/goal</a>
+        <a href="#cc-batch" class="cc">/batch</a>
+        <a href="#cc-background" class="cc">/background</a>
+        <a href="#cc-schedule" class="cc">/schedule</a>
+        <a href="#cc-compact" class="cc">/compact</a>
+        <a href="#cc-permissions" class="cc">/permissions</a>
+        <a href="#cc-ralph" class="cc">Ralph loop (ancestor)</a>
+      </nav>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-platform-header cx">Codex</div>
+      <nav>
+        <a href="#cx-context" class="cx">Context files</a>
+        <a href="#cx-goal" class="cx">/goal</a>
+        <a href="#cx-review" class="cx">/review</a>
+        <a href="#cx-permissions" class="cx">/permissions</a>
+        <a href="#cx-approval" class="cx">Approval modes</a>
+        <a href="#cx-exec" class="cx">codex exec</a>
+        <a href="#cx-subagents" class="cx">Subagents</a>
+      </nav>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-platform-header ag">Antigravity CLI</div>
+      <nav>
+        <a href="#ag-context" class="ag">Context files</a>
+        <a href="#ag-goal" class="ag">/goal</a>
+        <a href="#ag-planning" class="ag">/planning</a>
+        <a href="#ag-agents" class="ag">/agents</a>
+        <a href="#ag-tasks" class="ag">/tasks</a>
+        <a href="#ag-permissions" class="ag">/permissions</a>
+        <a href="#ag-print" class="ag">agy -p</a>
+      </nav>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- CROSS-PLATFORM COMPARISON -->
+    <section id="cross-platform" class="platform-section">
+      <h2 class="sub-heading" style="margin-top:0; font-size:18px;">Cross-platform comparison</h2>
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Capability</th>
+            <th class="cc">Claude Code</th>
+            <th class="cx">Codex</th>
+            <th class="ag">Antigravity CLI</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Interval loop</td>
+            <td><code>/loop 5m …</code></td>
+            <td>Not built-in; use <code>codex exec</code> + cron</td>
+            <td>Not built-in; use <code>agy -p</code> + cron</td>
+          </tr>
+          <tr>
+            <td>Goal-conditioned loop</td>
+            <td><code>/goal &lt;condition&gt;</code></td>
+            <td><code>/goal</code> (features.goals flag)</td>
+            <td><code>/goal</code> + <code>/schedule</code></td>
+          </tr>
+          <tr>
+            <td>Parallel fan-out</td>
+            <td><code>/batch</code>, <code>/background</code></td>
+            <td>Subagents (<code>/agent</code>)</td>
+            <td><code>/agents</code> + subagents</td>
+          </tr>
+          <tr>
+            <td>Non-interactive / CI mode</td>
+            <td><code>claude -p "…"</code> + <code>--print</code></td>
+            <td><code>codex exec "…"</code></td>
+            <td><code>agy -p "…"</code></td>
+          </tr>
+          <tr>
+            <td>Scheduled / persistent runs</td>
+            <td><code>/schedule</code> (Managed Agents)</td>
+            <td>External scheduler + <code>codex exec</code></td>
+            <td><code>/schedule</code></td>
+          </tr>
+          <tr>
+            <td>Harness context file</td>
+            <td><code>CLAUDE.md</code></td>
+            <td><code>AGENTS.md</code></td>
+            <td><code>AGENTS.md</code> or <code>GEMINI.md</code></td>
+          </tr>
+          <tr>
+            <td>Session state / resume</td>
+            <td><code>/resume</code>, <code>/branch</code></td>
+            <td><code>codex resume</code>, <code>/fork</code></td>
+            <td><code>/resume</code>, <code>/fork</code></td>
+          </tr>
+          <tr>
+            <td>Approval / permission gate</td>
+            <td><code>/permissions</code></td>
+            <td><code>--ask-for-approval</code>, <code>/permissions</code></td>
+            <td><code>/permissions</code> presets</td>
+          </tr>
+          <tr>
+            <td>Context compaction</td>
+            <td><code>/compact</code></td>
+            <td><code>/compact</code></td>
+            <td><code>/clear</code> (resets)</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════ -->
+    <!-- CLAUDE CODE                                        -->
+    <!-- ══════════════════════════════════════════════════ -->
+    <section class="platform-section">
+      <div class="platform-header">
+        <span class="platform-name cc">Claude Code</span>
+        <span class="platform-cli">claude</span>
+        <span class="platform-version">v2.1.199 · <a href="https://code.claude.com/docs/en/commands" target="_blank">Official docs ↗</a></span>
+      </div>
+
+      <!-- Context files -->
+      <div id="cc-context" class="context-section">
+        <div class="context-heading">Harness context files</div>
+        <div class="file-row">
+          <span class="file-name">CLAUDE.md</span>
+          <span class="file-desc">Stable project harness: stack, build commands, conventions, and session protocol. Loaded at every session start. Run <code>/init</code> to scaffold, <code>/memory</code> to refine. Global variant at <code>~/.claude/CLAUDE.md</code>.</span>
+        </div>
+        <div class="file-row">
+          <span class="file-name">PROGRESS.md</span>
+          <span class="file-desc">Per-feature loop state: tasks done, next steps, blockers, and test-gate status. Rewritten after every completed task so sessions resume from the last commit checkpoint, not from a half-applied edit.</span>
+        </div>
+        <div class="file-row">
+          <span class="file-name">.claude/commands/</span>
+          <span class="file-desc">Project-scoped custom slash commands (Markdown files). Use <code>~/.claude/commands/</code> for global availability. Reference with <code>$ARGUMENTS</code> placeholder for parameterized commands.</span>
+        </div>
+        <div class="file-row">
+          <span class="file-name">.claude/settings.json</span>
+          <span class="file-desc">Permission allowlist, tool rules, and hook configurations. Populated automatically by <code>/permissions</code> and <code>/fewer-permission-prompts</code>.</span>
+        </div>
+      </div>
+
+      <!-- /loop -->
+      <div id="cc-loop" class="command-block">
+        <div class="command-header">
+          <span class="command-name">/loop</span>
+          <span class="cmd-tag tag-loop">Loop</span>
+          <span class="cmd-tag tag-skill">Skill</span>
+        </div>
+        <p class="command-desc">Repeat a prompt on a fixed interval while the session stays open. Omit the interval and Claude self-paces between iterations. Omit the prompt and Claude runs an autonomous maintenance check or the prompt in <code>.claude/loop.md</code> (where available). Stops when the session ends or you press <kbd>Esc</kbd>.</p>
+        <div class="syntax-block">
+          <span class="kw">/loop</span> <span class="opt">[interval]</span> <span class="opt">[prompt]</span>
+        </div>
+        <table class="param-table">
+          <thead><tr><th>Parameter</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td>interval<span class="opt-marker">optional</span></td><td>Repeat cadence. Units: <code>m</code> minutes, <code>h</code> hours, <code>d</code> days. Minimum 1 minute. Can lead or trail the prompt text. Omit to let Claude self-pace.</td></tr>
+            <tr><td>prompt<span class="opt-marker">optional</span></td><td>Instruction to repeat each iteration. Omit to use <code>.claude/loop.md</code> or the default maintenance prompt.</td></tr>
+          </tbody>
+        </table>
+        <div class="example-label">Example</div>
+        <div class="example-block">/loop 5m check if the deploy to staging finished and report status</div>
+        <p class="example-note">Polls every 5 minutes. Claude reports each iteration without requiring manual re-prompting.</p>
+        <div class="note-block"><strong>Gotcha</strong> Intervals shorter than 5 minutes hit API rate limits quickly. Each iteration consumes tokens; set intervals proportional to task weight. Loops die when the session ends — use <code>/schedule</code> for persistence beyond a session.</div>
+        <div class="info-block"><strong>Read more</strong> <a href="https://code.claude.com/docs/en/scheduled-tasks" target="_blank">Run prompts on a schedule (Claude Code docs) ↗</a></div>
+      </div>
+
+      <!-- /goal -->
+      <div id="cc-goal" class="command-block">
+        <div class="command-header">
+          <span class="command-name">/goal</span>
+          <span class="cmd-tag tag-loop">Loop</span>
+        </div>
+        <p class="command-desc">Register a session-level completion condition. Claude keeps working across turns until a separate evaluator model (defaults to Haiku) reads the transcript and confirms the condition is met. A live overlay shows elapsed time, turn count, and token usage. Clear with <code>/goal clear</code>.</p>
+        <div class="syntax-block">
+          <span class="kw">/goal</span> <span class="opt">[condition | clear | stop | off | reset | none | cancel]</span>
+        </div>
+        <table class="param-table">
+          <thead><tr><th>Parameter</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td>condition<span class="opt-marker">optional</span></td><td>Plain-language completion criterion. Must be verifiable from the conversation transcript — the evaluator cannot inspect your filesystem or run commands independently. Omit to show the current or most recently achieved goal.</td></tr>
+            <tr><td>clear / stop / off …</td><td>Any of these keywords removes an active goal early.</td></tr>
+          </tbody>
+        </table>
+        <div class="example-label">Example</div>
+        <div class="example-block">/goal all tests in src/auth pass and the lint step is clean</div>
+        <p class="example-note">Claude iterates until the evaluator confirms both conditions. No "keep going" prompts needed.</p>
+        <div class="note-block"><strong>Gotcha</strong> The evaluator judges only what Claude has shown in the conversation. If a verification step runs silently (no visible output), the evaluator cannot confirm it. Make outcomes explicit in Claude's responses.</div>
+        <div class="info-block"><strong>Requires</strong> Claude Code v2.1.139 or later. Works in interactive mode, <code>claude -p</code>, and Remote Control.</div>
+      </div>
+
+      <!-- /batch -->
+      <div id="cc-batch" class="command-block">
+        <div class="command-header">
+          <span class="command-name">/batch</span>
+          <span class="cmd-tag tag-harness">Harness</span>
+          <span class="cmd-tag tag-skill">Skill</span>
+        </div>
+        <p class="command-desc">Decompose a large codebase change into 5–30 independent units and run each in a parallel background subagent in an isolated git worktree. Each subagent implements its unit, runs tests, and opens a pull request. Requires a git repository.</p>
+        <div class="syntax-block">
+          <span class="kw">/batch</span> <span class="arg">&lt;instruction&gt;</span>
+        </div>
+        <table class="param-table">
+          <thead><tr><th>Parameter</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td>instruction<span class="req">required</span></td><td>Description of the codebase-wide change. Claude researches the codebase, decomposes the work, presents a plan for approval, then spawns subagents.</td></tr>
+          </tbody>
+        </table>
+        <div class="example-label">Example</div>
+        <div class="example-block">/batch migrate src/ from Solid to React</div>
+        <p class="example-note">Claude decomposes by component, spawns one agent per unit, and opens a PR per unit.</p>
+        <div class="note-block"><strong>Gotcha</strong> Running 5–30 subagents simultaneously multiplies token usage. Each subagent does its own model and tool work. Reserve for genuine fan-out tasks, not for sequential work.</div>
+      </div>
+
+      <!-- /background -->
+      <div id="cc-background" class="command-block">
+        <div class="command-header">
+          <span class="command-name">/background</span>
+          <span class="cmd-tag tag-loop">Loop</span>
+        </div>
+        <p class="command-desc">Detach the current session to run as a background agent and free the terminal. Monitor with <code>claude agents</code>. Pass a prompt to send one final instruction before detaching. Alias: <code>/bg</code>.</p>
+        <div class="syntax-block">
+          <span class="kw">/background</span> <span class="opt">[prompt]</span>
+        </div>
+        <div class="example-label">Example</div>
+        <div class="example-block">/background run the full test suite and commit if clean</div>
+        <p class="example-note">Terminal is freed immediately. Attach later with <code>claude agents</code> to review output.</p>
+      </div>
+
+      <!-- /schedule -->
+      <div id="cc-schedule" class="command-block">
+        <div class="command-header">
+          <span class="command-name">/schedule</span>
+          <span class="cmd-tag tag-loop">Loop</span>
+        </div>
+        <p class="command-desc">Create, update, list, or run routines that execute on Anthropic-managed cloud infrastructure (Managed Agents). Claude walks through setup conversationally: cron expression, timezone, and vault environment variables. Each scheduled fire starts a new agent session. Alias: <code>/routines</code>.</p>
+        <div class="syntax-block">
+          <span class="kw">/schedule</span> <span class="opt">[description]</span>
+        </div>
+        <div class="example-label">Example</div>
+        <div class="example-block">/schedule run the pricing-fetch job every day at 06:00 UTC</div>
+        <p class="example-note">Runs on Anthropic servers without an open local session. Pairs with vault environment variables for secret injection.</p>
+        <div class="info-block"><strong>Read more</strong> <a href="https://code.claude.com/docs/en/routines" target="_blank">Routines and scheduled agents (Claude Code docs) ↗</a></div>
+      </div>
+
+      <!-- /compact -->
+      <div id="cc-compact" class="command-block">
+        <div class="command-header">
+          <span class="command-name">/compact</span>
+          <span class="cmd-tag tag-harness">Harness</span>
+        </div>
+        <p class="command-desc">Summarize the conversation so far to free context window space without losing continuity. Optionally pass focus instructions to weight the summary. Use this mid-loop before context pressure causes degraded output rather than waiting for it to fail.</p>
+        <div class="syntax-block">
+          <span class="kw">/compact</span> <span class="opt">[focus instructions]</span>
+        </div>
+        <div class="example-label">Example</div>
+        <div class="example-block">/compact focus on test results and open blockers</div>
+      </div>
+
+      <!-- /permissions -->
+      <div id="cc-permissions" class="command-block">
+        <div class="command-header">
+          <span class="command-name">/permissions</span>
+          <span class="cmd-tag tag-harness">Harness</span>
+        </div>
+        <p class="command-desc">Manage allow, ask, and deny rules for tool permissions. Controls which shell commands, file edits, and MCP tool calls Claude can run autonomously vs. requiring approval. Rules persist in <code>.claude/settings.json</code>.</p>
+        <div class="syntax-block">
+          <span class="kw">/permissions</span>
+        </div>
+        <div class="example-label">Example</div>
+        <div class="example-block">/permissions   <span style="color:#7A7570"># opens interactive dialog — add allow rule for npm run test</span></div>
+        <div class="info-block"><strong>Read more</strong> <a href="https://code.claude.com/docs/en/permissions" target="_blank">Permissions and tool trust (Claude Code docs) ↗</a> · Also see <code>/fewer-permission-prompts</code> to build an allowlist automatically from transcript history.</div>
+      </div>
+
+      <!-- Ralph loop -->
+      <div id="cc-ralph" class="command-block">
+        <div class="command-header">
+          <span class="command-name">Ralph loop</span>
+          <span class="cmd-tag tag-both">Ancestor / Gemini CLI</span>
+        </div>
+        <p class="command-desc">The Ralph loop was a Gemini CLI extension (<code>/ralph-loop</code>) that ran an agent in a self-correcting cycle: act, verify via hook, feed result back, repeat up to a configurable iteration limit. It is not available in Claude Code or Antigravity CLI.</p>
+        <p class="command-desc" style="margin-top:8px;">In Claude Code, the equivalent pattern is <code>/goal</code> with a verifiable exit condition, or a custom slash command in <code>.claude/commands/</code> that embeds assess-act-verify logic. In Antigravity CLI, replicate it with hooks and subagents.</p>
+        <div class="info-block"><strong>Read more</strong> <a href="https://www.promptgenius.net/blog/gemini-cli-to-antigravity-migration-guide" target="_blank">Gemini CLI → Antigravity migration guide ↗</a></div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════ -->
+    <!-- CODEX                                              -->
+    <!-- ══════════════════════════════════════════════════ -->
+    <section class="platform-section">
+      <div class="platform-header">
+        <span class="platform-name cx">Codex</span>
+        <span class="platform-cli">codex</span>
+        <span class="platform-version">v0.142+ · <a href="https://developers.openai.com/codex/cli" target="_blank">Official docs ↗</a></span>
+      </div>
+
+      <!-- Context files -->
+      <div id="cx-context" class="context-section">
+        <div class="context-heading">Harness context files</div>
+        <div class="file-row">
+          <span class="file-name">AGENTS.md</span>
+          <span class="file-desc">Project harness: task instructions, conventions, and tool guidance. Loaded automatically from the repo root and any active subdirectory. Run <code>/init</code> to scaffold. Supports a precedence chain: global (<code>~/.codex/AGENTS.md</code>) → repo root → subdirectory overrides.</span>
+        </div>
+        <div class="file-row">
+          <span class="file-name">~/.codex/config.toml</span>
+          <span class="file-desc">User-level configuration: default model, approval policy, sandbox mode, MCP servers, and profile definitions. Per-invocation overrides with <code>-c key=value</code>.</span>
+        </div>
+        <div class="file-row">
+          <span class="file-name">Skills</span>
+          <span class="file-desc">Reusable workflow definitions invoked with <code>$skill-name</code> in the composer. The recommended replacement for deprecated custom prompts (<code>~/.codex/prompts/</code>).</span>
+        </div>
+      </div>
+
+      <!-- /goal -->
+      <div id="cx-goal" class="command-block">
+        <div class="command-header">
+          <span class="command-name">/goal</span>
+          <span class="cmd-tag tag-loop">Loop</span>
+          <span class="cmd-tag tag-feature">Feature flag</span>
+        </div>
+        <p class="command-desc">Set a persistent objective that Codex works toward until it finishes the task, pauses, or needs input. Use <code>/plan</code> first to shape the goal before committing to it. Progress shows above the composer; pause, resume, edit, or clear from there.</p>
+        <div class="syntax-block">
+          <span class="kw">/goal</span> <span class="opt">[condition]</span>
+        </div>
+        <table class="param-table">
+          <thead><tr><th>Parameter</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td>condition<span class="opt-marker">optional</span></td><td>Plain-language objective. Omit to view current goal status.</td></tr>
+          </tbody>
+        </table>
+        <div class="example-label">Example</div>
+        <div class="example-block">/goal migrate the payments service from REST to gRPC with passing integration tests</div>
+        <div class="note-block"><strong>Enable</strong> If <code>/goal</code> is absent from the slash list, add <code>[features] goals = true</code> to <code>~/.codex/config.toml</code>, or run <code>codex features enable goals</code>.</div>
+        <div class="info-block"><strong>Read more</strong> <a href="https://developers.openai.com/codex/llms-full.txt" target="_blank">Codex full documentation ↗</a></div>
+      </div>
+
+      <!-- /review -->
+      <div id="cx-review" class="command-block">
+        <div class="command-header">
+          <span class="command-name">/review</span>
+          <span class="cmd-tag tag-harness">Harness</span>
+        </div>
+        <p class="command-desc">Start code review mode. A separate Codex reviewer agent inspects uncommitted changes or a base branch diff and returns prioritized findings. Use <code>/diff</code> to inspect exact changes before or after review.</p>
+        <div class="syntax-block">
+          <span class="kw">/review</span>
+        </div>
+        <div class="example-label">Example</div>
+        <div class="example-block">/review   <span style="color:#7A7570"># reviews working tree against HEAD</span></div>
+      </div>
+
+      <!-- /permissions -->
+      <div id="cx-permissions" class="command-block">
+        <div class="command-header">
+          <span class="command-name">/permissions</span>
+          <span class="cmd-tag tag-harness">Harness</span>
+        </div>
+        <p class="command-desc">Adjust what Codex can do without asking for approval in the current session. Use <code>/approve</code> to retry a recently denied action once under the current session policy.</p>
+        <div class="syntax-block">
+          <span class="kw">/permissions</span>
+        </div>
+      </div>
+
+      <!-- Approval modes -->
+      <div id="cx-approval" class="command-block">
+        <div class="command-header">
+          <span class="command-name">--ask-for-approval</span>
+          <span class="cmd-tag tag-harness">Harness</span>
+        </div>
+        <p class="command-desc">CLI flag controlling when Codex pauses for human confirmation before running a command. Set at invocation; also configurable in <code>config.toml</code> as the default approval policy.</p>
+        <div class="syntax-block">
+          <span class="kw">codex</span> <span class="opt">--ask-for-approval</span> <span class="arg">&lt;mode&gt;</span> <span class="opt">"prompt"</span>
+        </div>
+        <table class="param-table">
+          <thead><tr><th>Mode</th><th>Behavior</th></tr></thead>
+          <tbody>
+            <tr><td>on-request</td><td>Pauses and asks before each tool call. Recommended for interactive runs.</td></tr>
+            <tr><td>never</td><td>Runs all commands without pausing. Use inside an isolated CI environment or sandbox VM.</td></tr>
+            <tr><td>on-failure <span class="req">deprecated</span></td><td>Pauses only on failure. Deprecated; prefer <code>on-request</code> or <code>never</code>.</td></tr>
+          </tbody>
+        </table>
+        <div class="note-block"><strong>Safety</strong> Combine <code>--ask-for-approval never</code> with <code>--sandbox workspace-write</code> for unattended local runs. Avoid <code>--dangerously-bypass-approvals-and-sandbox</code> (<code>--yolo</code>) outside a hardened environment.</div>
+        <div class="info-block"><strong>Read more</strong> <a href="https://developers.openai.com/codex/cli/reference" target="_blank">Codex CLI reference ↗</a> · <a href="https://developers.openai.com/codex/guides/agents-md" target="_blank">AGENTS.md guide ↗</a></div>
+      </div>
+
+      <!-- codex exec -->
+      <div id="cx-exec" class="command-block">
+        <div class="command-header">
+          <span class="command-name">codex exec</span>
+          <span class="cmd-tag tag-loop">Loop</span>
+        </div>
+        <p class="command-desc">Run a single prompt non-interactively. The primary mechanism for scripting Codex in CI pipelines and external orchestrators. Combine with a system scheduler (cron, GitHub Actions, etc.) to build interval loops outside a session.</p>
+        <div class="syntax-block">
+          <span class="kw">codex exec</span> <span class="opt">[flags]</span> <span class="arg">"prompt"</span>
+        </div>
+        <table class="param-table">
+          <thead><tr><th>Flag</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td>--full-auto</td><td>Runs without approvals or interactive prompts. Requires a sandboxed environment.</td></tr>
+            <tr><td>--sandbox</td><td>Sandbox mode: <code>workspace-write</code> (write inside workspace only), <code>danger-full-access</code> (no restriction — isolated VM only).</td></tr>
+            <tr><td>--json</td><td>Stream newline-delimited JSON events instead of formatted text. Pair with <code>--output-last-message</code> for machine-readable CI output.</td></tr>
+            <tr><td>--model</td><td>Override the configured model for this run.</td></tr>
+          </tbody>
+        </table>
+        <div class="example-label">Example (GitHub Actions step)</div>
+        <div class="example-block">codex exec --full-auto --sandbox workspace-write "fix any ESLint errors, don't change logic"</div>
+        <div class="info-block"><strong>Read more</strong> <a href="https://developers.openai.com/codex/cli/features" target="_blank">Codex CLI features ↗</a></div>
+      </div>
+
+      <!-- Subagents -->
+      <div id="cx-subagents" class="command-block">
+        <div class="command-header">
+          <span class="command-name">Subagents</span>
+          <span class="cmd-tag tag-harness">Harness</span>
+        </div>
+        <p class="command-desc">Codex spawns subagents only when explicitly asked. Each subagent does its own model and tool work; subagent workflows consume more tokens than single-agent runs. Use <code>/agent</code> to switch between active agent threads, and configure roles and parallelism under <code>[agents]</code> in <code>config.toml</code>.</p>
+        <div class="syntax-block">
+          <span class="kw">/agent</span> <span class="comment"># open agent thread picker</span>
+        </div>
+        <div class="info-block"><strong>Read more</strong> <a href="https://developers.openai.com/codex/cli/features#subagents" target="_blank">Subagents (Codex docs) ↗</a></div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════ -->
+    <!-- ANTIGRAVITY CLI                                    -->
+    <!-- ══════════════════════════════════════════════════ -->
+    <section class="platform-section">
+      <div class="platform-header">
+        <span class="platform-name ag">Antigravity CLI</span>
+        <span class="platform-cli">agy</span>
+        <span class="platform-version">v1.0.10 · <a href="https://antigravity.google/docs/cli-overview" target="_blank">Official docs ↗</a></span>
+      </div>
+
+      <div class="info-block" style="margin-bottom:24px;">
+        <strong>Note</strong> Antigravity CLI (<code>agy</code>) replaced Gemini CLI on June 18, 2026 for free, Pro, and Ultra users. Enterprise/Standard Gemini Code Assist access is unchanged. The <code>/ralph-loop</code> extension from Gemini CLI is not available in Antigravity CLI — replace it with hooks and subagents.
+      </div>
+
+      <!-- Context files -->
+      <div id="ag-context" class="context-section">
+        <div class="context-heading">Harness context files</div>
+        <div class="file-row">
+          <span class="file-name">AGENTS.md</span>
+          <span class="file-desc">Standard cross-agent harness file. Loaded automatically. Preferred for portability across Claude Code, Codex, and Antigravity CLI. No changes needed when migrating from Gemini CLI.</span>
+        </div>
+        <div class="file-row">
+          <span class="file-name">GEMINI.md</span>
+          <span class="file-desc">Legacy Gemini CLI context file. Still recognized as a fallback. Rename to <code>AGENTS.md</code> for cross-platform portability.</span>
+        </div>
+        <div class="file-row">
+          <span class="file-name">~/.gemini/antigravity-cli/settings.json</span>
+          <span class="file-desc">User-level settings: color theme, permission behavior (<code>toolPermission</code>), artifact review policy, sandbox, verbosity, and telemetry. Edit via <code>/config</code> or directly.</span>
+        </div>
+        <div class="file-row">
+          <span class="file-name">.antigravityignore</span>
+          <span class="file-desc">Exclusion rules for files the agent should not read or modify. Falls back to <code>.geminiignore</code> if absent.</span>
+        </div>
+      </div>
+
+      <!-- /goal -->
+      <div id="ag-goal" class="command-block">
+        <div class="command-header">
+          <span class="command-name">/goal</span>
+          <span class="cmd-tag tag-loop">Loop</span>
+        </div>
+        <p class="command-desc">Set a persistent objective that Antigravity works toward until the task is complete, paused, or needs input. Use <code>/planning</code> first to shape complex goals before committing. Progress shows above the composer. Pair with <code>/schedule</code> for recurrent goal execution.</p>
+        <div class="syntax-block">
+          <span class="kw">/goal</span> <span class="opt">[condition]</span>
+        </div>
+        <div class="example-label">Example</div>
+        <div class="example-block">/goal scan the provider pricing catalogue for stale entries and open a PR with corrections</div>
+        <div class="note-block"><strong>Quota</strong> Antigravity CLI shares quota across the desktop app, CLI, and SDK. The agent cannot see its own remaining quota. Monitor with <code>/usage</code> and avoid over-parallelizing subagents — Pro/Ultra quotas support 3–5 parallel subagents comfortably. Use <code>/grill-me</code> (plan-before-spend) on expensive goals.</div>
+      </div>
+
+      <!-- /planning -->
+      <div id="ag-planning" class="command-block">
+        <div class="command-header">
+          <span class="command-name">/planning</span>
+          <span class="cmd-tag tag-harness">Harness</span>
+        </div>
+        <p class="command-desc">Enable multi-turn plan mode for complex tasks. The agent produces a structured plan before executing, equivalent to Claude Code's <code>/plan</code>. Use before setting a <code>/goal</code> on work that spans many files or subagents.</p>
+        <div class="syntax-block">
+          <span class="kw">/planning</span>
+        </div>
+        <div class="example-label">Example</div>
+        <div class="example-block">/planning   <span style="color:#7A7570"># then describe task; review plan; /goal to execute</span></div>
+      </div>
+
+      <!-- /agents -->
+      <div id="ag-agents" class="command-block">
+        <div class="command-header">
+          <span class="command-name">/agents</span>
+          <span class="cmd-tag tag-harness">Harness</span>
+        </div>
+        <p class="command-desc">Open the Agent Manager panel to review subagent approvals and activity. Antigravity CLI is multi-agent by default; subagents are dispatched automatically based on task complexity. Use <kbd>Alt+J</kbd> to switch focus to the next subagent awaiting confirmation, and <kbd>Ctrl+K</kbd> to approve from the fast-path alert.</p>
+        <div class="syntax-block">
+          <span class="kw">/agents</span>
+        </div>
+      </div>
+
+      <!-- /tasks -->
+      <div id="ag-tasks" class="command-block">
+        <div class="command-header">
+          <span class="command-name">/tasks</span>
+          <span class="cmd-tag tag-harness">Harness</span>
+        </div>
+        <p class="command-desc">Open the Task Manager panel to view shell execution logs from the current session. Use this to inspect what tool calls subagents have made and verify gate conditions (tests, linting, security scans) without switching terminals.</p>
+        <div class="syntax-block">
+          <span class="kw">/tasks</span>
+        </div>
+      </div>
+
+      <!-- /permissions -->
+      <div id="ag-permissions" class="command-block">
+        <div class="command-header">
+          <span class="command-name">/permissions</span>
+          <span class="cmd-tag tag-harness">Harness</span>
+        </div>
+        <p class="command-desc">Switch the permission preset controlling which tool calls require approval. Four presets are available. Changes persist to <code>settings.json</code>. Add, edit, or remove granular rules directly from this panel (added v1.0.5).</p>
+        <div class="syntax-block">
+          <span class="kw">/permissions</span>
+        </div>
+        <table class="param-table">
+          <thead><tr><th>Preset</th><th>Behavior</th></tr></thead>
+          <tbody>
+            <tr><td>request-review</td><td>Default. Pauses for confirmation on non-read tool calls.</td></tr>
+            <tr><td>proceed-in-sandbox</td><td>Auto-proceeds inside a sandbox environment; pauses outside.</td></tr>
+            <tr><td>always-proceed</td><td>No confirmation prompts. Use only in a controlled, isolated workspace.</td></tr>
+            <tr><td>strict</td><td>Prompts for every non-read tool call, including low-risk ones.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- agy -p -->
+      <div id="ag-print" class="command-block">
+        <div class="command-header">
+          <span class="command-name">agy -p</span>
+          <span class="cmd-tag tag-loop">Loop</span>
+        </div>
+        <p class="command-desc">Run a single prompt non-interactively and print the response. The primary mechanism for scripting Antigravity CLI in CI pipelines and external schedulers. Combine with cron or a scheduler for interval-based loops outside a session. Pair with <code>--model</code> to select a tier appropriate to the task.</p>
+        <div class="syntax-block">
+          <span class="kw">agy</span> <span class="opt">-p</span> <span class="arg">"prompt"</span> <span class="opt">[--model model-name] [--print-timeout 5m]</span>
+        </div>
+        <table class="param-table">
+          <thead><tr><th>Flag</th><th>Description</th></tr></thead>
+          <tbody>
+            <tr><td>-p / --print</td><td>Non-interactive mode. Prints response and exits. Alias: <code>--prompt</code>.</td></tr>
+            <tr><td>--model</td><td>Set the model for this session only. List available models with <code>agy models</code>.</td></tr>
+            <tr><td>--print-timeout</td><td>Wait timeout for print mode. Default 5 minutes.</td></tr>
+            <tr><td>--dangerously-skip-permissions</td><td>Auto-approve all tool requests. Use only in an isolated environment.</td></tr>
+          </tbody>
+        </table>
+        <div class="example-label">Example</div>
+        <div class="example-block">agy -p "check whether the nightly pricing-fetch job succeeded and summarize any failures" --model gemini-3-pro</div>
+        <div class="info-block"><strong>Read more</strong> <a href="https://antigravity.google/docs/cli-overview" target="_blank">Antigravity CLI overview ↗</a> · <a href="https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli/" target="_blank">Transition announcement ↗</a></div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- FOOTER -->
+<footer class="page-footer">
+  <div class="footer-col">
+    <strong>Claude Code</strong>
+    <a href="https://code.claude.com/docs/en/commands" target="_blank">Commands reference ↗</a>
+    <a href="https://code.claude.com/docs/en/scheduled-tasks" target="_blank">Scheduled tasks ↗</a>
+    <a href="https://code.claude.com/docs/en/permissions" target="_blank">Permissions ↗</a>
+    <a href="https://code.claude.com/docs/en/worktrees" target="_blank">Worktrees ↗</a>
+  </div>
+  <div class="footer-col">
+    <strong>Codex</strong>
+    <a href="https://developers.openai.com/codex/cli" target="_blank">CLI overview ↗</a>
+    <a href="https://developers.openai.com/codex/cli/slash-commands" target="_blank">Slash commands ↗</a>
+    <a href="https://developers.openai.com/codex/guides/agents-md" target="_blank">AGENTS.md ↗</a>
+    <a href="https://developers.openai.com/codex/cli/reference" target="_blank">CLI reference ↗</a>
+  </div>
+  <div class="footer-col">
+    <strong>Antigravity CLI</strong>
+    <a href="https://antigravity.google/docs/cli-overview" target="_blank">CLI overview ↗</a>
+    <a href="https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli/" target="_blank">Transition announcement ↗</a>
+    <a href="https://www.promptgenius.net/blog/gemini-cli-to-antigravity-migration-guide" target="_blank">Migration guide ↗</a>
+  </div>
+  <div class="footer-col">
+    <strong>Background reading</strong>
+    <a href="https://addyosmani.com/blog/agent-harness-engineering/" target="_blank">Addy Osmani: Harness Engineering ↗</a>
+    <a href="https://addyo.substack.com/p/loop-engineering" target="_blank">Addy Osmani: Loop Engineering ↗</a>
+    <a href="https://www.deeplearning.ai/the-batch/issue-359" target="_blank">Andrew Ng: The Batch #359 ↗</a>
+    <a href="https://www.youtube.com/watch?v=Z47vatpsGPI" target="_blank">Boris Cherny: Loops interview ↗</a>
+  </div>
+  <div style="width:100%; margin-top:12px; padding-top:12px; border-top:1px solid var(--rule);">
+    NightBuild command reference · July 2026 · Verified against Claude Code v2.1.199, Codex v0.142, Antigravity CLI v1.0.10. Commands evolve rapidly; treat official docs as source of truth. &nbsp;·&nbsp; <a href="./nightbuild-harness-loops.html" style="color:var(--ink-light);">&#8592; Back to the post</a>
+  </div>
+</footer>
+
+</body>
+</html>
