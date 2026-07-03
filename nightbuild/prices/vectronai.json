@@ -3,9 +3,9 @@
   "plans": [
     {
       "plan_name": "Base",
-      "price_amount": 99,
+      "price_amount": 12,
       "price_currency": "USD",
-      "price_cadence": "annual",
+      "price_cadence": "monthly",
       "included_units": {
         "api_calls": 250000,
         "context_window_k": 64
@@ -16,6 +16,6 @@
       ]
     }
   ],
-  "_state": 2,
-  "_updated_at": "2026-07-03T17:35:14.716Z"
+  "_state": 0,
+  "_updated_at": "2026-07-03T17:39:43.160Z"
 }
