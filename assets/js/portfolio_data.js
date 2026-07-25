@@ -359,12 +359,44 @@ const portfolioData = {
     //     searchTerms: 'searchable keywords...'     // Space-separated keywords for search
     // }
     events: [
+        // Pune n8n Meetup - Do You n8n?
+        {
+            id: 'pune-n8n-meetup-do-you-n8n',
+            title: 'Pune n8n Meetup — Do You n8n?',
+            status: 'coming-soon',
+            statusLabel: 'Upcoming',
+            startDate: '2026-08-01T12:00:00+05:30',
+            endDate: '2026-08-01T15:00:00+05:30',
+            date: 'August 1, 2026, 12:00 PM – 3:00 PM IST',
+            location: 'Pune, India',
+            organization: 'n8n Pune Community',
+            description: 'In-person meetup for n8n enthusiasts and workflow automation builders in Pune. Connect with fellow n8n users, share automations, and learn new ways to build with the platform.',
+            icon: 'fas fa-sitemap',
+            registerLink: 'https://luma.com/n8n-7bf4',
+            searchTerms: 'Pune n8n meetup workflow automation August 2026 in-person community'
+        },
+        // n8n Pune Community Meetup
+        {
+            id: 'n8n-pune-community-meetup-july-2026',
+            title: 'n8n Pune Community Meetup',
+            status: 'past',
+            statusLabel: 'Past',
+            startDate: '2026-07-11T17:00:00+05:30',
+            endDate: '2026-07-11T20:10:00+05:30',
+            date: 'July 11, 2026, 5:00 PM – 8:10 PM IST',
+            location: 'Pune, India',
+            organization: 'n8n Pune Community',
+            description: 'In-person meetup in Pune for n8n enthusiasts and workflow automation builders, with a focus on women in tech. Attendees shared automations, discussed workflow-building best practices, and connected with fellow n8n users.',
+            icon: 'fas fa-sitemap',
+            learnMoreLink: 'https://www.linkedin.com/posts/mugdhav_pune-womenintech-workflow-activity-7482397476088561664-YZkH?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAD-ScYBeGEIIwA1VXFPoj__sofFCBEqfL8',
+            searchTerms: 'n8n Pune community meetup workflow automation women in tech July 2026 in-person'
+        },
         // Pie & AI Pune: NightBuild#3 - Harness and Loop Engineering
         {
             id: 'pie-ai-pune-nightbuild-3-harness-loop',
             title: 'Pie & AI Pune: NightBuild#3 — Harness and Loop Engineering',
-            status: 'coming-soon',
-            statusLabel: 'Upcoming',
+            status: 'past',
+            statusLabel: 'Past',
             startDate: '2026-07-03T21:30:00+05:30',
             endDate: '2026-07-03T23:30:00+05:30',
             date: 'July 3, 2026, 9:30 PM – 11:30 PM IST',
@@ -372,7 +404,8 @@ const portfolioData = {
             organization: 'Pie & AI Community by DeepLearning.AI',
             description: 'Virtual exploration of Harness and Loop Engineering for seasoned AI practitioners. Explore what Harness and Loop Engineering are, where they are useful, and how to use them in your work. Build your own harness and loop and share live. Open discussion: ask questions, swap ideas, and connect with fellow practitioners.',
             icon: 'fas fa-moon',
-            registerLink: 'https://luma.com/acnls6bc',
+            learnMoreLink: 'https://www.linkedin.com/posts/mugdhav_pieandai-pune-harness-activity-7481344309599035392-y0Lb?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAD-ScYBeGEIIwA1VXFPoj__sofFCBEqfL8',
+            videoLink: 'https://youtu.be/GASf9vWVxXk?si=VpHL6ECvVegLJZA9',
             searchTerms: 'Pie AI Pune NightBuild harness loop engineering AI practitioners virtual July 2026 DeepLearning.AI Claude Code'
         },
         // Nightbuild #1 - Women Build Together
