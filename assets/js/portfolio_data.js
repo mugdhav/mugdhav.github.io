@@ -363,17 +363,17 @@ const portfolioData = {
         {
             id: 'pune-n8n-meetup-do-you-n8n',
             title: 'Pune n8n Meetup — Do You n8n?',
-            status: 'coming-soon',
-            statusLabel: 'Upcoming',
+            status: 'past',
+            statusLabel: 'Past',
             startDate: '2026-08-01T12:00:00+05:30',
             endDate: '2026-08-01T15:00:00+05:30',
             date: 'August 1, 2026, 12:00 PM – 3:00 PM IST',
             location: 'Pune, India',
             organization: 'n8n Pune Community',
-            description: 'In-person meetup for n8n enthusiasts and workflow automation builders in Pune. Connect with fellow n8n users, share automations, and learn new ways to build with the platform.',
+            description: 'In-person meetup for n8n enthusiasts and workflow automation builders in Pune. Attendees showcased hands-on workflow demos — LinkedIn lead-gen automation, spec-driven docs, insurance claims automation with voice AI, and historic text accessibility — hosted at WeWork India.',
             icon: 'fas fa-sitemap',
-            registerLink: 'https://luma.com/n8n-7bf4',
-            searchTerms: 'Pune n8n meetup workflow automation August 2026 in-person community'
+            learnMoreLink: 'https://www.linkedin.com/posts/mugdhav_eventrecap-n8nmeetuppune-community-ugcPost-7489563464575787008-cOS5/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAD-ScYBeGEIIwA1VXFPoj__sofFCBEqfL8',
+            searchTerms: 'Pune n8n meetup workflow automation August 2026 in-person community recap WeWork'
         },
         // n8n Pune Community Meetup
         {
