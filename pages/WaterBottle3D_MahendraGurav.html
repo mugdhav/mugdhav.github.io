@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>3D Hydrasalt Bottle</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #f0f0f0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        canvas {
+            display: block;
+        }
+
+        #loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            color: #333;
+        }
+
+        #title {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            color: #222;
+        }
+    </style>
+    <!-- Import Maps Polyfill -->
+    <script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+        }
+      }
+    </script>
+</head>
+
+<body>
+    <div id="title">Hydrasalt® 3D Replica</div>
+    <div id="loading">Generating 3D Scene...</div>
+    <script type="module">
+        import * as THREE from 'three';
+        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+        const loadingDiv = document.getElementById('loading');
+
+        // Scene setup
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color('#e4e4e9');
+        scene.fog = new THREE.Fog('#e4e4e9', 15, 60);
+
+        const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
+        camera.position.set(0, 6, 20);
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        renderer.shadowMap.enabled = true;
+        renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+        renderer.toneMapping = THREE.ACESFilmicToneMapping;
+        renderer.toneMappingExposure = 1.0;
+        document.body.appendChild(renderer.domElement);
+
+        const controls = new OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+        controls.target.set(0, 5, 0);
+        controls.minDistance = 5;
+        controls.maxDistance = 30;
+
+        // Lighting
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+        scene.add(ambientLight);
+
+        const dirLight = new THREE.DirectionalLight(0xffffff, 1.2);
+        dirLight.position.set(10, 15, 10);
+        dirLight.castShadow = true;
+        dirLight.shadow.mapSize.width = 2048;
+        dirLight.shadow.mapSize.height = 2048;
+        dirLight.shadow.camera.near = 0.5;
+        dirLight.shadow.camera.far = 30;
+        dirLight.shadow.camera.left = -10;
+        dirLight.shadow.camera.right = 10;
+        dirLight.shadow.camera.top = 10;
+        dirLight.shadow.camera.bottom = -10;
+        dirLight.shadow.bias = -0.0001;
+        scene.add(dirLight);
+
+        const spotLight = new THREE.SpotLight(0xffffff, 1.5);
+        spotLight.position.set(-10, 10, -10);
+        spotLight.angle = Math.PI / 4;
+        spotLight.penumbra = 0.5;
+        scene.add(spotLight);
+
+        // Floor
+        const floorGeo = new THREE.PlaneGeometry(100, 100);
+        const floorMat = new THREE.MeshStandardMaterial({
+            color: '#c8c8cf',
+            roughness: 0.1,
+            metalness: 0.1
+        });
+        const floor = new THREE.Mesh(floorGeo, floorMat);
+        floor.rotation.x = -Math.PI / 2;
+        floor.receiveShadow = true;
+        scene.add(floor);
+
+        // -- DYNAMIC TEXTURES --
+        const textureSize = 2048;
+
+        // 1. Label Texture
+        const labelCanvas = document.createElement('canvas');
+        labelCanvas.width = textureSize;
+        labelCanvas.height = textureSize;
+        const ctx = labelCanvas.getContext('2d');
+
+        ctx.fillStyle = '#f9f9f9'; // Bottle base color
+        ctx.fillRect(0, 0, textureSize, textureSize);
+
+        // Text Settings
+        ctx.fillStyle = '#111111';
+
+        // "Hydrasalt" logo (around top rim)
+        ctx.font = 'bold 75px sans-serif';
+        ctx.textAlign = 'center';
+
+        // Front logo
+        ctx.fillText('Hydrasalt', textureSize * 0.25, 450);
+        ctx.font = 'bold 25px sans-serif';
+        ctx.fillText('®', (textureSize * 0.25) + 185, 420);
+
+        // Back logo
+        ctx.font = 'bold 75px sans-serif';
+        ctx.fillText('Hydrasalt', textureSize * 0.75, 450);
+        ctx.font = 'bold 25px sans-serif';
+        ctx.fillText('®', (textureSize * 0.75) + 185, 420);
+
+        // "Feeling Salty." vertically
+        ctx.save();
+        // Move origin to the side
+        ctx.translate(textureSize * 0.45, textureSize * 0.5);
+        ctx.rotate(-Math.PI / 2); // Rotate 90 degrees CCW
+        ctx.font = 'bold 80px sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('Feeling Salty.', 0, 0);
+        ctx.restore();
+
+        const labelTexture = new THREE.CanvasTexture(labelCanvas);
+        // Correct texture orientation for CylinderGeometry
+        labelTexture.flipY = false;
+        // Flip horizontally to fix mirrored text
+        labelTexture.repeat.set(-1, 1);
+        labelTexture.offset.set(1, 0);
+
+        // 2. Bump Map (Dimples)
+        const bumpCanvas = document.createElement('canvas');
+        bumpCanvas.width = textureSize;
+        bumpCanvas.height = textureSize;
+        const bCtx = bumpCanvas.getContext('2d');
+
+        bCtx.fillStyle = '#000000'; // No bump
+        bCtx.fillRect(0, 0, textureSize, textureSize);
+
+        bCtx.fillStyle = '#ffffff'; // Max bump
+        bCtx.shadowColor = 'white';
+        bCtx.shadowBlur = 15;
+
+        // Draw rows of dots for the grip pads
+        // The texture space maps directly to the cylinder
+        function drawDimplePad(centerX, startY, rows, cols) {
+            const spacingX = 45;
+            const spacingY = 45;
+            const startX = centerX - ((cols - 1) * spacingX) / 2;
+
+            for (let r = 0; r < rows; r++) {
+                // Stagger rows
+                let rowCols = cols;
+                let offsetX = startX;
+                if (r % 2 !== 0) {
+                    rowCols = cols - 1;
+                    offsetX = startX + spacingX / 2;
+                }
+
+                for (let c = 0; c < rowCols; c++) {
+                    bCtx.beginPath();
+                    bCtx.arc(offsetX + c * spacingX, startY + r * spacingY, 15, 0, Math.PI * 2);
+                    bCtx.fill();
+                }
+            }
+        }
+
+        // Top dimple pad
+        drawDimplePad(textureSize * 0.1, 700, 5, 8);
+        drawDimplePad(textureSize * 0.6, 700, 5, 8); // Back side
+
+        // Bottom dimple pad
+        drawDimplePad(textureSize * 0.1, 1400, 4, 7);
+        drawDimplePad(textureSize * 0.6, 1400, 4, 7); // Back side
+
+        // Middle huge dimple pad
+        drawDimplePad(textureSize * 0.1, 1000, 7, 9);
+        drawDimplePad(textureSize * 0.6, 1000, 7, 9); // Back side
+
+        const bumpTexture = new THREE.CanvasTexture(bumpCanvas);
+        bumpTexture.flipY = false;
+        // Match the label texture flip
+        bumpTexture.repeat.set(-1, 1);
+        bumpTexture.offset.set(1, 0);
+
+        // -- BOTTLE MESHES --
+        const bottleGroup = new THREE.Group();
+        scene.add(bottleGroup);
+
+        const bodyMaterial = new THREE.MeshStandardMaterial({
+            color: 0xffffff,
+            roughness: 0.9,
+            metalness: 0.05,
+            map: labelTexture,
+            bumpMap: bumpTexture,
+            bumpScale: 0.04
+        });
+
+        const capMaterial = new THREE.MeshStandardMaterial({
+            color: 0x222222, // Dark grey
+            roughness: 0.7,
+            metalness: 0.2
+        });
+
+        // 1. Base / Main Body
+        const bodyGeo = new THREE.CylinderGeometry(2.1, 2.1, 6.5, 64);
+        const bodyMesh = new THREE.Mesh(bodyGeo, bodyMaterial);
+        bodyMesh.position.y = 3.25;
+        bodyMesh.castShadow = true;
+        bodyMesh.receiveShadow = true;
+
+        // Rotate body so logo faces front initially
+        bodyMesh.rotation.y = -Math.PI;
+        bottleGroup.add(bodyMesh);
+
+        // 2. Neck Taper
+        const neckGeo = new THREE.CylinderGeometry(1.9, 2.1, 1, 64);
+        const neckMesh = new THREE.Mesh(neckGeo, new THREE.MeshStandardMaterial({
+            color: 0xf9f9f9, roughness: 0.9, metalness: 0.05
+        }));
+        neckMesh.position.y = 7.0;
+        neckMesh.castShadow = true;
+        bottleGroup.add(neckMesh);
+
+        // 3. Cap Thread Base
+        const threadGeo = new THREE.CylinderGeometry(1.85, 1.9, 0.4, 64);
+        const threadMesh = new THREE.Mesh(threadGeo, new THREE.MeshStandardMaterial({
+            color: 0xf9f9f9, roughness: 0.9, metalness: 0.05
+        }));
+        threadMesh.position.y = 7.7;
+        threadMesh.castShadow = true;
+        bottleGroup.add(threadMesh);
+
+        // 4. Main Cap (Thick with ridges)
+        const capBaseGeo = new THREE.CylinderGeometry(2.0, 2.0, 0.9, 48); // 48 segments for slight rigid look
+        const capBaseMesh = new THREE.Mesh(capBaseGeo, capMaterial);
+        capBaseMesh.position.y = 8.35;
+        capBaseMesh.castShadow = true;
+        capBaseMesh.receiveShadow = true;
+        bottleGroup.add(capBaseMesh);
+
+        // 5. Cap Middle Taper
+        const capTaperGeo = new THREE.CylinderGeometry(1.2, 1.8, 0.4, 32);
+        const capTaperMesh = new THREE.Mesh(capTaperGeo, capMaterial);
+        capTaperMesh.position.y = 9.0;
+        capTaperMesh.castShadow = true;
+        bottleGroup.add(capTaperMesh);
+
+        // 6. Nozzle Base
+        const nozzleBaseGeo = new THREE.CylinderGeometry(0.8, 0.8, 0.6, 32);
+        const nozzleBaseMesh = new THREE.Mesh(nozzleBaseGeo, capMaterial);
+        nozzleBaseMesh.position.y = 9.5;
+        nozzleBaseMesh.castShadow = true;
+        bottleGroup.add(nozzleBaseMesh);
+
+        // 7. Nozzle Tip (Push-pull part)
+        const nozzleTipGeo = new THREE.CylinderGeometry(0.85, 0.85, 0.5, 32);
+        const nozzleTipMesh = new THREE.Mesh(nozzleTipGeo, capMaterial);
+        nozzleTipMesh.position.y = 10.05;
+        nozzleTipMesh.castShadow = true;
+        bottleGroup.add(nozzleTipMesh);
+
+        // 8. Nozzle Top Inner indent
+        const nozzleTopGeo = new THREE.CylinderGeometry(0.6, 0.85, 0.2, 32);
+        const nozzleTopMesh = new THREE.Mesh(nozzleTopGeo, capMaterial);
+        nozzleTopMesh.position.y = 10.4;
+        nozzleTopMesh.castShadow = true;
+        bottleGroup.add(nozzleTopMesh);
+
+        bottleGroup.position.set(0, 0, 0);
+
+        loadingDiv.style.display = 'none';
+
+        // Add soft rotation
+        let autoRotate = true;
+
+        controls.addEventListener('start', () => { autoRotate = false; }); // stop rotating when user interacts
+
+        const clock = new THREE.Clock();
+
+        // Animation Loop
+        function animate() {
+            requestAnimationFrame(animate);
+            controls.update();
+
+            if (autoRotate) {
+                bottleGroup.rotation.y += 0.005;
+            }
+
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    </script>
+</body>
+
+</html>
