@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three.js - City Confluence Simulator</title>
+    <style>
+        body { 
+            margin: 0; 
+            overflow: hidden; 
+            background-color: #fcfbf9; /* Sketch paper color */
+            font-family: 'Courier New', Courier, monospace; 
+        }
+        #info { 
+            position: absolute; 
+            top: 20px; 
+            width: 100%; 
+            text-align: center; 
+            pointer-events: none; 
+            font-weight: bold;
+            color: #333;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px 0;
+            border-bottom: 2px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div id="info">Three.js - City Confluence Simulator (Sketch Edition)</div>
+
+    <!-- Load Three.js, OrbitControls, and dat.GUI via CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.9/dat.gui.min.js"></script>
+
+    <script>
+        // 1. Scene Setup
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color(0xfcfbf9);
+        scene.fog = new THREE.Fog(0xfcfbf9, 30, 150);
+
+        // 2. Camera Setup (Isometric feel)
+        const camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 1, 1000);
+        camera.position.set(30, 35, 40);
+
+        // 3. Renderer Setup
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.shadowMap.enabled = true;
+        renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+        document.body.appendChild(renderer.domElement);
+
+        // 4. Controls
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+        controls.maxPolarAngle = Math.PI / 2 - 0.05; // Prevent going below ground
+
+        // 5. Lighting (Sunlight + Soft Shadows)
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.65);
+        scene.add(ambientLight);
+
+        const dirLight = new THREE.DirectionalLight(0xffffff, 0.8);
+        dirLight.position.set(40, 60, 20);
+        dirLight.castShadow = true;
+        dirLight.shadow.mapSize.width = 2048;
+        dirLight.shadow.mapSize.height = 2048;
+        dirLight.shadow.camera.left = -40;
+        dirLight.shadow.camera.right = 40;
+        dirLight.shadow.camera.top = 40;
+        dirLight.shadow.camera.bottom = -40;
+        scene.add(dirLight);
+
+        // 6. Materials (Colored to match the sketch)
+        const outlineMat = new THREE.LineBasicMaterial({ color: 0x335588, transparent: true, opacity: 0.5 });
+        const mats = {
+            ground: new THREE.MeshStandardMaterial({ color: 0xfaebd7, roughness: 0.9 }),
+            water: new THREE.MeshStandardMaterial({ color: 0x5a8fb0, roughness: 0.1, transparent: true, opacity: 0.85 }),
+            road: new THREE.MeshStandardMaterial({ color: 0xc0c0c0, roughness: 0.8 }),
+            bldg1: new THREE.MeshStandardMaterial({ color: 0xddccbb, roughness: 0.7 }),
+            bldg2: new THREE.MeshStandardMaterial({ color: 0xccccdd, roughness: 0.7 }),
+            treeTrunk: new THREE.MeshStandardMaterial({ color: 0x8b5a2b, roughness: 0.9 }),
+            treeLeaves: new THREE.MeshStandardMaterial({ color: 0x8fbc8f, roughness: 0.8 }),
+            vehicle: new THREE.MeshStandardMaterial({ color: 0x778899, roughness: 0.4 })
+        };
+
+        // 7. Environment Geometry
+        // Ground
+        const groundGeo = new THREE.PlaneGeometry(200, 200);
+        const ground = new THREE.Mesh(groundGeo, mats.ground);
+        ground.rotation.x = -Math.PI / 2;
+        ground.receiveShadow = true;
+        scene.add(ground);
+
+        // River
+        const riverGeo = new THREE.PlaneGeometry(200, 12);
+        const river = new THREE.Mesh(riverGeo, mats.water);
+        river.rotation.x = -Math.PI / 2;
+        river.position.y = 0.05;
+        // Curve the river slightly by adjusting vertices
+        const positions = riverGeo.attributes.position.array;
+        for (let i = 0; i < positions.length; i += 3) {
+            positions[i + 1] += Math.sin(positions[i] * 0.05) * 5; 
+        }
+        riverGeo.computeVertexNormals();
+        scene.add(river);
+
+        // Roads
+        const roadGeo = new THREE.PlaneGeometry(200, 4);
+        const road1 = new THREE.Mesh(roadGeo, mats.road);
+        road1.rotation.x = -Math.PI / 2;
+        road1.position.set(0, 0.02, 12);
+        scene.add(road1);
+
+        // 8. Asset Generators
+        // Helper to add sketchy outlines
+        function addOutline(mesh) {
+            const edges = new THREE.EdgesGeometry(mesh.geometry);
+            const line = new THREE.LineSegments(edges, outlineMat);
+            mesh.add(line);
+        }
+
+        // Buildings
+        function createBuilding(x, z, w, h, d, mat) {
+            const geo = new THREE.BoxGeometry(w, h, d);
+            const mesh = new THREE.Mesh(geo, mat);
+            mesh.position.set(x, h / 2, z);
+            mesh.castShadow = true;
+            mesh.receiveShadow = true;
+            addOutline(mesh);
+            scene.add(mesh);
+        }
+
+        // Trees
+        function createTree(x, z) {
+            const group = new THREE.Group();
+            
+            const trunk = new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.4, 1.5, 8), mats.treeTrunk);
+            trunk.position.y = 0.75;
+            trunk.castShadow = true;
+            
+            const leaves = new THREE.Mesh(new THREE.SphereGeometry(1.5, 12, 12), mats.treeLeaves);
+            leaves.position.y = 2.5;
+            leaves.castShadow = true;
+            addOutline(leaves);
+            
+            group.add(trunk);
+            group.add(leaves);
+            group.position.set(x, 0, z);
+            scene.add(group);
+        }
+
+        // 9. Populate the City
+        // Left Bank (Skyscrapers & Amphitheater)
+        createBuilding(-15, -8, 4, 12, 4, mats.bldg1);
+        createBuilding(-20, -10, 5, 18, 5, mats.bldg2);
+        createBuilding(-10, -12, 3, 8, 3, mats.bldg1);
+
+        // Amphitheater
+        const amphiGeo = new THREE.CylinderGeometry(8, 8, 3, 32, 1, false, 0, Math.PI * 1.5);
+        const amphitheater = new THREE.Mesh(amphiGeo, mats.bldg1);
+        amphiGeo.translate(0, 1.5, 0);
+        amphitheater.position.set(-5, 0, -15);
+        amphitheater.rotation.y = Math.PI / 4;
+        amphitheater.castShadow = true;
+        amphitheater.receiveShadow = true;
+        addOutline(amphitheater);
+        scene.add(amphitheater);
+
+        // Right Bank (Smaller blocks)
+        createBuilding(10, 5, 4, 6, 4, mats.bldg2);
+        createBuilding(15, 3, 3, 5, 3, mats.bldg1);
+        createBuilding(22, 6, 4, 9, 4, mats.bldg2);
+
+        // Scatter Trees
+        createTree(-12, 5);
+        createTree(-16, 8);
+        createTree(-8, 18);
+        createTree(12, -8);
+        createTree(18, -12);
+        createTree(25, 0);
+
+        // 10. Animated Vehicles
+        const vehicles = [];
+        for (let i = 0; i < 4; i++) {
+            const vGeo = new THREE.BoxGeometry(2, 1.2, 1);
+            const vehicle = new THREE.Mesh(vGeo, mats.vehicle);
+            vehicle.castShadow = true;
+            addOutline(vehicle);
+            // Stagger starting positions along the road
+            vehicle.position.set(i * 30 - 40, 0.6, 12); 
+            scene.add(vehicle);
+            vehicles.push(vehicle);
+        }
+
+        // 11. GUI Configuration
+        const config = {
+            riverFlowSpeed: 1,
+            vehicleActivity: 5,
+            sketchLineOpacity: 0.5,
+            viewTilt: 40
+        };
+
+        const gui = new dat.GUI({ width: 300 });
+        const folder = gui.addFolder('Controls');
+        folder.add(config, 'riverFlowSpeed', 0, 5).name('River Flow Speed');
+        folder.add(config, 'sketchLineOpacity', 0, 1).name('Sketch Line Opacity').onChange(val => {
+            outlineMat.opacity = val;
+        });
+        folder.add(config, 'vehicleActivity', 0, 15).name('Vehicle Activity');
+        folder.add(config, 'viewTilt', 10, 80).name('View Tilt').onChange(val => {
+            // Adjust camera height based on tilt
+            const radius = Math.sqrt(camera.position.x**2 + camera.position.y**2 + camera.position.z**2);
+            const rad = THREE.MathUtils.degToRad(val);
+            camera.position.y = radius * Math.sin(rad);
+            camera.lookAt(0,0,0);
+        });
+        folder.open();
+
+        // 12. Animation Loop
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        const clock = new THREE.Clock();
+        function animate() {
+            requestAnimationFrame(animate);
+            const delta = clock.getDelta();
+            const time = clock.getElapsedTime();
+
+            // Animate River (Simulate flow by moving texture or vertices)
+            const positions = river.geometry.attributes.position.array;
+            for (let i = 0; i < positions.length; i += 3) {
+                // Gentle wave effect
+                positions[i + 2] = Math.sin((positions[i] * 0.1) + (time * config.riverFlowSpeed)) * 0.5; 
+            }
+            river.geometry.attributes.position.needsUpdate = true;
+
+            // Animate Vehicles
+            vehicles.forEach((v, index) => {
+                v.position.x += config.vehicleActivity * delta;
+                // Loop vehicles back around when they drive off-screen
+                if (v.position.x > 60) {
+                    v.position.x = -60;
+                }
+            });
+
+            controls.update();
+            renderer.render(scene, camera);
+        }
+
+        animate();
+    </script>
+</body>
+</html>
