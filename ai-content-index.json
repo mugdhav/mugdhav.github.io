@@ -4,7 +4,7 @@
     "url": "https://www.vmugdha.in",
     "owner": "Mugdha Vairagade",
     "profession": "Technical Writer, AI Developer, Developer Relations, Event Organizer",
-    "lastUpdated": "2026-06-05",
+    "lastUpdated": "2026-08-15",
     "description": "Portfolio showcasing technical writing, AI development projects, and Developer Relations events and outreach by Mugdha Vairagade."
   },
   "contactInfo": {
@@ -277,6 +277,14 @@
         "technologies": ["BharatGPT", "Hindi NLP", "Chat Agent", "Indian AI"],
         "description": "BharatGPT model-based chat agent that can interact in Hindi",
         "year": 2025
+      },
+      {
+        "title": "City Confluence Simulator",
+        "type": "web-demo",
+        "demo": "https://www.vmugdha.in/pages/ThreeJSCityScape.html",
+        "technologies": ["Three.js", "WebGL", "OrbitControls", "dat.GUI"],
+        "description": "Interactive isometric city scene rendered in a sketch-art style using Three.js, with orbit camera controls and a dat.GUI parameter panel",
+        "year": 2026
       }
     ],
     "podcasts": [

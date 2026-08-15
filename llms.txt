@@ -42,6 +42,7 @@ Mugdha Vairagade is a professional who bridges technical complexity and user exp
 - [Shetkari Mitra](https://sheti-mitra-app.lovable.app): A Marathi-first job portal for seasonal farm work built by Mugdha Vairagade, connecting local farmers and labourers via mobile with English translation support
 - [SheBuilds Showcase](https://shebuilt-iwd-gems.lovable.app): Showcase of apps and websites built by women participants at the SheBuilds buildathon, Pune edition, on International Women's Day 2026, powered by Lovable
 - [React Pong](https://ai.studio/apps/drive/19H4i0hWXQe_OPV-v18GzQnzoobRhYvvr): Simple Pong game against AI, built with React and TypeScript
+- [City Confluence Simulator](https://www.vmugdha.in/pages/ThreeJSCityScape.html): Interactive Three.js isometric city scene in a sketch-art style, with orbit controls and a dat.GUI panel
 
 ## Podcasts and Thought Leadership
 
