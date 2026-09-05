@@ -410,9 +410,9 @@
                                  id="panel-${key}"
                                  role="tabpanel"
                                  aria-labelledby="tab-${key}">
-                                <div class="section ${key}" id="${key}">
+                                <div class="section ${key}">
                                     <div class="section-kicker">Selected work</div>
-                                    <h3 class="category-title section-title">${section.sectionTitle}</h3>
+                                    <h3 class="category-title section-title" id="${key}">${section.sectionTitle}</h3>
                                     <p class="section-description">
                                         ${key === 'technical-articles' ?
                                             'Technical documentation, tutorials, and thought leadership pieces focused on AI, documentation best practices, and developer education.' :
