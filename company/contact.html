@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact — Vmugdha</title>
+  <meta name="description" content="Start a conversation with Vmugdha.">
+  <meta property="og:title" content="Contact VMugdha Tech Media &amp; Events">
+  <meta property="og:description" content="Start a conversation about developer relations, technical content or community growth.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+
+  <link rel="icon" href="assets/favicon.ico">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html">
+        <div class="brand-row">
+          <img class="brand-logo" src="assets/images/vm-logo.png" alt="VMugdha geometric logo">
+          <div class="brand-text">
+            <span class="brand-name">VMugdha</span>
+            <span class="brand-descriptor">Tech Media &amp; Events</span>
+          </div>
+        </div>
+        <span class="brand-specialties">DevRel . Content . Community</span>
+      </a>
+      <nav class="main-nav">
+        <a href="index.html" data-page="index.html">Home</a>
+        <a href="services.html" data-page="services.html">Services</a>
+        <a href="content.html" data-page="content.html">Content</a>
+        <a href="about.html" data-page="about.html">About</a>
+        <a href="contact.html" data-page="contact.html" class="active">Contact</a>
+      </nav>
+      <a class="cta-button" href="contact.html">Work with us</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-head narrow">
+      <h1>Let's talk.</h1>
+      <p>Tell us about your product, your audience, and what you want developers to feel.</p>
+    </div>
+
+    <div class="page-body narrow">
+      <form class="contact-form" data-contact-form novalidate>
+        <div class="form-field">
+          <label for="name">Your name</label>
+          <input id="name" name="name" type="text" autocomplete="name" required maxlength="100" placeholder="Your name">
+          <p class="form-error" data-error-for="name" hidden></p>
+        </div>
+
+        <div class="form-field">
+          <label for="email">Work email</label>
+          <input id="email" name="email" type="email" autocomplete="email" required maxlength="255" placeholder="you@company.com">
+          <p class="form-error" data-error-for="email" hidden></p>
+        </div>
+
+        <div class="form-field">
+          <label for="company">Company</label>
+          <input id="company" name="company" type="text" autocomplete="organization" maxlength="150" placeholder="Company name">
+          <p class="form-error" data-error-for="company" hidden></p>
+        </div>
+
+        <div class="form-field">
+          <label for="message">What are you building?</label>
+          <textarea id="message" name="message" rows="5" required maxlength="2000" placeholder="Tell us about your goals"></textarea>
+          <p class="form-error" data-error-for="message" hidden></p>
+        </div>
+
+        <div class="honeypot-field" aria-hidden="true">
+          <label for="website">Website</label>
+          <input id="website" name="website" tabindex="-1" autocomplete="off">
+        </div>
+
+        <button type="submit" class="btn-solid" data-submit-button>Send</button>
+
+        <div aria-live="polite" class="form-status" data-form-status></div>
+      </form>
+
+      <div class="contact-meta">
+        <div>hello@vmugdha.in</div>
+        <div>linkedin.com/company/vmugdhain</div>
+        <div>x.com/vmugdha</div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">
+          <img src="assets/images/vm-logo.png" alt="">
+          VMugdha Tech Media &amp; Events
+        </div>
+        <p class="footer-tagline">Developer relations, content, and community for AI-native companies.</p>
+      </div>
+      <div class="footer-contact">
+        <div>hello@vmugdha.in</div>
+        <div>linkedin.com/company/vmugdhain</div>
+        <div>x.com/vmugdha</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/contact.js"></script>
+</body>
+</html>
