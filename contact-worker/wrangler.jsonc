@@ -1,0 +1,23 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "vmugdha-contact-worker",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-09-24",
+  "r2_buckets": [
+    {
+      "binding": "CSV",
+      "bucket_name": "vmugdha-contact-submissions"
+    }
+  ],
+  "send_email": [
+    {
+      "name": "EMAIL"
+    }
+  ],
+  "routes": [
+    {
+      "pattern": "www.vmugdha.in/api/contact",
+      "zone_name": "vmugdha.in"
+    }
+  ]
+}

@@ -65,9 +65,28 @@
     });
   }
 
+  // Contact form is hidden for now — the nav "Contact" link and the "Work
+  // with us" CTA button open a small popup with contact details instead of
+  // navigating to contact.html. The href is left pointing at contact.html
+  // (which shows the same info) so this degrades gracefully without JS, or
+  // on a middle-click / open-in-new-tab.
+  function initContactPopup() {
+    document.querySelectorAll('a[href="contact.html"]').forEach(function (link) {
+      link.addEventListener('click', function (event) {
+        event.preventDefault();
+        window.open(
+          'contact-popup.html',
+          'vmugdha-contact',
+          'width=420,height=320,noopener,noreferrer'
+        );
+      });
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     initCarousels();
     initServiceTabs();
     highlightActiveNavLink();
+    initContactPopup();
   });
 })();

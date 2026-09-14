@@ -1,0 +1,16 @@
+{
+  "name": "vmugdha-contact-worker",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "setup": "bash scripts/setup.sh",
+    "release": "bash scripts/setup.sh && bash scripts/deploy.sh"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250924.0",
+    "typescript": "^5.6.0",
+    "wrangler": "^3.99.0"
+  }
+}

@@ -1017,6 +1017,10 @@ a {
   max-width: 42rem;
 }
 
+.contact-form[hidden] {
+  display: none;
+}
+
 .form-field {
   display: grid;
   gap: 0.5rem;
