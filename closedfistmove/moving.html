@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Closed Fist is moving!</title>
+  <meta name="description" content="Closed Fist is moving to a new home. Check back shortly." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --background: #F4F4F0;
+      --foreground: hsl(0 0% 10%);
+      --primary: #98EC65;
+      --muted: hsl(0 0% 40%);
+      --border: hsl(0 0% 10%);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Montserrat", sans-serif;
+      background: var(--background);
+      color: var(--foreground);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      border-bottom: 2px solid var(--border);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .logo-badge {
+      width: 45px;
+      height: 45px;
+      border: 2px solid black;
+      border-radius: 2px;
+      background: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+    .wordmark {
+      font-size: 18px;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+    }
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 16px;
+      text-align: center;
+    }
+    .card {
+      max-width: 640px;
+      width: 100%;
+      background: white;
+      border: 2px solid black;
+      border-radius: 4px;
+      box-shadow: 4px 4px 0 0 black;
+      padding: 48px 32px;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(152, 236, 101, 0.25);
+      border: 2px solid rgba(152, 236, 101, 0.6);
+      border-radius: 2px;
+      padding: 6px 12px;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+    .truck { font-size: 56px; margin-bottom: 16px; }
+    h1 {
+      font-size: clamp(36px, 7vw, 56px);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+    h1 .accent {
+      color: var(--primary);
+      -webkit-text-stroke: 1px black;
+    }
+    p.lead {
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--muted);
+      line-height: 1.5;
+      max-width: 480px;
+      margin: 0 auto 32px;
+    }
+    .cta {
+      display: inline-block;
+      background: var(--primary);
+      color: black;
+      border: 2px solid black;
+      border-radius: 4px;
+      box-shadow: 3px 3px 0 0 black;
+      font-family: inherit;
+      font-weight: 900;
+      font-size: 16px;
+      padding: 12px 24px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .cta:hover { background: #a7f07b; }
+    .cta:active { box-shadow: 1px 1px 0 0 black; transform: translate(2px, 2px); }
+    footer {
+      border-top: 2px solid var(--border);
+      padding: 20px 24px;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-badge">✊</div>
+    <span class="wordmark">Closed Fist</span>
+  </header>
+
+  <main>
+    <div class="card">
+      <div class="pill">Pardon our dust</div>
+      <div class="truck">📦</div>
+      <h1>Closed Fist<br /><span class="accent">is moving!</span></h1>
+      <p class="lead">
+        Please wait while we find a new home for it.
+        Check back again shortly — your subscriptions and data are safe.
+      </p>
+      <a class="cta" href="javascript:location.reload()">Check again</a>
+    </div>
+  </main>
+
+  <footer>© <script>document.write(new Date().getFullYear())</script> Closed Fist — Track smarter, spend less.</footer>
+</body>
+</html>
